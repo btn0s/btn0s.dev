@@ -37,9 +37,10 @@ const SiteNav = () => {
           <ul className="flex gap-2">
             {NAV_LINKS.map(({ icon, label, href, isExternal }) => (
               <NavLinkButton
+                key={href}
+                href={href}
                 icon={icon}
                 label={label}
-                href={href}
                 isExternal={isExternal}
               />
             ))}

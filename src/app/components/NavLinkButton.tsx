@@ -19,7 +19,6 @@ const NavLinkButton = ({ icon, label, href, isExternal }: INavLink) => {
   return (
     <Link
       href={href}
-      key={href}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
     >
