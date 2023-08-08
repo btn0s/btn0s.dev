@@ -24,10 +24,6 @@ type Storage = {
   matchInfo: LiveObject<{
     phase: IMatchPhase;
     countdown: number;
-    winner: number;
-    scores: {
-      [id: number]: number;
-    };
   }>;
   // author: LiveObject<{ firstName: string, lastName: string }>,
   // ...

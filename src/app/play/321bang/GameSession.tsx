@@ -27,16 +27,16 @@ export function GameSession({
   return (
     <RoomProvider
       id={id}
-      initialPresence={{}}
+      initialPresence={{
+        score: 0,
+      }}
       initialStorage={{
         matchInfo: new LiveObject<{
           phase: IMatchPhase;
           countdown: number;
-          scores: { [p: number]: number };
         }>({
           phase: IMatchPhase.WAITING,
           countdown: 5,
-          scores: {},
         }),
       }}
     >
