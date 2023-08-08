@@ -7,13 +7,14 @@ import Main from '@/components/bricks/Main';
 
 export const metadata: Metadata = {
   title: 'Games by @btn0s',
-  description: "a collection of play/experiments I've built recently",
+  description:
+    "I like to make games in my free time. Here's some finished ones you can play with.",
   openGraph: {
     url: 'https://btn0s.dev',
     siteName: 'BT Norris | @btn0s',
     images: [
       {
-        url: '/og.png',
+        url: '/games-og.png',
         width: 1200,
         height: 630,
         alt: 'BT Norris | @btn0s',
@@ -38,10 +39,6 @@ const Games = () => {
           </div>
           I&apos;ve worked on recently
         </PageTitle>
-        <h2 className="mb-4 text-lg font-normal [text-wrap:balance] sm:text-xl">
-          Each one has a page going over the concept, game design,
-          implmentation, and more... have fun!
-        </h2>
       </HeroSection>
       <section>
         <div className="flex flex-col sm:grid grid-cols-3 gap-4">
