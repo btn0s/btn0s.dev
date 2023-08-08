@@ -2,16 +2,27 @@
 
 import { SectionTitle } from '@/components/bricks/headers';
 import Main from '@/components/bricks/Main';
-import Image from 'next/image';
-import bangCoverImage from '@/images/321bang.png';
+import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 
-const GameInfoPage = () => {
+export interface IGameInfoPageProps {
+  title: string;
+  description: string;
+  coverImage: StaticImageData;
+  playLink: string;
+}
+
+const GameInfoPage = ({
+  title,
+  description,
+  coverImage,
+  playLink,
+}: IGameInfoPageProps) => {
   return (
     <Main>
       <section className={'relative pt-12'}>
         <Image
-          src={bangCoverImage}
+          src={coverImage}
           alt={'og'}
           className={'border border-black/50 rounded-md'}
         />
@@ -20,13 +31,10 @@ const GameInfoPage = () => {
             'border border-black/50 rounded-md p-6 absolute top-[90%] bg-white/90 backdrop-filter backdrop-blur-sm shadow-xl sm:w-[300px] -inset-x-2 sm:inset-x-6'
           }
         >
-          <SectionTitle>3, 2, 1... BANG!</SectionTitle>
-          <p className={'text-sm mb-4'}>
-            A multiplayer game where you have to shoot your friends before they
-            shoot you.
-          </p>
+          <SectionTitle>{title}</SectionTitle>
+          <p className={'text-sm mb-4'}>{description}</p>
           <Link
-            href={`${window.location}?p=true`}
+            href={playLink}
             className={
               'py-2 block text-center w-full bg-black text-3xl text-white font-black rounded-md'
             }

@@ -47,12 +47,26 @@ const MainMenuView = () => {
 
   return (
     <FullScreenMobileView>
-      <div className={'flex flex-col justify-between h-full py-12'}>
+      <div className={'flex flex-col justify-between h-full pb-12'}>
         <Image
           src={bangCoverImage}
-          alt={'og'}
+          alt={'321 Bang!'}
           className={'border border-black/50 rounded-md'}
         />
+        <div className={'flex-1 text-left py-6 space-y-2'}>
+          <h1 className={'text-2xl font-black'}>321 Bang!</h1>
+          <p className={''}>
+            A multiplayer game where you have to shoot your friends before they
+            shoot you.
+          </p>
+          <p className={'font-black'}>How to play:</p>
+          <p className={'text-sm'}>
+            The first player to tap the button wins the round.
+          </p>
+          <p className={'text-sm'}>
+            The first player to win 3 rounds wins the game.
+          </p>
+        </div>
         <div className={'space-y-4'}>
           <Link
             href={`${window.location.protocol}//${window.location.host}${window.location.pathname}?sid=${sessionInfo?.id}`}
