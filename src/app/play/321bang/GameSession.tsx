@@ -34,9 +34,11 @@ export function GameSession({
         matchInfo: new LiveObject<{
           phase: IMatchPhase;
           countdown: number;
+          winner: number | null;
         }>({
           phase: IMatchPhase.WAITING,
           countdown: 5,
+          winner: null,
         }),
       }}
     >

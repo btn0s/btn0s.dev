@@ -109,13 +109,6 @@ const GameplayView = () => {
     storage.get('matchInfo').set('winner', value);
   }, []);
 
-  const setScores = useMutation(
-    ({ storage }, value: { [p: number]: number }) => {
-      storage.get('matchInfo').set('scores', value);
-    },
-    [],
-  );
-
   const setMyscore = useMutation(
     ({ storage, setMyPresence }, value: number) => {
       setMyPresence({ score: value });
