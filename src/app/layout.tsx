@@ -1,24 +1,24 @@
-import NavLinkButton, { INavLink } from "@/app/components/NavLinkButton";
+import NavLinkButton, { INavLink } from '@/app/components/NavLinkButton';
 
-import Providers from "@/app/providers";
+import Providers from '@/app/providers';
 
-import Head from "next/head";
-import Link from "next/link";
-import { FaGithub } from "react-icons/fa";
-import { HiExternalLink } from "react-icons/hi";
-import { IoGameController } from "react-icons/io5";
-import "../styles/global.css";
+import Head from 'next/head';
+import Link from 'next/link';
+import { FaGithub } from 'react-icons/fa';
+import { HiExternalLink } from 'react-icons/hi';
+import { IoGameController } from 'react-icons/io5';
+import '../styles/global.css';
 
 const NAV_LINKS: INavLink[] = [
   {
     icon: <IoGameController />,
-    label: "play",
-    href: "/games",
+    label: 'play',
+    href: '/play',
   },
   {
     icon: <FaGithub />,
-    label: "github",
-    href: "https://github.com/btn0s",
+    label: 'github',
+    href: 'https://github.com/btn0s',
     isExternal: true,
   },
 ];
@@ -75,8 +75,8 @@ export default function RootLayout({
       <body>
         <Providers>
           <SiteNav />
-          <main className="pt-12">{children}</main>
-          <footer className="bg-white px-6 py-4 text-center">
+          {children}
+          <footer className="relative bg-white px-6 py-4 text-center z-[-1]">
             <Link
               className="flex items-center justify-center gap-2 underline opacity-30"
               href="https://github.com/btn0s/.dev"

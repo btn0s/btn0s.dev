@@ -1,26 +1,26 @@
-"use client";
+'use client'
 
-import useHoverHighlight from "@/hooks/useHoverHighlight";
-import Link from "next/link";
-import { ReactNode, useRef } from "react";
+import useHoverHighlight from '@/hooks/useHoverHighlight'
+import Link from 'next/link'
+import { ReactNode, useRef } from 'react'
 
 export interface INavLink {
-  icon?: ReactNode;
-  label: string;
-  href: string;
-  isExternal?: boolean;
+  icon?: ReactNode
+  label: string
+  href: string
+  isExternal?: boolean
 }
 
 const NavLinkButton = ({ icon, label, href, isExternal }: INavLink) => {
-  const ref = useRef<HTMLLIElement>(null);
+  const ref = useRef<HTMLLIElement>(null)
 
-  useHoverHighlight(ref);
+  useHoverHighlight(ref)
 
   return (
     <Link
       href={href}
-      target={isExternal ? "_blank" : undefined}
-      rel={isExternal ? "noopener noreferrer" : undefined}
+      target={isExternal ? '_blank' : undefined}
+      rel={isExternal ? 'noopener noreferrer' : undefined}
     >
       <li
         ref={ref}
@@ -30,7 +30,7 @@ const NavLinkButton = ({ icon, label, href, isExternal }: INavLink) => {
         <span className="sr-only sm:not-sr-only">{label}</span>
       </li>
     </Link>
-  );
-};
+  )
+}
 
-export default NavLinkButton;
+export default NavLinkButton

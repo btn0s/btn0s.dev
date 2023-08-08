@@ -12,13 +12,13 @@ export function getImageLightness(imageSrc: string): Promise<number> {
     img.src = imageSrc;
 
     img.onload = function () {
-      const canvas = document.createElement("canvas");
+      const canvas = document.createElement('canvas');
       canvas.width = img.width;
       canvas.height = img.height;
 
-      const ctx = canvas.getContext("2d");
+      const ctx = canvas.getContext('2d');
       if (!ctx) {
-        reject(new Error("Failed to get canvas 2D context"));
+        reject(new Error('Failed to get canvas 2D context'));
         return;
       }
 
@@ -35,7 +35,7 @@ export function getImageLightness(imageSrc: string): Promise<number> {
         const g = data[x + 1];
         const b = data[x + 2];
 
-        // if r g or b are undefined, it means we're at the end of our array so we can just break out of the loop
+        // if r play or b are undefined, it means we're at the end of our array so we can just break out of the loop
         if (r === undefined || g === undefined || b === undefined) {
           break;
         }
@@ -53,7 +53,7 @@ export function getImageLightness(imageSrc: string): Promise<number> {
     };
 
     img.onerror = function () {
-      reject(new Error("Failed to load the image"));
+      reject(new Error('Failed to load the image'));
     };
   });
 }
