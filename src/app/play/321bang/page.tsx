@@ -1,8 +1,7 @@
-'use client';
-
 import BangGame from '@/app/play/321bang/BangGame';
+import GameRouter from '@/components/GameRouter';
 import GameInfoPage, { IGameInfoPageProps } from '@/templates/GameInfoPage';
-import { useSearchParams } from 'next/navigation';
+import { Metadata } from 'next';
 import bangCoverImage from '@/images/321bang.png';
 
 const DATA: IGameInfoPageProps = {
@@ -13,13 +12,32 @@ const DATA: IGameInfoPageProps = {
   playLink: '/play/321bang?p=true',
 };
 
+export const metadata: Metadata = {
+  title: `${DATA.title} | Games by bnt0s`,
+  description: DATA.description,
+  openGraph: {
+    title: DATA.title,
+    description: DATA.description,
+    images: [
+      {
+        url: bangCoverImage.src,
+        width: bangCoverImage.width,
+        height: bangCoverImage.height,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
+};
+
 const Bang = () => {
-  const searchParams = useSearchParams();
-
-  const play = searchParams.get('p');
-  const sessionId = searchParams.get('sid') || undefined;
-
-  return play || sessionId ? <BangGame /> : <GameInfoPage {...DATA} />;
+  return (
+    <GameRouter
+      gameInfoComponent={<GameInfoPage {...DATA} />}
+      gameComponent={<BangGame />}
+    />
+  );
 };
 
 export default Bang;

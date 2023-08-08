@@ -1,7 +1,7 @@
-'use client';
-
 import { SectionTitle } from '@/components/bricks/headers';
 import Main from '@/components/bricks/Main';
+import { Meta } from 'next/dist/lib/metadata/generate/meta';
+import Head from 'next/head';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 
