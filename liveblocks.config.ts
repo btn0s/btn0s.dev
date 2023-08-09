@@ -1,4 +1,4 @@
-import { IMatchPhase } from '@/content/play';
+import { EMatchPhase } from '@/content/play';
 import { createClient, LiveObject } from '@liveblocks/client';
 import { createRoomContext } from '@liveblocks/react';
 
@@ -22,7 +22,7 @@ type Presence = {
 // automatically persisted and synced to all connected clients.
 type Storage = {
   matchInfo: LiveObject<{
-    phase: IMatchPhase;
+    phase: EMatchPhase;
     countdown: number;
     winner: number | null;
   }>;
