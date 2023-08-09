@@ -14,7 +14,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
-import { HiShieldCheck } from 'react-icons/hi';
+import { HiArrowDown, HiArrowUp, HiShieldCheck } from 'react-icons/hi';
 import { io, Socket } from 'socket.io-client';
 
 enum EGameView {
@@ -109,7 +109,7 @@ const MainMenuView = () => {
           <Link
             href={'/play/321bang/'}
             className={
-              'py-2 w-full bg-black/50 text-3xl rounded-md text-white font-black transition sm:hover:bg-[#dedede] sm:hover:text-black'
+              'block text-center py-2 w-full bg-black/50 text-3xl rounded-md text-white font-black transition sm:hover:bg-[#dedede] sm:hover:text-black'
             }
           >
             QUIT
@@ -152,11 +152,6 @@ const LobbyMenuView = () => {
         </div>
         <div className={'flex-1 flex gap-6 flex-col justify-between'}>
           <div className={'flex flex-col flex-1 gap-6'}>
-            <div
-              className={'flex justify-center items-center text-2xl font-black'}
-            >
-              LOBBY
-            </div>
             <div className="w-full bg-gray-200 border-black/50 border rounded-md flex-1">
               {myPlayerState?.isReady ? (
                 <Image
@@ -174,6 +169,11 @@ const LobbyMenuView = () => {
             </div>
           </div>
           <div className={'relative h-[48px]'}>
+            <div className="w-full hidden sm:flex text-xs flex flex-col gap-1 pb-4 justify-center items-center">
+              <div>
+                share the URL with your friends to invite them to the game
+              </div>
+            </div>
             <button
               onClick={handleReadyClick}
               className={
@@ -194,6 +194,12 @@ const LobbyMenuView = () => {
                 </div>
               )}
             </button>
+            <div className="w-full sm:hidden text-xs flex flex-col gap-1 py-2 justify-center items-center">
+              <div>
+                share the URL with your friends to invite them to the game
+              </div>
+              <HiArrowDown />
+            </div>
           </div>
         </div>
       </div>
@@ -383,21 +389,10 @@ const GameplayView = ({ id }: { id: string }) => {
 };
 
 const Game = () => {
-  const router = useRouter();
   const searchParams = useSearchParams();
-
-  const play = searchParams.get('p') || undefined;
   const sessionId = searchParams.get('sid') || undefined;
 
   const [activeView, setActiveView] = useState<EGameView>(EGameView.LOADING);
-
-  const quitGame = () => {
-    console.log('quit game');
-    // if (!currentGameSessionId || activeView === EGameView.MAIN_MENU) {
-    //   router.push('/play/321bang');
-    //   return;
-    // }
-  };
 
   useEffect(() => {
     if (sessionId) {
