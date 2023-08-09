@@ -26,7 +26,7 @@ export function GameSession({
   useEffect(() => {
     // Only instantiate the socket if it doesn't exist.
     if (!socketRef.current) {
-      socketRef.current = io('http://localhost:8080/socket.io', {
+      socketRef.current = io(`${process.env.NEXT_PUBILC_API_URL}/socket.io`, {
         transports: ['websocket'],
       });
     }
