@@ -356,13 +356,16 @@ const GameplayView = ({ id }: { id: string }) => {
 
   useEffect(() => {
     if (!socketRef.current) {
-      socketRef.current = io('http://localhost:8080', {
-        path: '/games/321bang/play/socket.io',
-        transports: ['websocket'],
-        query: {
-          sessionId: id,
+      socketRef.current = io(
+        process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000',
+        {
+          path: '/games/321bang/play/socket.io',
+          transports: ['websocket'],
+          query: {
+            sessionId: id,
+          },
         },
-      });
+      );
     }
 
     const socket = socketRef.current;
