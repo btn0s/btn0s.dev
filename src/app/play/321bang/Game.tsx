@@ -1,5 +1,11 @@
 'use client';
 
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { createContext, useContext, useEffect, useRef, useState } from 'react';
+import { HiArrowDown, HiShieldCheck } from 'react-icons/hi';
+import { io, Socket } from 'socket.io-client';
 import { FullScreenMobileView } from '@/app/components/FullScreenMobileView';
 import {
   EGameEvent,
@@ -7,15 +13,10 @@ import {
   ERoundPhase,
   IGameState,
 } from '@/content/play';
-import bangCoverImage from '@/images/321bang.png';
 
+import bangCoverImage from '@/images/321bang-cover.png';
+import bangMenuBgImage from '@/images/321bang-menu-bg.png';
 import waitingForPlayersImg from '@/images/waiting-for-players.webp';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { createContext, useContext, useEffect, useRef, useState } from 'react';
-import { HiArrowDown, HiArrowUp, HiShieldCheck } from 'react-icons/hi';
-import { io, Socket } from 'socket.io-client';
 
 enum EGameView {
   MAIN_MENU,
@@ -77,25 +78,33 @@ const MainMenuView = () => {
 
   return (
     <FullScreenMobileView>
-      <div className={'flex flex-col justify-between h-full pb-12'}>
-        <Image
-          src={bangCoverImage}
-          alt={'321 Bang!'}
-          className={'border border-black/50 rounded-md'}
-        />
-        <div className={'flex-1 text-left py-6 space-y-2'}>
-          <h1 className={'text-2xl font-black'}>321 Bang!</h1>
-          <p className={''}>
-            A multiplayer game where you have to shoot your friends before they
-            shoot you.
-          </p>
-          <p className={'font-black'}>How to play:</p>
-          <p className={'text-sm'}>
-            The first player to tap the button wins the round.
-          </p>
-          <p className={'text-sm'}>
-            The first player to win 3 rounds wins the game.
-          </p>
+      <Image
+        src={bangMenuBgImage}
+        alt={'bang'}
+        className={'absolute z-[-1] inset-0 w-full h-full object-cover'}
+      />
+      <div className={'flex flex-col z-[2] gap-6 justify-between h-full pb-12'}>
+        <div className="flex flex-col justify-between flex-1">
+          <div className="py-12">
+            <div className="text-5xl font-black text-center uppercase">
+              321 Bang!
+            </div>
+            <p className={'text-center'}>
+              A multiplayer game where you have to shoot your friends before
+              they shoot you.
+            </p>
+          </div>
+          <div
+            className={
+              'text-left text-xs p-6 rounded-md shadow-lg bg-gray-300 backdrop-blur-md border border-black/50'
+            }
+          >
+            <p className={'font-black mb-2'}>How to play:</p>
+            <ul className={'space-y-1'}>
+              <li>The first player to tap the button wins the round.</li>
+              <li>The first player to win 3 rounds wins the game.</li>
+            </ul>
+          </div>
         </div>
         <div className={'space-y-4'}>
           <button
@@ -104,12 +113,12 @@ const MainMenuView = () => {
               'block text-center py-2 w-full rounded-md bg-black text-3xl text-white font-black transition sm:hover:bg-[#dedede] sm:hover:text-black'
             }
           >
-            HOST GAME
+            START
           </button>
           <Link
             href={'/play/321bang/'}
             className={
-              'block text-center py-2 w-full bg-black/50 text-3xl rounded-md text-white font-black transition sm:hover:bg-[#dedede] sm:hover:text-black'
+              'block text-center py-2 w-full bg-white border border-2 border-black text-3xl rounded-md font-black transition sm:hover:bg-[#dedede] sm:hover:text-black'
             }
           >
             QUIT
@@ -151,7 +160,7 @@ const LobbyMenuView = () => {
           </div>
         </div>
         <div className={'flex-1 flex gap-6 flex-col justify-between'}>
-          <div className={'flex flex-col flex-1 gap-6'}>
+          <div className={'flex flex-col gap-6'}>
             <div className="w-full bg-gray-200 border-black/50 border rounded-md flex-1">
               {myPlayerState?.isReady ? (
                 <Image
@@ -408,7 +417,7 @@ const Game = () => {
   return (
     <div
       className={
-        'bg-white relative h-[100svh] w-[100vw] fixed sm:p-12 flex flex-col inset-0 z-10'
+        'bg-white fixed inset-0 h-[100svh] w-[100vw] fixed sm:p-12 flex flex-col inset-0 z-10'
       }
     >
       {activeView === EGameView.LOADING && <LoadingView />}

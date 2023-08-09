@@ -1,5 +1,5 @@
 import { EProjectType, IProject } from '@/content/projects';
-import bangCoverImage from '@/images/321bang.png';
+import bangCoverImage from '@/images/321bang-cover.png';
 
 export const PLAY_PAGE_LINKS: IProject[] = [
   {
