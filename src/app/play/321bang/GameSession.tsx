@@ -1,11 +1,8 @@
 'use client';
 
 import { FullScreenMobileView } from '@/app/components/FullScreenMobileView';
-import { IMatchPhase } from '@/content/play';
-import { LiveObject } from '@liveblocks/client';
-import { ReactNode } from 'react';
-import { RoomProvider } from '../../../../liveblocks.config';
-import { ClientSideSuspense } from '@liveblocks/react';
+import { ReactNode, useEffect, useRef } from 'react';
+import { io, Socket } from 'socket.io-client';
 
 const LoadingScreen = () => {
   return (
@@ -24,27 +21,23 @@ export function GameSession({
   id: string;
   children: ReactNode;
 }) {
-  return (
-    <RoomProvider
-      id={id}
-      initialPresence={{
-        score: 0,
-      }}
-      initialStorage={{
-        matchInfo: new LiveObject<{
-          phase: IMatchPhase;
-          countdown: number;
-          winner: number | null;
-        }>({
-          phase: IMatchPhase.WAITING,
-          countdown: 5,
-          winner: null,
-        }),
-      }}
-    >
-      <ClientSideSuspense fallback={<LoadingScreen />}>
-        {() => children}
-      </ClientSideSuspense>
-    </RoomProvider>
-  );
+  const socketRef = useRef<Socket | null>(null);
+
+  useEffect(() => {
+    // Only instantiate the socket if it doesn't exist.
+    if (!socketRef.current) {
+      socketRef.current = io('http://localhost:8080/socket.io', {
+        transports: ['websocket'],
+      });
+    }
+
+    socketRef.current.emit('join', id);
+
+    return () => {
+      // Disconnect the socket when the component is unmounted.
+      socketRef.current?.disconnect();
+    };
+  }, [id]);
+
+  return <div>{children}</div>;
 }

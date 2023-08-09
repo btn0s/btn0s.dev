@@ -1,4 +1,4 @@
-import BangGame from '@/app/play/321bang/BangGame';
+import Game from '@/app/play/321bang/Game';
 import GameRouter from '@/components/GameRouter';
 import GameInfoPage, { IGameInfoPageProps } from '@/templates/GameInfoPage';
 import { Metadata } from 'next';
@@ -35,7 +35,7 @@ const Bang = () => {
   return (
     <GameRouter
       gameInfoComponent={<GameInfoPage {...DATA} />}
-      gameComponent={<BangGame />}
+      gameComponent={<Game />}
     />
   );
 };

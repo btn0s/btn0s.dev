@@ -1,10 +1,20 @@
-'use client'
+'use client';
 
-import { NextUIProvider } from '@nextui-org/react'
-import type { FC, PropsWithChildren } from 'react'
+import { NextUIProvider } from '@nextui-org/react';
+import { Theme } from '@radix-ui/themes';
+import type { FC, PropsWithChildren } from 'react';
 
 const Providers: FC<PropsWithChildren> = ({ children }) => {
-  return <NextUIProvider>{children}</NextUIProvider>
-}
+  return (
+    <Theme
+      accentColor="teal"
+      panelBackground="solid"
+      radius="large"
+      scaling="95%"
+    >
+      <NextUIProvider>{children}</NextUIProvider>
+    </Theme>
+  );
+};
 
-export default Providers
+export default Providers;
