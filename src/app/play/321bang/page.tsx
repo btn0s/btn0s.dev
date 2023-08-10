@@ -45,8 +45,8 @@ export async function generateMetadata(
   const sid = searchParams.sid;
 
   return {
-    title: sid ? 'Join my game!' : metadata.title,
-    description: sid ? DATA.joinSessionDescription : DATA.description,
+    title: metadata.title,
+    description: DATA.description,
     openGraph: metadata.openGraph
       ? {
           title: sid ? 'Join my game!' : metadata.openGraph.title,
