@@ -3,12 +3,12 @@ import GameRouter from '@/components/GameRouter';
 import GameInfoPage, { IGameInfoPageProps } from '@/templates/GameInfoPage';
 import { Metadata, ResolvingMetadata } from 'next';
 import bangCoverImage from '@/images/321bang-cover.png';
-import Head from 'next/head';
 
 const DATA: IGameInfoPageProps = {
-  title: '3..2..1.. Bang',
+  title: '3..2..1.. BANG!',
   description:
     'A multiplayer game where you have to shoot your friends before they shoot you.',
+  joinSessionDescription: 'Come test your reaction time in a 1v1 shootout.',
   coverImage: bangCoverImage,
   playLink: '/play/321bang?p=true',
 };
@@ -47,10 +47,8 @@ export async function generateMetadata(
   const previousTitle = parentResolved.title;
 
   return {
-    title: sid ? 'Join my game! | 3..2..1.. BANG! by bnt0s' : previousTitle,
-    description: sid
-      ? 'Come test your reaction time in a 1v1 shootout.'
-      : DATA.description,
+    title: sid ? `Join my game! | ${DATA.title} by bnt0s` : previousTitle,
+    description: sid ? DATA.joinSessionDescription : DATA.description,
   };
 }
 
