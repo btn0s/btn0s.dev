@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     url: 'https://btn0s.dev',
     siteName: 'btn0s.dev',
     description: 'i do some things around the web, this is a home for them',
+    type: 'website',
     images: [
       {
         url: '/og.png',

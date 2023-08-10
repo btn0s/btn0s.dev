@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     url: 'https://btn0s.dev',
     siteName: 'play · btn0s.dev',
+    type: 'website',
     description: "i make games sometimes, here's a collection of them",
     images: [
       {

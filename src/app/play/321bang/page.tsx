@@ -20,6 +20,7 @@ const metadata: Metadata = {
   openGraph: {
     title: DATA.title,
     description: DATA.description,
+    type: 'website',
     images: [
       {
         url: bangCoverImage.src,
