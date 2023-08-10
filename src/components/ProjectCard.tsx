@@ -1,18 +1,18 @@
-'use client'
+'use client';
 
-import useHoverHighlight from '@/hooks/useHoverHighlight'
-import useHoverTilt from '@/hooks/useHoverTilt'
-import { useIsMobile } from '@nextui-org/use-is-mobile'
-import classNames from 'classnames'
-import NextImage from 'next/image'
-import Link from 'next/link'
-import type { MutableRefObject, RefObject } from 'react'
-import { useEffect, useRef, useState } from 'react'
-import { HiExternalLink } from 'react-icons/hi'
+import useHoverHighlight from '@/hooks/useHoverHighlight';
+import useHoverTilt from '@/hooks/useHoverTilt';
+import { useIsMobile } from '@nextui-org/use-is-mobile';
+import classNames from 'classnames';
+import NextImage from 'next/image';
+import Link from 'next/link';
+import type { MutableRefObject, RefObject } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { HiExternalLink } from 'react-icons/hi';
 
-import Tag from '@/components/bricks/Tag'
-import type { IProject } from '@/content/projects'
-import useImageLightness from '@/hooks/useImageLightness'
+import Tag from '@/components/bricks/Tag';
+import type { IProject } from '@/content/projects';
+import useImageLightness from '@/hooks/useImageLightness';
 
 enum ECardState {
   DEFAULT,
@@ -21,50 +21,50 @@ enum ECardState {
 }
 
 const checkOverlap = (el1: DOMRect | null, el2: DOMRect | null): boolean => {
-  if (!el1 || !el2) return false
+  if (!el1 || !el2) return false;
 
   return (
     el1.top < el2.bottom &&
     el1.bottom > el2.top &&
     el1.left < el2.right &&
     el1.right > el2.left
-  )
-}
+  );
+};
 
 const useIntersecting = (
   elementRef: RefObject<HTMLElement>,
   rootRef?: RefObject<HTMLElement>,
 ): boolean => {
-  const [isIntersecting, setIsIntersecting] = useState(false)
-  const isMobile = useIsMobile()
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const checkIntersection = () => {
-      const elementRect = elementRef.current?.getBoundingClientRect()
-      const viewportRect = rootRef?.current?.getBoundingClientRect()
+      const elementRect = elementRef.current?.getBoundingClientRect();
+      const viewportRect = rootRef?.current?.getBoundingClientRect();
 
       // Ensure both bounding rects are defined before checking overlap
       if (elementRect && viewportRect) {
-        setIsIntersecting(checkOverlap(elementRect, viewportRect))
+        setIsIntersecting(checkOverlap(elementRect, viewportRect));
       } else {
-        setIsIntersecting(false)
+        setIsIntersecting(false);
       }
-    }
+    };
 
-    window.addEventListener('scroll', checkIntersection)
-    window.addEventListener('resize', checkIntersection)
+    window.addEventListener('scroll', checkIntersection);
+    window.addEventListener('resize', checkIntersection);
 
     // Initial check
-    checkIntersection()
+    checkIntersection();
 
     return () => {
-      window.removeEventListener('scroll', checkIntersection)
-      window.removeEventListener('resize', checkIntersection)
-    }
-  }, [elementRef, rootRef])
+      window.removeEventListener('scroll', checkIntersection);
+      window.removeEventListener('resize', checkIntersection);
+    };
+  }, [elementRef, rootRef]);
 
-  return isMobile ? isIntersecting : false
-}
+  return isMobile ? isIntersecting : false;
+};
 
 const ProjectCard = ({
   project,
@@ -73,32 +73,32 @@ const ProjectCard = ({
   onOverlapStart,
   onOverlapEnd,
 }: {
-  project: IProject
-  overlapTargetRef?: MutableRefObject<null>
-  cardsHovered?: string[]
-  onOverlapStart?: (title: string) => void
-  onOverlapEnd?: (title: string) => void
+  project: IProject;
+  overlapTargetRef?: MutableRefObject<null>;
+  cardsHovered?: string[];
+  onOverlapStart?: (title: string) => void;
+  onOverlapEnd?: (title: string) => void;
 }) => {
-  const { title, coverImage, href, tags, description, isExternal } = project
-  const [cardState, setCardState] = useState<ECardState>(ECardState.DEFAULT)
-  const imageLightness = useImageLightness(coverImage.src)
-  const cardRef = useRef(null)
-  const isInView = useIntersecting(cardRef, overlapTargetRef)
-  const isMobile = useIsMobile()
+  const { title, coverImage, href, tags, description, isExternal } = project;
+  const [cardState, setCardState] = useState<ECardState>(ECardState.DEFAULT);
+  const imageLightness = useImageLightness(coverImage.src);
+  const cardRef = useRef(null);
+  const isInView = useIntersecting(cardRef, overlapTargetRef);
+  const isMobile = useIsMobile();
 
-  useHoverHighlight(cardRef)
-  useHoverTilt(cardRef)
+  useHoverHighlight(cardRef);
+  useHoverTilt(cardRef);
 
   useEffect(() => {
     if (isInView) {
-      onOverlapStart && onOverlapStart(title)
+      onOverlapStart && onOverlapStart(title);
     } else {
-      onOverlapEnd && onOverlapEnd(title)
+      onOverlapEnd && onOverlapEnd(title);
     }
-  }, [isInView])
+  }, [isInView]);
 
   useEffect(() => {
-    if (!cardsHovered) return
+    if (!cardsHovered) return;
 
     // if any card is hovered, dim all other cards
     if (cardsHovered.length > 0) {
@@ -106,29 +106,29 @@ const ProjectCard = ({
         cardsHovered.includes(title)
           ? ECardState.HIGHLIGHTED
           : ECardState.DIMMED,
-      )
+      );
     } else {
-      setCardState(ECardState.DEFAULT)
+      setCardState(ECardState.DEFAULT);
     }
-  }, [cardsHovered])
+  }, [cardsHovered]);
 
   const handelMouseEnter = () => {
-    if (isMobile) return
-    setCardState(ECardState.HIGHLIGHTED)
-    onOverlapStart && onOverlapStart(title)
-  }
+    if (isMobile) return;
+    setCardState(ECardState.HIGHLIGHTED);
+    onOverlapStart && onOverlapStart(title);
+  };
 
   const handelMouseLeave = () => {
-    if (isMobile) return
-    setCardState(ECardState.DEFAULT)
-    onOverlapEnd && onOverlapEnd(title)
-  }
+    if (isMobile) return;
+    setCardState(ECardState.DEFAULT);
+    onOverlapEnd && onOverlapEnd(title);
+  };
 
   return (
     <div
       ref={cardRef}
       className={classNames(
-        'snap-center group/card relative isolate flex flex-col overflow-hidden rounded-md border border-black/50 bg-white transition',
+        'snap-center h-full group/card relative isolate flex flex-col overflow-hidden rounded-md border border-black/50 bg-white transition',
         {
           '!opacity-100 shadow-lg': cardState === ECardState.HIGHLIGHTED,
           'opacity-80 grayscale': cardState === ECardState.DIMMED,
@@ -165,7 +165,7 @@ const ProjectCard = ({
         </div>
         <p className="mb-2 text-sm text-gray-600">{description}</p>
         <div className="flex gap-1">
-          {tags?.map(tag => <Tag key={tag}>{tag}</Tag>)}
+          {tags?.map((tag) => <Tag key={tag}>{tag}</Tag>)}
         </div>
         {imageLightness !== null && (
           <div
@@ -186,7 +186,7 @@ const ProjectCard = ({
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProjectCard
+export default ProjectCard;

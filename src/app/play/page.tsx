@@ -6,6 +6,8 @@ import { PLAY_PAGE_LINKS } from '@/content/play';
 import { EProjectType } from '@/content/projects';
 import comingSoonCoverImg from '@/images/coming-soon-cover.png';
 import { Metadata } from 'next';
+import Link from 'next/link';
+import { HiExternalLink } from 'react-icons/hi';
 
 export const metadata: Metadata = {
   title: 'play · btn0s.dev',
@@ -40,8 +42,15 @@ const Games = () => {
               games
             </span>
           </div>
-          I&apos;ve worked on.
+          I&apos;ve been working on.
         </PageTitle>
+        <p className="mb-4 text-lg font-normal [text-wrap:balance] sm:text-xl">
+          Some of these are finished and playable, some are still in
+          development, and some are just ideas.{' '}
+        </p>
+        <p className="mb-4 text-lg font-normal [text-wrap:balance] sm:text-xl">
+          I&apos;ll be adding more as I go so check back soon!
+        </p>
       </HeroSection>
       <section>
         <div className="flex flex-col sm:grid grid-cols-3 gap-4">
@@ -72,17 +81,8 @@ const Games = () => {
               }}
             />
           </div>
-          <div className={'grayscale opacity-30 pointer-events-none'}>
-            <ProjectCard
-              key={'coming-soon'}
-              project={{
-                title: 'Coming Soon',
-                description: 'More games are on the way!',
-                href: '/play',
-                coverImage: comingSoonCoverImg,
-                type: EProjectType.GAME,
-              }}
-            />
+          <div className="col-span-3 rounded-md py-12 text-gray-300 flex flex-col items-center justify-center">
+            More coming soon!
           </div>
         </div>
       </section>
