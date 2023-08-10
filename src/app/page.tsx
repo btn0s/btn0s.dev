@@ -62,17 +62,17 @@ const Home = () => {
 
           <div>
             and I build{' '}
-            <span className="group relative inline-flex items-center gap-2 bg-gray-300 px-2 text-black transition hover:bg-gray-800 hover:no-underline">
-              <span className="group-hover:text-white">video games</span>
-              <span className="absolute top-full block w-full translate-y-[6px] pointer-events-none sm:pointer-events-auto text-center text-sm opacity-0 transition group-hover:translate-y-[0px] group-hover:opacity-100">
-                (some of which you can find{' '}
-                <Link href={'/play'} className={'underline'}>
-                  here
-                </Link>
-                )
+            <Link
+              className="relative group inline-flex items-center gap-2 bg-gray-300 px-2 text-black transition hover:bg-gray-800 hover:text-white hover:no-underline"
+              href="/play"
+            >
+              video games
+              <HiExternalLink className="opacity-50" />
+              <span className="absolute top-full block group-hover:text-black w-full translate-y-[6px] pointer-events-none sm:pointer-events-auto text-center text-sm opacity-0 transition group-hover:translate-y-[0px] group-hover:opacity-100">
+                (ask me about my current project)
               </span>
-            </span>{' '}
-            for fun.
+            </Link>{' '}
+            for fun
           </div>
         </PageTitle>
       </HeroSection>
