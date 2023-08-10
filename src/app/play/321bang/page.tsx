@@ -45,9 +45,9 @@ export async function generateMetadata(
   const sid = searchParams.sid;
 
   return {
+    ...metadata,
     title: sid ? 'Join my game!' : metadata.title,
     description: sid ? DATA.joinSessionDescription : DATA.description,
-    ...metadata,
   };
 }
 
