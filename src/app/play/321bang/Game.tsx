@@ -51,7 +51,9 @@ const usePlayerStates = (gameState: GameStateWithSocket | null) => {
 const LoadingView = () => {
   return (
     <div className="h-full flex flex-col justify-center items-center">
-      Loading...
+      <div className={'text-6xl font-black uppercase text-center'}>
+        Loading...
+      </div>
     </div>
   );
 };
@@ -238,7 +240,7 @@ const PlayView = () => {
             )}
             {gameState.roundPhase === ERoundPhase.PLAY &&
               gameState.currentTimerDuration <= 0 && (
-                <div className="text-3xl font-black">BANG!</div>
+                <div className="text-3xl font-black">SHOOT</div>
               )}
             {gameState.roundPhase === ERoundPhase.POST_PLAY && (
               <div className="text-3xl font-black">
@@ -258,7 +260,7 @@ const PlayView = () => {
                   'block relative text-center gap-1 isolate overflow-hidden flex justify-center items-center h-[48px] py-2 w-full rounded-md bg-black text-3xl text-white font-black transition sm:hover:bg-[#dedede] sm:hover:text-black'
                 }
               >
-                <span>DRAW</span>
+                <span>BANG</span>
               </button>
             )}
         </div>
