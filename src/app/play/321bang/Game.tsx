@@ -1,5 +1,6 @@
 'use client';
 
+import { SERVER_URL } from '@/content/server';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -13,6 +14,7 @@ import {
   ERoundPhase,
   IGameState,
 } from '@/content/play';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import bangCoverImage from '@/images/321bang-cover.png';
 import bangMenuBgImage from '@/images/321bang-menu-bg.png';
@@ -48,11 +50,9 @@ const usePlayerStates = (gameState: GameStateWithSocket | null) => {
 
 const LoadingView = () => {
   return (
-    <FullScreenMobileView>
-      <div className="h-full flex flex-col justify-center items-center">
-        Loading...
-      </div>
-    </FullScreenMobileView>
+    <div className="h-full flex flex-col justify-center items-center">
+      Loading...
+    </div>
   );
 };
 
@@ -60,12 +60,9 @@ const MainMenuView = () => {
   const router = useRouter();
 
   const createGameSession = async () => {
-    const sessionPayload = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/games/321bang/sessions`,
-      {
-        method: 'POST',
-      },
-    );
+    const sessionPayload = await fetch(`${SERVER_URL}/games/321bang/sessions`, {
+      method: 'POST',
+    });
     const sessionPayloadJSON = await sessionPayload.json();
     return sessionPayloadJSON.sessionId;
   };
@@ -77,55 +74,48 @@ const MainMenuView = () => {
   };
 
   return (
-    <FullScreenMobileView>
-      <Image
-        src={bangMenuBgImage}
-        alt={'bang'}
-        className={'absolute z-[-1] inset-0 w-full h-full object-cover'}
-      />
-      <div className={'flex flex-col z-[2] gap-6 justify-between h-full pb-12'}>
-        <div className="flex flex-col justify-between flex-1">
-          <div className="py-12">
-            <div className="text-5xl font-black text-center uppercase">
-              321 Bang!
-            </div>
-            <p className={'text-center'}>
-              A multiplayer game where you have to shoot your friends before
-              they shoot you.
-            </p>
+    <div className={'flex flex-col gap-6 justify-between h-full'}>
+      <div className="flex flex-col justify-between flex-1">
+        <div className="py-12">
+          <div className="text-5xl font-black text-center uppercase">
+            321 Bang!
           </div>
-          <div
-            className={
-              'text-left text-xs p-6 rounded-md shadow-lg bg-gray-300 backdrop-blur-md border border-black/50'
-            }
-          >
-            <p className={'font-black mb-2'}>How to play:</p>
-            <ul className={'space-y-1'}>
-              <li>The first player to tap the button wins the round.</li>
-              <li>The first player to win 3 rounds wins the game.</li>
-            </ul>
-          </div>
+          <p className={'text-center'}>
+            A multiplayer game where you have to shoot your friends before they
+            shoot you.
+          </p>
         </div>
-        <div className={'space-y-4'}>
-          <button
-            onClick={handleHostClick}
-            className={
-              'block text-center py-2 w-full rounded-md bg-black text-3xl text-white font-black transition sm:hover:bg-[#dedede] sm:hover:text-black'
-            }
-          >
-            START
-          </button>
-          <Link
-            href={'/play/321bang/'}
-            className={
-              'block text-center py-2 w-full bg-white border border-2 border-black text-3xl rounded-md font-black transition sm:hover:bg-[#dedede] sm:hover:text-black'
-            }
-          >
-            QUIT
-          </Link>
+        <div
+          className={
+            'text-left text-xs p-6 rounded-md shadow-lg bg-gray-300 backdrop-blur-md border border-black/50'
+          }
+        >
+          <p className={'font-black mb-2'}>How to play:</p>
+          <ul className={'space-y-1'}>
+            <li>The first player to tap the button wins the round.</li>
+            <li>The first player to win 3 rounds wins the game.</li>
+          </ul>
         </div>
       </div>
-    </FullScreenMobileView>
+      <div className={'space-y-4'}>
+        <button
+          onClick={handleHostClick}
+          className={
+            'block text-center py-2 w-full rounded-md bg-black text-3xl text-white font-black transition sm:hover:bg-[#dedede] sm:hover:text-black'
+          }
+        >
+          START
+        </button>
+        <Link
+          href={'/play/321bang/'}
+          className={
+            'block text-center py-2 w-full bg-white border border-2 border-black text-3xl rounded-md font-black transition sm:hover:bg-[#dedede] sm:hover:text-black'
+          }
+        >
+          QUIT
+        </Link>
+      </div>
+    </div>
   );
 };
 const LobbyMenuView = () => {
@@ -142,102 +132,68 @@ const LobbyMenuView = () => {
   }
 
   return (
-    <FullScreenMobileView>
-      <div className="flex w-full h-full flex-col gap-6">
-        <div className="flex items-center justify-between">
-          <Link
-            className="inline-flex h-[42px] w-[42px] items-center justify-center px-12 gap-1 rounded-md bg-gray-300 font-bold hover:bg-gray-300 sm:w-auto sm:px-6"
-            href={'/play/321bang/?p=true'}
-          >
-            QUIT
-          </Link>
-          <div className="flex flex-col items-center justify-center space-y-2 font-bold text-lg">
-            {`${
-              gameState.players.length < gameState.rules.minPlayers
-                ? 'Waiting for players... '
-                : ''
-            }${gameState?.players.length}/${gameState?.rules.minPlayers}`}
-          </div>
-        </div>
-        <div className={'flex-1 flex gap-6 flex-col justify-between'}>
-          <div className={'flex flex-col gap-6'}>
-            <div className="w-full bg-gray-200 border-black/50 border rounded-md flex-1">
-              {myPlayerState?.isReady ? (
-                <Image
-                  src={waitingForPlayersImg}
-                  alt={'waiting for players'}
-                  className={'h-full w-full object-cover'}
-                />
-              ) : (
-                <Image
-                  src={waitingForPlayersImg}
-                  alt={'waiting for players'}
-                  className={'h-full w-full object-cover'}
-                />
-              )}
-            </div>
-          </div>
-          <div className={'relative h-[48px]'}>
-            <div className="w-full hidden sm:flex text-xs flex flex-col gap-1 pb-4 justify-center items-center">
-              <div>
-                share the URL with your friends to invite them to the game
-              </div>
-            </div>
-            <button
-              onClick={handleReadyClick}
-              className={
-                'block relative text-center gap-1 isolate overflow-hidden flex justify-center items-center h-[48px] py-2 w-full rounded-md bg-black text-3xl text-white font-black transition sm:hover:bg-[#dedede] sm:hover:text-black'
-              }
-              disabled={myPlayerState?.isReady}
-            >
-              {myPlayerState?.isReady && <HiShieldCheck />}
-              <span>READY</span>
-              {gameState.currentTimerDuration > 0 && (
-                <div
-                  className={
-                    'absolute inset-0 z-10 flex text-black items-center bg-white justify-center gap-2'
-                  }
-                >
-                  Starting in...
-                  <span>{gameState.currentTimerDuration}</span>
-                </div>
-              )}
-            </button>
-            <div className="w-full sm:hidden text-xs flex flex-col gap-1 py-2 justify-center items-center">
-              <div>
-                share the URL with your friends to invite them to the game
-              </div>
-              <HiArrowDown />
-            </div>
-          </div>
+    <div className={'flex flex-col gap-6 justify-between h-full'}>
+      <div className="flex items-center justify-between">
+        <Link
+          href={'/play/321bang/?p=true'}
+          className={
+            'block text-center py-2 px-4 bg-white border border-black text-fit rounded-md font-black transition sm:hover:bg-[#dedede] sm:hover:text-black'
+          }
+        >
+          QUIT
+        </Link>
+        <div className="flex flex-col items-center justify-center space-y-2 font-bold">
+          {`${
+            gameState.players.length < gameState.rules.minPlayers
+              ? 'Waiting for players... '
+              : ''
+          }${gameState?.players.length}/${gameState?.rules.minPlayers}`}
         </div>
       </div>
-    </FullScreenMobileView>
+
+      <div className="w-full flex flex-col items-center p-8 justify-center h-full bg-gray-200 border-black/50 border rounded-md flex-1">
+        <div className={'text-4xl font-black mb-6'}>HOW TO PLAY</div>
+        <div className={'text-center'}>
+          The first player to tap the button <br /> wins the round.
+        </div>
+        <div className={'text-center'}>
+          The first player to win 3 rounds <br /> wins the game.
+        </div>
+      </div>
+
+      <div className={'space-y-4 text-center'}>
+        <button
+          onClick={handleReadyClick}
+          className={
+            'block relative text-center gap-1 isolate overflow-hidden flex justify-center items-center h-[48px] py-2 w-full rounded-md bg-black text-3xl text-white font-black transition sm:hover:bg-[#dedede] sm:hover:text-black'
+          }
+          disabled={myPlayerState?.isReady}
+        >
+          {myPlayerState?.isReady && <HiShieldCheck />}
+          <span>READY</span>
+          {gameState.currentTimerDuration > 0 && (
+            <div
+              className={
+                'absolute inset-0 z-10 flex text-black items-center bg-white justify-center gap-2'
+              }
+            >
+              Starting in...
+              <span>{gameState.currentTimerDuration}</span>
+            </div>
+          )}
+        </button>
+        <div className="rounded-full w-fit px-4 mx-auto py-1 bg-white border border-black/50 text-xs flex gap-4 py-2 justify-center items-center">
+          <HiArrowDown className={'sm:hidden'} />
+          <div>share the URL with a friend to invite them</div>
+          <HiArrowDown className={'sm:hidden'} />
+        </div>
+      </div>
+    </div>
   );
 };
 const PlayView = () => {
   const gameState = useContext(gameStateContext);
   const { myPlayerState, otherPlayerState } = usePlayerStates(gameState);
-
-  const [_, setMyScore] = useState(0);
-  const [didWin, setDidWin] = useState(false);
-
-  useEffect(() => {
-    setMyScore((prev) => {
-      if (myPlayerState && myPlayerState.roundsWon > prev) {
-        setDidWin(true);
-      } else {
-        setDidWin(false);
-      }
-      return myPlayerState?.roundsWon || 0;
-    });
-  }, [myPlayerState]);
-
-  useEffect(() => {
-    if (gameState?.roundPhase === ERoundPhase.STARTING) {
-      setDidWin(false);
-    }
-  }, [gameState?.roundPhase]);
 
   function handleBangClick() {
     gameState?.socket.emit(EGameEvent.PLAYER_SCORED, myPlayerState?.id);
@@ -252,62 +208,62 @@ const PlayView = () => {
   }
 
   return (
-    <FullScreenMobileView>
-      <div className="flex w-full h-full flex-col gap-6">
-        <div className="flex items-center justify-center gap-4">
-          <div
-            className={
-              'bg-blue-300 font-bold aspect-square w-[42px] rounded-md flex justify-center items-center'
-            }
-          >
-            {myPlayerState?.roundsWon}
-          </div>
-          <div
-            className={
-              'bg-red-300 font-bold aspect-square w-[42px] rounded-md flex justify-center items-center'
-            }
-          >
-            {otherPlayerState?.roundsWon}
-          </div>
+    <div className="flex w-full h-full flex-col gap-6">
+      <div className="flex items-center justify-center gap-4">
+        <div
+          className={
+            'bg-blue-300 font-bold aspect-square w-[42px] rounded-md flex justify-center items-center'
+          }
+        >
+          {myPlayerState?.roundsWon}
         </div>
-        <div className={'flex-1 flex gap-6 flex-col justify-between'}>
-          <div className={'flex flex-col flex-1 gap-6'}>
-            <div className="w-full bg-gray-200 border-black/50 flex justify-center items-center border rounded-md flex-1">
-              {gameState.roundPhase === ERoundPhase.PRE_PLAY && (
-                <div className="text-3xl font-black">
-                  {gameState.currentTimerDuration <= 3 &&
-                    gameState.currentTimerDuration > 0 &&
-                    gameState.currentTimerDuration}
-                  {gameState.currentTimerDuration > 3 && 'GET READY'}
-                </div>
-              )}
-              {gameState.roundPhase === ERoundPhase.PLAY &&
-                gameState.currentTimerDuration <= 0 && (
-                  <div className="text-3xl font-black">BANG!</div>
-                )}
-              {gameState.roundPhase === ERoundPhase.POST_PLAY && (
-                <div className="text-3xl font-black">
-                  {didWin ? 'YOU WIN!' : 'YOU LOSE!'}
-                </div>
-              )}
-            </div>
-          </div>
-          <div className={'relative h-[48px]'}>
-            {gameState.roundPhase === ERoundPhase.PLAY &&
-              gameState.currentTimerDuration <= 0 && (
-                <button
-                  onClick={handleBangClick}
-                  className={
-                    'block relative text-center gap-1 isolate overflow-hidden flex justify-center items-center h-[48px] py-2 w-full rounded-md bg-black text-3xl text-white font-black transition sm:hover:bg-[#dedede] sm:hover:text-black'
-                  }
-                >
-                  <span>DRAW</span>
-                </button>
-              )}
-          </div>
+        <div
+          className={
+            'bg-red-300 font-bold aspect-square w-[42px] rounded-md flex justify-center items-center'
+          }
+        >
+          {otherPlayerState?.roundsWon}
         </div>
       </div>
-    </FullScreenMobileView>
+      <div className={'flex-1 flex gap-6 flex-col justify-between'}>
+        <div className={'flex flex-col flex-1 gap-6'}>
+          <div className="w-full bg-gray-200 border-black/50 flex justify-center items-center border rounded-md flex-1">
+            {gameState.roundPhase === ERoundPhase.PRE_PLAY && (
+              <div className="text-3xl font-black">
+                {gameState.currentTimerDuration <= 3 &&
+                  gameState.currentTimerDuration > 0 &&
+                  gameState.currentTimerDuration}
+                {gameState.currentTimerDuration > 3 && 'GET READY'}
+              </div>
+            )}
+            {gameState.roundPhase === ERoundPhase.PLAY &&
+              gameState.currentTimerDuration <= 0 && (
+                <div className="text-3xl font-black">BANG!</div>
+              )}
+            {gameState.roundPhase === ERoundPhase.POST_PLAY && (
+              <div className="text-3xl font-black">
+                {gameState.roundWinner?.id === myPlayerState?.id
+                  ? 'YOU WIN!'
+                  : 'YOU LOSE!'}
+              </div>
+            )}
+          </div>
+        </div>
+        <div className={'relative h-[48px]'}>
+          {gameState.roundPhase === ERoundPhase.PLAY &&
+            gameState.currentTimerDuration <= 0 && (
+              <button
+                onClick={handleBangClick}
+                className={
+                  'block relative text-center gap-1 isolate overflow-hidden flex justify-center items-center h-[48px] py-2 w-full rounded-md bg-black text-3xl text-white font-black transition sm:hover:bg-[#dedede] sm:hover:text-black'
+                }
+              >
+                <span>DRAW</span>
+              </button>
+            )}
+        </div>
+      </div>
+    </div>
   );
 };
 const MatchCompleteView = () => {
@@ -319,42 +275,45 @@ const MatchCompleteView = () => {
   }
 
   return (
-    <FullScreenMobileView>
-      <div className="flex w-full text-center h-full flex-col gap-4 justify-between items-center">
-        <div className={'text-lg font-black uppercase'}>game over</div>
-        <div className="flex flex-col gap-4">
-          <div className="flex items-center justify-center gap-4">
-            <div
-              className={
-                'bg-blue-300 font-bold aspect-square w-[42px] rounded-md flex justify-center items-center'
-              }
-            >
-              {myPlayerState?.roundsWon}
-            </div>
-            <div
-              className={
-                'bg-red-300 font-bold aspect-square w-[42px] rounded-md flex justify-center items-center'
-              }
-            >
-              {otherPlayerState?.roundsWon}
-            </div>
-          </div>
-          <div className={'text-5xl font-black uppercase'}>
-            {myPlayerState?.roundsWon > otherPlayerState?.roundsWon
-              ? 'fastest gun in the west'
-              : 'better off dead'}
-          </div>
-        </div>
-        <Link
-          href={'/play/321bang/?p=true'}
+    <div className="flex w-full text-center h-full flex-col gap-4 justify-between items-center">
+      <div
+        className={
+          'text-lg font-black uppercase gap-2 flex justify-center items-center'
+        }
+      >
+        <div
           className={
-            'block relative text-center gap-1 isolate overflow-hidden flex justify-center items-center h-[48px] py-2 w-full rounded-md bg-black text-3xl text-white font-black transition sm:hover:bg-[#dedede] sm:hover:text-black'
+            'bg-blue-300 font-bold aspect-square w-[42px] rounded-md flex justify-center items-center'
           }
         >
-          QUIT
-        </Link>
+          {myPlayerState?.roundsWon}
+        </div>
+        <div>game over</div>
+        <div
+          className={
+            'bg-red-300 font-bold aspect-square w-[42px] rounded-md flex justify-center items-center'
+          }
+        >
+          {otherPlayerState?.roundsWon}
+        </div>
       </div>
-    </FullScreenMobileView>
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center justify-center gap-4"></div>
+        <div className={'text-6xl font-black uppercase'}>
+          {myPlayerState?.roundsWon > otherPlayerState?.roundsWon
+            ? 'fastest gun in the west'
+            : 'better off dead'}
+        </div>
+      </div>
+      <Link
+        href={'/play/321bang/?p=true'}
+        className={
+          'block relative text-center gap-1 isolate overflow-hidden flex justify-center items-center h-[48px] py-2 w-full rounded-md bg-black text-3xl text-white font-black transition sm:hover:bg-[#dedede] sm:hover:text-black'
+        }
+      >
+        QUIT
+      </Link>
+    </div>
   );
 };
 
@@ -365,21 +324,19 @@ const GameplayView = ({ id }: { id: string }) => {
 
   useEffect(() => {
     if (!socketRef.current) {
-      socketRef.current = io(
-        process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000',
-        {
-          path: '/games/321bang/play/socket.io',
-          transports: ['websocket'],
-          query: {
-            sessionId: id,
-          },
+      socketRef.current = io(SERVER_URL || 'http://localhost:3000', {
+        path: '/games/321bang/play/socket.io',
+        transports: ['websocket'],
+        query: {
+          sessionId: id,
         },
-      );
+      });
     }
 
     const socket = socketRef.current;
 
     socket.on(EGameEvent.UPDATE_GAME_STATE, (state) => {
+      console.log('UPDATE_GAME_STATE', state);
       setGameState(state);
     });
 
@@ -393,9 +350,38 @@ const GameplayView = ({ id }: { id: string }) => {
     <gameStateContext.Provider
       value={{ ...gameState, socket: socketRef.current }}
     >
-      {gameState?.matchPhase === EMatchPhase.LOBBY && <LobbyMenuView />}
-      {gameState?.matchPhase === EMatchPhase.PLAY && <PlayView />}
-      {gameState?.matchPhase === EMatchPhase.COMPLETE && <MatchCompleteView />}
+      <AnimatePresence mode={'wait'}>
+        {gameState?.matchPhase === EMatchPhase.LOBBY && (
+          <motion.div
+            className={'h-full w-full'}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <LobbyMenuView />
+          </motion.div>
+        )}
+        {gameState?.matchPhase === EMatchPhase.PLAY && (
+          <motion.div
+            className={'h-full w-full'}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <PlayView />
+          </motion.div>
+        )}
+        {gameState?.matchPhase === EMatchPhase.COMPLETE && (
+          <motion.div
+            className={'h-full w-full'}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <MatchCompleteView />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </gameStateContext.Provider>
   ) : null;
 };
@@ -420,11 +406,41 @@ const Game = () => {
         'bg-white fixed inset-0 h-[100svh] w-[100vw] fixed sm:p-12 flex flex-col inset-0 z-10'
       }
     >
-      {activeView === EGameView.LOADING && <LoadingView />}
-      {activeView === EGameView.MAIN_MENU && <MainMenuView />}
-      {sessionId && activeView === EGameView.GAMEPLAY && (
-        <GameplayView id={sessionId} />
-      )}
+      <FullScreenMobileView>
+        <Image
+          src={bangMenuBgImage}
+          alt={'bang'}
+          className={'absolute z-[-1] inset-0 w-full h-full object-cover'}
+        />
+
+        <AnimatePresence mode={'wait'}>
+          {activeView === EGameView.LOADING && (
+            <motion.div
+              className="z-10 w-full h-full"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <LoadingView />
+            </motion.div>
+          )}
+          {activeView === EGameView.MAIN_MENU && (
+            <motion.div
+              className="z-10 w-full h-full"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <MainMenuView />
+            </motion.div>
+          )}
+          {sessionId && activeView === EGameView.GAMEPLAY && (
+            <div className="z-10 w-full h-full">
+              <GameplayView id={sessionId} />
+            </div>
+          )}
+        </AnimatePresence>
+      </FullScreenMobileView>
     </div>
   );
 };

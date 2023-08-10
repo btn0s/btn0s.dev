@@ -60,4 +60,5 @@ export interface IGameState {
   roundPhase: ERoundPhase;
   players: IPlayerState[];
   currentTimerDuration: number;
+  roundWinner: IPlayerState | null;
 }
