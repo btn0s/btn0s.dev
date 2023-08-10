@@ -45,9 +45,18 @@ export async function generateMetadata(
   const sid = searchParams.sid;
 
   return {
-    ...metadata,
     title: sid ? 'Join my game!' : metadata.title,
     description: sid ? DATA.joinSessionDescription : DATA.description,
+    openGraph: metadata.openGraph
+      ? {
+          title: sid ? 'Join my game!' : metadata.openGraph.title,
+          description: sid
+            ? DATA.joinSessionDescription
+            : metadata.openGraph.description,
+          images: metadata.openGraph.images,
+        }
+      : undefined,
+    twitter: metadata.twitter,
   };
 }
 
