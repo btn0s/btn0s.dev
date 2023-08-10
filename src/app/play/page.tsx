@@ -7,8 +7,7 @@ import Main from '@/components/bricks/Main';
 
 export const metadata: Metadata = {
   title: 'Games by @btn0s',
-  description:
-    "I like to make games in my free time. Here's some finished ones you can play with.",
+  description: "This is a collection of games I've made",
   openGraph: {
     url: 'https://btn0s.dev',
     siteName: 'BT Norris | @btn0s',
