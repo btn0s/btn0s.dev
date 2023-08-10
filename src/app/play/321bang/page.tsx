@@ -8,7 +8,8 @@ const DATA: IGameInfoPageProps = {
   title: '3..2..1.. BANG!',
   description:
     'A multiplayer game where you have to shoot your friends before they shoot you.',
-  joinSessionDescription: 'Come test your reaction time in a 1v1 shootout.',
+  joinSessionDescription:
+    'Come test your reaction time in a 1v1 shootout. Play 3..2..1.. BANG! with me now!',
   coverImage: bangCoverImage,
   playLink: '/play/321bang?p=true',
 };
@@ -44,7 +45,7 @@ export async function generateMetadata(
   const sid = searchParams.sid;
 
   return {
-    title: sid ? `Join my game! | ${DATA.title} by bnt0s` : metadata.title,
+    title: sid ? 'Join my game!' : metadata.title,
     description: sid ? DATA.joinSessionDescription : DATA.description,
     ...metadata,
   };
