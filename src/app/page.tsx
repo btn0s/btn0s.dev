@@ -70,7 +70,7 @@ const Home = () => {
                 )
               </span>
             </span>{' '}
-            in my spare time
+            for fun.
           </div>
         </PageTitle>
       </HeroSection>
