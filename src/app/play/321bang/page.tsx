@@ -42,13 +42,11 @@ export async function generateMetadata(
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const sid = searchParams.sid;
-  const parentResolved = { ...metadata };
-
-  const previousTitle = parentResolved.title;
 
   return {
-    title: sid ? `Join my game! | ${DATA.title} by bnt0s` : previousTitle,
+    title: sid ? `Join my game! | ${DATA.title} by bnt0s` : metadata.title,
     description: sid ? DATA.joinSessionDescription : DATA.description,
+    ...metadata,
   };
 }
 
