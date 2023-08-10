@@ -20,16 +20,12 @@ const GameInfoPage = ({
   return (
     <Main>
       <section className={'relative pt-12'}>
-        <Image
-          src={coverImage}
-          alt={'og'}
-          className={'border border-black/50 rounded-md'}
-        />
-        <div
-          className={
-            'border border-black/50 rounded-md p-6 absolute top-[90%] bg-white/90 backdrop-filter backdrop-blur-sm shadow-xl sm:w-[300px] -inset-x-2 sm:inset-x-6'
-          }
-        >
+        <div className={'border border-black/50 rounded-md p-6 shadow-xl'}>
+          <Image
+            src={coverImage}
+            alt={'og'}
+            className={'border border-black/50 rounded-md mb-4'}
+          />
           <SectionTitle>{title}</SectionTitle>
           <p className={'text-sm mb-4'}>{description}</p>
           <Link
