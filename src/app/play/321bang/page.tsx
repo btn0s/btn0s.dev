@@ -15,7 +15,7 @@ const DATA: IGameInfoPageProps = {
 };
 
 const metadata: Metadata = {
-  title: `${DATA.title} | Games by bnt0s`,
+  title: `${DATA.title} · btn0s.dev`,
   description: DATA.description,
   openGraph: {
     title: DATA.title,

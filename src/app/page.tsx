@@ -8,17 +8,18 @@ import { PageTitle, SectionTitle } from '@/components/bricks/headers';
 import ProjectGrid from '@/components/ProjectGrid';
 
 export const metadata: Metadata = {
-  title: 'BT Norris | @btn0s',
+  title: 'btn0s.dev',
   description: 'i do some things around the web, this is a home for them',
   openGraph: {
     url: 'https://btn0s.dev',
-    siteName: 'BT Norris | @btn0s',
+    siteName: 'btn0s.dev',
+    description: 'i do some things around the web, this is a home for them',
     images: [
       {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: 'BT Norris | @btn0s',
+        alt: 'btn0s.dev',
       },
     ],
   },

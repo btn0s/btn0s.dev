@@ -6,17 +6,18 @@ import { Metadata } from 'next';
 import Main from '@/components/bricks/Main';
 
 export const metadata: Metadata = {
-  title: 'Games by @btn0s',
-  description: "This is a collection of games I've made",
+  title: 'play · btn0s.dev',
+  description: "i make games sometimes, here's a collection of them",
   openGraph: {
     url: 'https://btn0s.dev',
-    siteName: 'BT Norris | @btn0s',
+    siteName: 'play · btn0s.dev',
+    description: "i make games sometimes, here's a collection of them",
     images: [
       {
         url: '/games-og.png',
         width: 1200,
         height: 630,
-        alt: 'BT Norris | @btn0s',
+        alt: 'play · btn0s.dev',
       },
     ],
   },
