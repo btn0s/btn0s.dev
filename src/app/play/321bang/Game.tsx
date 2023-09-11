@@ -50,7 +50,7 @@ const usePlayerStates = (gameState: GameStateWithSocket | null) => {
 const LoadingView = () => {
   return (
     <div className="flex h-full flex-col items-center justify-center">
-      <div className={'text-center text-6xl font-black uppercase'}>
+      <div className="text-center text-6xl font-black uppercase">
         Loading...
       </div>
     </div>
@@ -75,43 +75,37 @@ const MainMenuView = () => {
   };
 
   return (
-    <div className={'flex h-full flex-col justify-between gap-6'}>
+    <div className="flex h-full flex-col justify-between gap-6">
       <div className="flex flex-1 flex-col justify-between">
         <div className="py-12">
           <div className="text-center text-5xl font-black uppercase">
             321 Bang!
           </div>
-          <p className={'text-center'}>
+          <p className="text-center">
             A multiplayer game where you have to shoot your friends before they
             shoot you.
           </p>
         </div>
         <div
-          className={
-            'rounded-md border border-black/50 bg-gray-300 p-6 text-left text-xs shadow-lg backdrop-blur-md'
-          }
+          className="rounded-md border border-black/50 bg-gray-300 p-6 text-left text-xs shadow-lg backdrop-blur-md"
         >
-          <p className={'mb-2 font-black'}>How to play:</p>
-          <ul className={'space-y-1'}>
+          <p className="mb-2 font-black">How to play:</p>
+          <ul className="space-y-1">
             <li>The first player to tap the button wins the round.</li>
             <li>The first player to win 3 rounds wins the game.</li>
           </ul>
         </div>
       </div>
-      <div className={'space-y-4'}>
+      <div className="space-y-4">
         <button
           onClick={handleHostClick}
-          className={
-            'block w-full rounded-md bg-black py-2 text-center text-3xl font-black text-white transition sm:hover:bg-[#dedede] sm:hover:text-black'
-          }
+          className="block w-full rounded-md bg-black py-2 text-center text-3xl font-black text-white transition sm:hover:bg-[#dedede] sm:hover:text-black"
         >
           START
         </button>
         <Link
-          href={'/play/321bang/'}
-          className={
-            'block w-full rounded-md border border-2 border-black bg-white py-2 text-center text-3xl font-black transition sm:hover:bg-[#dedede] sm:hover:text-black'
-          }
+          href="/play/321bang/"
+          className="block w-full rounded-md border border-2 border-black bg-white py-2 text-center text-3xl font-black transition sm:hover:bg-[#dedede] sm:hover:text-black"
         >
           QUIT
         </Link>
@@ -133,13 +127,11 @@ const LobbyMenuView = () => {
   }
 
   return (
-    <div className={'flex h-full flex-col justify-between gap-6'}>
+    <div className="flex h-full flex-col justify-between gap-6">
       <div className="flex items-center justify-between">
         <Link
-          href={'/play/321bang/?p=true'}
-          className={
-            'text-fit block rounded-md border border-black bg-white px-4 py-2 text-center font-black transition sm:hover:bg-[#dedede] sm:hover:text-black'
-          }
+          href="/play/321bang/?p=true"
+          className="text-fit block rounded-md border border-black bg-white px-4 py-2 text-center font-black transition sm:hover:bg-[#dedede] sm:hover:text-black"
         >
           QUIT
         </Link>
@@ -153,30 +145,26 @@ const LobbyMenuView = () => {
       </div>
 
       <div className="flex h-full w-full flex-1 flex-col items-center justify-center rounded-md border border-black/50 bg-gray-200 p-8">
-        <div className={'mb-6 text-4xl font-black'}>HOW TO PLAY</div>
-        <div className={'text-center'}>
+        <div className="mb-6 text-4xl font-black">HOW TO PLAY</div>
+        <div className="text-center">
           The first player to tap the button <br /> wins the round.
         </div>
-        <div className={'text-center'}>
+        <div className="text-center">
           The first player to win 3 rounds <br /> wins the game.
         </div>
       </div>
 
-      <div className={'space-y-4 text-center'}>
+      <div className="space-y-4 text-center">
         <button
           onClick={handleReadyClick}
-          className={
-            'relative isolate block flex h-[48px] w-full items-center justify-center gap-1 overflow-hidden rounded-md bg-black py-2 text-center text-3xl font-black text-white transition sm:hover:bg-[#dedede] sm:hover:text-black'
-          }
+          className="relative isolate block flex h-[48px] w-full items-center justify-center gap-1 overflow-hidden rounded-md bg-black py-2 text-center text-3xl font-black text-white transition sm:hover:bg-[#dedede] sm:hover:text-black"
           disabled={myPlayerState?.isReady}
         >
           {myPlayerState?.isReady && <HiShieldCheck />}
           <span>READY</span>
           {gameState.currentTimerDuration > 0 && (
             <div
-              className={
-                'absolute inset-0 z-10 flex items-center justify-center gap-2 bg-white text-black'
-              }
+              className="absolute inset-0 z-10 flex items-center justify-center gap-2 bg-white text-black"
             >
               Starting in...
               <span>{gameState.currentTimerDuration}</span>
@@ -184,9 +172,9 @@ const LobbyMenuView = () => {
           )}
         </button>
         <div className="mx-auto flex w-fit items-center justify-center gap-4 rounded-full border border-black/50 bg-white px-4 py-1 py-2 text-xs">
-          <HiArrowDown className={'sm:hidden'} />
+          <HiArrowDown className="sm:hidden" />
           <div>share the URL with a friend to invite them</div>
-          <HiArrowDown className={'sm:hidden'} />
+          <HiArrowDown className="sm:hidden" />
         </div>
       </div>
     </div>
@@ -212,22 +200,18 @@ const PlayView = () => {
     <div className="flex h-full w-full flex-col gap-6">
       <div className="flex items-center justify-center gap-4">
         <div
-          className={
-            'flex aspect-square w-[42px] items-center justify-center rounded-md bg-blue-300 font-bold'
-          }
+          className="flex aspect-square w-[42px] items-center justify-center rounded-md bg-blue-300 font-bold"
         >
           {myPlayerState?.roundsWon}
         </div>
         <div
-          className={
-            'flex aspect-square w-[42px] items-center justify-center rounded-md bg-red-300 font-bold'
-          }
+          className="flex aspect-square w-[42px] items-center justify-center rounded-md bg-red-300 font-bold"
         >
           {otherPlayerState?.roundsWon}
         </div>
       </div>
-      <div className={'flex flex-1 flex-col justify-between gap-6'}>
-        <div className={'flex flex-1 flex-col gap-6'}>
+      <div className="flex flex-1 flex-col justify-between gap-6">
+        <div className="flex flex-1 flex-col gap-6">
           <div className="flex w-full flex-1 items-center justify-center rounded-md border border-black/50 bg-gray-200">
             {gameState.roundPhase === ERoundPhase.PRE_PLAY && (
               <div className="text-3xl font-black">
@@ -250,14 +234,12 @@ const PlayView = () => {
             )}
           </div>
         </div>
-        <div className={'relative h-[48px]'}>
+        <div className="relative h-[48px]">
           {gameState.roundPhase === ERoundPhase.PLAY &&
             gameState.currentTimerDuration <= 0 && (
               <button
                 onClick={handleBangClick}
-                className={
-                  'relative isolate block flex h-[48px] w-full items-center justify-center gap-1 overflow-hidden rounded-md bg-black py-2 text-center text-3xl font-black text-white transition sm:hover:bg-[#dedede] sm:hover:text-black'
-                }
+                className="relative isolate block flex h-[48px] w-full items-center justify-center gap-1 overflow-hidden rounded-md bg-black py-2 text-center text-3xl font-black text-white transition sm:hover:bg-[#dedede] sm:hover:text-black"
               >
                 <span>BANG</span>
               </button>
@@ -278,39 +260,31 @@ const MatchCompleteView = () => {
   return (
     <div className="flex h-full w-full flex-col items-center justify-between gap-4 text-center">
       <div
-        className={
-          'flex items-center justify-center gap-2 text-lg font-black uppercase'
-        }
+        className="flex items-center justify-center gap-2 text-lg font-black uppercase"
       >
         <div
-          className={
-            'flex aspect-square w-[42px] items-center justify-center rounded-md bg-blue-300 font-bold'
-          }
+          className="flex aspect-square w-[42px] items-center justify-center rounded-md bg-blue-300 font-bold"
         >
           {myPlayerState?.roundsWon}
         </div>
         <div>game over</div>
         <div
-          className={
-            'flex aspect-square w-[42px] items-center justify-center rounded-md bg-red-300 font-bold'
-          }
+          className="flex aspect-square w-[42px] items-center justify-center rounded-md bg-red-300 font-bold"
         >
           {otherPlayerState?.roundsWon}
         </div>
       </div>
       <div className="flex flex-col gap-4">
         <div className="flex items-center justify-center gap-4"></div>
-        <div className={'text-6xl font-black uppercase'}>
+        <div className="text-6xl font-black uppercase">
           {myPlayerState?.roundsWon > otherPlayerState?.roundsWon
             ? 'fastest gun in the west'
             : 'better off dead'}
         </div>
       </div>
       <Link
-        href={'/play/321bang/?p=true'}
-        className={
-          'relative isolate block flex h-[48px] w-full items-center justify-center gap-1 overflow-hidden rounded-md bg-black py-2 text-center text-3xl font-black text-white transition sm:hover:bg-[#dedede] sm:hover:text-black'
-        }
+        href="/play/321bang/?p=true"
+        className="relative isolate block flex h-[48px] w-full items-center justify-center gap-1 overflow-hidden rounded-md bg-black py-2 text-center text-3xl font-black text-white transition sm:hover:bg-[#dedede] sm:hover:text-black"
       >
         QUIT
       </Link>
@@ -351,10 +325,10 @@ const GameplayView = ({ id }: { id: string }) => {
     <gameStateContext.Provider
       value={{ ...gameState, socket: socketRef.current }}
     >
-      <AnimatePresence mode={'wait'}>
+      <AnimatePresence mode="wait">
         {gameState?.matchPhase === EMatchPhase.LOBBY && (
           <motion.div
-            className={'h-full w-full'}
+            className="h-full w-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -364,7 +338,7 @@ const GameplayView = ({ id }: { id: string }) => {
         )}
         {gameState?.matchPhase === EMatchPhase.PLAY && (
           <motion.div
-            className={'h-full w-full'}
+            className="h-full w-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -374,7 +348,7 @@ const GameplayView = ({ id }: { id: string }) => {
         )}
         {gameState?.matchPhase === EMatchPhase.COMPLETE && (
           <motion.div
-            className={'h-full w-full'}
+            className="h-full w-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -403,18 +377,16 @@ const Game = () => {
 
   return (
     <div
-      className={
-        'fixed fixed inset-0 inset-0 z-10 flex h-[100svh] w-[100vw] flex-col bg-white sm:p-12'
-      }
+      className="fixed fixed inset-0 inset-0 z-10 flex h-[100svh] w-[100vw] flex-col bg-white sm:p-12"
     >
       <FullScreenMobileView>
         <Image
           src={bangMenuBgImage}
-          alt={'bang'}
-          className={'absolute inset-0 z-[-1] h-full w-full object-cover'}
+          alt="bang"
+          className="absolute inset-0 z-[-1] h-full w-full object-cover"
         />
 
-        <AnimatePresence mode={'wait'}>
+        <AnimatePresence mode="wait">
           {activeView === EGameView.LOADING && (
             <motion.div
               className="z-10 h-full w-full"

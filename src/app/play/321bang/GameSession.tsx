@@ -9,7 +9,7 @@ import { FullScreenMobileView } from '@/app/components/FullScreenMobileView';
 const LoadingScreen = () => {
   return (
     <FullScreenMobileView>
-      <div className={'flex h-full flex-col items-center justify-center'}>
+      <div className="flex h-full flex-col items-center justify-center">
         Loading session...
       </div>
     </FullScreenMobileView>

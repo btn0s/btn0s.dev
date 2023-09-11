@@ -56,9 +56,9 @@ const Games = () => {
           {PLAY_PAGE_LINKS.map((link) => (
             <ProjectCard key={link.title} project={link} />
           ))}
-          <div className={'pointer-events-none opacity-30 grayscale'}>
+          <div className="pointer-events-none opacity-30 grayscale">
             <ProjectCard
-              key={'bang-bang'}
+              key="bang-bang"
               project={{
                 title: 'BANG BANG',
                 description: 'Sequel to the hit game 3..2..1.. BANG!',
@@ -68,9 +68,9 @@ const Games = () => {
               }}
             />
           </div>
-          <div className={'pointer-events-none opacity-30 grayscale'}>
+          <div className="pointer-events-none opacity-30 grayscale">
             <ProjectCard
-              key={'echelon'}
+              key="echelon"
               project={{
                 title: 'Project Echelon',
                 description: 'Asymmetrical multiplayer game of cat and mouse.',
