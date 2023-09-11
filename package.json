@@ -13,9 +13,11 @@
     "@liveblocks/react": "^1.2.1",
     "@nextui-org/react": "^2.0.5",
     "@radix-ui/themes": "^1.0.0",
+    "@react-three/fiber": "^8.14.1",
     "@types/node": "20.4.8",
     "@types/react": "18.2.18",
     "@types/react-dom": "18.2.7",
+    "@types/three": "^0.156.0",
     "@uidotdev/usehooks": "^2.0.1",
     "autoprefixer": "10.4.14",
     "classnames": "^2.3.2",
@@ -29,6 +31,7 @@
     "react-icons": "^4.10.1",
     "socket.io-client": "^4.7.2",
     "tailwindcss": "3.3.3",
+    "three": "^0.156.1",
     "typescript": "5.1.6"
   },
   "devDependencies": {
