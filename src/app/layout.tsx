@@ -1,12 +1,11 @@
-import NavLinkButton, { INavLink } from '@/app/components/NavLinkButton';
-
-import Providers from '@/app/providers';
-
 import Head from 'next/head';
 import Link from 'next/link';
 import { FaGithub } from 'react-icons/fa';
 import { HiExternalLink } from 'react-icons/hi';
 import { IoGameController } from 'react-icons/io5';
+
+import NavLinkButton, { INavLink } from '@/app/components/NavLinkButton';
+import Providers from '@/app/providers';
 import '../styles/global.css';
 
 const NAV_LINKS: INavLink[] = [
@@ -26,7 +25,7 @@ const NAV_LINKS: INavLink[] = [
 const SiteNav = () => {
   return (
     <header className="fixed z-10 w-full bg-white py-4">
-      <div className="max-w-[1080px] mx-auto flex justify-between px-6">
+      <div className="mx-auto flex max-w-[1080px] justify-between px-6">
         <Link
           href="/"
           className="flex h-[42px] items-center justify-center rounded-md bg-black px-4 text-xl font-bold text-white"
@@ -76,7 +75,7 @@ export default function RootLayout({
         <Providers>
           <SiteNav />
           {children}
-          <footer className="relative bg-white px-6 py-4 text-center z-[-1]">
+          <footer className="relative z-[-1] bg-white px-6 py-4 text-center">
             <Link
               className="flex items-center justify-center gap-2 underline opacity-30"
               href="https://github.com/btn0s/.dev"

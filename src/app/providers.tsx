@@ -1,8 +1,9 @@
 'use client';
 
+import type { FC, PropsWithChildren } from 'react';
+
 import { NextUIProvider } from '@nextui-org/react';
 import { Theme } from '@radix-ui/themes';
-import type { FC, PropsWithChildren } from 'react';
 
 const Providers: FC<PropsWithChildren> = ({ children }) => {
   return (

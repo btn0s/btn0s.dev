@@ -1,13 +1,12 @@
-import { PageTitle } from '@/components/bricks/headers';
+import { Metadata } from 'next';
+
+import ProjectCard from '@/components/ProjectCard';
 import HeroSection from '@/components/bricks/HeroSection';
 import Main from '@/components/bricks/Main';
-import ProjectCard from '@/components/ProjectCard';
+import { PageTitle } from '@/components/bricks/headers';
 import { PLAY_PAGE_LINKS } from '@/content/play';
 import { EProjectType } from '@/content/projects';
 import comingSoonCoverImg from '@/images/coming-soon-cover.png';
-import { Metadata } from 'next';
-import Link from 'next/link';
-import { HiExternalLink } from 'react-icons/hi';
 
 export const metadata: Metadata = {
   title: 'play · btn0s.dev',
@@ -35,7 +34,7 @@ const Games = () => {
   return (
     <Main>
       <HeroSection>
-        <PageTitle className="flex flex-col gap-2 sm:gap-0 mb-6">
+        <PageTitle className="mb-6 flex flex-col gap-2 sm:gap-0">
           <div>
             A small collection of{' '}
             <span className="inline-flex items-center gap-2 bg-[#f77041]/50 px-2 text-black transition hover:bg-[#f77041] hover:text-white hover:no-underline">
@@ -53,11 +52,11 @@ const Games = () => {
         </p>
       </HeroSection>
       <section>
-        <div className="flex flex-col sm:grid grid-cols-3 gap-4">
+        <div className="flex grid-cols-3 flex-col gap-4 sm:grid">
           {PLAY_PAGE_LINKS.map((link) => (
             <ProjectCard key={link.title} project={link} />
           ))}
-          <div className={'grayscale opacity-30 pointer-events-none'}>
+          <div className={'pointer-events-none opacity-30 grayscale'}>
             <ProjectCard
               key={'bang-bang'}
               project={{
@@ -69,7 +68,7 @@ const Games = () => {
               }}
             />
           </div>
-          <div className={'grayscale opacity-30 pointer-events-none'}>
+          <div className={'pointer-events-none opacity-30 grayscale'}>
             <ProjectCard
               key={'echelon'}
               project={{
@@ -81,7 +80,7 @@ const Games = () => {
               }}
             />
           </div>
-          <div className="col-span-3 rounded-md py-12 text-gray-300 flex flex-col items-center justify-center">
+          <div className="col-span-3 flex flex-col items-center justify-center rounded-md py-12 text-gray-300">
             More coming soon!
           </div>
         </div>

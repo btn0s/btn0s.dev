@@ -1,11 +1,11 @@
-import HeroSection from '@/components/bricks/HeroSection';
-import Main from '@/components/bricks/Main';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { HiExternalLink } from 'react-icons/hi';
 
-import { PageTitle, SectionTitle } from '@/components/bricks/headers';
 import ProjectGrid from '@/components/ProjectGrid';
+import HeroSection from '@/components/bricks/HeroSection';
+import Main from '@/components/bricks/Main';
+import { PageTitle, SectionTitle } from '@/components/bricks/headers';
 
 export const metadata: Metadata = {
   title: 'btn0s.dev',
@@ -63,12 +63,12 @@ const Home = () => {
           <div>
             and I build{' '}
             <Link
-              className="relative group inline-flex items-center gap-2 bg-gray-300 px-2 text-black transition hover:bg-gray-800 hover:text-white hover:no-underline"
+              className="group relative inline-flex items-center gap-2 bg-gray-300 px-2 text-black transition hover:bg-gray-800 hover:text-white hover:no-underline"
               href="/play"
             >
               video games
               <HiExternalLink className="opacity-50" />
-              <span className="absolute top-full block group-hover:text-black w-full translate-y-[6px] pointer-events-none sm:pointer-events-auto text-center text-sm opacity-0 transition group-hover:translate-y-[0px] group-hover:opacity-100">
+              <span className="pointer-events-none absolute top-full block w-full translate-y-[6px] text-center text-sm opacity-0 transition group-hover:translate-y-[0px] group-hover:text-black group-hover:opacity-100 sm:pointer-events-auto">
                 (ask me about my current project)
               </span>
             </Link>{' '}

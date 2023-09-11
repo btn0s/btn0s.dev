@@ -1,7 +1,8 @@
-import { SectionTitle } from '@/components/bricks/headers';
-import Main from '@/components/bricks/Main';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
+
+import Main from '@/components/bricks/Main';
+import { SectionTitle } from '@/components/bricks/headers';
 
 export interface IGameInfoPageProps {
   title: string;
@@ -20,25 +21,25 @@ const GameInfoPage = ({
   return (
     <Main>
       <section className={'relative pt-12'}>
-        <div className={'border border-black/50 rounded-md p-6 shadow-xl'}>
+        <div className={'rounded-md border border-black/50 p-6 shadow-xl'}>
           <Image
             src={coverImage}
             alt={'og'}
-            className={'border border-black/50 rounded-md mb-4'}
+            className={'mb-4 rounded-md border border-black/50'}
           />
           <SectionTitle>{title}</SectionTitle>
-          <p className={'text-sm mb-4'}>{description}</p>
+          <p className={'mb-4 text-sm'}>{description}</p>
           <Link
             href={playLink}
             className={
-              'py-2 block text-center w-full bg-black text-3xl text-white font-black rounded-md'
+              'block w-full rounded-md bg-black py-2 text-center text-3xl font-black text-white'
             }
           >
             PLAY
           </Link>
         </div>
       </section>
-      <section className={'py-12 flex-col flex'}></section>
+      <section className={'flex flex-col py-12'}></section>
     </Main>
   );
 };

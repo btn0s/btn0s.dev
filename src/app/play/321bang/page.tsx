@@ -1,8 +1,9 @@
+import { Metadata, ResolvingMetadata } from 'next';
+
 import Game from '@/app/play/321bang/Game';
 import GameRouter from '@/components/GameRouter';
-import GameInfoPage, { IGameInfoPageProps } from '@/templates/GameInfoPage';
-import { Metadata, ResolvingMetadata } from 'next';
 import bangCoverImage from '@/images/321bang-cover.png';
+import GameInfoPage, { IGameInfoPageProps } from '@/templates/GameInfoPage';
 
 const DATA: IGameInfoPageProps = {
   title: '3..2..1.. BANG!',

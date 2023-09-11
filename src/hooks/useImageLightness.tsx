@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
-import { getImageLightness } from '@/utils'
+import { getImageLightness } from '@/utils';
 
 /**
  * Custom hook to get the lightness of an image.
@@ -10,19 +10,19 @@ import { getImageLightness } from '@/utils'
  * @returns A number indicating the average lightness of the image (from 0 for black to 1 for white).
  */
 function useImageLightness(imageSrc: string): number | null {
-  const [brightness, setBrightness] = useState<number | null>(null)
+  const [brightness, setBrightness] = useState<number | null>(null);
 
   useEffect(() => {
     getImageLightness(imageSrc)
-      .then(brightnessValue => {
-        setBrightness(brightnessValue)
+      .then((brightnessValue) => {
+        setBrightness(brightnessValue);
       })
-      .catch(error => {
-        console.error(`Error fetching brightness: ${error.message}`)
-      })
-  }, [imageSrc])
+      .catch((error) => {
+        console.error(`Error fetching brightness: ${error.message}`);
+      });
+  }, [imageSrc]);
 
-  return brightness
+  return brightness;
 }
 
-export default useImageLightness
+export default useImageLightness;

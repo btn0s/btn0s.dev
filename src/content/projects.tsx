@@ -1,9 +1,9 @@
-import type { StaticImageData } from 'next/image'
+import type { StaticImageData } from 'next/image';
 
-import { ETag } from '@/content/tags'
+import { ETag } from '@/content/tags';
 
-import bbCoverImg from '../images/bb-cover.jpeg'
-import thCoverImg from '../images/th-cover.png'
+import bbCoverImg from '../images/bb-cover.jpeg';
+import thCoverImg from '../images/th-cover.png';
 
 export enum EProjectType {
   GAME = 'game',
@@ -13,13 +13,13 @@ export enum EProjectType {
 }
 
 export interface IProject {
-  title: string
-  description: string
-  href: string
-  coverImage: StaticImageData
-  tags?: ETag[]
-  isExternal?: boolean
-  type: EProjectType
+  title: string;
+  description: string;
+  href: string;
+  coverImage: StaticImageData;
+  tags?: ETag[];
+  isExternal?: boolean;
+  type: EProjectType;
 }
 
 export const FEATURED_PROJECTS: IProject[] = [
@@ -41,4 +41,4 @@ export const FEATURED_PROJECTS: IProject[] = [
     isExternal: true,
     type: EProjectType.WEB,
   },
-]
+];

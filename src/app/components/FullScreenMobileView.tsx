@@ -4,7 +4,7 @@ export const FullScreenMobileView: FC<PropsWithChildren> = ({ children }) => {
   return (
     <div
       className={
-        'flex-1 sm:max-w-[480px] isolate w-full sm:mx-auto sm:border p-6 pb-12 sm:border-black/50 sm:rounded-md sm:overflow-hidden sm:shadow-xl sm:backdrop-filter sm:backdrop-blur-sm sm:space-y-4'
+        'isolate w-full flex-1 p-6 pb-12 sm:mx-auto sm:max-w-[480px] sm:space-y-4 sm:overflow-hidden sm:rounded-md sm:border sm:border-black/50 sm:shadow-xl sm:backdrop-blur-sm sm:backdrop-filter'
       }
     >
       {children}

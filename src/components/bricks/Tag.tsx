@@ -1,4 +1,4 @@
-import type { FC, PropsWithChildren } from 'react'
+import type { FC, PropsWithChildren } from 'react';
 
 const Tag: FC<PropsWithChildren> = ({ children, ...props }) => {
   return (
@@ -8,7 +8,7 @@ const Tag: FC<PropsWithChildren> = ({ children, ...props }) => {
     >
       {children}
     </span>
-  )
-}
+  );
+};
 
-export default Tag
+export default Tag;

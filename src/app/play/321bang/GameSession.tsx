@@ -1,13 +1,15 @@
 'use client';
 
-import { FullScreenMobileView } from '@/app/components/FullScreenMobileView';
 import { ReactNode, useEffect, useRef } from 'react';
+
 import { io, Socket } from 'socket.io-client';
+
+import { FullScreenMobileView } from '@/app/components/FullScreenMobileView';
 
 const LoadingScreen = () => {
   return (
     <FullScreenMobileView>
-      <div className={'h-full flex flex-col justify-center items-center'}>
+      <div className={'flex h-full flex-col items-center justify-center'}>
         Loading session...
       </div>
     </FullScreenMobileView>

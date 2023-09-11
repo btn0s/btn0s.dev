@@ -1,7 +1,8 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
 import { JSX } from 'react';
+
+import { useSearchParams } from 'next/navigation';
 
 const GameRouter = ({
   gameInfoComponent,
