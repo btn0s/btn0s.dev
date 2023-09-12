@@ -1,64 +1,21 @@
-import Head from 'next/head';
-import Link from 'next/link';
-import { FaGithub } from 'react-icons/fa';
-import { HiExternalLink } from 'react-icons/hi';
-import { IoGameController } from 'react-icons/io5';
+'use client';
 
-import NavLinkButton, { INavLink } from '@/app/components/NavLinkButton';
-import Providers from '@/app/providers';
+import { ReactNode } from 'react';
+
+import Head from 'next/head';
+
 import '../styles/global.css';
 
-const NAV_LINKS: INavLink[] = [
-  {
-    icon: <IoGameController />,
-    label: 'play',
-    href: '/play',
-  },
-  {
-    icon: <FaGithub />,
-    label: 'github',
-    href: 'https://github.com/btn0s',
-    isExternal: true,
-  },
-];
-
-const SiteNav = () => {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <header className="fixed z-10 w-full bg-white py-4">
-      <div className="mx-auto flex max-w-[1080px] justify-between px-6">
-        <Link
-          href="/"
-          className="flex h-[42px] items-center justify-center rounded-md bg-black px-4 text-xl font-bold text-white"
-        >
-          btn0s
-        </Link>
-        <nav>
-          <ul className="flex gap-2">
-            {NAV_LINKS.map(({ icon, label, href, isExternal }) => (
-              <NavLinkButton
-                key={href}
-                href={href}
-                icon={icon}
-                label={label}
-                isExternal={isExternal}
-              />
-            ))}
-          </ul>
-        </nav>
-      </div>
-    </header>
-  );
-};
-
-export default function RootLayout({
-  // Layouts must accept a children prop.
-  // This will be populated with nested layouts or pages
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en">
+    <html
+      lang="en"
+      className="bg-[#FFF9F2] text-[#1C1C1C]"
+      style={{
+        backgroundImage:
+          "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%231c1c1c' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E\");",
+      }}
+    >
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -71,23 +28,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </Head>
-      <body>
-        <Providers>
-          <SiteNav />
-          {children}
-          <footer className="relative z-[-1] bg-white px-6 py-4 text-center">
-            <Link
-              className="flex items-center justify-center gap-2 underline opacity-30"
-              href="https://github.com/btn0s/.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              view this site on Github
-              <HiExternalLink className="opacity-50" />
-            </Link>
-          </footer>
-        </Providers>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

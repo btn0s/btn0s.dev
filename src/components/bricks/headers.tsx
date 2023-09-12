@@ -12,7 +12,7 @@ export const PageTitle: HeaderComponent = ({ className, children }) => (
   <h1
     className={classNames(
       className,
-      'text-3xl font-bold !leading-[1.5] sm:text-5xl',
+      'text-3xl font-bold !leading-[1.2] [text-wrap:balance] sm:text-6xl',
     )}
   >
     {children}
@@ -23,7 +23,7 @@ export const PageSubtitle: HeaderComponent = ({ className, children }) => (
   <h2
     className={classNames(
       className,
-      'text-2xl !leading-[1.5] text-gray-600 sm:text-4xl',
+      'text-2xl !leading-[1.5] text-gray-600 [text-wrap:balance] sm:text-4xl',
     )}
   >
     {children}
@@ -34,7 +34,7 @@ export const SectionTitle: HeaderComponent = ({ className, children }) => (
   <h3
     className={classNames(
       className,
-      'text-xl font-bold !leading-[1.5] sm:text-2xl',
+      'text-xl font-bold !leading-[1.5] [text-wrap:balance] sm:text-2xl',
     )}
   >
     {children}
@@ -45,7 +45,7 @@ export const SubsectionTitle: HeaderComponent = ({ className, children }) => (
   <h4
     className={classNames(
       className,
-      'font-bold font-bold sm:text-xl sm:font-normal',
+      'font-bold font-bold [text-wrap:balance] sm:text-xl sm:font-normal',
     )}
   >
     {children}
