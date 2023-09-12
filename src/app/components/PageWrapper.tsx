@@ -11,7 +11,10 @@ const PageWrapper: FC<
 > = ({ children, hoverTargetRef }) => {
   return (
     <div className="fixed inset-0 p-4 sm:p-6">
-      <div ref={hoverTargetRef} className="relative flex h-full w-full">
+      <div
+        ref={hoverTargetRef}
+        className="relative mx-auto flex h-full w-full max-w-[1200px]"
+      >
         <div className="absolute left-2 top-2 h-full w-full bg-black/10 sm:left-4 sm:top-4"></div>
         <div className="relative flex w-full flex-col justify-between overflow-hidden bg-[#FFF9F2]">
           <SiteNav />

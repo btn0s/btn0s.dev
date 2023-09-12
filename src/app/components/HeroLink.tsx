@@ -19,7 +19,7 @@ const HeroLink: FC<
         : '#1f293750',
     }}
   >
-    <span className="gap flex gap-2">
+    <span className="gap flex items-center">
       {children}
       <HiExternalLink className="opacity-50" />
     </span>
