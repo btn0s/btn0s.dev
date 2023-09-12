@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import PlayPage from '@/app/play/PlayPage';
+import PlayPage from '@/app/components/pages/PlayPage';
 
 export const metadata: Metadata = {
   title: 'play · btn0s.dev',
@@ -20,12 +20,12 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
+    title: 'play · btn0s.dev',
+    description: "i make games sometimes, here's a collection of them",
     card: 'summary_large_image',
   },
 };
 
-const Play = () => {
-  return <PlayPage></PlayPage>;
-};
+const Play = () => <PlayPage></PlayPage>;
 
 export default Play;

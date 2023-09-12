@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import HomePage from '@/app/play/HomePage';
+import HomePage from '@/app/components/pages/HomePage';
 
 export const metadata: Metadata = {
   title: 'btn0s.dev',
@@ -20,6 +20,8 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
+    title: 'btn0s.dev',
+    description: 'i do some things around the web, this is a home for them',
     card: 'summary_large_image',
   },
 };
