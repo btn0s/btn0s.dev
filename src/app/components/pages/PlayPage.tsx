@@ -16,7 +16,7 @@ const PlayPage = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   useHoverTilt(ref, {
-    tiltModifier: 0.1,
+    tiltModifier: 0.2,
     scaleModifier: 1,
   });
 
