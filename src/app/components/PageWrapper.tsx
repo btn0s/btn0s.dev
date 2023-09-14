@@ -1,6 +1,14 @@
 'use client';
 
-import { FC, MutableRefObject, PropsWithChildren } from 'react';
+import {
+  FC,
+  MutableRefObject,
+  PropsWithChildren,
+  useEffect,
+  useState,
+} from 'react';
+
+import classNames from 'classnames';
 
 import SiteNav from '@/app/components/SiteNav';
 
@@ -9,6 +17,12 @@ const PageWrapper: FC<
     hoverTargetRef: MutableRefObject<HTMLDivElement | null>;
   }>
 > = ({ children, hoverTargetRef }) => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
   return (
     <div className="fixed inset-0 p-4 sm:p-6">
       <div
@@ -20,7 +34,16 @@ const PageWrapper: FC<
           <SiteNav />
 
           <div className="flex-1 overflow-auto border-l-2 border-r-2 border-[#1C1C1C]">
-            {children}
+            <div
+              className={classNames(
+                'h-full opacity-0 transition-opacity delay-200 duration-300',
+                {
+                  'opacity-100': !loading,
+                },
+              )}
+            >
+              {children}
+            </div>
           </div>
 
           <SiteNav />

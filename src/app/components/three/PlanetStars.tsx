@@ -179,7 +179,7 @@ const Scene = ({
   );
 };
 
-const HomeSpaceView = ({
+const PlanetStars = ({
   hoverTargetRef,
 }: {
   hoverTargetRef: MutableRefObject<HTMLDivElement | null>;
@@ -198,4 +198,4 @@ const HomeSpaceView = ({
   );
 };
 
-export default HomeSpaceView;
+export default PlanetStars;

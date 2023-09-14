@@ -13,12 +13,13 @@ export enum EProjectType {
 }
 
 export interface IProject {
+  coverImage: StaticImageData;
   title: string;
   description: string;
-  href: string;
-  coverImage: StaticImageData;
-  tags?: ETag[];
+  learnMoreHref?: string;
+  playHref?: string;
   isExternal?: boolean;
+  tags?: ETag[];
   type: EProjectType;
 }
 
@@ -26,7 +27,7 @@ export const FEATURED_PROJECTS: IProject[] = [
   {
     title: 'thinkhuman.co',
     description: 'A digital solutions cooperative.',
-    href: 'https://thinkhuman.co',
+    learnMoreHref: 'https://thinkhuman.co',
     coverImage: thCoverImg,
     tags: [ETag.NEXTJS, ETag.TAILWINDCSS],
     isExternal: true,
@@ -35,7 +36,7 @@ export const FEATURED_PROJECTS: IProject[] = [
   {
     title: 'playbackbone.com',
     description: 'Mobile gaming, perfected.',
-    href: 'https://playbackbone.com',
+    learnMoreHref: 'https://playbackbone.com',
     coverImage: bbCoverImg,
     tags: [ETag.NEXTJS, ETag.TAILWINDCSS, ETag.SHOPIFY],
     isExternal: true,

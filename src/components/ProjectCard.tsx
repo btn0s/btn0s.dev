@@ -1,19 +1,15 @@
 'use client';
 
-import type { MutableRefObject, RefObject } from 'react';
+import type { RefObject } from 'react';
 import { useEffect, useRef, useState } from 'react';
 
 import { useIsMobile } from '@nextui-org/use-is-mobile';
 import classNames from 'classnames';
 import NextImage from 'next/image';
 import Link from 'next/link';
-import { HiExternalLink } from 'react-icons/hi';
 
 import Tag from '@/components/bricks/Tag';
 import type { IProject } from '@/content/projects';
-import useHoverHighlight from '@/hooks/useHoverHighlight';
-import useHoverTilt from '@/hooks/useHoverTilt';
-import useImageLightness from '@/hooks/useImageLightness';
 
 enum ECardState {
   DEFAULT,
@@ -67,124 +63,67 @@ const useIntersecting = (
   return isMobile ? isIntersecting : false;
 };
 
-const ProjectCard = ({
-  project,
-  overlapTargetRef,
-  cardsHovered,
-  onOverlapStart,
-  onOverlapEnd,
-}: {
-  project: IProject;
-  overlapTargetRef?: MutableRefObject<null>;
-  cardsHovered?: string[];
-  onOverlapStart?: (title: string) => void;
-  onOverlapEnd?: (title: string) => void;
-}) => {
-  const { title, coverImage, href, tags, description, isExternal } = project;
-  const [cardState, setCardState] = useState<ECardState>(ECardState.DEFAULT);
-  const imageLightness = useImageLightness(coverImage.src);
+const ProjectCard = ({ project }: { project: IProject }) => {
+  const {
+    title,
+    coverImage,
+    learnMoreHref,
+    playHref,
+    tags,
+    description,
+    isExternal,
+  } = project;
   const cardRef = useRef(null);
-  const isInView = useIntersecting(cardRef, overlapTargetRef);
-  const isMobile = useIsMobile();
-
-  useHoverHighlight(cardRef);
-  useHoverTilt(cardRef);
-
-  useEffect(() => {
-    if (isInView) {
-      onOverlapStart && onOverlapStart(title);
-    } else {
-      onOverlapEnd && onOverlapEnd(title);
-    }
-  }, [isInView]);
-
-  useEffect(() => {
-    if (!cardsHovered) return;
-
-    // if any card is hovered, dim all other cards
-    if (cardsHovered.length > 0) {
-      setCardState(
-        cardsHovered.includes(title)
-          ? ECardState.HIGHLIGHTED
-          : ECardState.DIMMED,
-      );
-    } else {
-      setCardState(ECardState.DEFAULT);
-    }
-  }, [cardsHovered]);
-
-  const handelMouseEnter = () => {
-    if (isMobile) return;
-    setCardState(ECardState.HIGHLIGHTED);
-    onOverlapStart && onOverlapStart(title);
-  };
-
-  const handelMouseLeave = () => {
-    if (isMobile) return;
-    setCardState(ECardState.DEFAULT);
-    onOverlapEnd && onOverlapEnd(title);
-  };
 
   return (
     <div
       ref={cardRef}
       className={classNames(
-        'group/card relative isolate flex h-full snap-center flex-col overflow-hidden rounded-md border border-black/50 bg-white transition',
-        {
-          '!opacity-100 shadow-lg': cardState === ECardState.HIGHLIGHTED,
-          'opacity-80 grayscale': cardState === ECardState.DIMMED,
-        },
+        'group/card relative isolate flex h-full snap-center flex-col overflow-hidden border-2 border-black transition',
       )}
-      onMouseEnter={handelMouseEnter}
-      onMouseLeave={handelMouseLeave}
     >
-      <Link
-        href={href}
-        className="absolute inset-0 z-10 flex h-full w-full items-center justify-center opacity-0"
-        target={isExternal ? '_blank' : undefined}
-        rel={isExternal ? 'noopener noreferrer' : undefined}
-      >
-        <span className="sr-only">visit</span>
-      </Link>
-      <div className="flex w-full items-center justify-center overflow-hidden rounded-t-md bg-gray-200">
+      {!learnMoreHref && !playHref ? (
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-white/10 font-bold backdrop-blur">
+          Coming soon!
+        </div>
+      ) : null}
+      <div className="flex w-full items-center justify-center overflow-hidden">
         <NextImage
-          className={classNames(
-            'aspect-video object-cover transition duration-300',
-            {
-              'scale-105': cardState === ECardState.HIGHLIGHTED,
-            },
-          )}
+          className={classNames('object-cover transition duration-300')}
           src={coverImage}
           alt={title}
-          sizes="50vw"
+          sizes="(min-width: 1024px) 400px, (min-width: 768px) 300px, 200px"
           placeholder="blur"
         />
       </div>
-      <div className="flex-1 border-t border-black/50 p-4">
-        <div className="flex items-center justify-between">
-          <h3 className="text-xl font-bold">{title}</h3>
-        </div>
-        <p className="mb-2 text-sm text-gray-600">{description}</p>
-        <div className="flex gap-1">
+      <div className="flex-1 border-t-2 border-black p-4">
+        <h3 className="mb-2 text-3xl font-bold">{title}</h3>
+        <p className="mb-2 text-sm">{description}</p>
+        <div className="mb-4 flex gap-1">
           {tags?.map((tag) => <Tag key={tag}>{tag}</Tag>)}
         </div>
-        {imageLightness !== null && (
-          <div
+        <div className="flex items-center gap-2">
+          <Link
+            href={playHref || '#'}
+            target={isExternal ? '_blank' : undefined}
+            rel={isExternal ? 'noopener noreferrer' : undefined}
             className={classNames(
-              'absolute right-4 top-4 flex translate-y-1 items-center gap-2 rounded-full border bg-white/10 px-4 py-1 text-xs opacity-0 backdrop-blur-lg transition',
-              imageLightness < 0.5
-                ? 'border-black/50 text-black'
-                : 'border-white/50 text-white',
-              {
-                'translate-y-0 opacity-100':
-                  cardState === ECardState.HIGHLIGHTED,
-              },
+              'border-2 border-black bg-black px-6 py-1 text-white',
             )}
           >
-            View Project
-            {isExternal && <HiExternalLink />}
-          </div>
-        )}
+            Play
+          </Link>
+          <Link
+            href={learnMoreHref || '#'}
+            target={isExternal ? '_blank' : undefined}
+            rel={isExternal ? 'noopener noreferrer' : undefined}
+            className={classNames(
+              'border-2 border-transparent bg-black/10 px-4 py-1',
+            )}
+          >
+            Learn more
+          </Link>
+        </div>
       </div>
     </div>
   );

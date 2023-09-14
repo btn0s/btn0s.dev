@@ -12,7 +12,7 @@ export const PageTitle: HeaderComponent = ({ className, children }) => (
   <h1
     className={classNames(
       className,
-      'text-3xl font-bold !leading-[1.2] [text-wrap:balance] sm:text-6xl',
+      'text-2xl font-bold !leading-[1.2] [text-wrap:balance] sm:text-6xl',
     )}
   >
     {children}
