@@ -79,15 +79,28 @@ const ProjectCard = ({ project }: { project: IProject }) => {
     <div
       ref={cardRef}
       className={classNames(
-        'group/card relative isolate flex h-full snap-center flex-col overflow-hidden border-2 border-black transition',
+        'group/card relative isolate flex h-full snap-center flex-col overflow-hidden border-2 border-black',
       )}
     >
-      {!learnMoreHref && !playHref ? (
-        <div className="absolute inset-0 z-10 flex items-center justify-center bg-white/10 font-bold backdrop-blur">
-          Coming soon!
-        </div>
-      ) : null}
-      <div className="flex w-full items-center justify-center overflow-hidden">
+      <div
+        className={classNames(
+          'absolute inset-0 z-10 flex items-center justify-center bg-white/80 font-bold',
+          {
+            'pointer-events-none opacity-0': learnMoreHref || playHref,
+          },
+        )}
+      >
+        Coming soon!
+      </div>
+
+      <div
+        className={classNames(
+          'flex w-full items-center justify-center overflow-hidden',
+          {
+            'blur-sm': !learnMoreHref && !playHref,
+          },
+        )}
+      >
         <NextImage
           className={classNames('object-cover transition duration-300')}
           src={coverImage}
@@ -96,7 +109,11 @@ const ProjectCard = ({ project }: { project: IProject }) => {
           placeholder="blur"
         />
       </div>
-      <div className="flex-1 border-t-2 border-black p-4">
+      <div
+        className={classNames('flex-1 border-t-2 border-black p-4', {
+          'blur-sm': !learnMoreHref && !playHref,
+        })}
+      >
         <h3 className="mb-2 text-3xl font-bold">{title}</h3>
         <p className="mb-2 text-sm">{description}</p>
         <div className="mb-4 flex gap-1">
