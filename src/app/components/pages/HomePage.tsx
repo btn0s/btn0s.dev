@@ -38,7 +38,7 @@ const HomePage = () => {
               </div>
 
               <div>
-                I co-founded{' '}
+                I&apos;m a partner{' '}
                 <HeroLink
                   href="https://thinkhuman.co"
                   backgroundColor="#366e4f"

@@ -20,7 +20,7 @@ const NavLinkButton = ({ icon, label, href, isExternal }: INavLink) => {
       rel={isExternal ? 'noopener noreferrer' : undefined}
     >
       <li className="group relative inline-flex h-[42px] w-[48px] items-center justify-center gap-1 font-bold active:shadow-inner sm:h-full sm:w-auto sm:px-6">
-        <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100"></div>
+        <div className="absolute inset-0 bg-black/10 opacity-0 sm:group-hover:opacity-100"></div>
         <div className="flex items-center justify-center gap-2 group-active:scale-[0.95]">
           {icon}
           <span className="sr-only sm:not-sr-only">{label}</span>
