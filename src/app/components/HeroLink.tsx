@@ -24,7 +24,7 @@ const HeroLink: FC<
       <HiExternalLink className="opacity-50" />
     </span>
     <div
-      className="absolute inset-0 z-[-1] origin-right scale-x-0 transition duration-300 ease-soft-spring group-hover:origin-left sm:group-hover:scale-x-100"
+      className="absolute inset-0 z-[-1] origin-right scale-x-0 transition delay-100 duration-500 ease-soft-spring group-hover:origin-left sm:group-hover:scale-x-100"
       style={{
         backgroundColor: backgroundColor ? backgroundColor : '#1f2937',
       }}
