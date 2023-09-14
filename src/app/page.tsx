@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/og.png',
+        url: '/home-og.png',
         width: 1200,
         height: 630,
         alt: 'btn0s.dev',

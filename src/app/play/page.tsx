@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description: "i make games sometimes, here's a collection of them",
     images: [
       {
-        url: '/games-og.png',
+        url: '/play-og.png',
         width: 1200,
         height: 630,
         alt: 'play · btn0s.dev',
