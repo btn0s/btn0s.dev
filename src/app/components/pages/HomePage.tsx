@@ -2,6 +2,8 @@
 
 import { useRef } from 'react';
 
+import { LuMail, LuPhoneCall } from 'react-icons/lu';
+
 import HeroLink from '@/app/components/HeroLink';
 import PageWrapper from '@/app/components/PageWrapper';
 import HomeSpaceView from '@/app/components/three/HomeStars';
@@ -50,6 +52,25 @@ const HomePage = () => {
                 fun
               </div>
             </PageTitle>
+          </div>
+          <div className="flex flex-1 flex-col gap-2 p-6">
+            <p className="text-lg font-normal [text-wrap:balance] sm:text-xl">
+              I&apos;m a web developer and product designer with a passion for
+              building interactive, human-centered experiences that solve
+              focused problems.
+            </p>
+            <div className="mt-auto flex flex-col gap-2">
+              <h3 className="flex items-center gap-2 text-3xl">
+                <LuMail />
+                <HeroLink href="mailto:brendan@thinkhuman.co">
+                  brendan@thinkhuman.co
+                </HeroLink>
+              </h3>
+              <h3 className="flex items-center gap-2 text-3xl">
+                <LuPhoneCall />
+                <HeroLink href="tel:+19845281225">+1 984 528 1225</HeroLink>
+              </h3>
+            </div>
           </div>
         </div>
       </div>
