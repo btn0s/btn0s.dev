@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
 import classNames from 'classnames';
 
@@ -9,17 +9,6 @@ import { FEATURED_PROJECTS } from '@/content/projects';
 
 const ProjectGrid = () => {
   const centerViewportRef = useRef(null);
-  const [cardsHovered, setCardsHovered] = useState<string[]>([]);
-
-  const handleOverlapStart = (cardTitle: string) => {
-    setCardsHovered((prevHovered) => [...prevHovered, cardTitle]);
-  };
-
-  const handleOverlapEnd = (cardTitle: string) => {
-    setCardsHovered((prevHovered) =>
-      prevHovered.filter((title) => title !== cardTitle),
-    );
-  };
 
   return (
     <>
@@ -29,14 +18,7 @@ const ProjectGrid = () => {
         )}
       >
         {FEATURED_PROJECTS.map((project) => (
-          <ProjectCard
-            key={project.title}
-            project={project}
-            overlapTargetRef={centerViewportRef}
-            cardsHovered={cardsHovered}
-            onOverlapStart={handleOverlapStart}
-            onOverlapEnd={handleOverlapEnd}
-          />
+          <ProjectCard key={project.title} project={project} />
         ))}
       </div>
       <div
