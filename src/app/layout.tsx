@@ -31,14 +31,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body
-        className={`${GeistSans.variable} ${GeistMono.variable}`}
-        style={{
-          backgroundImage: `url(${bgGridImg.src})`,
-          backgroundRepeat: "repeat",
-          backgroundSize: "auto",
-        }}
-      >
+      <body className={`${GeistSans.variable} ${GeistMono.variable}`}>
         {children}
       </body>
     </html>
