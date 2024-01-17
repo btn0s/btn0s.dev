@@ -8,6 +8,7 @@ const CardImage = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <img
     ref={ref}
+    alt={props.alt}
     className={cn("h-auto w-full rounded-t-xl", className)}
     {...props}
   />
