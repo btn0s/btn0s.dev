@@ -9,6 +9,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { CURRENT_LINKS } from "@/content/current-links";
 import { CURRENT_LINKS_METADATA } from "@/content/current-links-metadata";
 
 export const ExternalLinkWithPreview: FC<
@@ -16,7 +17,7 @@ export const ExternalLinkWithPreview: FC<
     href: string;
   }>
 > = ({ children, href }) => {
-  const urlMetadata = CURRENT_LINKS_METADATA[href];
+  const urlMetadata = CURRENT_LINKS.find((link) => link.url === href);
 
   if (!urlMetadata) {
     return (
@@ -45,7 +46,7 @@ export const ExternalLinkWithPreview: FC<
       </HoverCardTrigger>
       <HoverCardContent>
         <motion.img
-          src={urlMetadata.image}
+          src={urlMetadata.image.src}
           alt={urlMetadata.title}
           initial={{ opacity: 0, top: -12 }}
           animate={{ opacity: 1, top: 0 }}
