@@ -11,6 +11,21 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "designer, programmer, human // btn0s.dev",
   description: "I build experiences for humans.",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://btn0s.dev/",
+    title: "designer, programmer, human // btn0s.dev",
+    description: "I build experiences for humans.",
+    images: [
+      {
+        url: "https://btn0s.dev/images/og-share.png",
+        width: 1200,
+        height: 630,
+        alt: "btn0s.dev",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
