@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description: "I build experiences for humans.",
     images: [
       {
-        url: "https://btn0s.dev/images/og-share.png",
+        url: "https://btn0s.dev/og-share.png",
         width: 1200,
         height: 630,
         alt: "btn0s.dev",
