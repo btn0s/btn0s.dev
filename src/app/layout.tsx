@@ -10,13 +10,13 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "brendan norris | btn0s.dev",
-  description: "I build experiences for humans.",
+  description: "part designer, part programmer, all human.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://btn0s.dev/",
     title: "brendan norris",
-    description: "I build experiences for humans.",
+    description: "part designer, part programmer, all human.",
     images: [
       {
         url: "https://btn0s.dev/og-share.png",
