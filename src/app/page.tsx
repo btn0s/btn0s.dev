@@ -97,7 +97,7 @@ export default function Home() {
             {CURRENT_LINKS.map(({ role, url }) => (
               <div
                 key={url}
-                className="flex items-center justify-between gap-24 text-muted-foreground hover:text-white"
+                className="flex items-center justify-between gap-2 text-muted-foreground hover:text-white"
               >
                 <span>{role} @</span>
                 <ExternalLinkWithPreview href={url}>
