@@ -19,6 +19,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@types/mdx": "^2.0.10",
     "@types/node-fetch": "^2.6.10",
+    "@vercel/analytics": "^1.1.1",
     "cheerio": "^1.0.0-rc.12",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
