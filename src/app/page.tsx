@@ -1,113 +1,70 @@
-"use client";
+import Link from "next/link";
 
-import { FC, PropsWithChildren } from "react";
-
-import { motion } from "framer-motion";
-
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card";
+import { getExperiments } from "@/app/api/experiments";
+import { getPosts } from "@/app/api/posts";
+import { ExternalLinkWithPreview } from "@/components/ExternalLinkWithPreview";
 import { CURRENT_LINKS } from "@/content/current-links";
-import { CURRENT_LINKS_METADATA } from "@/content/current-links-metadata";
 
-const ExternalLinkWithPreview: FC<
-  PropsWithChildren<{
-    href: string;
-  }>
-> = ({ children, href }) => {
-  const urlMetadata = CURRENT_LINKS_METADATA[href];
-
-  if (!urlMetadata) {
-    return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="underline"
-      >
-        {children}
-      </a>
-    );
-  }
+export default async function Home() {
+  const posts = await getPosts();
+  const experiments = await getExperiments();
 
   return (
-    <HoverCard openDelay={0.2} closeDelay={0.2}>
-      <HoverCardTrigger asChild>
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline"
-        >
-          {children}
-        </a>
-      </HoverCardTrigger>
-      <HoverCardContent>
-        <motion.img
-          src={urlMetadata.image}
-          alt={urlMetadata.title}
-          initial={{ opacity: 0, top: -12 }}
-          animate={{ opacity: 1, top: 0 }}
-          transition={{ duration: 0.2 }}
-          className="relative mb-4 w-full rounded-md"
-        />
-        <motion.div className="flex flex-col">
-          <motion.span
-            initial={{ opacity: 0, top: -12 }}
-            animate={{ opacity: 1, top: 0 }}
-            transition={{ duration: 0.1, delay: 0.1 }}
-            className="relative text-white"
-          >
-            {urlMetadata.title}
-          </motion.span>
-          <motion.span
-            initial={{ opacity: 0, top: -12 }}
-            animate={{ opacity: 1, top: 0 }}
-            transition={{ duration: 0.1, delay: 0.15 }}
-            className="relative text-sm text-muted-foreground"
-          >
-            {urlMetadata.description}
-          </motion.span>
-        </motion.div>
-      </HoverCardContent>
-    </HoverCard>
-  );
-};
-
-export default function Home() {
-  return (
-    <main className="p-6">
-      <div className="flex max-w-lg flex-col gap-12">
-        <div className="flex gap-2">
-          <span>✦ bt norris</span>
-          {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-          <span className="text-muted-foreground">
-            // designer, programmer, human
-          </span>
+    <>
+      <p>
+        I&apos;m part designer, part programmer, and fully obsessed with making
+        things that are beautiful, functional, and uniquely human.
+      </p>
+      <div className="flex flex-col gap-5">
+        <span>focus</span>
+        <div className="flex flex-col gap-1">
+          {CURRENT_LINKS.map(({ role, url }) => (
+            <div
+              key={url}
+              className="flex items-center justify-between gap-2 text-muted-foreground hover:text-white"
+            >
+              <span>{role} @</span>
+              <ExternalLinkWithPreview href={url}>
+                {url.split("//")[1].split("/")[0]}
+              </ExternalLinkWithPreview>
+            </div>
+          ))}
         </div>
-        <p>
-          I&apos;m part designer, part programmer, and fully obsessed with
-          making things that are beautiful, functional, and uniquely human.
-        </p>
+      </div>
+      {posts.length > 0 && (
         <div className="flex flex-col gap-5">
-          <span>current</span>
-          <div className="flex flex-col gap-1">
-            {CURRENT_LINKS.map(({ role, url }) => (
-              <div
-                key={url}
-                className="flex items-center justify-between gap-2 text-muted-foreground hover:text-white"
+          <span>thoughts</span>
+          <div className="flex flex-col ">
+            {posts.map(({ slug, metadata }) => (
+              <Link
+                key={slug}
+                href={`/posts/${slug}`}
+                className="-m-3 flex flex-col rounded-md p-3 transition-colors duration-200 hover:bg-white/5"
               >
-                <span>{role} @</span>
-                <ExternalLinkWithPreview href={url}>
-                  {url.split("//")[1].split("/")[0]}
-                </ExternalLinkWithPreview>
-              </div>
+                <h3 className="text-white">{metadata.title}</h3>
+                <p className="text-muted-foreground">{metadata.description}</p>
+              </Link>
             ))}
           </div>
         </div>
-      </div>
-    </main>
+      )}
+      {experiments.length > 0 && (
+        <div className="flex flex-col gap-5">
+          <span>experiments</span>
+          <div className="flex flex-col text-muted-foreground">
+            {experiments.map(({ slug, metadata }) => (
+              <Link
+                key={slug}
+                href={`/experiments/${slug}`}
+                className="-m-3 flex flex-col rounded-md p-3 transition-colors duration-200 hover:bg-white/5"
+              >
+                <h3 className="text-white">{`${metadata.title}`}</h3>
+                <p className="text-muted-foreground">{`${metadata.description}`}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   );
 }

@@ -3,8 +3,7 @@ import { ReactNode } from "react";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
-
-import bgGridImg from "@/assets/images/graph-paper.svg";
+import Link from "next/link";
 
 import "./globals.css";
 
@@ -31,8 +30,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${GeistSans.variable} ${GeistMono.variable}`}>
-        {children}
+      <body className={`${GeistSans.variable} ${GeistMono.variable} p-6`}>
+        <Link href="/" className="mb-12 flex gap-2">
+          <span>✦ bt norris</span>
+          {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
+          <span className="text-muted-foreground">
+            // designer, programmer, human
+          </span>
+        </Link>
+        <main className="flex max-w-lg flex-col gap-12">{children}</main>
       </body>
     </html>
   );
