@@ -9,13 +9,13 @@ import bgGridImg from "@/assets/images/graph-paper.svg";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "brendan norris | btn0s.dev",
+  title: "✦ bt norris | btn0s.dev",
   description: "part designer, part programmer, all human.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://btn0s.dev/",
-    title: "brendan norris",
+    title: "✦ bt norris",
     description: "part designer, part programmer, all human.",
     images: [
       {

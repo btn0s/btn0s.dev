@@ -81,7 +81,7 @@ export default function Home() {
     <main className="p-6">
       <div className="flex max-w-lg flex-col gap-12">
         <div className="flex gap-2">
-          <span>✦ @btn0s</span>
+          <span>✦ bt norris</span>
           {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
           <span className="text-muted-foreground">
             // designer, programmer, human
