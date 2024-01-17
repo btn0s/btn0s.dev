@@ -89,7 +89,7 @@ export default function Home() {
         </div>
         <p>
           I&apos;m part designer, part programmer, and fully obsessed with
-          making things that are both beautiful and functional.
+          making things that are beautiful, functional, and uniquely human.
         </p>
         <div className="flex flex-col gap-5">
           <span>current</span>
