@@ -66,7 +66,7 @@ const ExternalLinkWithPreview: FC<
             initial={{ opacity: 0, top: -12 }}
             animate={{ opacity: 1, top: 0 }}
             transition={{ duration: 0.1, delay: 0.15 }}
-            className="text-muted-foreground relative text-sm"
+            className="relative text-sm text-muted-foreground"
           >
             {urlMetadata.description}
           </motion.span>
@@ -97,7 +97,7 @@ export default function Home() {
             {CURRENT_LINKS.map(({ role, url }) => (
               <div
                 key={url}
-                className="text-muted-foreground flex items-center justify-between gap-24 hover:text-white"
+                className="flex items-center justify-between gap-24 text-muted-foreground hover:text-white"
               >
                 <span>{role} @</span>
                 <ExternalLinkWithPreview href={url}>
