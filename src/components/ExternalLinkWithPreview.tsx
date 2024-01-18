@@ -15,8 +15,9 @@ import { CURRENT_LINKS_METADATA } from "@/content/current-links-metadata";
 export const ExternalLinkWithPreview: FC<
   PropsWithChildren<{
     href: string;
+    align?: "start" | "end" | "center";
   }>
-> = ({ children, href }) => {
+> = ({ children, href, align = "end" }) => {
   const urlMetadata = CURRENT_LINKS.find((link) => link.url === href);
 
   if (!urlMetadata) {
@@ -44,7 +45,7 @@ export const ExternalLinkWithPreview: FC<
           {children}
         </a>
       </HoverCardTrigger>
-      <HoverCardContent>
+      <HoverCardContent align={align}>
         <motion.img
           src={urlMetadata.image.src}
           alt={urlMetadata.title}

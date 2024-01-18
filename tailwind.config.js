@@ -2,10 +2,10 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   prefix: "",
   theme: {
@@ -71,7 +71,38 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            color: "hsl(var(--muted-foreground))",
+            h1: {
+              fontSize: "1.2rem",
+              fontWeight: "600",
+              lineHeight: "1.2em",
+              marginBottom: "0.5em",
+              color: "hsl(var(--foreground))",
+            },
+            h2: {
+              fontSize: "1.1rem",
+              fontWeight: "600",
+              lineHeight: "1.2em",
+              marginBottom: "0.5em",
+              color: "hsl(var(--foreground))",
+            },
+            h3: {
+              fontSize: "1rem",
+              fontWeight: "600",
+              lineHeight: "1.2em",
+              marginBottom: "0.5em",
+              color: "hsl(var(--foreground))",
+            },
+            p: {
+              marginTop: "0",
+            },
+          },
+        },
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-}
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+};

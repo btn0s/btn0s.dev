@@ -51,12 +51,12 @@ export default async function Home() {
       {experiments.length > 0 && (
         <div className="flex flex-col gap-5">
           <span>experiments</span>
-          <div className="flex flex-col text-muted-foreground">
+          <div className="flex flex-col gap-5 text-muted-foreground">
             {experiments.map(({ slug, metadata }) => (
               <Link
                 key={slug}
                 href={`/experiments/${slug}`}
-                className="-m-3 flex flex-col rounded-md p-3 transition-colors duration-200 hover:bg-white/5"
+                className="-mx-3 -my-2 flex flex-col rounded-md px-3 py-2 transition-colors duration-200 hover:bg-white/5"
               >
                 <h3 className="text-white">{`${metadata.title}`}</h3>
                 <p className="text-muted-foreground">{`${metadata.description}`}</p>

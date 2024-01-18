@@ -1,0 +1,34 @@
+import { Experiment } from "../../../components/Experiment";
+import { ExperimentContainer } from "../../../components/ExperimentContainer";
+import { ExternalLinkWithPreview } from "../../../components/ExternalLinkWithPreview";
+import linkPreviewImg from "../../../assets/images/link-preview.gif";
+import Image from "next/image";
+
+export const metadata = {
+  title: "Link preview component",
+  description: "A simple link preview component I designed for this site",
+  published: true,
+};
+
+# Link preview component
+
+This is a simple link preview component I designed for this site. Uses [`@shadcn/ui`](https://ui.shadcn.com/) under the hood and Framer motion for animations.
+
+<p className={"text-sm lg:hidden"}>
+  _Note: If you're viewing this on a mobile device, I've included a gif of the
+  component in action below since there's no way to hover. Be sure to check it
+  out on a desktop device!_
+</p>
+
+<img src={linkPreviewImg.src} className={"lg:hidden"} />
+
+<Experiment>
+  <ExperimentContainer>
+    <div className="text-white">
+      <ExternalLinkWithPreview href="https://thinkhuman.co/" align={"center"}>
+        https://thinkhuman.co
+      </ExternalLinkWithPreview>
+    </div>
+    <div className={"opacity-50"}>hover on the link to see the preview</div>
+  </ExperimentContainer>
+</Experiment>

@@ -1,5 +1,7 @@
 import { promises as fs } from "fs";
 
+import { FOLDER_EXCLUDES } from "@/constants/api";
+
 const POSTS_DIRECTORY = "./src/app/posts";
 
 export interface PostMetadata {
@@ -17,7 +19,7 @@ interface Post {
 
 async function getPostSlugs(): Promise<string[]> {
   const dirs: string[] = await fs.readdir(POSTS_DIRECTORY);
-  return dirs.filter((dir) => dir !== "page.tsx");
+  return dirs.filter((dir) => !FOLDER_EXCLUDES.includes(dir));
 }
 
 export const getPosts: () => Promise<Post[]> = async () => {

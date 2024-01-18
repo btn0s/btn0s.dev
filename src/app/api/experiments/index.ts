@@ -1,5 +1,7 @@
 import { promises as fs } from "fs";
 
+import { FOLDER_EXCLUDES } from "@/constants/api";
+
 const EXPERIMENTS_DIRECTORY = "./src/app/experiments";
 
 export interface ExperimentMetadata {
@@ -17,7 +19,7 @@ export interface Experiment {
 
 async function getExperimentSlugs(): Promise<string[]> {
   const dirs: string[] = await fs.readdir(EXPERIMENTS_DIRECTORY);
-  return dirs.filter((dir) => dir !== "page.tsx");
+  return dirs.filter((dir) => !FOLDER_EXCLUDES.includes(dir));
 }
 
 export const getExperiments: () => Promise<Experiment[]> = async () => {
