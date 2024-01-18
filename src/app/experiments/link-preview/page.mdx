@@ -2,6 +2,7 @@ import { Experiment } from "../../../components/Experiment";
 import { ExperimentContainer } from "../../../components/ExperimentContainer";
 import { ExternalLinkWithPreview } from "../../../components/ExternalLinkWithPreview";
 import linkPreviewImg from "../../../assets/images/link-preview.gif";
+import arcBrowserImg from "../../../assets/images/arc-broswer.gif";
 
 export const metadata = {
   title: "Link preview component",
@@ -33,3 +34,12 @@ A simple link preview component I designed for this site, it uses [`@shadcn/ui`]
     </ExperimentContainer>
   </Experiment>
 </div>
+
+## Inspiration
+
+This component was mainly inspired by the link preview seen when hovering a Google search result in the [Arc Browser](https://arc.net/).
+
+<img
+  src={arcBrowserImg.src}
+  className={"my-8 rounded-lg border border-white/20"}
+/>
