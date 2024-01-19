@@ -32,5 +32,8 @@ export const getExperiments: () => Promise<Experiment[]> = async () => {
       return { ...content, slug: filePath };
     }),
   );
+
+  console.log(experiments);
+
   return experiments.filter((experiment) => experiment.meta.published);
 };
