@@ -11,7 +11,7 @@ export async function generateMetadata({
       title: `${meta.title} | an experiment by @btn0s`,
       description: meta.description,
       openGraph: {
-        title: meta.title,
+        title: `${meta.title} | an experiment by @btn0s`,
         description: meta.description,
         images: [
           {
