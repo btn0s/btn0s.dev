@@ -6,6 +6,8 @@ import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import Footer from "@/components/Footer";
+
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -31,8 +33,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${GeistSans.variable} ${GeistMono.variable} p-6`}>
-        <Link href="/" className="mb-12 flex gap-2">
+      <body
+        className={`${GeistSans.variable} ${GeistMono.variable} flex min-h-screen flex-col gap-12 p-6`}
+      >
+        <Link href="/" className="flex gap-2">
           <span>✦ bt norris</span>
           {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
           <span className="text-muted-foreground">
@@ -40,6 +44,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </span>
         </Link>
         <main className="flex max-w-lg flex-col gap-12">{children}</main>
+        <Footer />
         <Analytics />
       </body>
     </html>

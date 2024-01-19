@@ -1,0 +1,45 @@
+import { Experiment } from "@/components/Experiment";
+import { ExperimentContainer } from "@/components/ExperimentContainer";
+import { ExternalLinkWithPreview } from "@/components/ExternalLinkWithPreview";
+import linkPreviewImg from "@/assets/images/link-preview.gif";
+import arcBrowserImg from "@/assets/images/arc-broswer.gif";
+
+export const metadata = {
+  title: "Link preview component",
+  description: "a simple link preview component I designed for this site",
+  published: true,
+};
+
+# Link preview component
+
+A simple link preview component I designed for this site.
+
+The idea here is to provide a simple way that visitors could access rich link previews in an elegant way, so they could see what certain links are about without having to leave the page.
+
+I use this component on the homepage of this site for my current projects.
+
+<small className={"lg:hidden"}>
+  _Note: If you're viewing this on a mobile device, I've included a gif of the
+  component in action below since there's no way to hover. Be sure to check it
+  out on a desktop device!_
+</small>
+
+<img src={linkPreviewImg.src} className={"mb-8 mt-12 lg:hidden"} />
+
+<div className={"hidden lg:block"}>
+  <Experiment>
+    <ExperimentContainer>
+      <div className="text-white">
+        <ExternalLinkWithPreview href="https://thinkhuman.co/" align={"center"}>
+          https://thinkhuman.co
+        </ExternalLinkWithPreview>
+      </div>
+      <div className={"opacity-50"}>hover on the link to see the preview</div>
+    </ExperimentContainer>
+  </Experiment>
+</div>
+
+### Tech stack
+
+This component was built using [React](https://reactjs.org/) and [TypeScript](https://www.typescriptlang.org/), it uses [`@shadcn/ui`](https://ui.shadcn.com/) under the hood
+and [Framer motion](https://www.framer.com/motion/) for animations.
