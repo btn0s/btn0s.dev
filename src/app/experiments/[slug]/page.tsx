@@ -4,20 +4,20 @@ export async function generateMetadata({
   params: { slug: string };
 }) {
   const MDXContent = await import(`../../../content/experiments/${slug}.mdx`);
-  const { metadata } = MDXContent;
+  const { metadata: meta } = MDXContent;
 
-  if (metadata) {
+  if (meta) {
     return {
-      title: `${metadata.title} | an experiment by @btn0s`,
-      description: metadata.description,
+      title: `${meta.title} | an experiment by @btn0s`,
+      description: meta.description,
       openGraph: {
-        title: metadata.title,
-        description: metadata.description,
+        title: meta.title,
+        description: meta.description,
         images: [
           {
             url: `/api/og?title=${encodeURIComponent(
-              metadata.title,
-            )}&description=${encodeURIComponent(metadata.description)}&category=experiments`,
+              meta.title,
+            )}&description=${encodeURIComponent(meta.description)}&category=experiments`,
           },
         ],
       },
