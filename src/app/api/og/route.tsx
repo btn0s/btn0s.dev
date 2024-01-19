@@ -73,7 +73,7 @@ export async function GET(request: Request) {
           {category && (
             <div tw="text-5xl opacity-50 leading-[0.75]">{`${category}/`}</div>
           )}
-          <div tw="text-8xl max-w-[65%]">{title}</div>
+          <div tw="text-8xl mr-12 text-pretty">{title}</div>
         </div>
       ),
       {
