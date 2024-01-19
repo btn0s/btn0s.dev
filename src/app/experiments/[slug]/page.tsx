@@ -8,10 +8,10 @@ export async function generateMetadata({
 
   if (meta) {
     return {
-      title: `${meta.title} | an experiment by @btn0s`,
+      title: `${meta.title} | ✦ @btn0s`,
       description: meta.description,
       openGraph: {
-        title: `${meta.title} | an experiment by @btn0s`,
+        title: `${meta.title} | ✦ @btn0s`,
         description: meta.description,
         images: [
           {
@@ -25,7 +25,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: "an experiment by @btn0s",
+    title: "an experiment by ✦ bt norris",
     description:
       "this is a small peek into my lab, where i experiment with code, design, and other things.",
     openGraph: {
