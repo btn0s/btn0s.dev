@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body
-        className={`${GeistSans.variable} ${GeistMono.variable} flex min-h-screen flex-col gap-12 p-6`}
+        className={`${GeistSans.variable} ${GeistMono.variable} flex min-h-dvh flex-col gap-12 p-6`}
       >
         <Link href="/" className="flex gap-2">
           <span>✦ bt norris</span>

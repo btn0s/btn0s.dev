@@ -42,7 +42,9 @@ export default async function Home() {
                 className="-m-3 flex flex-col rounded-md p-3 transition-colors duration-200 hover:bg-white/5"
               >
                 <h3 className="text-white">{metadata.title}</h3>
-                <p className="text-muted-foreground">{metadata.description}</p>
+                <p className="max-w-[95%] text-pretty text-muted-foreground">
+                  {metadata.description}
+                </p>
               </Link>
             ))}
           </div>
@@ -59,7 +61,7 @@ export default async function Home() {
                 className="-mx-3 -my-2 flex flex-col rounded-md px-3 py-2 transition-colors duration-200 hover:bg-white/5"
               >
                 <h3 className="text-white">{`${meta.title}`}</h3>
-                <p className="text-muted-foreground">{`${meta.description}`}</p>
+                <p className="max-w-[95%] text-pretty text-muted-foreground">{`${meta.description}`}</p>
               </Link>
             ))}
           </div>
