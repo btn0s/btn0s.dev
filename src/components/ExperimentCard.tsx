@@ -3,13 +3,10 @@ import { Card, CardHeader, CardImage } from "@/components/ui/card";
 
 export const ExperimentCard = ({ experiment }: { experiment: Experiment }) => (
   <Card>
-    <CardImage
-      src={experiment.metadata.image}
-      alt={experiment.metadata.title}
-    />
+    <CardImage src={experiment.meta.image} alt={experiment.meta.title} />
     <CardHeader>
-      <p>{experiment.metadata.title}</p>
-      <p>{experiment.metadata.description}</p>
+      <p>{experiment.meta.title}</p>
+      <p>{experiment.meta.description}</p>
     </CardHeader>
   </Card>
 );

@@ -4,7 +4,7 @@ import { FOLDER_EXCLUDES } from "@/constants/api";
 
 const EXPERIMENTS_CONTENT_DIRECTORY = "./src/content/experiments";
 
-export interface ExperimentMetadata {
+export interface ExperimentMeta {
   title: string;
   description: string;
   date: string;
@@ -14,7 +14,7 @@ export interface ExperimentMetadata {
 
 export interface Experiment {
   slug: string;
-  metadata: ExperimentMetadata;
+  meta: ExperimentMeta;
 }
 
 async function getExperimentSlugs(): Promise<string[]> {
