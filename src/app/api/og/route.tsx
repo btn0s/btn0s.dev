@@ -37,15 +37,14 @@ export async function GET(request: Request) {
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
-            justifyContent: "flex-end",
+            justifyContent: "space-between",
             backgroundColor: "black",
             gap: "1rem",
             color: "white",
           }}
-          tw="p-8"
+          tw="p-12"
         >
           <div
-            tw="absolute top-8 inset-x-8"
             style={{
               display: "flex",
               alignItems: "flex-start",
@@ -70,10 +69,18 @@ export async function GET(request: Request) {
               />
             </svg>
           </div>
-          {category && (
-            <div tw="text-5xl opacity-50 leading-[0.75]">{`${category}/`}</div>
-          )}
-          <div tw="text-8xl mr-12 text-pretty">{title}</div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "24px",
+            }}
+          >
+            {category && (
+              <div tw="text-5xl opacity-50 leading-[0.75]">{`${category}/`}</div>
+            )}
+            <div tw="text-8xl mr-12 text-pretty">{title}</div>
+          </div>
         </div>
       ),
       {
