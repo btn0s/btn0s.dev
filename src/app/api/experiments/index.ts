@@ -33,7 +33,5 @@ export const getExperiments: () => Promise<Experiment[]> = async () => {
     }),
   );
 
-  console.log(experiments);
-
   return experiments.filter((experiment) => experiment.meta.published);
 };
