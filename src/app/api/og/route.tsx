@@ -73,7 +73,7 @@ export async function GET(request: Request) {
               <div tw="text-4xl opacity-50 leading-[0.75]">{`/${category}`}</div>
             )}
           </div>
-          <div tw="text-8xl max-w-[50%]">{title}</div>
+          <div tw="text-8xl max-w-[65%]">{title}</div>
         </div>
       ),
       {
