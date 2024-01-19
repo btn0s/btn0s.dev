@@ -4,7 +4,7 @@ export async function generateMetadata({
   params: { slug: string };
 }) {
   const MDXContent = await import(`../../../content/experiments/${slug}.mdx`);
-  const { metadata: meta } = MDXContent;
+  const { meta } = MDXContent;
 
   if (meta) {
     return {
