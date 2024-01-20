@@ -31,10 +31,14 @@ const Page = async () => {
         This is essentially my blog. I use this space to write about my
         experiences, thoughts, and to document my learnings.
       </p>
-      <p>
-        {posts.length} {posts.length === 1 ? "post" : "posts"}
-      </p>
       {posts.map((post) => post.meta.title)}
+      {posts.length === 0 && (
+        <div className="flex gap-2 text-sm">
+          <span className="text-white">no thoughts, head empty</span>
+          {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
+          <span className="text-muted-foreground">// check back later</span>
+        </div>
+      )}
     </div>
   );
 };
