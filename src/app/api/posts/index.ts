@@ -21,7 +21,7 @@ export const getPosts: () => Promise<Post[]> = async () => {
 
   const posts: Post[] = await Promise.all(
     postSlugs.map(async (filePath) => {
-      const content = await import(`@/app/posts/${filePath}/page.mdx`);
+      const content = await import(`@/app/posts/${filePath}.mdx`);
       return { ...content, slug: filePath };
     }),
   );
