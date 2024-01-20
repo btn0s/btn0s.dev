@@ -8,10 +8,10 @@ export async function generateMetadata({
 
   if (meta) {
     return {
-      title: `${meta.title} | ✦ @btn0s`,
+      title: `✦ ${meta.title} | @btn0s`,
       description: meta.description,
       openGraph: {
-        title: `${meta.title} | ✦ @btn0s`,
+        title: `✦ ${meta.title} | @btn0s`,
         description: meta.description,
         images: [
           {

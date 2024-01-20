@@ -4,11 +4,11 @@ import Link from "next/link";
 import { getExperiments } from "@/app/api/experiments";
 
 export const metadata: Metadata = {
-  title: "experiments | ✦ @btn0s",
+  title: "✦ experiments | @btn0s",
   description:
     "This is my lab. You can find all of my experiments here. I use this space to try out new ideas and concepts.",
   openGraph: {
-    title: "experiments | ✦ @btn0s",
+    title: "✦ experiments | @btn0s",
     description:
       "This is my lab. You can find all of my experiments here. I use this space to try out new ideas and concepts.",
     type: "website",

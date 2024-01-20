@@ -3,11 +3,11 @@ import { Metadata } from "next";
 import { getPosts } from "@/app/api/posts";
 
 export const metadata: Metadata = {
-  title: "thoughts | ✦ @btn0s",
+  title: "✦ thoughts | @btn0s",
   description:
     "This is essentially my blog. I use this space to write about my experiences, thoughts, and to document my learnings.",
   openGraph: {
-    title: "thoughts | ✦ @btn0s",
+    title: "✦ thoughts | @btn0s",
     description:
       "This is essentially my blog. I use this space to write about my experiences, thoughts, and to document my learnings.",
     type: "website",
