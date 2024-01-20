@@ -26,6 +26,7 @@ export const metadata: Metadata = {
 
 const Page = async () => {
   const experiments = await getExperiments();
+
   return (
     <div className="not-prose flex flex-col gap-12">
       <p>
