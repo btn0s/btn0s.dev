@@ -11,12 +11,6 @@ export const metadata: Metadata = {
     description:
       "This is essentially my blog. I use this space to write about my experiences, thoughts, and to document my learnings.",
   },
-  twitter: {
-    title: "thoughts | ✦ @btn0s",
-    description:
-      "This is essentially my blog. I use this space to write about my experiences, thoughts, and to document my learnings.",
-    card: "summary",
-  },
 };
 
 const Page = async () => {
