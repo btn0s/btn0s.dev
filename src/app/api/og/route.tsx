@@ -16,17 +16,15 @@ export async function GET(request: Request) {
       ? searchParams.get("title")?.slice(0, 100)
       : "bt norris";
 
-    // ?description=<description>
-    const hasDescription = searchParams.has("description");
-    const description = hasDescription
-      ? searchParams.get("description")?.slice(0, 300)
-      : "design engineer";
-
     // ?category=<category>
     const hasCategory = searchParams.has("category");
     const category = hasCategory
       ? searchParams.get("category")?.slice(0, 300)
       : undefined;
+
+    const imageData = await fetch(
+      new URL("../../../../public/og-bg.png", import.meta.url),
+    ).then((res) => res.arrayBuffer());
 
     return new ImageResponse(
       (
@@ -39,11 +37,12 @@ export async function GET(request: Request) {
             alignItems: "flex-start",
             justifyContent: "space-between",
             backgroundColor: "black",
-            gap: "1rem",
             color: "white",
+            position: "relative",
           }}
-          tw="p-12"
         >
+          {/* @ts-ignore */}
+          <img src={imageData} tw="absolute inset-0" />
           <div
             style={{
               display: "flex",
@@ -51,6 +50,7 @@ export async function GET(request: Request) {
               justifyContent: "space-between",
               gap: "1rem",
             }}
+            tw="px-12 pt-12"
           >
             <svg
               viewBox="0 0 482 25"
@@ -75,6 +75,7 @@ export async function GET(request: Request) {
               flexDirection: "column",
               gap: "24px",
             }}
+            tw="px-12 pb-12"
           >
             {category && (
               <div tw="text-5xl opacity-50 leading-[0.75]">{`${category}/`}</div>
