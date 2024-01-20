@@ -11,6 +11,14 @@ export const metadata: Metadata = {
     title: "experiments | ✦ @btn0s",
     description:
       "This is my lab. You can find all of my experiments here. I use this space to try out new ideas and concepts.",
+    images: [
+      {
+        url: "https://btn0s.dev/og-share.png",
+        width: 1200,
+        height: 630,
+        alt: "btn0s.dev",
+      },
+    ],
   },
 };
 
