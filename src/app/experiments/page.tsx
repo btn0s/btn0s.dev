@@ -1,7 +1,13 @@
+import { Metadata } from "next";
 import Link from "next/link";
 
 import { getExperiments } from "@/app/api/experiments";
-import { ExperimentCard } from "@/components/ExperimentCard";
+
+export const metadata: Metadata = {
+  title: "experiments | ✦ @btn0s",
+  description:
+    "This is my lab. You can find all of my experiments here. I use this space to try out new ideas and concepts.",
+};
 
 const Page = async () => {
   const experiments = await getExperiments();
