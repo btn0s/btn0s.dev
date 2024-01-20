@@ -21,9 +21,9 @@ export const ProgressiveBlur = () => {
             alt="ppl"
           />
           <p>
-            They've shut down the main reactor. We'll be destroyed for sure.
-            This is madness! We're doomed! There'll be no escape for the
-            Princess this time.
+            They&apos;ve shut down the main reactor. We&apos;ll be destroyed for
+            sure. This is madness! We&apos;re doomed! There&apos;ll be no escape
+            for the Princess this time.
           </p>
         </div>
       </ScrollArea>
