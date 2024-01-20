@@ -7,6 +7,17 @@ export const metadata: Metadata = {
   title: "experiments | ✦ @btn0s",
   description:
     "This is my lab. You can find all of my experiments here. I use this space to try out new ideas and concepts.",
+  openGraph: {
+    title: "experiments | ✦ @btn0s",
+    description:
+      "This is my lab. You can find all of my experiments here. I use this space to try out new ideas and concepts.",
+  },
+  twitter: {
+    title: "experiments | ✦ @btn0s",
+    description:
+      "This is my lab. You can find all of my experiments here. I use this space to try out new ideas and concepts.",
+    card: "summary",
+  },
 };
 
 const Page = async () => {
