@@ -11,6 +11,8 @@ export const metadata: Metadata = {
     title: "experiments | ✦ @btn0s",
     description:
       "This is my lab. You can find all of my experiments here. I use this space to try out new ideas and concepts.",
+    type: "website",
+    url: "https://btn0s.dev/experiments",
     images: [
       {
         url: "https://btn0s.dev/og-share.png",

@@ -10,6 +10,8 @@ export const metadata: Metadata = {
     title: "thoughts | ✦ @btn0s",
     description:
       "This is essentially my blog. I use this space to write about my experiences, thoughts, and to document my learnings.",
+    type: "website",
+    url: "https://btn0s.dev/posts",
     images: [
       {
         url: "https://btn0s.dev/og-share.png",
