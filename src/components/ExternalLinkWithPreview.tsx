@@ -10,7 +10,6 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { CURRENT_LINKS } from "@/content/current-links";
-import { CURRENT_LINKS_METADATA } from "@/content/current-links-metadata";
 
 export const ExternalLinkWithPreview: FC<
   PropsWithChildren<{

@@ -11,7 +11,7 @@ const Page = async () => {
       <p>
         {posts.length} {posts.length === 1 ? "post" : "posts"}
       </p>
-      {posts.map((post) => post.metadata.title)}
+      {posts.map((post) => post.meta.title)}
     </div>
   );
 };

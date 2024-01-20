@@ -1,10 +1,9 @@
-import { promises as fs } from "fs";
-
+import { getSlugsByDir } from "@/app/api/shared";
 import { FOLDER_EXCLUDES } from "@/constants/api";
 
-const POSTS_DIRECTORY = "./src/app/posts";
+const POSTS_DIRECTORY = "./src/content/posts";
 
-export interface PostMetadata {
+export interface PostMeta {
   title: string;
   description: string;
   date: string;
@@ -13,17 +12,12 @@ export interface PostMetadata {
 }
 
 interface Post {
-  metadata: PostMetadata;
+  meta: PostMeta;
   slug: string;
 }
 
-async function getPostSlugs(): Promise<string[]> {
-  const dirs: string[] = await fs.readdir(POSTS_DIRECTORY);
-  return dirs.filter((dir) => !FOLDER_EXCLUDES.includes(dir));
-}
-
 export const getPosts: () => Promise<Post[]> = async () => {
-  const postSlugs = await getPostSlugs();
+  const postSlugs = await getSlugsByDir(POSTS_DIRECTORY, FOLDER_EXCLUDES);
 
   const posts: Post[] = await Promise.all(
     postSlugs.map(async (filePath) => {
@@ -32,5 +26,5 @@ export const getPosts: () => Promise<Post[]> = async () => {
     }),
   );
 
-  return posts.filter((post) => post.metadata.published);
+  return posts.filter((post) => post.meta.published);
 };
