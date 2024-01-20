@@ -5,8 +5,8 @@ const Page = async () => {
   return (
     <div className="flex flex-col gap-12">
       <p>
-        Here&apos;s a small peek into my brain. I write about design,
-        programming, and other things that interest me.
+        This is essentially my blog. I use this space to write about my
+        experiences, thoughts, and to document my learnings.
       </p>
       <p>
         {posts.length} {posts.length === 1 ? "post" : "posts"}
