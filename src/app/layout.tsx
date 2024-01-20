@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: "part designer, part programmer, all human.",
     images: [
       {
-        url: "https://btn0s.dev/og-share.png",
+        url: "https://btn0s.dev/og-share-new.png",
         width: 1200,
         height: 630,
         alt: "btn0s.dev",
