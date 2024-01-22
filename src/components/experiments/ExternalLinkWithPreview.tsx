@@ -44,14 +44,14 @@ export const ExternalLinkWithPreview: FC<
           {children}
         </a>
       </HoverCardTrigger>
-      <HoverCardContent align={align}>
+      <HoverCardContent align={align} className="shadow-xl">
         <motion.img
           src={urlMetadata.image.src}
           alt={urlMetadata.title}
           initial={{ opacity: 0, top: -12 }}
           animate={{ opacity: 1, top: 0 }}
           transition={{ duration: 0.2 }}
-          className="relative mb-4 w-full rounded-md"
+          className="relative mb-4 w-full rounded-md border border-white/5"
         />
         <motion.div className="flex flex-col">
           <motion.span
