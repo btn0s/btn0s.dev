@@ -13,19 +13,19 @@ export interface CurrentLink {
 
 export const CURRENT_LINKS: CurrentLink[] = [
   {
-    title: "thinkhuman",
-    description:
-      "We use a design-driven approach to build sustainable startups that are uniquely human.",
-    role: "partner",
-    url: "https://thinkhuman.co/",
-    image: thinkhumanShareCardImg,
-  },
-  {
     title: "Backbone",
     description:
       "Backbone is a mobile gaming controller with intuitive controls, clickable thumbsticks & zero latency that works with cloud and remote gaming.",
     role: "design engineer",
     url: "https://playbackbone.com/",
     image: backboneShareCardImg,
+  },
+  {
+    title: "thinkhuman",
+    description:
+      "We use a design-driven approach to build sustainable startups that are uniquely human.",
+    role: "partner",
+    url: "https://thinkhuman.co/",
+    image: thinkhumanShareCardImg,
   },
 ];
