@@ -11,13 +11,13 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "✦ bt norris | btn0s.dev",
+  title: "✦ btn0s",
   description: "part designer, part programmer, all human.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://btn0s.dev/",
-    title: "✦ bt norris",
+    title: "✦ btn0s",
     description: "part designer, part programmer, all human.",
     images: [
       {
@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         className={`${GeistSans.variable} ${GeistMono.variable} flex min-h-dvh flex-col gap-12 p-6`}
       >
         <Link href="/" className="flex gap-2">
-          <span>✦ bt norris</span>
+          <span>✦ btn0s</span>
           {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
           <span className="text-muted-foreground">
             // designer, programmer, human
