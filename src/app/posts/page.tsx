@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 const Page = async () => {
   const posts = await getPosts();
   return (
-    <div className="flex flex-col gap-12">
+    <div className="not-prose flex flex-col gap-12">
       <h1>I don&apos;t write a lot. When I do it ends up here.</h1>
       {posts.map((post) => post.meta.title)}
       {posts.length === 0 && (
