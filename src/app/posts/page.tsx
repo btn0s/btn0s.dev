@@ -4,12 +4,10 @@ import { getPosts } from "@/app/api/posts";
 
 export const metadata: Metadata = {
   title: "✦ thoughts | @btn0s",
-  description:
-    "This is essentially my blog. I use this space to write about my experiences, thoughts, and to document my learnings.",
+  description: "I don't write a lot. When I do it ends up here.",
   openGraph: {
     title: "✦ thoughts | @btn0s",
-    description:
-      "This is essentially my blog. I use this space to write about my experiences, thoughts, and to document my learnings.",
+    description: "I don't write a lot. When I do it ends up here.",
     type: "website",
     url: "https://btn0s.dev/posts",
     images: [

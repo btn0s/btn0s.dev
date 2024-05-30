@@ -6,11 +6,11 @@ import { getExperiments } from "@/app/api/experiments";
 export const metadata: Metadata = {
   title: "✦ experiments | @btn0s",
   description:
-    "This is my lab. You can find all of my experiments here. I use this space to try out new ideas and concepts.",
+    "Welcome to the lab. I'm always tinkering and usually leaving things here for posterity. Enjoy!",
   openGraph: {
     title: "✦ experiments | @btn0s",
     description:
-      "This is my lab. You can find all of my experiments here. I use this space to try out new ideas and concepts.",
+      "Welcome to the lab. I'm always tinkering and usually leaving things here for posterity. Enjoy!",
     type: "website",
     url: "https://btn0s.dev/experiments",
     images: [
