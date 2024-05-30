@@ -12,6 +12,9 @@ const Headline = () => {
         }}
         initial="initial"
         animate="muted"
+        transition={{
+          delay: 1,
+        }}
       >
         Empowering designers, engineers, and founders to build{" "}
       </motion.span>
