@@ -13,10 +13,10 @@ export default async function Home() {
     <>
       <h1 className="text-3xl">
         <span className="font-light opacity-75">
-          Empowering <u>designers</u> and <u>engineers</u> to build products
-          users{" "}
+          <span>Empowering</span> <u>designers</u>, <u>engineers</u>, and{" "}
+          <u>founders</u> to build products{" "}
         </span>
-        <span className="font-medium opacity-100">love</span>.
+        <span className="font-medium opacity-100">users love</span>.
       </h1>
       <div className="flex flex-col gap-5">
         <div className="flex items-center justify-between">
