@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { getExperiments } from "@/app/api/experiments";
 import { getPosts } from "@/app/api/posts";
+import Headline from "@/components/Headline";
 import { ExternalLinkWithPreview } from "@/components/experiments/ExternalLinkWithPreview";
 import { CURRENT_LINKS } from "@/content/current-links";
 
@@ -11,13 +12,7 @@ export default async function Home() {
 
   return (
     <>
-      <h1 className="text-3xl">
-        <span className="font-light opacity-75">
-          <span>Empowering</span> <u>designers</u>, <u>engineers</u>, and{" "}
-          <u>founders</u> to build products{" "}
-        </span>
-        <span className="font-medium opacity-100">users love</span>.
-      </h1>
+      <Headline />
       <div className="flex flex-col gap-5">
         <div className="flex items-center justify-between">
           <span className="flex items-center gap-1">
