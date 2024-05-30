@@ -25,10 +25,7 @@ const Page = async () => {
   const posts = await getPosts();
   return (
     <div className="flex flex-col gap-12">
-      <p>
-        This is essentially my blog. I use this space to write about my
-        experiences, thoughts, and to document my learnings.
-      </p>
+      <h1>I don&apos;t write a lot. When I do it ends up here.</h1>
       {posts.map((post) => post.meta.title)}
       {posts.length === 0 && (
         <div className="flex gap-2 text-sm">
