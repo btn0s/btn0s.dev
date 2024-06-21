@@ -32,16 +32,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body
-        className={`${GeistSans.variable} ${GeistMono.variable} flex min-h-dvh flex-col gap-12 p-6`}
-      >
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className="flex min-h-dvh flex-col gap-12 p-6">
         <Link href="/" className="flex gap-2">
           <span>✦ btn0s</span>
-          {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-          <span className="text-muted-foreground">
-            // designer, programmer, human
-          </span>
         </Link>
         <main className="flex max-w-lg flex-col gap-12">{children}</main>
         <Footer />

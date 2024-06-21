@@ -12,10 +12,8 @@ export default async function Home() {
   return (
     <>
       <h1 className="text-2xl sm:text-3xl">
-        <span className="font-light opacity-75">
-          Empowering designers, engineers, and founders to build{" "}
-        </span>
-        <span className="font-medium">products users love</span>.
+        <span className="font-light opacity-75">Designer, programmer, </span>
+        <span className="font-medium">human.</span>
       </h1>
       <div className="flex flex-col gap-5">
         <div className="flex items-center justify-between">
