@@ -11,6 +11,7 @@ import {
 import Link, { LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
 
+import FadeBlurLoader from "@/components/FadeBlurLoader";
 import Panel from "@/components/ui/panel";
 import { cn } from "@/lib/utils";
 
@@ -44,17 +45,19 @@ const Footer = () => {
             "linear-gradient(rgb(0,0,0) 50%, rgba(0,0,0,0.8) 70%, rgba(0,0,0,0) 100%)",
         }}
       ></div>
-      <Panel pill>
-        <NavLink href="/">
-          <HouseIcon className="size-4" />
-        </NavLink>
-        {/*<NavLink href="/thoughts">*/}
-        {/*  <NotebookPenIcon className="size-4" />*/}
-        {/*</NavLink>*/}
-        <NavLink href="/experiments">
-          <FlaskConicalIcon className="size-4" />
-        </NavLink>
-      </Panel>
+      <FadeBlurLoader>
+        <Panel pill>
+          <NavLink href="/">
+            <HouseIcon className="size-4" />
+          </NavLink>
+          {/*<NavLink href="/thoughts">*/}
+          {/*  <NotebookPenIcon className="size-4" />*/}
+          {/*</NavLink>*/}
+          <NavLink href="/experiments">
+            <FlaskConicalIcon className="size-4" />
+          </NavLink>
+        </Panel>
+      </FadeBlurLoader>
     </div>
   );
 };
