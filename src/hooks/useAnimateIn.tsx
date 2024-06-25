@@ -10,6 +10,11 @@ const useAnimateIn = () => {
   const hasUserVisited = sessionStorage.getItem("hasUserVisited") === "true";
 
   useEffect(() => {
+    console.log({
+      pathname,
+      hasUserVisited,
+    });
+
     const animateIn = () => {
       animate(
         scope.current,
@@ -18,13 +23,13 @@ const useAnimateIn = () => {
           filter: "blur(0px)",
         },
         {
-          delay: hasUserVisited ? 0 : 0.5,
-          duration: hasUserVisited ? 0.5 : 1,
+          duration: hasUserVisited ? 1 : 0.5,
         },
       );
     };
 
-    if (pathname! === "/" || hasUserVisited) {
+    if (pathname !== "/" || hasUserVisited) {
+      console.log("animateIn");
       animateIn();
     }
 
@@ -32,7 +37,7 @@ const useAnimateIn = () => {
     return () => {
       window.removeEventListener("home-content-loaded", animateIn);
     };
-  }, [pathname]);
+  }, [pathname, hasUserVisited]);
 
   return scope;
 };
