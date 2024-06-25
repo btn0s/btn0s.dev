@@ -21,7 +21,7 @@ interface HomeProps {
 
 const ListCard: FC<{
   slug: string;
-  section: "experiments" | "posts";
+  section: "experiments" | "notes";
   meta: Note["meta"];
 }> = ({ slug, section, meta }) => {
   return (
@@ -116,7 +116,12 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
               </div>
               <List>
                 {notes.map(({ slug, meta }) => (
-                  <ListCard section="posts" slug={slug} meta={meta} />
+                  <ListCard
+                    key={slug}
+                    section="notes"
+                    slug={slug}
+                    meta={meta}
+                  />
                 ))}
               </List>
             </div>
@@ -142,7 +147,12 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
               </div>
               <List>
                 {experiments.map(({ slug, meta }) => (
-                  <ListCard section="experiments" slug={slug} meta={meta} />
+                  <ListCard
+                    key={slug}
+                    section="experiments"
+                    slug={slug}
+                    meta={meta}
+                  />
                 ))}
               </List>
             </div>
