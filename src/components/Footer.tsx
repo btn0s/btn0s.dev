@@ -5,8 +5,10 @@ import { FC, PropsWithChildren } from "react";
 import {
   FlaskConicalIcon,
   HouseIcon,
+  JoystickIcon,
   MailPlusIcon,
   NotebookPenIcon,
+  SkullIcon,
 } from "lucide-react";
 import Link, { LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
@@ -36,6 +38,7 @@ const NavLink: FC<PropsWithChildren<LinkProps>> = ({ href, children }) => {
 };
 
 const Footer = () => {
+  const isDevelopment = process.env.NODE_ENV === "development";
   return (
     <div className="fixed inset-x-0 bottom-0 flex items-center justify-center gap-2 p-6">
       <div
@@ -45,18 +48,33 @@ const Footer = () => {
             "linear-gradient(rgb(0,0,0) 50%, rgba(0,0,0,0.8) 70%, rgba(0,0,0,0) 100%)",
         }}
       ></div>
-      <FadeBlurLoader>
+      <FadeBlurLoader
+        className="flex items-center gap-2"
+        transition={{ delay: 1.5 }}
+      >
         <Panel pill>
           <NavLink href="/">
             <HouseIcon className="size-4" />
           </NavLink>
-          {/*<NavLink href="/thoughts">*/}
-          {/*  <NotebookPenIcon className="size-4" />*/}
-          {/*</NavLink>*/}
           <NavLink href="/experiments">
             <FlaskConicalIcon className="size-4" />
           </NavLink>
+          {isDevelopment ? (
+            <>
+              <NavLink href="/posts">
+                <NotebookPenIcon className="size-4" />
+              </NavLink>
+              <NavLink href="/games">
+                <JoystickIcon className="size-4" />
+              </NavLink>
+            </>
+          ) : null}
         </Panel>
+        {isDevelopment ? (
+          <NavLink href="/lab">
+            <SkullIcon className="size-4" />
+          </NavLink>
+        ) : null}
       </FadeBlurLoader>
     </div>
   );
