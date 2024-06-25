@@ -3,7 +3,7 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }) {
-  const MDXContent = await import(`../../../content/experiments/${slug}.mdx`);
+  const MDXContent = await import(`../../../content/posts/${slug}.mdx`);
   const { meta } = MDXContent;
 
   if (meta) {
@@ -45,6 +45,6 @@ export default async function Page({
 }: {
   params: { slug: string };
 }) {
-  const MDXContent = await import(`../../../content/experiments/${slug}.mdx`);
+  const MDXContent = await import(`../../../content/posts/${slug}.mdx`);
   return <MDXContent.default />;
 }

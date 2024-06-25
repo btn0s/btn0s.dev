@@ -5,11 +5,11 @@ import {
   DetailedHTMLProps,
   FC,
   PropsWithChildren,
+  useEffect,
   useState,
 } from "react";
 
-import { useFrame } from "@react-three/fiber";
-import Link, { LinkProps } from "next/link";
+import Link from "next/link";
 import { LuGithub, LuTwitter } from "react-icons/lu";
 
 const HeaderLink: FC<
@@ -37,7 +37,9 @@ const Header = () => {
     setCurrentDate(new Date());
   };
 
-  requestAnimationFrame(updateCurrentDate);
+  useEffect(() => {
+    requestAnimationFrame(updateCurrentDate);
+  }, []);
 
   return (
     <div className="fixed inset-x-0 top-0 isolate z-10 flex items-center justify-between p-6">
