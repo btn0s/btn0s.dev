@@ -33,11 +33,11 @@ const HeaderLink: FC<
 const Header = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
 
-  const updateCurrentDate = () => {
-    setCurrentDate(new Date());
-  };
-
   useEffect(() => {
+    const updateCurrentDate = () => {
+      setCurrentDate(new Date());
+      requestAnimationFrame(updateCurrentDate);
+    };
     requestAnimationFrame(updateCurrentDate);
   }, []);
 
