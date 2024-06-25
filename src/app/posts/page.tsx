@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 import { getPosts } from "@/app/api/posts";
+import FadeBlurLoader from "@/components/FadeBlurLoader";
 
 export const metadata: Metadata = {
   title: "✦ thoughts | @btn0s",
@@ -24,7 +25,10 @@ export const metadata: Metadata = {
 const Page = async () => {
   const posts = await getPosts();
   return (
-    <div className="not-prose flex flex-col gap-12">
+    <FadeBlurLoader
+      className="not-prose flex flex-col gap-12"
+      transition={{ delay: 0.25 }}
+    >
       <h1 className="text-xl text-white">
         <span className="font-light opacity-50">
           I don&apos;t write a lot,{" "}
@@ -39,7 +43,7 @@ const Page = async () => {
           <span className="text-muted-foreground">// check back later</span>
         </div>
       )}
-    </div>
+    </FadeBlurLoader>
   );
 };
 

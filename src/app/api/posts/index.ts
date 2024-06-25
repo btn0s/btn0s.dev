@@ -11,7 +11,7 @@ export interface PostMeta {
   published: boolean;
 }
 
-interface Post {
+export interface Post {
   meta: PostMeta;
   slug: string;
 }
@@ -22,7 +22,7 @@ export const getPosts: () => Promise<Post[]> = async () => {
   const posts: Post[] = await Promise.all(
     postSlugs.map(async (filePath) => {
       const content = await import(`@/content/posts/${filePath}.mdx`);
-      return { ...content, slug: filePath };
+      return { meta: content.meta, slug: filePath };
     }),
   );
 

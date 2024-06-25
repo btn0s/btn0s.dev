@@ -25,7 +25,7 @@ export const getExperiments: () => Promise<Experiment[]> = async () => {
   const experiments = await Promise.all(
     experimentSlugs.map(async (filePath) => {
       const content = await import(`@/content/experiments/${filePath}.mdx`);
-      return { ...content, slug: filePath };
+      return { meta: content.meta, slug: filePath };
     }),
   );
 

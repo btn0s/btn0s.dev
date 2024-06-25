@@ -6,10 +6,12 @@ import { motion, MotionProps } from "framer-motion";
 
 interface FadeBlurLoaderProps extends MotionProps {
   className?: string;
+  disabled?: boolean;
 }
 
 const FadeBlurLoader: FC<PropsWithChildren<FadeBlurLoaderProps>> = ({
   className,
+  disabled,
   children,
   ...otherProps
 }) => {
@@ -19,10 +21,13 @@ const FadeBlurLoader: FC<PropsWithChildren<FadeBlurLoaderProps>> = ({
       hidden: { opacity: 0, filter: "blur(4px)" },
       visible: { opacity: 1, filter: "blur(0px)" },
     },
-    initial: "hidden",
-    animate: "visible",
     ...otherProps,
   };
+
+  if (!disabled) {
+    props.initial = "hidden";
+    props.animate = "visible";
+  }
 
   return <motion.div {...props}>{children}</motion.div>;
 };

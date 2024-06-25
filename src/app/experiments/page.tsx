@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 import { getExperiments } from "@/app/api/experiments";
+import FadeBlurLoader from "@/components/FadeBlurLoader";
 
 export const metadata: Metadata = {
   title: "✦ experiments | @btn0s",
@@ -28,7 +29,10 @@ const Page = async () => {
   const experiments = await getExperiments();
 
   return (
-    <div className="not-prose flex flex-col gap-12">
+    <FadeBlurLoader
+      className="not-prose flex flex-col gap-12"
+      transition={{ delay: 0.25 }}
+    >
       <h1 className="text-xl text-white">
         <span className="font-light opacity-50">
           These are my experiments.{" "}
@@ -47,7 +51,7 @@ const Page = async () => {
           </Link>
         ))}
       </div>
-    </div>
+    </FadeBlurLoader>
   );
 };
 

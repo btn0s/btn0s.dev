@@ -6,7 +6,6 @@ import {
   FlaskConicalIcon,
   HouseIcon,
   JoystickIcon,
-  MailPlusIcon,
   NotebookPenIcon,
   SkullIcon,
 } from "lucide-react";
@@ -20,14 +19,17 @@ import { cn } from "@/lib/utils";
 const NavLink: FC<PropsWithChildren<LinkProps>> = ({ href, children }) => {
   const pathname = usePathname();
 
+  const isActive =
+    href === "/" ? pathname === "/" : pathname.includes(href as string);
+
   return (
     <Link href={href}>
       <div
         className={cn(
           "relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/10 transition-colors duration-200 [webkit-tap-highlight-color:transparent] before:backdrop-blur-2xl hover:scale-105 hover:bg-white/20 active:scale-95",
           {
-            "bg-white text-black hover:bg-white/90": pathname === href,
-            "bg-white/5 text-white hover:bg-white/20": pathname !== href,
+            "bg-white text-black hover:bg-white/90": isActive,
+            "bg-white/5 text-white hover:bg-white/20": !isActive,
           },
         )}
       >
@@ -38,19 +40,16 @@ const NavLink: FC<PropsWithChildren<LinkProps>> = ({ href, children }) => {
 };
 
 const Footer = () => {
+  const pathname = usePathname();
+
   const isDevelopment = process.env.NODE_ENV === "development";
+
   return (
     <div className="fixed inset-x-0 bottom-0 flex items-center justify-center gap-2 p-6">
-      <div
-        className="absolute inset-x-0 bottom-0 h-1/2 rotate-180 bg-black/5 backdrop-blur-2xl"
-        style={{
-          maskImage:
-            "linear-gradient(rgb(0,0,0) 50%, rgba(0,0,0,0.8) 70%, rgba(0,0,0,0) 100%)",
-        }}
-      ></div>
+      <div className="pointer-events-none absolute inset-0 z-[-1] bg-gradient-to-b from-transparent to-black"></div>
       <FadeBlurLoader
         className="flex items-center gap-2"
-        transition={{ delay: 1.5 }}
+        transition={{ delay: pathname !== "/" ? 0 : 1.5 }}
       >
         <Panel pill>
           <NavLink href="/">

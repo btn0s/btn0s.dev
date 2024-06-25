@@ -11,7 +11,7 @@ const Panel: FC<PropsWithChildren<{ className?: string; pill?: boolean }>> = ({
     <div
       className={cn(
         className,
-        "relative isolate z-10 flex gap-2 overflow-hidden border p-2 shadow-lg after:absolute after:inset-0 after:-z-10 after:bg-white/5 after:backdrop-blur-2xl",
+        "relative isolate z-10 flex gap-2 overflow-hidden border bg-black p-2 shadow-lg backdrop-blur-2xl",
         {
           "rounded-full": pill,
           "rounded-lg": !pill,
