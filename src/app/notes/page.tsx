@@ -28,7 +28,7 @@ const Page = async () => {
   return (
     <FadeBlurLoader
       className="not-prose flex flex-col gap-12"
-      transition={{ delay: 0.25 }}
+      transition={{ duration: 0.5 }}
     >
       <h1 className="text-balance text-xl text-white">
         <span className="font-light opacity-50">Random thoughts, notes, </span>

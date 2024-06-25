@@ -1,23 +1,20 @@
 "use client";
 
-import { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren, useEffect, useState } from "react";
 
 import { LightningBoltIcon } from "@radix-ui/react-icons";
-import { AnimatePresence, motion } from "framer-motion";
-import { FlaskConicalIcon, NotebookPenIcon } from "lucide-react";
+import { stagger, useAnimate } from "framer-motion";
+import {
+  ArrowRightIcon,
+  FlaskConicalIcon,
+  NotebookPenIcon,
+} from "lucide-react";
 import Link from "next/link";
 import { PiCactusFill } from "react-icons/pi";
 
 import { Experiment } from "@/app/api/experiments";
 import { Note } from "@/app/api/notes";
-import FadeBlurLoader from "@/components/FadeBlurLoader";
-import { ExternalLinkWithPreview } from "@/components/experiments/ExternalLinkWithPreview";
 import { CURRENT_LINKS } from "@/content/current-links";
-
-interface HomeProps {
-  experiments: Experiment[];
-  notes: Note[];
-}
 
 const ListCard: FC<{
   slug: string;
@@ -42,124 +39,147 @@ const List: FC<PropsWithChildren> = ({ children }) => {
   return <div className="flex flex-col gap-2">{children}</div>;
 };
 
-const Home: FC<HomeProps> = ({ experiments, notes }) => {
+const HomeSection: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <motion.div
-      className="flex flex-col gap-12"
-      variants={{
-        hidden: { opacity: 0 },
-        visible: { opacity: 1 },
-      }}
-      initial="hidden"
-      animate="visible"
-      transition={{
-        staggerChildren: 0.5,
-      }}
-    >
-      <AnimatePresence>
-        <FadeBlurLoader disabled>
-          <h1 className="text-xl">
-            <span className="font-light opacity-50">
-              Designer, programmer,{" "}
+    <section style={{ opacity: 0, filter: "blur(4px)" }}>{children}</section>
+  );
+};
+
+interface HomeProps {
+  experiments: Experiment[];
+  notes: Note[];
+}
+
+const Home: FC<HomeProps> = ({ experiments, notes }) => {
+  const [contentLoaded, setContentLoaded] = useState(false);
+  const [scope, animate] = useAnimate();
+
+  const hasUserVisited = sessionStorage.getItem("hasUserVisited") === "true";
+
+  useEffect(() => {
+    if (hasUserVisited) {
+      setContentLoaded(true);
+    }
+
+    animate(
+      "section",
+      {
+        opacity: 1,
+        filter: "blur(0px)",
+      },
+      {
+        delay: hasUserVisited ? 0 : stagger(0.5),
+        duration: 0.5,
+      },
+    ).then(() => {
+      setContentLoaded(true);
+      sessionStorage.setItem("hasUserVisited", "true");
+    });
+  }, []);
+
+  if (contentLoaded) {
+    window.dispatchEvent(new Event("home-content-loaded"));
+  }
+
+  return (
+    <div ref={scope} className="flex flex-col gap-12">
+      <HomeSection>
+        <h1 className="text-xl">
+          <span className="font-light opacity-50">Designer, programmer, </span>
+          <span className="font-bold">human.</span>
+        </h1>
+      </HomeSection>
+
+      <HomeSection>
+        <h2 className="text-balance text-sm">
+          i&apos;m a multidisciplinary design engineer based in{" "}
+          <PiCactusFill className="inline" /> Phoenix, Arizona.
+        </h2>
+      </HomeSection>
+
+      <HomeSection>
+        <div className="flex flex-col gap-5">
+          <div className="flex items-center justify-between">
+            <span className="flex items-center gap-1 font-mono text-xs">
+              <LightningBoltIcon className="size-2" />
+              currently
             </span>
-            <span className="font-bold">human.</span>
-          </h1>
-        </FadeBlurLoader>
+          </div>
+          <div className="flex flex-col gap-1">
+            {CURRENT_LINKS.map(({ role, url }) => (
+              <div
+                key={url}
+                className="flex items-center justify-between gap-2 text-sm text-muted-foreground hover:text-white"
+              >
+                <span>{role} @</span>
+                <a className="underline" href={url}>
+                  {url.split("//")[1].split("/")[0]}
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </HomeSection>
 
-        <FadeBlurLoader disabled>
-          <h2 className="text-balance text-sm">
-            i&apos;m a multidisciplinary design engineer based in{" "}
-            <PiCactusFill className="inline" /> Phoenix, Arizona.
-          </h2>
-        </FadeBlurLoader>
-
-        <FadeBlurLoader disabled>
+      {notes.length > 0 && (
+        <HomeSection>
           <div className="flex flex-col gap-5">
             <div className="flex items-center justify-between">
               <span className="flex items-center gap-1 font-mono text-xs">
-                <LightningBoltIcon className="size-2" />
-                currently
+                <NotebookPenIcon className="size-2" />
+                thoughts
               </span>
-            </div>
-            <div className="flex flex-col gap-1">
-              {CURRENT_LINKS.map(({ role, url }) => (
-                <div
-                  key={url}
-                  className="flex items-center justify-between gap-2 text-sm text-muted-foreground hover:text-white"
+              {notes.length > 3 && (
+                <Link
+                  className="text-xs text-muted-foreground hover:underline"
+                  href="/notes"
                 >
-                  <span>{role} @</span>
-                  <ExternalLinkWithPreview href={url}>
-                    {url.split("//")[1].split("/")[0]}
-                  </ExternalLinkWithPreview>
-                </div>
+                  view all
+                  <ArrowRightIcon className="ml-1 inline size-3" />
+                </Link>
+              )}
+            </div>
+            <List>
+              {notes.map(({ slug, meta }) => (
+                <ListCard key={slug} section="notes" slug={slug} meta={meta} />
               ))}
-            </div>
+            </List>
           </div>
-        </FadeBlurLoader>
+        </HomeSection>
+      )}
 
-        {notes.length > 0 && (
-          <FadeBlurLoader disabled className="isolate">
-            <div className="flex flex-col gap-5">
-              <div className="flex items-center justify-between">
-                <span className="flex items-center gap-1 font-mono text-xs">
-                  <NotebookPenIcon className="size-2" />
-                  thoughts
-                </span>
-                {notes.length > 3 && (
-                  <Link
-                    className="text-xs text-muted-foreground underline"
-                    href="/notes"
-                  >
-                    view all
-                  </Link>
-                )}
-              </div>
-              <List>
-                {notes.map(({ slug, meta }) => (
-                  <ListCard
-                    key={slug}
-                    section="notes"
-                    slug={slug}
-                    meta={meta}
-                  />
-                ))}
-              </List>
+      {experiments.length > 0 && (
+        <HomeSection>
+          <div className="flex flex-col gap-5">
+            <div className="flex items-center justify-between">
+              <span className="flex items-center gap-1 font-mono text-xs">
+                <FlaskConicalIcon className="size-2" />
+                experiments
+              </span>
+              {experiments.length > 3 && (
+                <Link
+                  className="text-xs text-muted-foreground underline"
+                  href="/experiments"
+                >
+                  view all
+                  <ArrowRightIcon className="ml-1 inline size-3" />
+                </Link>
+              )}
             </div>
-          </FadeBlurLoader>
-        )}
-
-        {experiments.length > 0 && (
-          <FadeBlurLoader disabled className="isolate">
-            <div className="flex flex-col gap-5">
-              <div className="flex items-center justify-between">
-                <span className="flex items-center gap-1 font-mono text-xs">
-                  <FlaskConicalIcon className="size-2" />
-                  experiments
-                </span>
-                {experiments.length > 3 && (
-                  <Link
-                    className="text-xs text-muted-foreground underline"
-                    href="/experiments"
-                  >
-                    view all
-                  </Link>
-                )}
-              </div>
-              <List>
-                {experiments.map(({ slug, meta }) => (
-                  <ListCard
-                    key={slug}
-                    section="experiments"
-                    slug={slug}
-                    meta={meta}
-                  />
-                ))}
-              </List>
-            </div>
-          </FadeBlurLoader>
-        )}
-      </AnimatePresence>
-    </motion.div>
+            <List>
+              {experiments.map(({ slug, meta }) => (
+                <ListCard
+                  key={slug}
+                  section="experiments"
+                  slug={slug}
+                  meta={meta}
+                />
+              ))}
+            </List>
+          </div>
+        </HomeSection>
+      )}
+    </div>
   );
 };
 

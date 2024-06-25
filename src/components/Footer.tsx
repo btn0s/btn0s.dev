@@ -2,6 +2,7 @@
 
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 
+import { useAnimate } from "framer-motion";
 import {
   FlaskConicalIcon,
   HouseIcon,
@@ -13,6 +14,7 @@ import Link, { LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
 
 import FadeBlurLoader from "@/components/FadeBlurLoader";
+import useAnimateIn from "@/hooks/useAnimateIn";
 import { cn } from "@/lib/utils";
 
 const Panel: FC<PropsWithChildren<{ className?: string; pill?: boolean }>> = ({
@@ -118,14 +120,18 @@ const NavLink: FC<
 };
 
 const Footer = () => {
-  const pathname = usePathname();
+  const scope = useAnimateIn();
 
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-0 flex items-center justify-center gap-2 p-6">
       <div className="absolute inset-x-0 bottom-0 z-[-1] h-[200%] bg-gradient-to-b from-transparent to-black"></div>
-      <FadeBlurLoader
+      <div
         className="pointer-events-auto flex items-center gap-2"
-        transition={{ delay: pathname !== "/" ? 0 : 2, duration: 0.75 }}
+        ref={scope}
+        style={{
+          opacity: 0,
+          filter: "blur(4px)",
+        }}
       >
         <Panel pill>
           <NavLink href="/" isFirstChild>
@@ -141,7 +147,7 @@ const Footer = () => {
           {/*  <JoystickIcon className="size-4" />*/}
           {/*</NavLink>*/}
         </Panel>
-      </FadeBlurLoader>
+      </div>
     </div>
   );
 };

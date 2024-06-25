@@ -24,8 +24,9 @@ const FadeBlurLoader: FC<PropsWithChildren<FadeBlurLoaderProps>> = ({
     ...otherProps,
   };
 
+  props.initial = "hidden";
+
   if (!disabled) {
-    props.initial = "hidden";
     props.animate = "visible";
   }
 

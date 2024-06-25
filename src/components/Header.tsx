@@ -10,10 +10,9 @@ import {
 } from "react";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { LuGithub, LuTwitter } from "react-icons/lu";
 
-import FadeBlurLoader from "@/components/FadeBlurLoader";
+import useAnimateIn from "@/hooks/useAnimateIn";
 
 const HeaderLink: FC<
   PropsWithChildren<
@@ -34,8 +33,8 @@ const HeaderLink: FC<
 };
 
 const Header = () => {
-  const pathname = usePathname();
   const [currentDate, setCurrentDate] = useState<Date>();
+  const scope = useAnimateIn();
 
   useEffect(() => {
     const updateCurrentDate = () => {
@@ -54,9 +53,13 @@ const Header = () => {
             "linear-gradient(rgb(0,0,0) 55%, rgba(0,0,0,0.8) 70%, rgba(0,0,0,0) 100%)",
         }}
       ></div>
-      <FadeBlurLoader
+      <div
         className="flex flex-1 items-center justify-between"
-        transition={{ delay: pathname !== "/" ? 0 : 2, duration: 0.75 }}
+        ref={scope}
+        style={{
+          opacity: 0,
+          filter: "blur(4px)",
+        }}
       >
         <Link href="/">✦ btn0s</Link>
         {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
@@ -71,7 +74,7 @@ const Header = () => {
             <LuTwitter className="size-4" />
           </HeaderLink>
         </div>
-      </FadeBlurLoader>
+      </div>
     </div>
   );
 };
