@@ -10,6 +10,7 @@ import {
 } from "react";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { LuGithub, LuTwitter } from "react-icons/lu";
 
 import FadeBlurLoader from "@/components/FadeBlurLoader";
@@ -33,6 +34,7 @@ const HeaderLink: FC<
 };
 
 const Header = () => {
+  const pathname = usePathname();
   const [currentDate, setCurrentDate] = useState<Date>();
 
   useEffect(() => {
@@ -52,7 +54,10 @@ const Header = () => {
             "linear-gradient(rgb(0,0,0) 55%, rgba(0,0,0,0.8) 70%, rgba(0,0,0,0) 100%)",
         }}
       ></div>
-      <FadeBlurLoader className="flex flex-1 items-center justify-between">
+      <FadeBlurLoader
+        className="flex flex-1 items-center justify-between"
+        transition={{ delay: pathname !== "/" ? 0 : 2, duration: 0.75 }}
+      >
         <Link href="/">✦ btn0s</Link>
         {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
         <div className="text-xs text-white/20">
