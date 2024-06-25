@@ -12,6 +12,7 @@ import {
 import { FlaskConicalIcon, NotebookPenIcon } from "lucide-react";
 import { cookies } from "next/headers";
 import Link from "next/link";
+import { Fa0 } from "react-icons/fa6";
 
 import { Experiment } from "@/app/api/experiments";
 import { Post } from "@/app/api/posts";
@@ -39,26 +40,16 @@ const Home: FC<HomeProps> = ({ experiments, posts }) => {
       }}
     >
       <AnimatePresence>
-        <motion.div
-          variants={{
-            hidden: { display: "none", opacity: 0, filter: "blur(4px)" },
-            visible: { display: "block", opacity: 1, filter: "blur(0px)" },
-          }}
-        >
+        <FadeBlurLoader disabled>
           <h1 className="text-xl">
             <span className="font-light opacity-50">
               Designer, programmer,{" "}
             </span>
             <span className="font-bold">human.</span>
           </h1>
-        </motion.div>
+        </FadeBlurLoader>
 
-        <motion.div
-          variants={{
-            hidden: { display: "none", opacity: 0, filter: "blur(4px)" },
-            visible: { display: "block", opacity: 1, filter: "blur(0px)" },
-          }}
-        >
+        <FadeBlurLoader disabled>
           <div className="flex flex-col gap-5">
             <div className="flex items-center justify-between">
               <span className="flex items-center gap-1 font-mono text-xs">
@@ -80,7 +71,7 @@ const Home: FC<HomeProps> = ({ experiments, posts }) => {
               ))}
             </div>
           </div>
-        </motion.div>
+        </FadeBlurLoader>
         {posts.length > 0 && (
           <FadeBlurLoader disabled>
             <div className="flex flex-col gap-5">
