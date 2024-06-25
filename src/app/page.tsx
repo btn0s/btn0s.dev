@@ -20,12 +20,15 @@ export default async function Home() {
           <span className="font-bold">human.</span>
         </h1>
       </FadeBlurLoader>
-      <FadeBlurLoader transition={{ delay: 1 }}>
+      <FadeBlurLoader
+        transition={{ delay: 1 }}
+        className="flex flex-col gap-12"
+      >
         <div className="flex flex-col gap-5">
           <div className="flex items-center justify-between">
-            <span className="flex items-center gap-1 font-mono text-sm">
-              <LightningBoltIcon className="size-3" />
-              current
+            <span className="flex items-center gap-1 font-mono text-xs">
+              <LightningBoltIcon className="size-2" />
+              currently
             </span>
           </div>
           <div className="flex flex-col gap-1">
@@ -45,8 +48,8 @@ export default async function Home() {
         {posts.length > 0 && (
           <div className="flex flex-col gap-5">
             <div className="flex items-center justify-between">
-              <span className="flex items-center gap-1 font-mono text-sm">
-                <NotebookPenIcon className="size-3" />
+              <span className="flex items-center gap-1 font-mono text-xs">
+                <NotebookPenIcon className="size-2" />
                 thoughts
               </span>
               {posts.length > 3 && (
@@ -74,8 +77,8 @@ export default async function Home() {
         {experiments.length > 0 && (
           <div className="flex flex-col gap-5">
             <div className="flex items-center justify-between">
-              <span className="flex items-center gap-1 font-mono text-sm">
-                <FlaskConicalIcon className="size-3" />
+              <span className="flex items-center gap-1 font-mono text-xs">
+                <FlaskConicalIcon className="size-2" />
                 experiments
               </span>
               {experiments.length > 3 && (

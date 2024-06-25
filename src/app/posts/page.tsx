@@ -25,7 +25,12 @@ const Page = async () => {
   const posts = await getPosts();
   return (
     <div className="not-prose flex flex-col gap-12">
-      <h1>I don&apos;t write a lot. When I do it ends up here.</h1>
+      <h1 className="text-xl text-white">
+        <span className="font-light opacity-50">
+          I don&apos;t write a lot,{" "}
+        </span>
+        <span className="font-bold">but when I do it ends up here.</span>
+      </h1>
       {posts.map((post) => post.meta.title)}
       {posts.length === 0 && (
         <div className="flex gap-2 text-center text-sm">
