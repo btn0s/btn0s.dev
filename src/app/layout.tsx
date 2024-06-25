@@ -4,9 +4,9 @@ import { Analytics } from "@vercel/analytics/react";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
-import Link from "next/link";
 
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 import "./globals.css";
 
@@ -34,10 +34,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body className="flex min-h-dvh flex-col gap-12 p-6">
-        <Link href="/" className="flex gap-2">
-          <span>✦ btn0s</span>
-        </Link>
-        <main className="flex max-w-lg flex-col gap-12">{children}</main>
+        <Header />
+        <main className="mx-auto flex max-w-lg flex-col justify-center gap-12 py-24">
+          {children}
+        </main>
         <Footer />
         <Analytics />
       </body>

@@ -28,7 +28,7 @@ const Page = async () => {
       <h1>I don&apos;t write a lot. When I do it ends up here.</h1>
       {posts.map((post) => post.meta.title)}
       {posts.length === 0 && (
-        <div className="flex gap-2 text-sm">
+        <div className="flex gap-2 text-center text-sm">
           <span className="text-white">no thoughts, head empty</span>
           {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
           <span className="text-muted-foreground">// check back later</span>

@@ -30,8 +30,8 @@ const Page = async () => {
   return (
     <div className="not-prose flex flex-col gap-12">
       <h1>
-        Welcome to the lab. I&apos;m always tinkering and usually leaving things
-        here for posterity. Enjoy!
+        These are the experimental results of my work in the{" "}
+        <pre className="inline rounded-md bg-white/10 p-1">/secret-lab</pre>
       </h1>
       <div className="flex flex-col gap-5 text-muted-foreground">
         {experiments.map(({ slug, meta }) => (
