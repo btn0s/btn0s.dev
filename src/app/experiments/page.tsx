@@ -39,15 +39,17 @@ const Page = async () => {
         </span>
         <span className="font-bold">Straight from the lab.</span>
       </h1>
-      <div className="flex flex-col gap-5 text-muted-foreground">
+      <div className="flex flex-col gap-2">
         {experiments.map(({ slug, meta }) => (
           <Link
             key={slug}
             href={`/experiments/${slug}`}
-            className="-mx-3 -my-2 flex flex-col rounded-md px-3 py-2 transition-colors duration-200 hover:bg-white/5"
+            className="flex flex-col gap-1 rounded-md border border-border bg-white/5 p-3 text-sm transition-colors duration-200 hover:bg-white/10"
           >
-            <h3 className="text-white">{`${meta.title}`}</h3>
-            <p className="text-muted-foreground">{`${meta.description}`}</p>
+            <h3 className="text-white">{meta.title}</h3>
+            <p className="max-w-[95%] text-pretty text-xs text-muted-foreground">
+              {meta.description}
+            </p>
           </Link>
         ))}
       </div>

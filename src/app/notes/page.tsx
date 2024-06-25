@@ -1,6 +1,7 @@
 import { Metadata } from "next";
+import Link from "next/link";
 
-import { getPosts } from "@/app/api/posts";
+import { getNotes } from "@/app/api/notes";
 import FadeBlurLoader from "@/components/FadeBlurLoader";
 
 export const metadata: Metadata = {
@@ -23,24 +24,35 @@ export const metadata: Metadata = {
 };
 
 const Page = async () => {
-  const posts = await getPosts();
+  const notes = await getNotes();
   return (
     <FadeBlurLoader
       className="not-prose flex flex-col gap-12"
       transition={{ delay: 0.25 }}
     >
       <h1 className="text-xl text-white">
-        <span className="font-light opacity-50">
-          I don&apos;t write a lot,{" "}
-        </span>
-        <span className="font-bold">but when I do it ends up here.</span>
+        <span className="font-light opacity-50">Random thoughts, notes, </span>
+        <span className="font-bold">and ideas.</span>
       </h1>
-      {posts.map((post) => post.meta.title)}
-      {posts.length === 0 && (
+      {notes.length === 0 ? (
         <div className="flex gap-2 text-center text-sm">
-          <span className="text-white">no thoughts, head empty</span>
           {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-          <span className="text-muted-foreground">// check back later</span>
+          <span className="text-white/50">// check back later</span>
+        </div>
+      ) : (
+        <div className="flex flex-col gap-2">
+          {notes.map(({ meta, slug }) => (
+            <Link
+              key={slug}
+              href={`/notes/${slug}`}
+              className="flex flex-col gap-1 rounded-md border border-border bg-white/5 p-3 text-sm transition-colors duration-200 hover:bg-white/10"
+            >
+              <h3 className="text-white">{meta.title}</h3>
+              <p className="max-w-[95%] text-pretty text-xs text-muted-foreground">
+                {meta.description}
+              </p>
+            </Link>
+          ))}
         </div>
       )}
     </FadeBlurLoader>

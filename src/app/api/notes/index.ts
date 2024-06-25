@@ -1,9 +1,9 @@
 import { getSlugsByDir } from "@/app/api/shared";
 import { FOLDER_EXCLUDES } from "@/constants/api";
 
-const POSTS_DIRECTORY = "./src/content/posts";
+const NOTES_DIRECTORY = "./src/content/notes";
 
-export interface PostMeta {
+export interface NoteMeta {
   title: string;
   description: string;
   date: string;
@@ -11,17 +11,17 @@ export interface PostMeta {
   published: boolean;
 }
 
-export interface Post {
-  meta: PostMeta;
+export interface Note {
+  meta: NoteMeta;
   slug: string;
 }
 
-export const getPosts: () => Promise<Post[]> = async () => {
-  const postSlugs = await getSlugsByDir(POSTS_DIRECTORY, FOLDER_EXCLUDES);
+export const getNotes: () => Promise<Note[]> = async () => {
+  const postSlugs = await getSlugsByDir(NOTES_DIRECTORY, FOLDER_EXCLUDES);
 
-  const posts: Post[] = await Promise.all(
+  const posts: Note[] = await Promise.all(
     postSlugs.map(async (filePath) => {
-      const content = await import(`@/content/posts/${filePath}.mdx`);
+      const content = await import(`@/content/notes/${filePath}.mdx`);
       return { meta: content.meta, slug: filePath };
     }),
   );
