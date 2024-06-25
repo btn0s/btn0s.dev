@@ -33,7 +33,7 @@ const Page = async () => {
       className="not-prose flex flex-col gap-12"
       transition={{ delay: 0.25 }}
     >
-      <h1 className="text-xl text-white">
+      <h1 className="max-w-[75%] text-xl text-white">
         <span className="font-light opacity-50">
           These are my experiments.{" "}
         </span>
