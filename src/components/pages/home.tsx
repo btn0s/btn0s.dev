@@ -71,7 +71,7 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
 
       <HomeSection>
         <h2 className="text-balance text-sm">
-          i&apos;m a multidisciplinary design engineer based in{" "}
+          I&apos;m a multidisciplinary design engineer based in{" "}
           <PiCactusFill className="inline" /> Phoenix, Arizona.
         </h2>
       </HomeSection>
