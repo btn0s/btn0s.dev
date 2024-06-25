@@ -122,7 +122,7 @@ const Footer = () => {
 
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-0 flex items-center justify-center gap-2 p-6">
-      <div className="absolute inset-0 z-[-1] bg-gradient-to-b from-transparent to-black"></div>
+      <div className="absolute inset-x-0 bottom-0 z-[-1] h-[200%] bg-gradient-to-b from-transparent to-black"></div>
       <FadeBlurLoader
         className="pointer-events-auto flex items-center gap-2"
         transition={{ delay: pathname !== "/" ? 0 : 2, duration: 0.75 }}

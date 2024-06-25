@@ -28,7 +28,7 @@ const ListCard: FC<{
     <Link
       key={slug}
       href={`/${section}/${slug}`}
-      className="flex flex-col gap-1 rounded-md border border-border bg-white/5 p-3 text-sm transition-colors duration-200 hover:bg-white/10"
+      className="flex flex-col gap-1 rounded-md border border-border bg-white/5 p-3 text-sm transition-colors duration-200 md:hover:bg-white/10"
     >
       <h3 className="text-white">{meta.title}</h3>
       <p className="max-w-[95%] text-pretty text-xs text-muted-foreground">
