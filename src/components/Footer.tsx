@@ -66,7 +66,7 @@ const NavLink: FC<
     } else {
       setIsActive(false);
     }
-  }, [pathname]);
+  }, [pathname, href]);
 
   const handleClick = () => {
     setIsActive(true);

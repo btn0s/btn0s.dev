@@ -68,7 +68,7 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
 
         <FadeBlurLoader disabled>
           <h2 className="text-balance text-sm">
-            i'm a multidisciplinary design engineer based in{" "}
+            i&apos;m a multidisciplinary design engineer based in{" "}
             <PiCactusFill className="inline" /> Phoenix, Arizona.
           </h2>
         </FadeBlurLoader>
