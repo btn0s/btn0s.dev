@@ -14,30 +14,10 @@ import { PiCactusFill } from "react-icons/pi";
 
 import { Experiment } from "@/app/api/experiments";
 import { Note } from "@/app/api/notes";
+import { ListCard } from "@/components/ListCard";
+import { List } from "@/components/pages/List";
 import { CURRENT_LINKS } from "@/content/current-links";
-
-const ListCard: FC<{
-  slug: string;
-  section: "experiments" | "notes";
-  meta: Note["meta"];
-}> = ({ slug, section, meta }) => {
-  return (
-    <Link
-      key={slug}
-      href={`/${section}/${slug}`}
-      className="flex flex-col gap-1 rounded-md border border-border bg-white/5 p-3 text-sm transition-colors duration-200 md:hover:bg-white/10"
-    >
-      <h3 className="text-white">{meta.title}</h3>
-      <p className="max-w-[95%] text-pretty text-xs text-muted-foreground">
-        {meta.description}
-      </p>
-    </Link>
-  );
-};
-
-const List: FC<PropsWithChildren> = ({ children }) => {
-  return <div className="flex flex-col gap-2">{children}</div>;
-};
+import { useHasUserVisited } from "@/hooks/useAnimateIn";
 
 const HomeSection: FC<PropsWithChildren> = ({ children }) => {
   return (
@@ -53,8 +33,7 @@ interface HomeProps {
 const Home: FC<HomeProps> = ({ experiments, notes }) => {
   const [contentLoaded, setContentLoaded] = useState(false);
   const [scope, animate] = useAnimate();
-
-  const hasUserVisited = sessionStorage.getItem("hasUserVisited") === "true";
+  const hasUserVisited = useHasUserVisited();
 
   useEffect(() => {
     if (hasUserVisited) {
@@ -72,10 +51,10 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
         duration: 0.5,
       },
     ).then(() => {
-      setContentLoaded(true);
       sessionStorage.setItem("hasUserVisited", "true");
+      setContentLoaded(true);
     });
-  }, []);
+  }, [hasUserVisited]);
 
   if (contentLoaded) {
     window.dispatchEvent(new Event("home-content-loaded"));

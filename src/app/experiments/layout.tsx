@@ -1,5 +1,9 @@
 import { ReactNode } from "react";
 
+import FadeBlurLoader from "@/components/FadeBlurLoader";
+
 export default function Layout({ children }: { children: ReactNode }) {
-  return <div className="prose prose-invert">{children}</div>;
+  return (
+    <FadeBlurLoader className="prose prose-invert">{children}</FadeBlurLoader>
+  );
 }

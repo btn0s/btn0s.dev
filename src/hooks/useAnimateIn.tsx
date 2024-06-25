@@ -1,13 +1,32 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-import { useAnimate } from "framer-motion";
+import {
+  DynamicAnimationOptions,
+  MotionProps,
+  Transition,
+  useAnimate,
+} from "framer-motion";
 import { usePathname } from "next/navigation";
 
-const useAnimateIn = () => {
+interface useAnimateInProps {
+  options: DynamicAnimationOptions;
+}
+
+export const useHasUserVisited = () => {
+  const pathname = usePathname();
+  const [hasUserVisited, setHasUserVisited] = useState(false);
+
+  useEffect(() => {
+    setHasUserVisited(sessionStorage.getItem("hasUserVisited") === "true");
+  }, [pathname]);
+
+  return hasUserVisited;
+};
+
+const useAnimateIn = ({ options }: useAnimateInProps) => {
   const pathname = usePathname();
   const [scope, animate] = useAnimate();
-
-  const hasUserVisited = sessionStorage.getItem("hasUserVisited") === "true";
+  const hasUserVisited = useHasUserVisited();
 
   useEffect(() => {
     console.log({
@@ -24,6 +43,7 @@ const useAnimateIn = () => {
         },
         {
           duration: hasUserVisited ? 1 : 0.5,
+          ...options,
         },
       );
     };

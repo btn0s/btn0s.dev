@@ -120,19 +120,10 @@ const NavLink: FC<
 };
 
 const Footer = () => {
-  const scope = useAnimateIn();
-
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-0 flex items-center justify-center gap-2 p-6">
       <div className="absolute inset-x-0 bottom-0 z-[-1] h-[200%] bg-gradient-to-b from-transparent to-black"></div>
-      <div
-        className="pointer-events-auto flex items-center gap-2"
-        ref={scope}
-        style={{
-          opacity: 0,
-          filter: "blur(4px)",
-        }}
-      >
+      <FadeBlurLoader className="pointer-events-auto flex items-center gap-2">
         <Panel pill>
           <NavLink href="/" isFirstChild>
             <HouseIcon className="size-4" />
@@ -147,7 +138,7 @@ const Footer = () => {
           {/*  <JoystickIcon className="size-4" />*/}
           {/*</NavLink>*/}
         </Panel>
-      </div>
+      </FadeBlurLoader>
     </div>
   );
 };

@@ -3,6 +3,8 @@ import Link from "next/link";
 
 import { getNotes } from "@/app/api/notes";
 import FadeBlurLoader from "@/components/FadeBlurLoader";
+import { ListCard } from "@/components/ListCard";
+import { List } from "@/components/pages/List";
 
 export const metadata: Metadata = {
   title: "✦ thoughts | @btn0s",
@@ -26,10 +28,7 @@ export const metadata: Metadata = {
 const Page = async () => {
   const notes = await getNotes();
   return (
-    <FadeBlurLoader
-      className="not-prose flex flex-col gap-12"
-      transition={{ duration: 0.5 }}
-    >
+    <div className="not-prose flex flex-col gap-12">
       <h1 className="text-balance text-xl text-white">
         <span className="font-light opacity-50">Random thoughts, notes, </span>
         <span className="font-bold">and ideas.</span>
@@ -40,22 +39,13 @@ const Page = async () => {
           <span className="text-white/50">// check back later</span>
         </div>
       ) : (
-        <div className="flex flex-col gap-2">
+        <List>
           {notes.map(({ meta, slug }) => (
-            <Link
-              key={slug}
-              href={`/notes/${slug}`}
-              className="flex flex-col gap-1 rounded-md border border-border bg-white/5 p-3 text-sm transition-colors duration-200 hover:bg-white/10"
-            >
-              <h3 className="text-white">{meta.title}</h3>
-              <p className="max-w-[95%] text-pretty text-xs text-muted-foreground">
-                {meta.description}
-              </p>
-            </Link>
+            <ListCard key={slug} meta={meta} slug={slug} section="notes" />
           ))}
-        </div>
+        </List>
       )}
-    </FadeBlurLoader>
+    </div>
   );
 };
 

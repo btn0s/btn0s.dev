@@ -1,36 +1,37 @@
 "use client";
 
-import { FC, PropsWithChildren } from "react";
+import { CSSProperties, FC, PropsWithChildren } from "react";
 
-import { motion, MotionProps } from "framer-motion";
+import { DynamicAnimationOptions } from "framer-motion";
 
-interface FadeBlurLoaderProps extends MotionProps {
+import useAnimateIn from "@/hooks/useAnimateIn";
+
+interface FadeBlurLoaderProps {
   className?: string;
-  disabled?: boolean;
+  options?: DynamicAnimationOptions;
+  style?: CSSProperties;
 }
 
 const FadeBlurLoader: FC<PropsWithChildren<FadeBlurLoaderProps>> = ({
-  className,
-  disabled,
   children,
-  ...otherProps
+  className,
+  options = {},
+  style,
 }) => {
-  const props: FadeBlurLoaderProps = {
-    className,
-    variants: {
-      hidden: { opacity: 0, filter: "blur(4px)" },
-      visible: { opacity: 1, filter: "blur(0px)" },
-    },
-    ...otherProps,
-  };
-
-  props.initial = "hidden";
-
-  if (!disabled) {
-    props.animate = "visible";
-  }
-
-  return <motion.div {...props}>{children}</motion.div>;
+  const scope = useAnimateIn({ options });
+  return (
+    <div
+      ref={scope}
+      className={className}
+      style={{
+        opacity: 0,
+        filter: "blur(4px)",
+        ...style,
+      }}
+    >
+      {children}
+    </div>
+  );
 };
 
 export default FadeBlurLoader;
