@@ -55,6 +55,7 @@ const useAnimateIn = ({ options }: useAnimateInProps) => {
     }
 
     window.addEventListener("home-content-loaded", animateIn);
+
     return () => {
       window.removeEventListener("home-content-loaded", animateIn);
     };
