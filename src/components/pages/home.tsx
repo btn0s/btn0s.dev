@@ -105,7 +105,7 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
         filter: "blur(0px)",
       },
       {
-        delay: hasUserVisited ? 0 : stagger(2, { startDelay: 0 }),
+        delay: hasUserVisited ? 0 : stagger(0.75, { startDelay: 0 }),
         duration: hasUserVisited ? 0.5 : 0.75,
       },
     ).then(() => {
