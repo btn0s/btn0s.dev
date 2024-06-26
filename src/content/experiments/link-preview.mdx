@@ -1,4 +1,4 @@
-import { Experiment } from "@/components/Experiment";
+lo import { Experiment } from "@/components/Experiment";
 import { ExperimentContainer } from "@/components/ExperimentContainer";
 import { ExternalLinkWithPreview } from "@/components/experiments/ExternalLinkWithPreview";
 import linkPreviewImg from "@/assets/images/link-preview.gif";
@@ -12,11 +12,6 @@ export const meta = {
 # External link previews on hover
 
 A simple link preview component I designed so that visitors could access rich link previews without having to leave the page.
-
-<small className={"lg:hidden"}>
-  _Note: This interaction detail is only visible on desktop, so be sure to come
-  back and check it out._
-</small>
 
 <img src={linkPreviewImg.src} className={"-mb-3 mt-12 lg:hidden"} />
 
@@ -32,9 +27,3 @@ A simple link preview component I designed so that visitors could access rich li
     </ExperimentContainer>
   </Experiment>
 </div>
-
-### Tools
-
-- [React](https://reactjs.org/) + [TypeScript](https://www.typescriptlang.org/)
-- [`@shadcn/ui`](https://ui.shadcn.com/)
-- [Framer motion](https://www.framer.com/motion/)
