@@ -33,13 +33,16 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className="my-auto flex  min-h-dvh flex-col gap-12">
-        <Header />
-        <main className="mx-auto flex w-full max-w-md flex-col gap-12 px-6 py-24">
-          {children}
-        </main>
-        <Footer />
-        <Analytics />
+      <body className=" flex min-h-dvh items-center justify-center">
+        <div className="relative flex aspect-[9/19.5] h-full w-[384px] max-w-sm flex-1 shrink-0 flex-col gap-12 border-white/5 lg:border lg:shadow-2xl">
+          {/*<MainScene />*/}
+          <Header />
+          <main className="flex h-full max-w-lg flex-col gap-12 overflow-auto px-6 py-24">
+            {children}
+          </main>
+          <Footer />
+          <Analytics />
+        </div>
       </body>
     </html>
   );

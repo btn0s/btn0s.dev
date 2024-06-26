@@ -4,12 +4,9 @@ import { FC, PropsWithChildren, useEffect, useState } from "react";
 
 import {
   BriefcaseBusinessIcon,
-  BriefcaseIcon,
   FlaskConicalIcon,
   HouseIcon,
-  JoystickIcon,
   NotebookIcon,
-  NotebookPenIcon,
 } from "lucide-react";
 import Link, { LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
@@ -121,7 +118,7 @@ const NavLink: FC<
 
 const Footer = () => {
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-0 flex items-center justify-center gap-2 p-6">
+    <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-center gap-2 p-6">
       <div className="absolute -inset-x-24 -bottom-24 z-[-1] h-[150%] bg-gradient-to-b from-black/50 to-black blur-2xl"></div>
       <FadeBlurLoader className="pointer-events-auto flex items-center gap-2">
         <Panel pill>
