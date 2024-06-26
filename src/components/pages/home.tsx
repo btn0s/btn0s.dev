@@ -10,7 +10,7 @@ import {
   NotebookPenIcon,
 } from "lucide-react";
 import Link from "next/link";
-import { PiCactusFill } from "react-icons/pi";
+import { PiCactusFill, PiSunFill } from "react-icons/pi";
 
 import { Experiment } from "@/app/api/experiments";
 import { Note } from "@/app/api/notes";
@@ -71,14 +71,17 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
         </h1>
       </HomeSection>
 
-      <HomeSection>
-        <h1 className="mb-4 text-sm">
-          I use technology to make designers more efficient, and bring people joy.
-        </h1>
-        <div className="text-sm text-muted-foreground">
-          based in Phoenix, Arizona <PiCactusFill className="inline" />
-        </div>
-      </HomeSection>
+        <HomeSection>
+          <h1 className="mb-4 text-sm">
+            I use design and technology to make designers more efficient and
+            create things that spark joy.
+          </h1>
+
+          <div className="text-sm text-muted-foreground">
+            based in Phoenix <PiCactusFill className="mr-[2px] inline" />
+            <PiSunFill className="inline" />
+          </div>
+        </HomeSection>
 
       <HomeSection>
         <div className="flex flex-col gap-5">
