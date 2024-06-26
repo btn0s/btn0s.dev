@@ -2,7 +2,14 @@
 
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 
-import { FlaskConicalIcon, HouseIcon, NotebookPenIcon } from "lucide-react";
+import {
+  BriefcaseIcon,
+  FlaskConicalIcon,
+  HouseIcon,
+  JoystickIcon,
+  NotebookIcon,
+  NotebookPenIcon,
+} from "lucide-react";
 import Link, { LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -15,7 +22,7 @@ const Panel: FC<PropsWithChildren<{ className?: string; pill?: boolean }>> = ({
   pill = false,
 }) => {
   return (
-    <div className="relative overflow-hidden rounded-full bg-neutral-800 p-[1px]">
+    <div className="relative overflow-hidden rounded-full bg-neutral-800 p-[1px] shadow">
       <div className="absolute left-1/2 top-0 aspect-video h-full w-2/3 -translate-x-1/2 -translate-y-1/4 bg-white opacity-20 bg-blend-multiply blur-lg"></div>
       <div
         className={cn(
@@ -114,21 +121,21 @@ const NavLink: FC<
 const Footer = () => {
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-0 flex items-center justify-center gap-2 p-6">
-      <div className="absolute inset-x-0 bottom-0 z-[-1] h-[200%] bg-gradient-to-b from-transparent to-black"></div>
+      <div className="absolute -inset-x-24 -bottom-24 z-[-1] h-[150%] bg-gradient-to-b from-black/50 to-black blur-2xl"></div>
       <FadeBlurLoader className="pointer-events-auto flex items-center gap-2">
         <Panel pill>
           <NavLink href="/" isFirstChild>
             <HouseIcon className="size-4" />
           </NavLink>
-          <NavLink href="/notes">
-            <NotebookPenIcon className="size-4" />
+          <NavLink href="/work">
+            <BriefcaseIcon className="size-4" />
           </NavLink>
-          <NavLink href="/experiments" isLastChild>
+          <NavLink href="/notes">
+            <NotebookIcon className="size-4" />
+          </NavLink>
+          <NavLink href="/lab" isLastChild>
             <FlaskConicalIcon className="size-4" />
           </NavLink>
-          {/*<NavLink href="/games">*/}
-          {/*  <JoystickIcon className="size-4" />*/}
-          {/*</NavLink>*/}
         </Panel>
       </FadeBlurLoader>
     </div>

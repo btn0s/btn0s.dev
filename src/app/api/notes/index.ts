@@ -1,5 +1,5 @@
 import { getSlugsByDir } from "@/app/api/shared";
-import { FOLDER_EXCLUDES } from "@/constants/api";
+import { FOLDER_EXCLUDES } from "@/types/api";
 
 const NOTES_DIRECTORY = "./src/content/notes";
 

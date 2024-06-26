@@ -43,7 +43,7 @@ const useAnimateIn = ({ options }: useAnimateInProps) => {
         },
         {
           duration: hasUserVisited ? 0.5 : 1,
-          delay: hasUserVisited ? 0 : 0.5,
+          delay: hasUserVisited ? 0 : 0,
           ...options,
         },
       );

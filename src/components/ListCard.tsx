@@ -3,10 +3,11 @@ import { FC } from "react";
 import Link from "next/link";
 
 import { Note } from "@/app/api/notes";
+import { Subpage } from "@/types/global";
 
 export const ListCard: FC<{
   slug: string;
-  section: "experiments" | "notes";
+  section: Subpage;
   meta: Note["meta"];
 }> = ({ slug, section, meta }) => {
   return (

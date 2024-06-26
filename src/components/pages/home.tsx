@@ -2,22 +2,88 @@
 
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 
-import { LightningBoltIcon } from "@radix-ui/react-icons";
 import { stagger, useAnimate } from "framer-motion";
 import {
   ArrowRightIcon,
   FlaskConicalIcon,
   NotebookPenIcon,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { PiCactusFill, PiSunFill } from "react-icons/pi";
+import { proc } from "vfile/do-not-use-conditional-minproc";
 
 import { Experiment } from "@/app/api/experiments";
 import { Note } from "@/app/api/notes";
+import imagePlaceholder from "@/assets/images/image-placeholder.png";
+import { List } from "@/components/List";
 import { ListCard } from "@/components/ListCard";
-import { List } from "@/components/pages/List";
-import { CURRENT_LINKS } from "@/content/current-links";
 import { useHasUserVisited } from "@/hooks/useAnimateIn";
+import { Subpage } from "@/types/global";
+
+const DUMMY_COLLECTION = [
+  {
+    slug: "test",
+    image: imagePlaceholder,
+    meta: {
+      title: "Test",
+    },
+  },
+  {
+    slug: "test-2",
+    image: imagePlaceholder,
+    meta: {
+      title: "Test 2",
+    },
+  },
+  {
+    slug: "test-3",
+    image: imagePlaceholder,
+    meta: {
+      title: "Test 3",
+    },
+  },
+  {
+    slug: "test-4",
+    image: imagePlaceholder,
+    meta: {
+      title: "Test 4",
+    },
+  },
+  {
+    slug: "test-5",
+    image: imagePlaceholder,
+    meta: {
+      title: "Test 5",
+    },
+  },
+  {
+    slug: "test-6",
+    image: imagePlaceholder,
+    meta: {
+      title: "Test 6",
+    },
+  },
+];
+
+const Masonry = ({ collection }: { collection: any }) => {
+  return (
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {collection.map((item: any) => (
+        <div key={item.slug} className="relative">
+          <Image
+            src={item.image}
+            alt={item.meta.title}
+            className="rounded-lg border border-white/5"
+          />
+          <div className="absolute inset-x-0 bottom-0 p-6 text-sm">
+            {item.meta.title}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 const HomeSection: FC<PropsWithChildren> = ({ children }) => {
   return (
@@ -62,14 +128,15 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
 
   return (
     <div ref={scope} className="flex flex-col gap-12 pb-12">
-      <HomeSection>
-        <h1 className="text-xl">
-          <span className="font-light text-muted-foreground">
-            designer, programmer,{" "}
-          </span>
-          <span className="font-bold">human.</span>
-        </h1>
-      </HomeSection>
+      <div className="flex max-w-sm flex-col gap-12">
+        <HomeSection>
+          <h1 className="text-xl">
+            <span className="font-light text-muted-foreground">
+              designer, programmer,{" "}
+            </span>
+            <span className="font-bold">human.</span>
+          </h1>
+        </HomeSection>
 
         <HomeSection>
           <h1 className="mb-4 text-sm">
@@ -83,88 +150,139 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
           </div>
         </HomeSection>
 
-      <HomeSection>
-        <div className="flex flex-col gap-5">
-          <div className="flex items-center justify-between">
-            <span className="flex items-center gap-1 font-mono text-xs">
-              <LightningBoltIcon className="size-2" />
-              currently
-            </span>
-          </div>
-          <div className="flex flex-col gap-1">
-            {CURRENT_LINKS.map(({ role, url }) => (
-              <div
-                key={url}
-                className="flex items-center justify-between gap-2 text-sm text-muted-foreground hover:text-white"
-              >
-                <span>{role} @</span>
-                <a className="underline" href={url}>
-                  {url.split("//")[1].split("/")[0]}
-                </a>
+        <HomeSection>
+          <div className="flex flex-col gap-5">
+            <div className="flex items-center justify-between">
+              <span className="flex items-center gap-1 font-mono text-xs">
+                i'm currently
+              </span>
+            </div>
+            <div className="flex flex-col gap-2">
+              <div className="group mb-2 flex items-start justify-between gap-2 text-sm text-muted-foreground">
+                <div className="max-w-[200px] text-white">
+                  building tools and prototypes for designers
+                </div>
+                <div className="flex flex-col items-end">
+                  <div className="flex hover:text-white">
+                    <a
+                      className="group-hover:underline"
+                      href="https://playbackbone.com"
+                    >
+                      backbone
+                    </a>
+                  </div>
+                  <span className="opacity-50">design engineer</span>
+                </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </HomeSection>
 
-      {notes.length > 0 && (
-        <HomeSection>
-          <div className="flex flex-col gap-5">
-            <div className="flex items-center justify-between">
-              <span className="flex items-center gap-1 font-mono text-xs">
-                <NotebookPenIcon className="size-2" />
-                thoughts
-              </span>
-              {notes.length > 3 && (
-                <Link
-                  className="text-xs text-muted-foreground hover:underline"
-                  href="/notes"
-                >
-                  view all
-                  <ArrowRightIcon className="ml-1 inline size-3" />
-                </Link>
-              )}
+              <div className="group flex items-start justify-between gap-2 text-xs text-muted-foreground">
+                <div className="max-w-[175px]">
+                  crafting the worlds first product IDE
+                </div>
+                <div className="flex flex-col items-end">
+                  <div className="flex hover:text-white">
+                    <a
+                      className="group-hover:underline"
+                      href="https://strella.dev"
+                    >
+                      strella
+                    </a>
+                  </div>
+                  <span className="opacity-50">founder</span>
+                </div>
+              </div>
+              <div className="group flex items-start justify-between gap-2 text-xs text-muted-foreground">
+                <div className="max-w-[175px]">
+                  helping angel investors find the next hit games
+                </div>
+                <div className="flex flex-col items-end">
+                  <div className="flex hover:text-white">
+                    <a
+                      className="group-hover:underline"
+                      href="https://indiefundr.gg"
+                    >
+                      indiefundr
+                    </a>
+                  </div>
+                  <span className="opacity-50">co-founder</span>
+                </div>
+              </div>
             </div>
-            <List>
-              {notes.map(({ slug, meta }) => (
-                <ListCard key={slug} section="notes" slug={slug} meta={meta} />
-              ))}
-            </List>
           </div>
         </HomeSection>
-      )}
+      </div>
 
-      {experiments.length > 0 && (
-        <HomeSection>
-          <div className="flex flex-col gap-5">
-            <div className="flex items-center justify-between">
-              <span className="flex items-center gap-1 font-mono text-xs">
-                <FlaskConicalIcon className="size-2" />
-                experiments
-              </span>
-              {experiments.length > 3 && (
-                <Link
-                  className="text-xs text-muted-foreground underline"
-                  href="/experiments"
-                >
-                  view all
-                  <ArrowRightIcon className="ml-1 inline size-3" />
-                </Link>
-              )}
+      {/*{process.env.NODE_ENV === "development" && (*/}
+      {/*  <HomeSection>*/}
+      {/*    <Masonry collection={DUMMY_COLLECTION} />*/}
+      {/*  </HomeSection>*/}
+      {/*)}*/}
+
+      <div className="flex max-w-sm flex-col gap-12">
+        {notes.length > 0 && (
+          <HomeSection>
+            <div className="flex flex-col gap-5">
+              <div className="flex items-center justify-between">
+                <span className="flex items-center gap-1 font-mono text-xs">
+                  <NotebookPenIcon className="size-2" />
+                  thoughts
+                </span>
+                {notes.length > 3 && (
+                  <Link
+                    className="text-xs text-muted-foreground hover:underline"
+                    href="/notes"
+                  >
+                    view all
+                    <ArrowRightIcon className="ml-1 inline size-3" />
+                  </Link>
+                )}
+              </div>
+              <List>
+                {notes.map(({ slug, meta }) => (
+                  <ListCard
+                    key={slug}
+                    section={Subpage.NOTES}
+                    slug={slug}
+                    meta={meta}
+                  />
+                ))}
+              </List>
             </div>
-            <List>
-              {experiments.map(({ slug, meta }) => (
-                <ListCard
-                  key={slug}
-                  section="experiments"
-                  slug={slug}
-                  meta={meta}
-                />
-              ))}
-            </List>
-          </div>
-        </HomeSection>
-      )}
+          </HomeSection>
+        )}
+
+        {experiments.length > 0 && (
+          <HomeSection>
+            <div className="flex flex-col gap-5">
+              <div className="flex items-center justify-between">
+                <span className="flex items-center gap-1 font-mono text-xs">
+                  <FlaskConicalIcon className="size-2" />
+                  experiments
+                </span>
+                {experiments.length > 3 && (
+                  <Link
+                    className="text-xs text-muted-foreground underline"
+                    href="/lab"
+                  >
+                    view all
+                    <ArrowRightIcon className="ml-1 inline size-3" />
+                  </Link>
+                )}
+              </div>
+              <List>
+                {experiments.map(({ slug, meta }) => (
+                  <ListCard
+                    key={slug}
+                    section={Subpage.LAB}
+                    slug={slug}
+                    meta={meta}
+                  />
+                ))}
+              </List>
+            </div>
+          </HomeSection>
+        )}
+      </div>
     </div>
   );
 };

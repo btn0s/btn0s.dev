@@ -45,15 +45,15 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="fixed inset-x-0 top-0 isolate z-10 flex items-center justify-center p-6">
+    <div className="fixed inset-x-0 top-0 isolate z-10 flex items-center justify-center">
       <div
         className="absolute inset-0 -z-10 bg-black/5 backdrop-blur"
         style={{
           maskImage:
-            "linear-gradient(rgb(0,0,0) 55%, rgba(0,0,0,0.8) 70%, rgba(0,0,0,0) 100%)",
+            "linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 30%, rgb(0,0,0) 45%)",
         }}
       ></div>
-      <FadeBlurLoader className="flex flex-1 items-center justify-between">
+      <FadeBlurLoader className="flex max-w-md flex-1 items-center justify-between p-6">
         <Link href="/">✦ btn0s</Link>
         {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
         <div className="text-xs text-white/20">

@@ -1,19 +1,23 @@
 import { Metadata } from "next";
-import Link from "next/link";
 
 import { getNotes } from "@/app/api/notes";
-import FadeBlurLoader from "@/components/FadeBlurLoader";
+import EmptyPageMessage from "@/components/EmptyPageMessage";
+import { List } from "@/components/List";
 import { ListCard } from "@/components/ListCard";
-import { List } from "@/components/pages/List";
+import { createMetaTitle } from "@/lib/utils";
+import { Subpage } from "@/types/global";
+
+const TITLE = "notes";
+const DESCRIPTION = "A peek into my mind. Random thoughts, notes, and ideas.";
 
 export const metadata: Metadata = {
-  title: "✦ thoughts | @btn0s",
-  description: "I don't write a lot. When I do it ends up here.",
+  title: createMetaTitle(TITLE),
+  description: DESCRIPTION,
   openGraph: {
-    title: "✦ thoughts | @btn0s",
-    description: "I don't write a lot. When I do it ends up here.",
+    title: createMetaTitle(TITLE),
+    description: DESCRIPTION,
     type: "website",
-    url: "https://btn0s.dev/posts",
+    url: "https://btn0s.dev/notes",
     images: [
       {
         url: "https://btn0s.dev/og-share-new.png",
@@ -31,17 +35,19 @@ const Page = async () => {
     <div className="not-prose flex flex-col gap-12">
       <h1 className="text-balance text-xl text-white">
         <span className="font-light opacity-50">random thoughts, notes, </span>
-        <span className="font-bold">and ideas</span>
+        <div className="font-bold">and ideas</div>
       </h1>
       {notes.length === 0 ? (
-        <div className="flex gap-2 text-center text-sm">
-          {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-          <span className="text-white/50">// check back later</span>
-        </div>
+        <EmptyPageMessage />
       ) : (
         <List>
           {notes.map(({ meta, slug }) => (
-            <ListCard key={slug} meta={meta} slug={slug} section="notes" />
+            <ListCard
+              key={slug}
+              meta={meta}
+              slug={slug}
+              section={Subpage.NOTES}
+            />
           ))}
         </List>
       )}
