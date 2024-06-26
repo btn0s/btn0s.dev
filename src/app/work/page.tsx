@@ -31,7 +31,7 @@ const Page = async () => {
     <div className="not-prose flex flex-col gap-12">
       <h1 className="text-xl text-white">
         <span className="font-light opacity-50">the journey so far, </span>
-        <div className="font-bold">this is my life's work</div>
+        <div className="font-bold">this is my life&apos;s work</div>
       </h1>
       <EmptyPageMessage />
     </div>
