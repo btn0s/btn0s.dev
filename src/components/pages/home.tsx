@@ -73,8 +73,7 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
 
       <HomeSection>
         <h1 className="mb-4 text-sm">
-          Powering world class products and teams through tooling, prototyping,
-          systems design, and culture.
+          I use technology to make designers more efficient, and bring people joy.
         </h1>
         <div className="text-sm text-muted-foreground">
           based in Phoenix, Arizona <PiCactusFill className="inline" />
