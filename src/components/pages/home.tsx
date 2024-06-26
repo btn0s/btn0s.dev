@@ -8,82 +8,15 @@ import {
   FlaskConicalIcon,
   NotebookPenIcon,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { PiCactusFill, PiSunFill } from "react-icons/pi";
-import { proc } from "vfile/do-not-use-conditional-minproc";
 
 import { Experiment } from "@/app/api/experiments";
 import { Note } from "@/app/api/notes";
-import imagePlaceholder from "@/assets/images/image-placeholder.png";
 import { List } from "@/components/List";
 import { ListCard } from "@/components/ListCard";
 import { useHasUserVisited } from "@/hooks/useAnimateIn";
 import { Subpage } from "@/types/global";
-
-const DUMMY_COLLECTION = [
-  {
-    slug: "test",
-    image: imagePlaceholder,
-    meta: {
-      title: "Test",
-    },
-  },
-  {
-    slug: "test-2",
-    image: imagePlaceholder,
-    meta: {
-      title: "Test 2",
-    },
-  },
-  {
-    slug: "test-3",
-    image: imagePlaceholder,
-    meta: {
-      title: "Test 3",
-    },
-  },
-  {
-    slug: "test-4",
-    image: imagePlaceholder,
-    meta: {
-      title: "Test 4",
-    },
-  },
-  {
-    slug: "test-5",
-    image: imagePlaceholder,
-    meta: {
-      title: "Test 5",
-    },
-  },
-  {
-    slug: "test-6",
-    image: imagePlaceholder,
-    meta: {
-      title: "Test 6",
-    },
-  },
-];
-
-const Masonry = ({ collection }: { collection: any }) => {
-  return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {collection.map((item: any) => (
-        <div key={item.slug} className="relative">
-          <Image
-            src={item.image}
-            alt={item.meta.title}
-            className="rounded-lg border border-white/5"
-          />
-          <div className="absolute inset-x-0 bottom-0 p-6 text-sm">
-            {item.meta.title}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-};
 
 const HomeSection: FC<PropsWithChildren> = ({ children }) => {
   return (
@@ -210,12 +143,6 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
           </div>
         </HomeSection>
       </div>
-
-      {/*{process.env.NODE_ENV === "development" && (*/}
-      {/*  <HomeSection>*/}
-      {/*    <Masonry collection={DUMMY_COLLECTION} />*/}
-      {/*  </HomeSection>*/}
-      {/*)}*/}
 
       <div className="flex max-w-sm flex-col gap-12">
         {notes.length > 0 && (
