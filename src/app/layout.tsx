@@ -7,7 +7,6 @@ import type { Metadata } from "next";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import MainScene from "@/components/three/MainScene";
 
 import "./globals.css";
 
