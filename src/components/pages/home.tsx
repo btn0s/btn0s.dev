@@ -72,14 +72,10 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
         </HomeSection>
 
         <HomeSection>
-          <h1 className="mb-4 text-sm">
+          <h1 className="text-sm">
             I use design and technology to make designers more efficient and
             create things that spark joy.
           </h1>
-          <div className="text-xs text-muted-foreground">
-            based in Phoenix <PiCactusFill className="mr-[2px] inline" />
-            <PiSunFill className="inline" />
-          </div>
         </HomeSection>
 
         <HomeSection>
