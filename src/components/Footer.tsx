@@ -2,19 +2,11 @@
 
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 
-import { useAnimate } from "framer-motion";
-import {
-  FlaskConicalIcon,
-  HouseIcon,
-  JoystickIcon,
-  NotebookPenIcon,
-  SkullIcon,
-} from "lucide-react";
+import { FlaskConicalIcon, HouseIcon, NotebookPenIcon } from "lucide-react";
 import Link, { LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
 
 import FadeBlurLoader from "@/components/FadeBlurLoader";
-import useAnimateIn from "@/hooks/useAnimateIn";
 import { cn } from "@/lib/utils";
 
 const Panel: FC<PropsWithChildren<{ className?: string; pill?: boolean }>> = ({
@@ -103,8 +95,8 @@ const NavLink: FC<
           {
             "scale-95 text-white/75": isActive,
             "scale-100": !isActive,
-            "rounded-l-full": isFirstChild,
-            "rounded-r-full": isLastChild,
+            "rounded-l-full pl-1 ": isFirstChild,
+            "rounded-r-full pr-1": isLastChild,
           },
         )}
         style={{

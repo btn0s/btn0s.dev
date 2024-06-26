@@ -6,7 +6,7 @@ const MainScene = () => {
   return (
     <FadeBlurLoader
       className="fixed h-screen w-screen"
-      options={{ duration: 2 }}
+      options={{ duration: 2, delay: 0.5 }}
       style={{
         filter: "blur(40px)",
       }}
