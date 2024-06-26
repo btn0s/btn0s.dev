@@ -30,8 +30,8 @@ const Page = async () => {
   return (
     <div className="not-prose flex flex-col gap-12">
       <h1 className="text-balance text-xl text-white">
-        <span className="font-light opacity-50">Random thoughts, notes, </span>
-        <span className="font-bold">and ideas.</span>
+        <span className="font-light opacity-50">random thoughts, notes, </span>
+        <span className="font-bold">and ideas</span>
       </h1>
       {notes.length === 0 ? (
         <div className="flex gap-2 text-center text-sm">

@@ -34,9 +34,9 @@ const Page = async () => {
     <div className="not-prose flex flex-col gap-12">
       <h1 className="text-xl text-white">
         <span className="font-light opacity-50">
-          A selection of experiments{" "}
+          a selection of experiments{" "}
         </span>
-        <div className="font-bold">from the lab.</div>
+        <div className="font-bold">from the lab</div>
       </h1>
       <List>
         {experiments.map(({ slug, meta }) => (
