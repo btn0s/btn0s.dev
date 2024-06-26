@@ -64,16 +64,23 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
     <div ref={scope} className="flex flex-col gap-12">
       <HomeSection>
         <h1 className="text-xl">
-          <span className="font-light opacity-50">designer, programmer, </span>
+          <span className="font-light text-muted-foreground">
+            designer, programmer,{" "}
+          </span>
           <span className="font-bold">human.</span>
         </h1>
       </HomeSection>
 
       <HomeSection>
         <h2 className="text-balance text-sm">
-          I&apos;m a multidisciplinary design engineer based in{" "}
-          <PiCactusFill className="inline" /> Phoenix, Arizona.
+          inspired by the moments of detail that make up the world around us,
+          i'm focused on empowering design teams to do their best work and build
+          amazing products
         </h2>
+        <br />
+        <span className="text-xs text-muted-foreground">
+          based in Phoenix, Arizona <PiCactusFill className="inline" />
+        </span>
       </HomeSection>
 
       <HomeSection>
