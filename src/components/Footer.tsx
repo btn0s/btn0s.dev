@@ -3,6 +3,7 @@
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 
 import {
+  BriefcaseBusinessIcon,
   BriefcaseIcon,
   FlaskConicalIcon,
   HouseIcon,
@@ -128,7 +129,7 @@ const Footer = () => {
             <HouseIcon className="size-4" />
           </NavLink>
           <NavLink href="/work">
-            <BriefcaseIcon className="size-4" />
+            <BriefcaseBusinessIcon className="size-4" />
           </NavLink>
           <NavLink href="/notes">
             <NotebookIcon className="size-4" />
