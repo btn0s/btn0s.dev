@@ -72,15 +72,11 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
       </HomeSection>
 
       <HomeSection>
-        <div className="mb-4 text-sm">
-          I'm a design technologist dedicated to bridging the gap between design
-          and engineering.
-        </div>
-        <div className="mb-6 text-sm">
-          I love building prototypes, experimenting with (and building) new
-          tools, and giving teams a solid foundation to do their best work.
-        </div>
-        <div className="text-xs text-muted-foreground">
+        <h1 className="mb-4 text-sm">
+          I&apos;m a multidisciplinary design engineer working to empower teams
+          through tooling, prototypes, systems, and culture.
+        </h1>
+        <div className="text-sm text-muted-foreground">
           based in Phoenix, Arizona <PiCactusFill className="inline" />
         </div>
       </HomeSection>
