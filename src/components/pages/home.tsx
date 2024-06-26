@@ -13,6 +13,7 @@ import Link from "next/link";
 
 import { Experiment } from "@/app/api/experiments";
 import { Note } from "@/app/api/notes";
+import FadeBlurLoader from "@/components/FadeBlurLoader";
 import { List } from "@/components/List";
 import { ListCard } from "@/components/ListCard";
 import { useHasUserVisited } from "@/hooks/useAnimateIn";
@@ -135,8 +136,8 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
         </HomeSection>
       </div>
 
-      <HomeSection>
-        <div className="flex flex-col gap-12">
+      <div className="flex flex-col gap-12">
+        <HomeSection>
           <div className="flex flex-col gap-5">
             <div className="flex items-center justify-between">
               <span className="flex items-center gap-1 text-xs">
@@ -150,6 +151,8 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
               ))}
             </div>
           </div>
+        </HomeSection>
+        <FadeBlurLoader>
           <div className="flex max-w-sm flex-col gap-12">
             {notes.length > 0 && (
               <div className="flex flex-col gap-5">
@@ -211,8 +214,8 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
               </div>
             )}
           </div>
-        </div>
-      </HomeSection>
+        </FadeBlurLoader>
+      </div>
     </div>
   );
 };
