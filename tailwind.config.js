@@ -80,9 +80,9 @@ module.exports = {
           css: {
             color: "hsl(var(--muted-foreground))",
             h1: {
-              fontSize: "1.2rem",
+              fontSize: "1.25rem",
               fontWeight: "600",
-              lineHeight: "1.2em",
+              lineHeight: "1.75rem",
               marginBottom: "0.5em",
               color: "hsl(var(--foreground))",
             },
@@ -102,6 +102,8 @@ module.exports = {
             },
             p: {
               marginTop: "0",
+              fontSize: "0.875rem",
+              lineHeight: "1.25em",
             },
           },
         },

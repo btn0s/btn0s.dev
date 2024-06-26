@@ -93,7 +93,7 @@ const NavLink: FC<
         className={cn(
           "-z-10 flex size-full items-center justify-center bg-neutral-800 group-active:scale-95 group-active:text-white/75",
           {
-            "scale-95 text-white/75": isActive,
+            "scale-[0.98] text-white/75": isActive,
             "scale-100": !isActive,
             "rounded-l-full pl-1 ": isFirstChild,
             "rounded-r-full pr-1": isLastChild,
