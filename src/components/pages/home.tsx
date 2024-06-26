@@ -86,7 +86,7 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
           <div className="flex flex-col gap-5">
             <div className="flex items-center justify-between">
               <span className="flex items-center gap-1 font-mono text-xs">
-                i'm currently
+                i&apos;m currently
               </span>
             </div>
             <div className="flex flex-col gap-2">
