@@ -47,7 +47,7 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
         filter: "blur(0px)",
       },
       {
-        delay: hasUserVisited ? 0 : stagger(0.5),
+        delay: hasUserVisited ? 0 : stagger(0.75),
         duration: 0.5,
       },
     ).then(() => {
