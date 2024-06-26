@@ -25,12 +25,11 @@ export async function generateMetadata({
   }
 
   return {
-    title: "an experiment by ✦ bt norris",
-    description:
-      "this is a small peek into my lab, where i experiment with code, design, and other things.",
+    title: "a note by ✦ btn0s",
+    description: "random musings.",
     openGraph: {
-      title: "an experiment by @btn0s",
-      description: "an experiment by @btn0s",
+      title: "a note by ✦ btn0s",
+      description: "random musings.",
       images: [
         {
           url: "https://btn0s.dev/images/og-image.png",
