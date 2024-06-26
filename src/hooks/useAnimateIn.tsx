@@ -42,7 +42,7 @@ const useAnimateIn = ({ options }: useAnimateInProps) => {
           filter: "blur(0px)",
         },
         {
-          duration: hasUserVisited ? 1 : 0.5,
+          duration: hasUserVisited ? 0.5 : 1,
           ...options,
         },
       );
