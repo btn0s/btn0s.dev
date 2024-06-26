@@ -3,22 +3,79 @@
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 
 import { stagger, useAnimate } from "framer-motion";
-import {
-  ArrowRightIcon,
-  BriefcaseBusinessIcon,
-  FlaskConicalIcon,
-  NotebookPenIcon,
-} from "lucide-react";
-import Link from "next/link";
+import { BriefcaseBusinessIcon } from "lucide-react";
+import Image from "next/image";
 
 import { Experiment } from "@/app/api/experiments";
 import { Note } from "@/app/api/notes";
+import imagePlaceholder from "@/assets/images/image-placeholder.png";
 import FadeBlurLoader from "@/components/FadeBlurLoader";
-import { List } from "@/components/List";
-import { ListCard } from "@/components/ListCard";
 import { useHasUserVisited } from "@/hooks/useAnimateIn";
 import { cn } from "@/lib/utils";
-import { Subpage } from "@/types/global";
+
+const DUMMY_COLLECTION = [
+  {
+    slug: "test",
+    image: imagePlaceholder,
+    meta: {
+      title: "Test",
+    },
+  },
+  {
+    slug: "test-2",
+    image: imagePlaceholder,
+    meta: {
+      title: "Test 2",
+    },
+  },
+  {
+    slug: "test-3",
+    image: imagePlaceholder,
+    meta: {
+      title: "Test 3",
+    },
+  },
+  {
+    slug: "test-4",
+    image: imagePlaceholder,
+    meta: {
+      title: "Test 4",
+    },
+  },
+  {
+    slug: "test-5",
+    image: imagePlaceholder,
+    meta: {
+      title: "Test 5",
+    },
+  },
+  {
+    slug: "test-6",
+    image: imagePlaceholder,
+    meta: {
+      title: "Test 6",
+    },
+  },
+];
+
+const Masonry = ({ collection }: { collection: any }) => {
+  return (
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {collection.map((item: any) => (
+        <div key={item.slug} className="relative">
+          <Image
+            src={item.image}
+            alt={item.meta.title}
+            className="rounded-lg border border-white/5"
+          />
+          <div className="absolute inset-x-0 bottom-0 p-6 text-sm">
+            {item.meta.title}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 interface CurrentProject {
   title: string;
@@ -152,70 +209,11 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
             </div>
           </div>
         </HomeSection>
-        <FadeBlurLoader>
-          <div className="flex max-w-sm flex-col gap-12">
-            {notes.length > 0 && (
-              <div className="flex flex-col gap-5">
-                <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1 text-xs">
-                    <NotebookPenIcon className="size-2" />
-                    thoughts
-                  </span>
-                  {notes.length > 3 && (
-                    <Link
-                      className="text-xs text-muted-foreground hover:underline"
-                      href="/notes"
-                    >
-                      view all
-                      <ArrowRightIcon className="ml-1 inline size-3" />
-                    </Link>
-                  )}
-                </div>
-                <List>
-                  {notes.map(({ slug, meta }) => (
-                    <ListCard
-                      key={slug}
-                      section={Subpage.NOTES}
-                      slug={slug}
-                      meta={meta}
-                    />
-                  ))}
-                </List>
-              </div>
-            )}
-
-            {experiments.length > 0 && (
-              <div className="flex flex-col gap-5">
-                <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1 text-xs">
-                    <FlaskConicalIcon className="size-2" />
-                    experiments
-                  </span>
-                  {experiments.length > 3 && (
-                    <Link
-                      className="text-xs text-muted-foreground underline"
-                      href="/lab"
-                    >
-                      view all
-                      <ArrowRightIcon className="ml-1 inline size-3" />
-                    </Link>
-                  )}
-                </div>
-                <List>
-                  {experiments.map(({ slug, meta }) => (
-                    <ListCard
-                      key={slug}
-                      section={Subpage.LAB}
-                      slug={slug}
-                      meta={meta}
-                    />
-                  ))}
-                </List>
-              </div>
-            )}
-          </div>
-        </FadeBlurLoader>
       </div>
+
+      <FadeBlurLoader>
+        <Masonry collection={DUMMY_COLLECTION} />
+      </FadeBlurLoader>
     </div>
   );
 };
