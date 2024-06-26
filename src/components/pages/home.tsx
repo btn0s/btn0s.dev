@@ -47,8 +47,8 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
         filter: "blur(0px)",
       },
       {
-        delay: hasUserVisited ? 0 : stagger(0.75),
-        duration: 0.5,
+        delay: hasUserVisited ? 0 : stagger(0.75, { startDelay: 0.5 }),
+        duration: hasUserVisited ? 0.5 : 0.75,
       },
     ).then(() => {
       sessionStorage.setItem("hasUserVisited", "true");
