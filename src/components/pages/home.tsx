@@ -73,8 +73,8 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
 
       <HomeSection>
         <h1 className="mb-4 text-sm">
-          I&apos;m a multidisciplinary design engineer powering world class
-          products through tooling, prototyping, systems design, and culture.
+          powering world class products through tooling, prototyping, systems
+          design, and culture.
         </h1>
         <div className="text-sm text-muted-foreground">
           based in Phoenix, Arizona <PiCactusFill className="inline" />
