@@ -23,7 +23,7 @@ const CURRENT_PROJECTS: CurrentProjectItem[] = [
     title: "building tools and prototypes for designers",
     company: "backbone",
     role: "design engineer",
-    href: "https://playbackbone.com",
+    href: "/work/backbone",
     isMain: true,
   },
   {
@@ -58,7 +58,7 @@ const CurrentProject: FC<CurrentProjectItem> = ({
       </div>
       <div className="flex flex-col items-end">
         <div className="flex hover:text-white">
-          <a className="group-hover:underline" href={href} target="_blank">
+          <a href={href} target="_blank">
             @{company}
           </a>
         </div>
