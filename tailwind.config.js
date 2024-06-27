@@ -79,9 +79,10 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       typography: {
-        DEFAULT: {
+        sm: {
           css: {
             color: "hsl(var(--muted-foreground))",
+            lineHeight: "1.5em",
             h1: {
               fontSize: "1.25rem",
               fontWeight: "600",
@@ -105,8 +106,19 @@ module.exports = {
             },
             p: {
               marginTop: "0",
-              fontSize: "0.875rem",
-              lineHeight: "1.25em",
+              "& ~ ul": {
+                marginTop: "-1.1428571em",
+              },
+            },
+            ul: {
+              paddingTop: "16px",
+              paddingBottom: "16px",
+              marginLeft: "0rem",
+              paddingLeft: "1rem",
+              textWrap: "balance",
+            },
+            li: {
+              marginBottom: "0.5em",
             },
           },
         },

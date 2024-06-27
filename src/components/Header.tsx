@@ -15,7 +15,7 @@ import { LuGithub, LuTwitter } from "react-icons/lu";
 import { PiCactusFill, PiMapPin } from "react-icons/pi";
 
 import FadeBlurLoader from "@/components/FadeBlurLoader";
-import useAnimateIn from "@/hooks/useAnimateIn";
+import useAnimateIn from "@/hooks/use-animate-in";
 
 const HeaderLink: FC<
   PropsWithChildren<
@@ -59,7 +59,7 @@ const Header = () => {
             "linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 30%, rgb(0,0,0) 45%)",
         }}
       ></div>
-      <FadeBlurLoader className="max-w-desktop flex flex-1 items-center justify-between p-6">
+      <FadeBlurLoader className="flex max-w-desktop flex-1 items-center justify-between p-6">
         <Link href="/">✦ btn0s</Link>
         <div className="relative flex flex-col items-center text-xs text-white/20">
           <div>{currentDate?.toLocaleString()}</div>

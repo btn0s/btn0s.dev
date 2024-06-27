@@ -4,7 +4,7 @@ import { CSSProperties, FC, PropsWithChildren } from "react";
 
 import { DynamicAnimationOptions } from "framer-motion";
 
-import useAnimateIn from "@/hooks/useAnimateIn";
+import useAnimateIn from "@/hooks/use-animate-in";
 
 interface FadeBlurLoaderProps {
   className?: string;

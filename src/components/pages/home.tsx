@@ -1,83 +1,86 @@
 "use client";
 
-import { FC, PropsWithChildren, useEffect, useState } from "react";
+import React, { FC, PropsWithChildren, useEffect, useState } from "react";
 
 import { stagger, useAnimate } from "framer-motion";
-import { BriefcaseBusinessIcon } from "lucide-react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 
 import { Experiment } from "@/app/api/experiments";
 import { Note } from "@/app/api/notes";
 import imagePlaceholder from "@/assets/images/image-placeholder.png";
 import FadeBlurLoader from "@/components/FadeBlurLoader";
-import { useHasUserVisited } from "@/hooks/useAnimateIn";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import { useHasUserVisited } from "@/hooks/use-animate-in";
+import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
+import { EntryType } from "@/types";
 
-const DUMMY_COLLECTION = [
-  {
-    slug: "test",
-    image: imagePlaceholder,
-    meta: {
-      title: "Test",
-    },
-  },
-  {
-    slug: "test-2",
-    image: imagePlaceholder,
-    meta: {
-      title: "Test 2",
-    },
-  },
-  {
-    slug: "test-3",
-    image: imagePlaceholder,
-    meta: {
-      title: "Test 3",
-    },
-  },
-  {
-    slug: "test-4",
-    image: imagePlaceholder,
-    meta: {
-      title: "Test 4",
-    },
-  },
-  {
-    slug: "test-5",
-    image: imagePlaceholder,
-    meta: {
-      title: "Test 5",
-    },
-  },
-  {
-    slug: "test-6",
-    image: imagePlaceholder,
-    meta: {
-      title: "Test 6",
-    },
-  },
-];
+interface HomeGalleryItem {
+  type: EntryType;
+  href: string;
+  image: StaticImageData;
+  title: string;
+  description: string;
+}
 
-const Masonry = ({ collection }: { collection: any }) => {
+type HomeGalleryCollection = HomeGalleryItem[];
+
+const HOME_COLLECTION: HomeGalleryCollection = [...Array(6)].map(() => ({
+  type: EntryType.WORK,
+  href: "/backbone",
+  image: imagePlaceholder,
+  title: "Project Title",
+  description: "Project Description",
+}));
+
+const HomeGalleryItemCard: FC<HomeGalleryItem> = ({
+  type,
+  image,
+  title,
+  href,
+}) => {
+  return (
+    <Link href={`${type.toLowerCase()}${href}`} className="relative">
+      <Image
+        src={image}
+        alt={title}
+        className="rounded-lg border border-white/5"
+      />
+      <div className="absolute inset-x-0 bottom-0 p-6 text-sm">{title}</div>
+    </Link>
+  );
+};
+
+const HomeGallery = ({ collection }: { collection: HomeGalleryCollection }) => {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {collection.map((item: any) => (
-        <div key={item.slug} className="relative">
-          <Image
-            src={item.image}
-            alt={item.meta.title}
-            className="rounded-lg border border-white/5"
-          />
-          <div className="absolute inset-x-0 bottom-0 p-6 text-sm">
-            {item.meta.title}
-          </div>
-        </div>
+      {collection.map((item) => (
+        <HomeGalleryItemCard key={item.title} {...item} />
       ))}
     </div>
   );
 };
 
-interface CurrentProject {
+interface CurrentProjectItem {
   title: string;
   company: string;
   role: string;
@@ -85,7 +88,7 @@ interface CurrentProject {
   isMain?: boolean;
 }
 
-const CURRENT_PROJECTS: CurrentProject[] = [
+const CURRENT_PROJECTS: CurrentProjectItem[] = [
   {
     title: "building tools and prototypes for designers",
     company: "backbone",
@@ -107,7 +110,7 @@ const CURRENT_PROJECTS: CurrentProject[] = [
   },
 ];
 
-const CurrentProject: FC<CurrentProject> = ({
+const CurrentProject: FC<CurrentProjectItem> = ({
   title,
   company,
   role,
@@ -193,16 +196,15 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
         </HomeSection>
       </div>
 
-      <div className="flex flex-col gap-12">
+      <div className="flex max-w-md flex-col gap-12">
         <HomeSection>
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-6">
             <div className="flex items-center justify-between">
               <span className="flex items-center gap-1 text-xs">
-                <BriefcaseBusinessIcon className="size-2" />
-                i&apos;m currently{" "}
+                I&apos;m currently...{" "}
               </span>
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-4">
               {CURRENT_PROJECTS.map((project) => (
                 <CurrentProject key={project.company} {...project} />
               ))}
@@ -212,7 +214,7 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
       </div>
 
       <FadeBlurLoader>
-        <Masonry collection={DUMMY_COLLECTION} />
+        <HomeGallery collection={HOME_COLLECTION} />
       </FadeBlurLoader>
     </div>
   );

@@ -5,7 +5,7 @@ import EmptyPageMessage from "@/components/EmptyPageMessage";
 import { List } from "@/components/List";
 import { ListCard } from "@/components/ListCard";
 import { createMetaTitle } from "@/lib/utils";
-import { Subpage } from "@/types/global";
+import { EntryType } from "@/types";
 
 const TITLE = "notes";
 const DESCRIPTION = "A peek into my mind. Random thoughts, notes, and ideas.";
@@ -46,7 +46,7 @@ const Page = async () => {
               key={slug}
               meta={meta}
               slug={slug}
-              section={Subpage.NOTES}
+              section={EntryType.NOTES}
             />
           ))}
         </List>
