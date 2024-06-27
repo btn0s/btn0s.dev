@@ -82,11 +82,11 @@ module.exports = {
         sm: {
           css: {
             color: "hsl(var(--muted-foreground))",
-            lineHeight: "1.5em",
+            // lineHeight: "1.25em",
             h1: {
               fontSize: "1.5em",
               fontWeight: "600",
-              lineHeight: "1.2em",
+              lineHeight: "1.5em",
               marginBottom: "0.5em",
               color: "hsl(var(--foreground))",
               ["&>p"]: {
@@ -118,7 +118,6 @@ module.exports = {
               paddingBottom: "16px",
               marginLeft: "0rem",
               paddingLeft: "1rem",
-              textWrap: "balance",
             },
             li: {
               marginBottom: "0.5em",
