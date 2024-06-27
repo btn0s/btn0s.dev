@@ -80,7 +80,7 @@ const Header = () => {
           ✦ bt norris
         </Link>
         <AnimatePresence mode="popLayout">
-          {pathname === "/" ? (
+          {pathname === "/" && (
             <motion.div
               key="time"
               variants={{
@@ -101,8 +101,8 @@ const Header = () => {
                 {formattedTime}
               </div>
             </motion.div>
-          ) : null}
-          {pathname !== "/" ? (
+          )}
+          {pathname !== "/" && (
             <motion.div
               key="breadcrumb"
               variants={{
@@ -147,7 +147,7 @@ const Header = () => {
                 </BreadcrumbList>
               </Breadcrumb>
             </motion.div>
-          ) : null}
+          )}
         </AnimatePresence>
         <div className="flex w-[79px] justify-end">
           <HeaderLink href="https://github.com/btn0s" target="_blank">
