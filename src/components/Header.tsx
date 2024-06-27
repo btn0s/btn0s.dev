@@ -10,7 +10,6 @@ import {
 } from "react";
 
 import { AnimatePresence } from "framer-motion";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LuGithub, LuMail } from "react-icons/lu";
@@ -80,84 +79,44 @@ const Header = () => {
           ✦ bt norris
         </Link>
         <div className="relative flex flex-1 items-center justify-center">
-          <AnimatePresence mode="sync">
-            {pathname === "/" && (
-              <motion.div
-                key="time"
-                className="absolute"
-                variants={{
-                  initial: {
-                    opacity: 0,
-                    filter: "blur(4px)",
-                  },
-                  animate: {
-                    opacity: 1,
-                    filter: "blur(0px)",
-                  },
-                }}
-                transition={{
-                  duration: 0.5,
-                }}
-                initial="initial"
-                animate="animate"
-                exit="initial"
-              >
-                <div className="relative flex flex-col items-center text-xs leading-none text-muted-foreground opacity-50">
-                  {formattedTime}
-                </div>
-              </motion.div>
-            )}
-            {pathname !== "/" && (
-              <motion.div
-                key="breadcrumb"
-                className="absolute"
-                variants={{
-                  initial: {
-                    opacity: 0,
-                    filter: "blur(4px)",
-                  },
-                  animate: {
-                    opacity: 1,
-                    filter: "blur(0px)",
-                  },
-                }}
-                transition={{
-                  duration: 0.5,
-                }}
-                initial="initial"
-                animate="animate"
-                exit="initial"
-              >
-                <Breadcrumb>
-                  <BreadcrumbList>
-                    <BreadcrumbItem>
-                      <BreadcrumbLink
-                        href={`/${pathnameToParts[1]}`}
-                        className={cn("text-xs text-muted-foreground", {
-                          "opacity-50 hover:opacity-100": pathnameToParts[2],
-                        })}
-                      >
-                        {pathnameToParts[1]}
-                      </BreadcrumbLink>
-                    </BreadcrumbItem>
-                    {pathnameToParts[2] && (
-                      <>
-                        <BreadcrumbSeparator className="text-xs text-muted-foreground opacity-50" />
-                        <BreadcrumbItem>
-                          <BreadcrumbLink
-                            href={`/${pathnameToParts[1]}/${pathnameToParts[2]}`}
-                            className="text-xs text-muted-foreground"
-                          >
-                            {pathnameToParts[2]}
-                          </BreadcrumbLink>
-                        </BreadcrumbItem>
-                      </>
-                    )}
-                  </BreadcrumbList>
-                </Breadcrumb>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {pathname === "/" && (
+            <FadeBlurLoader>
+              <div className="relative flex flex-col items-center text-xs leading-none text-muted-foreground opacity-50">
+                {formattedTime}
+              </div>
+            </FadeBlurLoader>
+          )}
+          {pathname !== "/" && (
+            <FadeBlurLoader>
+              <Breadcrumb>
+                <BreadcrumbList>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink
+                      href={`/${pathnameToParts[1]}`}
+                      className={cn("text-xs text-muted-foreground", {
+                        "opacity-50 hover:opacity-100": pathnameToParts[2],
+                      })}
+                    >
+                      {pathnameToParts[1]}
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  {pathnameToParts[2] && (
+                    <>
+                      <BreadcrumbSeparator className="text-xs text-muted-foreground opacity-50" />
+                      <BreadcrumbItem>
+                        <BreadcrumbLink
+                          href={`/${pathnameToParts[1]}/${pathnameToParts[2]}`}
+                          className="text-xs text-muted-foreground"
+                        >
+                          {pathnameToParts[2]}
+                        </BreadcrumbLink>
+                      </BreadcrumbItem>
+                    </>
+                  )}
+                </BreadcrumbList>
+              </Breadcrumb>
+            </FadeBlurLoader>
+          )}
         </div>
         <div className="flex w-[79px] justify-end">
           <HeaderLink href="https://github.com/btn0s" target="_blank">
