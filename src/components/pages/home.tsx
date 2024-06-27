@@ -58,7 +58,11 @@ const CurrentProject: FC<CurrentProjectItem> = ({
       </div>
       <div className="flex flex-col items-end">
         <div className="flex hover:text-white">
-          <a href={href} target="_blank">
+          <a
+            href={href}
+            target={href.startsWith("http") ? "_blank" : "_self"}
+            rel="noopener noreferrer"
+          >
             @{company}
           </a>
         </div>

@@ -13,7 +13,7 @@ import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LuGithub, LuMail, LuTwitter } from "react-icons/lu";
+import { LuGithub, LuMail } from "react-icons/lu";
 
 import FadeBlurLoader from "@/components/FadeBlurLoader";
 import {
