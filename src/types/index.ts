@@ -7,10 +7,15 @@ export enum EntryType {
 export interface BaseEntryMetadata {
   title: string;
   description: string;
-  published: boolean;
   image: string;
   tags: string[];
   company: string;
+  roles: string[];
+  startDate: string;
+  endDate: string;
+  createdAt: string;
+  published: boolean;
+  featured?: boolean;
 }
 
 export interface BaseEntry {

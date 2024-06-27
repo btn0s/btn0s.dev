@@ -3,6 +3,8 @@ import path from "path";
 
 import inquirer from "inquirer";
 
+import { BaseEntryMetadata } from "@/types";
+
 const CONTENT_DIRECTORY = path.join(__dirname, "..", "content");
 const EXPERIMENTS_DIRECTORY = path.join(CONTENT_DIRECTORY, "experiments");
 const NOTES_DIRECTORY = path.join(CONTENT_DIRECTORY, "notes");
@@ -12,6 +14,9 @@ const WORK_DIRECTORY = path.join(CONTENT_DIRECTORY, "work");
 function generateSlug(title: string): string {
   return title
     .toLowerCase()
+    .split(" ")
+    .slice(0, 5)
+    .join(" ")
     .replace(/\s+/g, "-")
     .replace(/[^\w\-]+/g, "");
 }
@@ -96,7 +101,6 @@ async function createEntry(): Promise<void> {
       type: "input",
       name: "tags",
       message: "Enter tags (comma separated):",
-      default: "react,typescript,javascript",
     },
     {
       type: "input",
@@ -106,24 +110,30 @@ async function createEntry(): Promise<void> {
     },
   ]);
 
-  const tags = metadataAnswers.tags.split(",").map((tag: string) => tag.trim());
+  const tags = [
+    ...metadataAnswers.tags.split(",").map((tag: string) => tag.trim()),
+    metadataAnswers.company.toLowerCase().replace(/\s+/g, "-"),
+  ];
+
+  const metadata: BaseEntryMetadata = {
+    title,
+    description: metadataAnswers.description,
+    image: "/og-share-new.png",
+    published: false,
+    tags,
+    company: metadataAnswers.company,
+    roles: [],
+    startDate: "",
+    endDate: "",
+    createdAt: new Date().toISOString(),
+  };
 
   // Template content
   const content = `
-import AtHandle from "../../components/AtHandle";
 import PageTitle, {PageTitleHighlight} from "../../components/PageTitle";
 import EntryImageWithCaption from "../../components/EntryImageWithCaption";
 
-export const meta = {
-  title: "${title}",
-  description: "${metadataAnswers.description}",
-  image: "/og-share-new.png",
-  published: false,
-  tags: ${JSON.stringify(tags)},
-  company: "${metadataAnswers.company}",
-};
-
-<AtHandle className={"mb-4"} value={meta.company} />
+export const meta = ${JSON.stringify(metadata, null, 2)};
 
 <PageTitle>
   Lorem ipsum dolor{" "}<PageTitleHighlight block>sit amet, consectetur adipiscing.</PageTitleHighlight>

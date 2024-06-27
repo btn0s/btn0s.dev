@@ -4,7 +4,7 @@ import FadeBlurLoader from "@/components/FadeBlurLoader";
 
 const EntryPageLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <FadeBlurLoader className="prose prose-sm prose-invert mx-auto w-full max-w-lg">
+    <FadeBlurLoader className="w-full max-w-screen-md">
       {children}
     </FadeBlurLoader>
   );

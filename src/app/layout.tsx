@@ -11,13 +11,13 @@ import Header from "@/components/Header";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "✦ btn0s",
+  title: "✦ bt norris",
   description: "designer, programmer, human.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://btn0s.dev/",
-    title: "✦ btn0s",
+    title: "✦ bt norris",
     description: "designer, programmer, human.",
     images: [
       {
@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body className="my-auto flex min-h-dvh flex-col gap-12">
         <Header />
-        <main className="flex w-full max-w-desktop flex-col gap-12 px-6 py-24">
+        <main className="mx-auto flex w-full max-w-screen-md flex-col gap-12 px-6 py-32">
           {children}
         </main>
         <Footer />

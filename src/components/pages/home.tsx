@@ -3,60 +3,12 @@
 import React, { FC, PropsWithChildren, useEffect, useState } from "react";
 
 import { stagger, useAnimate } from "framer-motion";
-import Image, { StaticImageData } from "next/image";
-import Link from "next/link";
 
-import imagePlaceholder from "@/assets/images/image-placeholder.png";
 import FadeBlurLoader from "@/components/FadeBlurLoader";
+import EntriesGallery from "@/components/Gallery";
 import { useHasUserVisited } from "@/hooks/use-animate-in";
 import { cn } from "@/lib/utils";
-import { BaseEntryMetadata, EntryType } from "@/types";
-
-interface HomeGalleryItem {
-  type: EntryType;
-  href: string;
-  image: StaticImageData;
-  title: string;
-  description: string;
-}
-
-type HomeGalleryCollection = HomeGalleryItem[];
-
-const HOME_COLLECTION: HomeGalleryCollection = [...Array(6)].map(() => ({
-  type: EntryType.WORK,
-  href: "/backbone",
-  image: imagePlaceholder,
-  title: "Project Title",
-  description: "Project Description",
-}));
-
-const HomeGalleryItemCard: FC<HomeGalleryItem> = ({
-  type,
-  image,
-  title,
-  href,
-}) => {
-  return (
-    <Link href={`${type.toLowerCase()}${href}`} className="relative">
-      <Image
-        src={image}
-        alt={title}
-        className="rounded-lg border border-white/5"
-      />
-      <div className="absolute inset-x-0 bottom-0 p-6 text-sm">{title}</div>
-    </Link>
-  );
-};
-
-const HomeGallery = ({ collection }: { collection: HomeGalleryCollection }) => {
-  return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {collection.map((item) => (
-        <HomeGalleryItemCard key={item.title} {...item} />
-      ))}
-    </div>
-  );
-};
+import { BaseEntry } from "@/types";
 
 interface CurrentProjectItem {
   title: string;
@@ -122,9 +74,11 @@ const HomeSection: FC<PropsWithChildren> = ({ children }) => {
   );
 };
 
-interface HomeProps {}
+interface HomeProps {
+  featuredEntries: BaseEntry[];
+}
 
-const Home: FC<HomeProps> = () => {
+const Home: FC<HomeProps> = ({ featuredEntries }) => {
   const [contentLoaded, setContentLoaded] = useState(false);
   const [scope, animate] = useAnimate();
   const hasUserVisited = useHasUserVisited();
@@ -171,7 +125,7 @@ const Home: FC<HomeProps> = () => {
         </HomeSection>
       </div>
 
-      <div className="flex max-w-md flex-col gap-12">
+      <div className="flex flex-col gap-12">
         <HomeSection>
           <div className="flex flex-col gap-6">
             <div className="flex items-center justify-between">
@@ -189,7 +143,10 @@ const Home: FC<HomeProps> = () => {
       </div>
 
       <FadeBlurLoader>
-        <HomeGallery collection={HOME_COLLECTION} />
+        <EntriesGallery
+          entries={featuredEntries}
+          singleColumn={featuredEntries.length < 4}
+        />
       </FadeBlurLoader>
     </div>
   );

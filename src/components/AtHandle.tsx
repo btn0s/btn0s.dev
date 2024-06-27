@@ -7,7 +7,7 @@ const AtHandle: FC<{
   className?: string;
 }> = ({ value, className }) => {
   return (
-    <div className={cn("text-xs text-muted-foreground opacity-50", className)}>
+    <div className={cn("text-xs text-muted-foreground", className)}>
       @{value.toLowerCase()}
     </div>
   );

@@ -3,24 +3,36 @@ import path from "path";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-import { BaseEntry, EntryType } from "@/types";
+import { EntryType } from "@/types";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
 export function createMetaTitle(title: string) {
-  return `${title} | ✦ btn0s`;
+  return `${title} | ✦ bt norris`;
 }
 
 export function getEntryTypePath(type: EntryType) {
   return type === EntryType.LAB ? "experiments" : type.toLowerCase();
 }
 
+export function createEntryPath(
+  type: EntryType,
+  slug: string,
+  includeLeadingSlash = true,
+) {
+  return path.join(
+    includeLeadingSlash ? "/" : "",
+    getEntryTypePath(type),
+    slug,
+  );
+}
+
 export function generateEntryMetadata(type: EntryType) {
   return async ({ params: { slug } }: { params: { slug: string } }) => {
     const MDXContent = await import(
-      `../content/${getEntryTypePath(type)}/${slug}.mdx`
+      `../content/${createEntryPath(type, slug, false)}.mdx`
     );
     const { meta } = MDXContent;
 
@@ -43,10 +55,10 @@ export function generateEntryMetadata(type: EntryType) {
     }
 
     return {
-      title: "an experiment by ✦ btn0s",
+      title: "an experiment by ✦ bt norris",
       description: "just one of many.",
       openGraph: {
-        title: "an experiment by ✦ btn0s",
+        title: "an experiment by ✦ bt norris",
         description: "just one of many.",
         images: [
           {
