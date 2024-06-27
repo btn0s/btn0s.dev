@@ -120,6 +120,10 @@ module.exports = {
             li: {
               marginBottom: "0.5em",
             },
+            a: {
+              fontSize: "0.9em",
+              opacity: 0.8,
+            },
           },
         },
       },
