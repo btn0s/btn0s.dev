@@ -13,7 +13,7 @@ import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LuGithub, LuTwitter } from "react-icons/lu";
+import { LuGithub, LuMail, LuTwitter } from "react-icons/lu";
 
 import FadeBlurLoader from "@/components/FadeBlurLoader";
 import {
@@ -73,7 +73,10 @@ const Header = () => {
         }}
       ></div>
       <FadeBlurLoader className="flex w-full max-w-screen-md flex-1 items-center justify-between px-6 pt-2 lg:p-6">
-        <Link href="/" className="relative flex items-center gap-2">
+        <Link
+          href="/"
+          className="relative flex w-[79px] items-center gap-2 leading-none"
+        >
           ✦ bt norris
         </Link>
         <AnimatePresence mode="popLayout">
@@ -94,8 +97,8 @@ const Header = () => {
               animate="animate"
               exit="initial"
             >
-              <div className="relative flex flex-col items-center text-xs text-muted-foreground opacity-50">
-                <div>{formattedTime}</div>
+              <div className="relative flex flex-col items-center text-xs leading-none text-muted-foreground opacity-50">
+                {formattedTime}
               </div>
             </motion.div>
           ) : null}
@@ -146,12 +149,12 @@ const Header = () => {
             </motion.div>
           ) : null}
         </AnimatePresence>
-        <div className="flex">
+        <div className="flex w-[79px] justify-end">
           <HeaderLink href="https://github.com/btn0s" target="_blank">
             <LuGithub />
           </HeaderLink>
-          <HeaderLink href="https://twitter.com/btn0s" target="_blank">
-            <LuTwitter />
+          <HeaderLink href="mailto:brendan.t.norris@gmail.com" target="_blank">
+            <LuMail />
           </HeaderLink>
         </div>
       </FadeBlurLoader>
