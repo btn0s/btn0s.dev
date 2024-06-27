@@ -1,11 +1,11 @@
 import { Metadata } from "next";
 
-import { getExperiments } from "@/app/api/experiments";
+import { getEntries } from "@/app/api/entries";
 import EmptyPageMessage from "@/components/EmptyPageMessage";
 import { List } from "@/components/List";
 import { ListCard } from "@/components/ListCard";
 import { createMetaTitle } from "@/lib/utils";
-import { Subpage } from "@/types/global";
+import { EntryType } from "@/types";
 
 const TITLE = "experiments";
 const DESCRIPTION =
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 };
 
 const Page = async () => {
-  const experiments = await getExperiments();
+  const entries = await getEntries(EntryType.LAB);
 
   return (
     <div className="not-prose flex flex-col gap-12">
@@ -41,17 +41,12 @@ const Page = async () => {
         </span>
         <div className="font-bold">from the lab</div>
       </h1>
-      {experiments.length === 0 ? (
+      {entries.length === 0 ? (
         <EmptyPageMessage />
       ) : (
         <List>
-          {experiments.map(({ slug, meta }) => (
-            <ListCard
-              key={slug}
-              meta={meta}
-              slug={slug}
-              section={Subpage.LAB}
-            />
+          {entries.map(({ slug, meta, type }) => (
+            <ListCard key={slug} meta={meta} slug={slug} type={type} />
           ))}
         </List>
       )}

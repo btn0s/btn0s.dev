@@ -1,0 +1,28 @@
+import PageTitle, { PageTitleHighlight } from "../../components/PageTitle";
+import EntryImageWithCaption from "../../components/EntryImageWithCaption";
+
+export const meta = {
+  title: "American Express",
+  description: "A short description of the entry.",
+  image: "/og-share-new.png",
+  published: false,
+  tags: ["american-express"],
+  company: "American Express",
+  roles: [],
+  startDate: "",
+  endDate: "",
+  createdAt: "2024-06-27T20:10:42.191Z",
+};
+
+<PageTitle>
+  Lorem ipsum dolor{" "}
+  <PageTitleHighlight block>
+    sit amet, consectetur adipiscing.
+  </PageTitleHighlight>
+</PageTitle>
+
+<EntryImageWithCaption src={meta.image} caption="DEFAULT_CAPTION" />
+
+# American Express
+
+A short description of the entry.

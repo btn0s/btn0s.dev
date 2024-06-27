@@ -10,7 +10,7 @@ export const ProgressiveBlur = () => {
     <div className="not-prose relative isolate aspect-video rounded-md border border-white/10 bg-white/5">
       <div className="absolute inset-x-0 top-0 z-[9] h-[57px] rounded-t-md bg-black/50 backdrop-blur [mask-image:linear-gradient(rgb(0,_0,_0)_55%,_rgba(0,0,0,0.8)_70%,_rgba(0,0,0,0)_100%)]" />
       <div className="absolute inset-x-0 top-0 z-10 flex justify-between px-4 py-4 text-white">
-        <span>✦ btn0s</span>
+        <span>✦ bt norris</span>
         <span>progressive blur</span>
       </div>
       <ScrollArea className="h-full w-full">

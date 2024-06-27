@@ -1,26 +1,16 @@
 "use client";
 
-import { FC, PropsWithChildren, useEffect, useState } from "react";
+import React, { FC, PropsWithChildren, useEffect, useState } from "react";
 
 import { stagger, useAnimate } from "framer-motion";
-import {
-  ArrowRightIcon,
-  BriefcaseBusinessIcon,
-  FlaskConicalIcon,
-  NotebookPenIcon,
-} from "lucide-react";
-import Link from "next/link";
 
-import { Experiment } from "@/app/api/experiments";
-import { Note } from "@/app/api/notes";
 import FadeBlurLoader from "@/components/FadeBlurLoader";
-import { List } from "@/components/List";
-import { ListCard } from "@/components/ListCard";
-import { useHasUserVisited } from "@/hooks/useAnimateIn";
+import EntriesGallery from "@/components/Gallery";
+import { useHasUserVisited } from "@/hooks/use-animate-in";
 import { cn } from "@/lib/utils";
-import { Subpage } from "@/types/global";
+import { BaseEntry } from "@/types";
 
-interface CurrentProject {
+interface CurrentProjectItem {
   title: string;
   company: string;
   role: string;
@@ -28,7 +18,7 @@ interface CurrentProject {
   isMain?: boolean;
 }
 
-const CURRENT_PROJECTS: CurrentProject[] = [
+const CURRENT_PROJECTS: CurrentProjectItem[] = [
   {
     title: "building tools and prototypes for designers",
     company: "backbone",
@@ -50,7 +40,7 @@ const CURRENT_PROJECTS: CurrentProject[] = [
   },
 ];
 
-const CurrentProject: FC<CurrentProject> = ({
+const CurrentProject: FC<CurrentProjectItem> = ({
   title,
   company,
   role,
@@ -85,11 +75,10 @@ const HomeSection: FC<PropsWithChildren> = ({ children }) => {
 };
 
 interface HomeProps {
-  experiments: Experiment[];
-  notes: Note[];
+  featuredEntries: BaseEntry[];
 }
 
-const Home: FC<HomeProps> = ({ experiments, notes }) => {
+const Home: FC<HomeProps> = ({ featuredEntries }) => {
   const [contentLoaded, setContentLoaded] = useState(false);
   const [scope, animate] = useAnimate();
   const hasUserVisited = useHasUserVisited();
@@ -138,84 +127,27 @@ const Home: FC<HomeProps> = ({ experiments, notes }) => {
 
       <div className="flex flex-col gap-12">
         <HomeSection>
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-6">
             <div className="flex items-center justify-between">
               <span className="flex items-center gap-1 text-xs">
-                <BriefcaseBusinessIcon className="size-2" />
-                i&apos;m currently{" "}
+                I&apos;m currently...{" "}
               </span>
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-4">
               {CURRENT_PROJECTS.map((project) => (
                 <CurrentProject key={project.company} {...project} />
               ))}
             </div>
           </div>
         </HomeSection>
-        <FadeBlurLoader>
-          <div className="flex max-w-sm flex-col gap-12">
-            {notes.length > 0 && (
-              <div className="flex flex-col gap-5">
-                <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1 text-xs">
-                    <NotebookPenIcon className="size-2" />
-                    thoughts
-                  </span>
-                  {notes.length > 3 && (
-                    <Link
-                      className="text-xs text-muted-foreground hover:underline"
-                      href="/notes"
-                    >
-                      view all
-                      <ArrowRightIcon className="ml-1 inline size-3" />
-                    </Link>
-                  )}
-                </div>
-                <List>
-                  {notes.map(({ slug, meta }) => (
-                    <ListCard
-                      key={slug}
-                      section={Subpage.NOTES}
-                      slug={slug}
-                      meta={meta}
-                    />
-                  ))}
-                </List>
-              </div>
-            )}
-
-            {experiments.length > 0 && (
-              <div className="flex flex-col gap-5">
-                <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1 text-xs">
-                    <FlaskConicalIcon className="size-2" />
-                    experiments
-                  </span>
-                  {experiments.length > 3 && (
-                    <Link
-                      className="text-xs text-muted-foreground underline"
-                      href="/lab"
-                    >
-                      view all
-                      <ArrowRightIcon className="ml-1 inline size-3" />
-                    </Link>
-                  )}
-                </div>
-                <List>
-                  {experiments.map(({ slug, meta }) => (
-                    <ListCard
-                      key={slug}
-                      section={Subpage.LAB}
-                      slug={slug}
-                      meta={meta}
-                    />
-                  ))}
-                </List>
-              </div>
-            )}
-          </div>
-        </FadeBlurLoader>
       </div>
+
+      <FadeBlurLoader>
+        <EntriesGallery
+          entries={featuredEntries}
+          singleColumn={featuredEntries.length < 4}
+        />
+      </FadeBlurLoader>
     </div>
   );
 };

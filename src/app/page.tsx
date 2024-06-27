@@ -1,10 +1,13 @@
-import { getExperiments } from "@/app/api/experiments";
-import { getNotes } from "@/app/api/notes";
+import { getFeaturedEntries } from "@/app/api/entries";
 import Home from "@/components/pages/home";
+import { EntryType } from "@/types";
 
 export default async function Page() {
-  const notes = await getNotes();
-  const experiments = await getExperiments();
+  const featuredEntries = await Promise.all([
+    getFeaturedEntries(EntryType.WORK),
+    getFeaturedEntries(EntryType.LAB),
+    getFeaturedEntries(EntryType.NOTES),
+  ]);
 
-  return <Home notes={notes} experiments={experiments} />;
+  return <Home featuredEntries={featuredEntries.flat()} />;
 }

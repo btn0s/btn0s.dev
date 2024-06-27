@@ -1,0 +1,28 @@
+import AtHandle from "../../components/AtHandle";
+import PageTitle, { PageTitleHighlight } from "../../components/PageTitle";
+import EntryImageWithCaption from "../../components/EntryImageWithCaption";
+
+export const meta = {
+  title: "placeholder",
+  description: "A short description of the entry.",
+  image: "/og-share-new.png",
+  published: false,
+  tags: ["react", "typescript", "javascript", "backbone"],
+  company: "btn0s",
+  featured: true,
+};
+
+<AtHandle className={"mb-4"} value={meta.company} />
+
+<PageTitle>
+  Lorem ipsum dolor{" "}
+  <PageTitleHighlight block>
+    sit amet, consectetur adipiscing.
+  </PageTitleHighlight>
+</PageTitle>
+
+<EntryImageWithCaption src={meta.image} caption="DEFAULT_CAPTION" />
+
+# placeholder
+
+A short description of the entry.

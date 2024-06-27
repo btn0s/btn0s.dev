@@ -1,11 +1,11 @@
 import { Metadata } from "next";
 
-import { getNotes } from "@/app/api/notes";
+import { getEntries } from "@/app/api/entries";
 import EmptyPageMessage from "@/components/EmptyPageMessage";
 import { List } from "@/components/List";
 import { ListCard } from "@/components/ListCard";
 import { createMetaTitle } from "@/lib/utils";
-import { Subpage } from "@/types/global";
+import { EntryType } from "@/types";
 
 const TITLE = "notes";
 const DESCRIPTION = "A peek into my mind. Random thoughts, notes, and ideas.";
@@ -30,24 +30,20 @@ export const metadata: Metadata = {
 };
 
 const Page = async () => {
-  const notes = await getNotes();
+  const entries = await getEntries(EntryType.NOTES);
+
   return (
     <div className="not-prose flex flex-col gap-12">
       <h1 className="text-balance text-xl text-white">
         <span className="font-light opacity-50">random thoughts, notes, </span>
         <div className="font-bold">and ideas</div>
       </h1>
-      {notes.length === 0 ? (
+      {entries.length === 0 ? (
         <EmptyPageMessage />
       ) : (
         <List>
-          {notes.map(({ meta, slug }) => (
-            <ListCard
-              key={slug}
-              meta={meta}
-              slug={slug}
-              section={Subpage.NOTES}
-            />
+          {entries.map(({ slug, meta, type }) => (
+            <ListCard key={slug} meta={meta} slug={slug} type={type} />
           ))}
         </List>
       )}

@@ -1,0 +1,37 @@
+import { ExternalLinkWithPreview } from "../../components/experiments/ExternalLinkWithPreview";
+import { ExperimentContainer } from "../../components/ExperimentContainer";
+import { Experiment } from "../../components/Experiment";
+import linkPreviewImg from "../../assets/images/link-preview.gif";
+
+export const meta = {
+  title: "External link preview component",
+  description:
+    "A simple link preview component I designed that shows rich information about the link on hover.",
+  image: "/og-share-new.png",
+  published: true,
+  tags: ["interaction design", "react", "typescript", "btn0s"],
+  company: "btn0s",
+  roles: [],
+  startDate: "",
+  endDate: "",
+  createdAt: "2024-06-27T22:25:56.263Z",
+};
+
+# External link preview component
+
+A simple link preview component I designed so that visitors could access rich link previews without having to leave the page.
+
+<img src={linkPreviewImg.src} className={"-mb-3 mt-12 lg:hidden"} />
+
+<div className={"hidden lg:block"}>
+  <Experiment>
+    <ExperimentContainer>
+      <div className="text-white">
+        <ExternalLinkWithPreview href="https://thinkhuman.co/" align={"center"}>
+          https://thinkhuman.co
+        </ExternalLinkWithPreview>
+      </div>
+      <div className={"opacity-50"}>hover on the link to see the preview</div>
+    </ExperimentContainer>
+  </Experiment>
+</div>

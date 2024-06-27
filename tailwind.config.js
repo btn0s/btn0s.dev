@@ -17,6 +17,9 @@ module.exports = {
       },
     },
     extend: {
+      maxWidth: {
+        desktop: "1920px",
+      },
       fontFamily: {
         sans: ["var(--font-geist-sans)"],
         mono: ["var(--font-geist-mono)"],
@@ -76,34 +79,52 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       typography: {
-        DEFAULT: {
+        sm: {
           css: {
             color: "hsl(var(--muted-foreground))",
+            // lineHeight: "1.25em",
             h1: {
-              fontSize: "1.25rem",
+              fontSize: "1.5em",
               fontWeight: "600",
-              lineHeight: "1.75rem",
+              lineHeight: "1.5em",
               marginBottom: "0.5em",
               color: "hsl(var(--foreground))",
+              ["&>p"]: {
+                margin: "0",
+              },
             },
             h2: {
-              fontSize: "1.1rem",
+              fontSize: "1.2em",
               fontWeight: "600",
               lineHeight: "1.2em",
               marginBottom: "0.5em",
               color: "hsl(var(--foreground))",
             },
             h3: {
-              fontSize: "1rem",
+              fontSize: "1em",
               fontWeight: "600",
-              lineHeight: "1.2em",
+              lineHeight: "1.1em",
               marginBottom: "0.5em",
               color: "hsl(var(--foreground))",
             },
             p: {
               marginTop: "0",
-              fontSize: "0.875rem",
-              lineHeight: "1.25em",
+              "& ~ ul": {
+                marginTop: "-1.1428571em",
+              },
+            },
+            ul: {
+              paddingTop: "16px",
+              paddingBottom: "16px",
+              marginLeft: "0rem",
+              paddingLeft: "1rem",
+            },
+            li: {
+              marginBottom: "0.5em",
+            },
+            a: {
+              fontSize: "0.9em",
+              opacity: 0.8,
             },
           },
         },

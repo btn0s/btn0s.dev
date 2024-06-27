@@ -1,49 +1,28 @@
-export async function generateMetadata({
-  params: { slug },
-}: {
-  params: { slug: string };
-}) {
-  const MDXContent = await import(`../../../content/experiments/${slug}.mdx`);
-  const { meta } = MDXContent;
+import { getEntryMetadata } from "@/app/api/entries";
+import FadeBlurLoader from "@/components/FadeBlurLoader";
+import RelatedEntries from "@/components/RelatedEntries";
+import { generateEntryMetadata, getEntryTypePath } from "@/lib/utils";
+import { EntryType } from "@/types";
 
-  if (meta) {
-    return {
-      title: `✦ ${meta.title} | @btn0s`,
-      description: meta.description,
-      openGraph: {
-        title: `✦ ${meta.title} | @btn0s`,
-        description: meta.description,
-        images: [
-          {
-            url: `/api/og?title=${encodeURIComponent(
-              meta.title,
-            )}&description=${encodeURIComponent(meta.description)}&category=experiments`,
-          },
-        ],
-      },
-    };
-  }
+const ENTRY_TYPE = EntryType.LAB;
 
-  return {
-    title: "an experiment by ✦ btn0s",
-    description: "just one of many.",
-    openGraph: {
-      title: "an experiment by ✦ btn0s",
-      description: "just one of many.",
-      images: [
-        {
-          url: "https://btn0s.dev/images/og-image.png",
-        },
-      ],
-    },
-  };
-}
+export const generateMetadata = generateEntryMetadata(ENTRY_TYPE);
 
 export default async function Page({
   params: { slug },
 }: {
   params: { slug: string };
 }) {
-  const MDXContent = await import(`../../../content/experiments/${slug}.mdx`);
-  return <MDXContent.default />;
+  const entryMeta = await getEntryMetadata(ENTRY_TYPE, slug);
+  const MDXContent = await import(
+    `../../../content/${getEntryTypePath(ENTRY_TYPE)}/${slug}.mdx`
+  );
+  return (
+    <FadeBlurLoader className="flex flex-col gap-4">
+      <div className="prose prose-sm prose-invert w-full max-w-none">
+        <MDXContent.default />
+      </div>
+      <RelatedEntries slug={slug} meta={entryMeta} />
+    </FadeBlurLoader>
+  );
 }
