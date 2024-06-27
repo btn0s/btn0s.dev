@@ -79,76 +79,86 @@ const Header = () => {
         >
           ✦ bt norris
         </Link>
-        <AnimatePresence mode="popLayout">
-          {pathname === "/" && (
-            <motion.div
-              key="time"
-              variants={{
-                initial: {
-                  opacity: 0,
-                  filter: "blur(10px)",
-                },
-                animate: {
-                  opacity: 1,
-                  filter: "blur(0px)",
-                },
-              }}
-              initial="initial"
-              animate="animate"
-              exit="initial"
-            >
-              <div className="relative flex flex-col items-center text-xs leading-none text-muted-foreground opacity-50">
-                {formattedTime}
-              </div>
-            </motion.div>
-          )}
-          {pathname !== "/" && (
-            <motion.div
-              key="breadcrumb"
-              variants={{
-                initial: {
-                  opacity: 0,
-                  filter: "blur(10px)",
-                },
-                animate: {
-                  opacity: 1,
-                  filter: "blur(0px)",
-                },
-              }}
-              initial="initial"
-              animate="animate"
-              exit="initial"
-            >
-              <Breadcrumb>
-                <BreadcrumbList>
-                  <BreadcrumbItem>
-                    <BreadcrumbLink
-                      href={`/${pathnameToParts[1]}`}
-                      className={cn("text-xs text-muted-foreground", {
-                        "opacity-50 hover:opacity-100": pathnameToParts[2],
-                      })}
-                    >
-                      {pathnameToParts[1]}
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  {pathnameToParts[2] && (
-                    <>
-                      <BreadcrumbSeparator className="text-xs text-muted-foreground opacity-50" />
-                      <BreadcrumbItem>
-                        <BreadcrumbLink
-                          href={`/${pathnameToParts[1]}/${pathnameToParts[2]}`}
-                          className="text-xs text-muted-foreground"
-                        >
-                          {pathnameToParts[2]}
-                        </BreadcrumbLink>
-                      </BreadcrumbItem>
-                    </>
-                  )}
-                </BreadcrumbList>
-              </Breadcrumb>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <div className="relative flex flex-1 items-center justify-center">
+          <AnimatePresence mode="sync">
+            {pathname === "/" && (
+              <motion.div
+                key="time"
+                className="absolute"
+                variants={{
+                  initial: {
+                    opacity: 0,
+                    filter: "blur(4px)",
+                  },
+                  animate: {
+                    opacity: 1,
+                    filter: "blur(0px)",
+                  },
+                }}
+                transition={{
+                  duration: 0.5,
+                }}
+                initial="initial"
+                animate="animate"
+                exit="initial"
+              >
+                <div className="relative flex flex-col items-center text-xs leading-none text-muted-foreground opacity-50">
+                  {formattedTime}
+                </div>
+              </motion.div>
+            )}
+            {pathname !== "/" && (
+              <motion.div
+                key="breadcrumb"
+                className="absolute"
+                variants={{
+                  initial: {
+                    opacity: 0,
+                    filter: "blur(4px)",
+                  },
+                  animate: {
+                    opacity: 1,
+                    filter: "blur(0px)",
+                  },
+                }}
+                transition={{
+                  duration: 0.5,
+                }}
+                initial="initial"
+                animate="animate"
+                exit="initial"
+              >
+                <Breadcrumb>
+                  <BreadcrumbList>
+                    <BreadcrumbItem>
+                      <BreadcrumbLink
+                        href={`/${pathnameToParts[1]}`}
+                        className={cn("text-xs text-muted-foreground", {
+                          "opacity-50 hover:opacity-100": pathnameToParts[2],
+                        })}
+                      >
+                        {pathnameToParts[1]}
+                      </BreadcrumbLink>
+                    </BreadcrumbItem>
+                    {pathnameToParts[2] && (
+                      <>
+                        <BreadcrumbSeparator className="text-xs text-muted-foreground opacity-50" />
+                        <BreadcrumbItem>
+                          <BreadcrumbLink
+                            href={`/${pathnameToParts[1]}/${pathnameToParts[2]}`}
+                            className="text-xs text-muted-foreground"
+                          >
+                            {pathnameToParts[2]}
+                          </BreadcrumbLink>
+                        </BreadcrumbItem>
+                      </>
+                    )}
+                  </BreadcrumbList>
+                </Breadcrumb>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
         <div className="flex w-[79px] justify-end">
           <HeaderLink href="https://github.com/btn0s" target="_blank">
             <LuGithub />
