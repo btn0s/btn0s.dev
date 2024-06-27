@@ -1,6 +1,6 @@
-import { EntryMetadata } from "@/types";
+import { BaseEntryMetadata } from "@/types";
 
-export const DEFAULT_ENTRY_METADATA: EntryMetadata = {
+export const DEFAULT_ENTRY_METADATA: BaseEntryMetadata = {
   title: "ENTRY_TITLE",
   description: "ENTRY_DESCRIPTION",
   image: "/og-share-new.png",

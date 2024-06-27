@@ -6,33 +6,11 @@ import { stagger, useAnimate } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
-import { Experiment } from "@/app/api/experiments";
-import { Note } from "@/app/api/notes";
 import imagePlaceholder from "@/assets/images/image-placeholder.png";
 import FadeBlurLoader from "@/components/FadeBlurLoader";
-import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
 import { useHasUserVisited } from "@/hooks/use-animate-in";
-import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
-import { EntryType } from "@/types";
+import { BaseEntryMetadata, EntryType } from "@/types";
 
 interface HomeGalleryItem {
   type: EntryType;
@@ -144,12 +122,9 @@ const HomeSection: FC<PropsWithChildren> = ({ children }) => {
   );
 };
 
-interface HomeProps {
-  experiments: Experiment[];
-  notes: Note[];
-}
+interface HomeProps {}
 
-const Home: FC<HomeProps> = ({ experiments, notes }) => {
+const Home: FC<HomeProps> = () => {
   const [contentLoaded, setContentLoaded] = useState(false);
   const [scope, animate] = useAnimate();
   const hasUserVisited = useHasUserVisited();

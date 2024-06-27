@@ -1,7 +1,11 @@
 import { Metadata } from "next";
 
+import { getEntries } from "@/app/api/entries";
 import EmptyPageMessage from "@/components/EmptyPageMessage";
+import { List } from "@/components/List";
+import { ListCard } from "@/components/ListCard";
 import { createMetaTitle } from "@/lib/utils";
+import { EntryType } from "@/types";
 
 const TITLE = "work";
 const DESCRIPTION =
@@ -27,13 +31,23 @@ export const metadata: Metadata = {
 };
 
 const Page = async () => {
+  const entries = await getEntries(EntryType.WORK);
+
   return (
     <div className="not-prose flex flex-col gap-12">
       <h1 className="text-xl text-white">
         <span className="font-light opacity-50">the journey so far, </span>
         <div className="font-bold">this is my life&apos;s work</div>
       </h1>
-      <EmptyPageMessage />
+      {entries.length === 0 ? (
+        <EmptyPageMessage />
+      ) : (
+        <List>
+          {entries.map(({ slug, meta, type }) => (
+            <ListCard key={slug} meta={meta} slug={slug} type={type} />
+          ))}
+        </List>
+      )}
     </div>
   );
 };

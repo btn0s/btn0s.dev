@@ -4,11 +4,17 @@ export enum EntryType {
   LAB = "LAB",
 }
 
-export interface EntryMetadata {
+export interface BaseEntryMetadata {
   title: string;
   description: string;
   published: boolean;
   image: string;
   tags: string[];
   company: string;
+}
+
+export interface BaseEntry {
+  slug: string;
+  type: EntryType;
+  meta: BaseEntryMetadata;
 }

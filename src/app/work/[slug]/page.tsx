@@ -1,49 +1,22 @@
-export async function generateMetadata({
-  params: { slug },
-}: {
-  params: { slug: string };
-}) {
-  const MDXContent = await import(`../../../content/work/${slug}.mdx`);
-  const { meta } = MDXContent;
+import FadeBlurLoader from "@/components/FadeBlurLoader";
+import { generateEntryMetadata, getEntryTypePath } from "@/lib/utils";
+import { EntryType } from "@/types";
 
-  if (meta) {
-    return {
-      title: `✦ ${meta.title} | @btn0s`,
-      description: meta.description,
-      openGraph: {
-        title: `✦ ${meta.title} | @btn0s`,
-        description: meta.description,
-        images: [
-          {
-            url: `/api/og?title=${encodeURIComponent(
-              meta.title,
-            )}&description=${encodeURIComponent(meta.description)}&category=experiments`,
-          },
-        ],
-      },
-    };
-  }
+const ENTRY_TYPE = EntryType.WORK;
 
-  return {
-    title: "an experiment by ✦ btn0s",
-    description: "just one of many.",
-    openGraph: {
-      title: "an experiment by ✦ btn0s",
-      description: "just one of many.",
-      images: [
-        {
-          url: "https://btn0s.dev/images/og-image.png",
-        },
-      ],
-    },
-  };
-}
+export const generateMetadata = generateEntryMetadata(ENTRY_TYPE);
 
 export default async function Page({
   params: { slug },
 }: {
   params: { slug: string };
 }) {
-  const MDXContent = await import(`../../../content/work/${slug}.mdx`);
-  return <MDXContent.default />;
+  const MDXContent = await import(
+    `../../../content/${getEntryTypePath(ENTRY_TYPE)}/${slug}.mdx`
+  );
+  return (
+    <FadeBlurLoader>
+      <MDXContent.default />
+    </FadeBlurLoader>
+  );
 }
