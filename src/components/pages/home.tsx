@@ -1,6 +1,12 @@
 "use client";
 
-import React, { FC, PropsWithChildren, useEffect, useState } from "react";
+import React, {
+  CSSProperties,
+  FC,
+  PropsWithChildren,
+  useEffect,
+  useState,
+} from "react";
 
 import { stagger, useAnimate } from "framer-motion";
 
@@ -72,9 +78,15 @@ const CurrentProject: FC<CurrentProjectItem> = ({
   );
 };
 
-const HomeSection: FC<PropsWithChildren> = ({ children }) => {
+const HomeSection: FC<
+  PropsWithChildren<{
+    style?: CSSProperties;
+  }>
+> = ({ children, style }) => {
   return (
-    <section style={{ opacity: 0, filter: "blur(4px)" }}>{children}</section>
+    <section style={{ opacity: 0, filter: "blur(4px)", ...style }}>
+      {children}
+    </section>
   );
 };
 
@@ -97,10 +109,12 @@ const Home: FC<HomeProps> = ({ featuredEntries }) => {
       {
         opacity: 1,
         filter: "blur(0px)",
+        transform: "translate(0)",
       },
       {
         delay: hasUserVisited ? 0 : stagger(0.75, { startDelay: 0.25 }),
         duration: hasUserVisited ? 0.5 : 0.75,
+        ease: "easeOut",
       },
     ).then(() => {
       sessionStorage.setItem("hasUserVisited", "true");
@@ -146,12 +160,12 @@ const Home: FC<HomeProps> = ({ featuredEntries }) => {
         </HomeSection>
       </div>
 
-      <FadeBlurLoader>
+      <HomeSection style={{ transform: "translateY(12px)" }}>
         <EntriesGallery
           entries={featuredEntries}
           singleColumn={featuredEntries.length < 4}
         />
-      </FadeBlurLoader>
+      </HomeSection>
     </div>
   );
 };
