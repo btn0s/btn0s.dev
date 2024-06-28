@@ -45,9 +45,7 @@ export function generateEntryMetadata(type: EntryType) {
           description: meta.description,
           images: [
             {
-              url: `/api/og?title=${encodeURIComponent(
-                meta.title,
-              )}&description=${encodeURIComponent(meta.description)}&category=work`,
+              url: meta.image,
             },
           ],
         },
