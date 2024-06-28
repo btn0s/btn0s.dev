@@ -131,9 +131,6 @@ const Footer = () => {
           <NavLink href="/work">
             <BriefcaseBusinessIcon className="size-4" />
           </NavLink>
-          <NavLink href="/notes">
-            <NotebookIcon className="size-4" />
-          </NavLink>
           <NavLink href="/lab" isLastChild>
             <FlaskConicalIcon className="size-4" />
           </NavLink>
