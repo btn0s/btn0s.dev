@@ -124,7 +124,7 @@ const Home: FC<HomeProps> = ({ featuredEntries }) => {
           </h1>
           <h2 className="text-sm">
             I use design and technology to make designers more efficient and
-            create things that spark joy.
+            craft experiences that spark joy.
           </h2>
         </HomeSection>
       </div>
