@@ -1,7 +1,7 @@
 import { StaticImageData } from "next/image";
 
-import backboneShareCardImg from "@/assets/images/focus/backbone-share-card.webp";
-import thinkhumanShareCardImg from "@/assets/images/focus/thinkhuman-share-card.webp";
+import backboneShareCardImg from "@/assets/images/work/backbone-share-card.webp";
+import thinkhumanShareCardImg from "@/assets/images/work/thinkhuman-share-card.webp";
 
 export interface CurrentLink {
   title: string;

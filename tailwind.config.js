@@ -90,11 +90,10 @@ module.exports = {
               lineHeight: "1.75rem",
               marginBottom: "0.5em",
               color: "hsl(var(--foreground))",
-              ["&>p"]: {
+              ["& > p"]: {
                 margin: "0",
                 fontSize: "1.25rem",
                 lineHeight: "1.75rem",
-                marginBottom: "0.5em",
               },
             },
             h2: {

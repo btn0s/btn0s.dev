@@ -1,6 +1,6 @@
 import AtHandle from "../../components/AtHandle";
 import PageTitle, { PageTitleHighlight } from "../../components/PageTitle";
-import EntryImageWithCaption from "../../components/EntryImageWithCaption";
+import EntryImage from "../../components/EntryImage";
 
 export const meta = {
   title: "placeholder",
@@ -9,7 +9,7 @@ export const meta = {
   published: false,
   tags: ["react", "typescript", "javascript", "backbone"],
   company: "btn0s",
-  featured: true,
+  featured: false,
 };
 
 <AtHandle className={"mb-4"} value={meta.company} />
@@ -21,7 +21,7 @@ export const meta = {
   </PageTitleHighlight>
 </PageTitle>
 
-<EntryImageWithCaption src={meta.image} caption="DEFAULT_CAPTION" />
+<EntryImage src={meta.image} caption="DEFAULT_CAPTION" />
 
 # placeholder
 

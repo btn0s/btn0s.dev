@@ -32,13 +32,20 @@ export const metadata: Metadata = {
 const Page = async () => {
   const entries = await getEntries(EntryType.NOTES);
 
+  const sortedEntries = entries.sort((a, b) => {
+    if (!a.meta.createdAt || !b.meta.createdAt) return 1;
+    if (a.meta.createdAt < b.meta.createdAt) return 1;
+    if (a.meta.createdAt > b.meta.createdAt) return -1;
+    return 0;
+  });
+
   return (
     <div className="not-prose flex flex-col gap-12">
       <h1 className="text-balance text-xl text-white">
         <span className="font-light opacity-50">random thoughts, notes, </span>
         <div className="font-bold">and ideas</div>
       </h1>
-      {entries.length === 0 ? (
+      {sortedEntries.length === 0 ? (
         <EmptyPageMessage />
       ) : (
         <List>

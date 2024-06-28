@@ -36,11 +36,6 @@ export const getFeaturedEntries: GetEntries = async (type) => {
   return entries.filter((entry) => entry.meta.featured);
 };
 
-export const getEntriesByCompany = async (type: EntryType, company: string) => {
-  const entries = await getEntries(type);
-  return entries.filter((entry) => entry.meta.company === company);
-};
-
 export const getEntriesWithTags = async (tags: string[]) => {
   const entries = await Promise.all(
     Object.values(EntryType).map(getEntries),
