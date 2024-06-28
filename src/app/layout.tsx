@@ -11,14 +11,14 @@ import Header from "@/components/Header";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "✦ bt norris",
-  description: "designer, programmer, human.",
+  title: "designer, programmer, human.",
+  description: "I'm a design engineer based in Phoenix, Arizona.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://btn0s.dev/",
-    title: "✦ bt norris",
-    description: "designer, programmer, human.",
+    title: "designer, programmer, human.",
+    description: "I'm a design engineer based in Phoenix, Arizona.",
     images: [
       {
         url: "https://btn0s.dev/og-share.png",
