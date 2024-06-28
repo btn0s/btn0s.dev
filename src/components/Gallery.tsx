@@ -1,34 +1,43 @@
+"use client";
+
 import React, { FC } from "react";
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 import { BaseEntry } from "@/types";
 
-const EntriesGalleryItemCard: FC<BaseEntry> = ({
+const EntriesGalleryItemCard: FC<BaseEntry & { showType?: boolean }> = ({
   type,
   slug,
   meta: { title, image, description },
+  showType = false,
 }) => {
   return (
     <Link
       href={`/${type.toLowerCase()}/${slug}`}
-      className="group relative col-span-1 row-span-1 md:aspect-video overflow-hidden md:border border-white/5"
+      className="group relative col-span-1 row-span-1 overflow-hidden border-white/5 md:aspect-video md:rounded-lg md:border"
     >
-      <div className="aspect-video w-full md:absolute md:h-full">
+      <div className="mb-2 aspect-video w-full md:absolute md:m-0 md:h-full">
         <Image
           src={image}
           alt={title}
-          className="md:absolute aspect-video inset-0 md:m-0 w-full h-full transform-gpu rounded-lg mb-2 border border-white/5 md:border-noneobject-cover transition-transform md:group-hover:scale-[105%]"
+          className="inset-0 m-0 h-full w-full transform-gpu rounded-lg border border-white/5 object-cover transition-transform md:absolute md:border-none md:group-hover:scale-[101%]"
           width={160 * 4}
           height={90 * 4}
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
         />
       </div>
-      <div className="relative md:absolute md:-inset-6 flex flex-col items-start justify-end rounded-lg md:p-10 text-xs">
-        <div className="absolute inset-0 bg-black/10 opacity-0 transition duration-300 md:group-hover:opacity-100"></div>
-        <div className="md:opacity-0 transition duration-300 md:blur-sm md:group-hover:opacity-100 md:group-hover:blur-none">
+      <div className="relative flex flex-col items-start justify-end rounded-lg text-xs md:absolute md:-inset-6 md:p-10">
+        <div className="absolute inset-0 bg-black/50 opacity-0 transition duration-300 md:group-hover:opacity-100"></div>
+        <div className="transition duration-300 md:opacity-0 md:blur-sm md:group-hover:opacity-100 md:group-hover:blur-none">
+          {showType && (
+            <span className="text-muted-foreground">
+              {type.toLowerCase()} /{" "}
+            </span>
+          )}
           {title}
         </div>
       </div>
@@ -43,6 +52,8 @@ const EntriesGallery = ({
   entries: BaseEntry[];
   singleColumn?: boolean;
 }) => {
+  const pathname = usePathname();
+
   return (
     <div
       className={cn("grid gap-4", {
@@ -51,7 +62,11 @@ const EntriesGallery = ({
       })}
     >
       {entries.map((item) => (
-        <EntriesGalleryItemCard key={item.meta.title} {...item} />
+        <EntriesGalleryItemCard
+          key={item.meta.title}
+          {...item}
+          showType={pathname === "/"}
+        />
       ))}
     </div>
   );
