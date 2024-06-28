@@ -118,7 +118,7 @@ async function createEntry(): Promise<void> {
   const metadata: BaseEntryMetadata = {
     title,
     description: metadataAnswers.description,
-    image: "/og-share-new.png",
+    image: "/og-share.png",
     published: false,
     tags,
     company: metadataAnswers.company,

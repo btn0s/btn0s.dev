@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     url: "https://btn0s.dev/notes",
     images: [
       {
-        url: "https://btn0s.dev/og-share-new.png",
+        url: "https://btn0s.dev/og-share.png",
         width: 1200,
         height: 630,
         alt: "btn0s.dev",
