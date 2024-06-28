@@ -29,11 +29,6 @@ const useAnimateIn = ({ options }: useAnimateInProps) => {
   const hasUserVisited = useHasUserVisited();
 
   useEffect(() => {
-    console.log({
-      pathname,
-      hasUserVisited,
-    });
-
     const animateIn = () => {
       animate(
         scope.current,
@@ -43,7 +38,7 @@ const useAnimateIn = ({ options }: useAnimateInProps) => {
         },
         {
           duration: hasUserVisited ? 0.5 : 1,
-          delay: hasUserVisited ? 0 : 0,
+          delay: hasUserVisited ? 0 : 0.25,
           ...options,
         },
       );
