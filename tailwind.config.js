@@ -82,14 +82,19 @@ module.exports = {
         sm: {
           css: {
             color: "hsl(var(--muted-foreground))",
+            fontSize: "0.875rem",
+            lineHeight: "1.25rem",
             h1: {
-              fontSize: "1.5em",
+              fontSize: "1.25rem",
               fontWeight: "600",
-              lineHeight: "1.5em",
+              lineHeight: "1.75rem",
               marginBottom: "0.5em",
               color: "hsl(var(--foreground))",
               ["&>p"]: {
                 margin: "0",
+                fontSize: "1.25rem",
+                lineHeight: "1.75rem",
+                marginBottom: "0.5em",
               },
             },
             h2: {
