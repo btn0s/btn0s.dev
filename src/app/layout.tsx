@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body className="my-auto flex min-h-dvh flex-col gap-12">
         <Header />
-        <main className="mx-auto flex w-full max-w-screen-md flex-col gap-12 px-6 py-32">
+        <main className="mx-auto flex w-full max-w-screen-md flex-col gap-12 px-6 py-28">
           {children}
         </main>
         <Footer />

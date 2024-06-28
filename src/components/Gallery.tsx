@@ -14,18 +14,21 @@ const EntriesGalleryItemCard: FC<BaseEntry> = ({
   return (
     <Link
       href={`/${type.toLowerCase()}/${slug}`}
-      className="group relative col-span-1 row-span-1 aspect-video transform-gpu overflow-hidden rounded-lg border border-white/5 transition hover:scale-[101%]"
+      className="group relative col-span-1 row-span-1 aspect-video overflow-hidden rounded-lg border border-white/5"
     >
       <Image
         src={image}
         alt={title}
-        className="absolute inset-0 m-0 size-full rounded-lg object-cover"
+        className="absolute inset-0 m-0 size-full transform-gpu rounded-lg object-cover transition-transform md:group-hover:scale-[105%]"
         width={160 * 4}
         height={90 * 4}
         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
       />
-      <div className="absolute -inset-6 flex flex-col items-start justify-end rounded-lg bg-black/20 p-10 text-sm opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100">
-        <div>{title}</div>
+      <div className="absolute -inset-6 flex flex-col items-start justify-end rounded-lg p-10 text-sm">
+        <div className="absolute inset-0 bg-black/10 opacity-0 transition duration-300 md:group-hover:opacity-100"></div>
+        <div className="opacity-0 transition duration-300 md:blur-sm md:group-hover:opacity-100 md:group-hover:blur-none">
+          {title}
+        </div>
       </div>
     </Link>
   );
