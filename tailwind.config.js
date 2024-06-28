@@ -95,6 +95,11 @@ module.exports = {
                 fontSize: "1.25rem",
                 lineHeight: "1.75rem",
               },
+              ["& > span > p"]: {
+                marginBottom: "0",
+                fontSize: "1.25rem",
+                lineHeight: "1.75rem",
+              },
             },
             h2: {
               fontSize: "1.2em",
