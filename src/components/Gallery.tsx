@@ -24,7 +24,7 @@ const EntriesGalleryItemCard: FC<BaseEntry> = ({
         height={90 * 4}
         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
       />
-      <div className="absolute -inset-6 flex flex-col items-start justify-end rounded-lg p-10 text-sm">
+      <div className="absolute -inset-6 flex flex-col items-start justify-end rounded-lg p-10 text-xs">
         <div className="absolute inset-0 bg-black/10 opacity-0 transition duration-300 md:group-hover:opacity-100"></div>
         <div className="md:opacity-0 transition duration-300 md:blur-sm md:group-hover:opacity-100 md:group-hover:blur-none">
           {title}
