@@ -14,7 +14,7 @@ const EntriesGalleryItemCard: FC<BaseEntry> = ({
   return (
     <Link
       href={`/${type.toLowerCase()}/${slug}`}
-      className="group relative col-span-1 row-span-1 aspect-video overflow-hidden rounded-lg border border-white/5"
+      className="group relative col-span-1 row-span-1 md:aspect-video overflow-hidden rounded-lg border border-white/5"
     >
       <Image
         src={image}
