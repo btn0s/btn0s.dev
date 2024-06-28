@@ -44,7 +44,7 @@ export const ExternalLinkWithPreview: FC<
           {children}
         </a>
       </HoverCardTrigger>
-      <HoverCardContent align={align} className="shadow-xl">
+      <HoverCardContent align={align} className="mt-2 shadow-xl">
         <motion.img
           src={urlMetadata.image.src}
           alt={urlMetadata.title}
