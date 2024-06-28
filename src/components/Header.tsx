@@ -9,21 +9,12 @@ import {
   useState,
 } from "react";
 
-import { AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LuGithub, LuMail } from "react-icons/lu";
 
 import FadeBlurLoader from "@/components/FadeBlurLoader";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 const HeaderLink: FC<
   PropsWithChildren<
@@ -75,44 +66,20 @@ const Header = () => {
           ✦ bt norris
         </Link>
         <div className="relative flex flex-1 items-center justify-center">
-          {pathname === "/" && (
-            <FadeBlurLoader>
-              <div className="relative flex flex-col items-center text-xs leading-none text-muted-foreground opacity-50">
-                {formattedTime}
-              </div>
-            </FadeBlurLoader>
-          )}
-          {pathname !== "/" && (
-            <FadeBlurLoader>
-              <Breadcrumb>
-                <BreadcrumbList>
-                  <BreadcrumbItem>
-                    <BreadcrumbLink
-                      href={`/${pathnameToParts[1]}`}
-                      className={cn("text-xs text-muted-foreground", {
-                        "opacity-50 hover:opacity-100": pathnameToParts[2],
-                      })}
-                    >
-                      {pathnameToParts[1]}
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  {pathnameToParts[2] && (
-                    <>
-                      <BreadcrumbSeparator className="text-xs text-muted-foreground opacity-50" />
-                      <BreadcrumbItem>
-                        <BreadcrumbLink
-                          href={`/${pathnameToParts[1]}/${pathnameToParts[2]}`}
-                          className="text-xs text-muted-foreground"
-                        >
-                          {pathnameToParts[2]}
-                        </BreadcrumbLink>
-                      </BreadcrumbItem>
-                    </>
-                  )}
-                </BreadcrumbList>
-              </Breadcrumb>
-            </FadeBlurLoader>
-          )}
+          <div className="relative flex flex-col items-center text-xs leading-none text-muted-foreground opacity-50">
+            {pathname === "/" ? (
+              <FadeBlurLoader>{formattedTime}</FadeBlurLoader>
+            ) : null}
+            {pathnameToParts[1] === "work" ? (
+              <FadeBlurLoader>work</FadeBlurLoader>
+            ) : null}
+            {pathnameToParts[1] === "notes" ? (
+              <FadeBlurLoader>notes</FadeBlurLoader>
+            ) : null}
+            {pathnameToParts[1] === "lab" ? (
+              <FadeBlurLoader>lab</FadeBlurLoader>
+            ) : null}
+          </div>
         </div>
         <div className="flex w-[79px] justify-end">
           <HeaderLink href="https://github.com/btn0s" target="_blank">
