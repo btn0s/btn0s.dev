@@ -26,7 +26,7 @@ const EntriesGalleryItemCard: FC<BaseEntry> = ({
       />
       <div className="absolute -inset-6 flex flex-col items-start justify-end rounded-lg p-10 text-sm">
         <div className="absolute inset-0 bg-black/10 opacity-0 transition duration-300 md:group-hover:opacity-100"></div>
-        <div className="opacity-0 transition duration-300 md:blur-sm md:group-hover:opacity-100 md:group-hover:blur-none">
+        <div className="md:opacity-0 transition duration-300 md:blur-sm md:group-hover:opacity-100 md:group-hover:blur-none">
           {title}
         </div>
       </div>
