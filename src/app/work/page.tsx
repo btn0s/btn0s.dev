@@ -49,8 +49,8 @@ const Page = async () => {
   return (
     <div className="not-prose flex flex-col gap-12">
       <h1 className="text-xl text-white">
-        <span className="font-light opacity-50">the journey so far, </span>
-        <div className="font-bold">this is my life&apos;s work</div>
+        <span className="font-light opacity-50">my journey so far, </span>
+        <div className="font-bold">putting my craft to work</div>
       </h1>
       {sortedEntries.length === 0 ? (
         <EmptyPageMessage />
