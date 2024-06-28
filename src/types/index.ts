@@ -9,13 +9,13 @@ export interface BaseEntryMetadata {
   description: string;
   image: string;
   tags: string[];
-  company: string;
-  roles: string[];
-  startDate: string;
-  endDate: string;
   createdAt: string;
   published: boolean;
   featured?: boolean;
+  company?: string;
+  roles?: string[];
+  startDate?: string;
+  endDate?: string;
 }
 
 export interface BaseEntry {

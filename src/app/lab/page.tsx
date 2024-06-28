@@ -2,6 +2,7 @@ import { Metadata } from "next";
 
 import { getEntries } from "@/app/api/entries";
 import EmptyPageMessage from "@/components/EmptyPageMessage";
+import Gallery from "@/components/Gallery";
 import { List } from "@/components/List";
 import { ListCard } from "@/components/ListCard";
 import { createMetaTitle } from "@/lib/utils";
@@ -51,11 +52,10 @@ const Page = async () => {
       {sortedEntries.length === 0 ? (
         <EmptyPageMessage />
       ) : (
-        <List>
-          {entries.map(({ slug, meta, type }) => (
-            <ListCard key={slug} meta={meta} slug={slug} type={type} />
-          ))}
-        </List>
+        <Gallery
+          entries={sortedEntries}
+          singleColumn={sortedEntries.length < 6}
+        />
       )}
     </div>
   );

@@ -3,8 +3,6 @@ import { Metadata } from "next";
 import { getEntries } from "@/app/api/entries";
 import EmptyPageMessage from "@/components/EmptyPageMessage";
 import EntriesGallery from "@/components/Gallery";
-import { List } from "@/components/List";
-import { ListCard } from "@/components/ListCard";
 import { createMetaTitle } from "@/lib/utils";
 import { EntryType } from "@/types";
 
@@ -35,7 +33,8 @@ const Page = async () => {
   const entries = await getEntries(EntryType.WORK);
 
   const sortedEntries = entries.sort((a, b) => {
-    // sort by start date, descending
+    if (!a.meta.startDate || !b.meta.startDate) return -1;
+
     if (a.meta.startDate < b.meta.startDate) {
       return 1;
     }

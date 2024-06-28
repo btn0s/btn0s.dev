@@ -123,8 +123,8 @@ module.exports = {
             },
             ul: {
               paddingTop: "16px",
-              paddingBottom: "16px",
               marginLeft: "0rem",
+              marginBottom: "0rem",
               paddingLeft: "1rem",
               textWrap: "pretty",
               ["@media (min-width: 768px)"]: {
@@ -132,7 +132,7 @@ module.exports = {
               },
             },
             li: {
-              marginBottom: "1em",
+              marginBottom: "0.75em",
             },
             a: {
               fontSize: "0.9em",

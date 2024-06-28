@@ -33,7 +33,7 @@ const Page = async () => {
   const entries = await getEntries(EntryType.NOTES);
 
   const sortedEntries = entries.sort((a, b) => {
-    if (!a.meta.createdAt || !b.meta.createdAt) return 1;
+    if (!a.meta.createdAt || !b.meta.createdAt) return -1;
     if (a.meta.createdAt < b.meta.createdAt) return 1;
     if (a.meta.createdAt > b.meta.createdAt) return -1;
     return 0;
