@@ -118,10 +118,12 @@ module.exports = {
               marginLeft: "0rem",
               paddingLeft: "1rem",
               textWrap: "pretty",
-              maxWidth: "80%",
+              ["@media (min-width: 768px)"]: {
+                maxWidth: "70%",
+              },
             },
             li: {
-              marginBottom: "0.5em",
+              marginBottom: "1em",
             },
             a: {
               fontSize: "0.9em",

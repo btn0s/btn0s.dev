@@ -51,11 +51,7 @@ const Header = () => {
   useEffect(() => {
     const updateCurrentDate = () => {
       setFormattedTime(
-        new Date(
-          new Date().toLocaleString(undefined, {
-            // timeZone: "America/Phoenix"
-          }),
-        ).toLocaleTimeString(),
+        new Date(new Date().toLocaleString()).toLocaleTimeString(),
       );
       requestAnimationFrame(updateCurrentDate);
     };
