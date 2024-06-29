@@ -12,7 +12,7 @@ import { BaseEntry } from "@/types";
 const EntriesGalleryItemCard: FC<BaseEntry & { showType?: boolean }> = ({
   type,
   slug,
-  meta: { title, image, description },
+  meta: { title, coverImage },
   showType = false,
 }) => {
   return (
@@ -22,12 +22,12 @@ const EntriesGalleryItemCard: FC<BaseEntry & { showType?: boolean }> = ({
     >
       <div className="mb-2 aspect-video w-full md:absolute md:m-0 md:h-full">
         <Image
-          src={image}
+          src={coverImage}
           alt={title}
           className="inset-0 m-0 h-full w-full transform-gpu rounded-lg border border-white/5 object-cover transition-transform md:absolute md:border-none md:group-hover:scale-[101%]"
-          width={160 * 4}
-          height={90 * 4}
-          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          width={coverImage.width}
+          height={coverImage.height}
+          quality={100}
         />
       </div>
       <div className="relative flex flex-col items-start justify-end rounded-lg text-xs md:absolute md:-inset-6 md:p-10">

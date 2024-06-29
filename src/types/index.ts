@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export enum EntryType {
   WORK = "WORK",
   NOTES = "NOTES",
@@ -7,7 +9,8 @@ export enum EntryType {
 export interface BaseEntryMetadata {
   title: string;
   description: string;
-  image: string;
+  metaImage: string;
+  coverImage: StaticImageData;
   tags: string[];
   createdAt: string;
   published: boolean;
