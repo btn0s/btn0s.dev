@@ -26,14 +26,14 @@ interface CurrentProjectItem {
 
 const CURRENT_PROJECTS: CurrentProjectItem[] = [
   {
-    title: "building a design engineering team from scratch",
+    title: "building a design engineering program from scratch",
     company: "backbone",
     role: "design engineer",
     href: "/work/backbone",
     isMain: true,
   },
   {
-    title: "crafting an IDE for design engineers",
+    title: "crafting an IDE for design technologists",
     company: "strella",
     role: "founder",
     href: "https://strella.dev",
