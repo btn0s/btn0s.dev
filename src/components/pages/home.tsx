@@ -26,7 +26,7 @@ interface CurrentProjectItem {
 
 const CURRENT_PROJECTS: CurrentProjectItem[] = [
   {
-    title: "building tools and prototypes for designers",
+    title: "building a design engineering team from scratch",
     company: "backbone",
     role: "design engineer",
     href: "/work/backbone",
