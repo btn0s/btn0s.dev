@@ -33,7 +33,7 @@ const CURRENT_PROJECTS: CurrentProjectItem[] = [
     isMain: true,
   },
   {
-    title: "crafting the worlds first product IDE",
+    title: "crafting an IDE for design engineers",
     company: "strella",
     role: "founder",
     href: "https://strella.dev",
