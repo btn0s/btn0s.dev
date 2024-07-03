@@ -45,7 +45,7 @@ export function generateEntryMetadata(type: EntryType) {
           description: meta.description,
           images: [
             {
-              url: meta.image,
+              url: meta.metaImage,
             },
           ],
         },
