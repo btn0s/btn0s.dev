@@ -167,12 +167,9 @@ async function createEntry(): Promise<void> {
     tags.push(metadataAnswers.company.toLowerCase().replace(/\s+/g, "-"));
   }
 
-  const metadata: BaseEntryMetadata = {
+  const metadata: Partial<BaseEntryMetadata> = {
     title,
     description: metadataAnswers.description,
-    metaImage: "/og-share.png",
-    coverImage: "FILL IN",
-    published: false,
     tags,
     createdAt: new Date().toISOString(),
   };
@@ -190,7 +187,16 @@ async function createEntry(): Promise<void> {
 import PageTitle, { PageTitleHighlight } from "../../components/PageTitle";
 import EntryImage from "../../components/EntryImage";
 
-export const meta = ${JSON.stringify(metadata, null, 2)};
+export const meta = ${JSON.stringify(
+    {
+      ...metadata,
+      metaImage: "/og-share.png",
+      coverImage: "FILL IN",
+      published: false,
+    },
+    null,
+    2,
+  )};
 
 <PageTitle>lorem ipsum dolor sit amet, consectetur <PageTitleHighlight>adipiscing elit.</PageTitleHighlight></PageTitle>
 
