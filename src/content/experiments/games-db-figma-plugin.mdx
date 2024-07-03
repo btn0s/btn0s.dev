@@ -4,6 +4,7 @@ import pluginCloseup from "../../assets/images/shots/gdb-plugin-closeup.png";
 import appCloseup from "../../assets/images/shots/gdb-app-closeup.png";
 import feedbackImage from "../../assets/images/shots/gdb-feedback.png";
 import Mermaid from "../../components/mermaid";
+import PageTitle, { PageTitleHighlight } from "../../components/PageTitle";
 
 export const meta = {
   title: "Games DB Figma Plugin",
@@ -16,7 +17,12 @@ export const meta = {
   createdAt: "2024-07-03T17:36:38.718Z",
 };
 
-# I built custom Figma plugin to bring game assets and metadata directly into the design team's workflow.
+<PageTitle>
+  I built custom Figma plugin to bring game assets and metadata{" "}
+  <PageTitleHighlight>
+    directly into the design team's workflow.
+  </PageTitleHighlight>
+</PageTitle>
 
 <img src={coverImage.src} className={"rounded-lg"} />
 
