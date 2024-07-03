@@ -88,7 +88,8 @@ module.exports = {
               fontSize: "1.25rem",
               fontWeight: "600",
               lineHeight: "1.75rem",
-              marginBottom: "0.5em",
+              marginBottom: "0.75em",
+              marginTop: "1.75em",
               color: "hsl(var(--foreground))",
               ["& > p"]: {
                 margin: "0",
@@ -105,7 +106,8 @@ module.exports = {
               fontSize: "1.2em",
               fontWeight: "600",
               lineHeight: "1.2em",
-              marginBottom: "0.5em",
+              marginBottom: "0.75em",
+              marginTop: "1.75em",
               color: "hsl(var(--foreground))",
             },
             h3: {
@@ -113,30 +115,34 @@ module.exports = {
               fontWeight: "600",
               lineHeight: "1.1em",
               marginBottom: "0.5em",
+              marginTop: "1.5em",
               color: "hsl(var(--foreground))",
             },
             p: {
               marginTop: "0",
-              "& ~ ul": {
-                marginTop: "-1.1428571em",
-              },
             },
             ul: {
-              paddingTop: "16px",
-              marginLeft: "0rem",
-              marginBottom: "0rem",
-              paddingLeft: "1rem",
+              marginTop: "0",
               textWrap: "pretty",
               ["@media (min-width: 768px)"]: {
                 maxWidth: "70%",
               },
             },
             li: {
-              marginBottom: "0.75em",
+              marginTop: "0",
+              marginBottom: "0.5em",
             },
             a: {
               fontSize: "0.9em",
               opacity: 0.8,
+            },
+            hr: {
+              borderColor: "hsl(var(--border))",
+              marginTop: "1.5em",
+              marginBottom: "1.5em",
+            },
+            img: {
+              marginTop: "0",
             },
           },
         },

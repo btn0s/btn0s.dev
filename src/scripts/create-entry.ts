@@ -6,8 +6,6 @@ import inquirer from "inquirer";
 
 import { BaseEntryMetadata } from "@/types";
 
-import ogImage from "../../public/og-share.png";
-
 const CONTENT_DIRECTORY = path.join(__dirname, "..", "content");
 const EXPERIMENTS_DIRECTORY = path.join(CONTENT_DIRECTORY, "experiments");
 const NOTES_DIRECTORY = path.join(CONTENT_DIRECTORY, "notes");
@@ -173,7 +171,7 @@ async function createEntry(): Promise<void> {
     title,
     description: metadataAnswers.description,
     metaImage: "/og-share.png",
-    coverImage: ogImage,
+    coverImage: "FILL IN",
     published: false,
     tags,
     createdAt: new Date().toISOString(),

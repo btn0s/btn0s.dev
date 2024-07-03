@@ -18,7 +18,8 @@ const RelatedEntries = async ({
   }
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 py-6">
+      <hr />
       <h2 className="text-lg font-bold text-white">Related projects</h2>
       <EntriesGallery entries={relatedEntries} />
     </div>

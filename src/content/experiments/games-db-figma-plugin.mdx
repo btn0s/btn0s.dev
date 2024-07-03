@@ -1,0 +1,169 @@
+import coverImage from "../../assets/images/shots/gdb-cover.png";
+import image1 from "../../assets/images/shots/gdb-1.png";
+import pluginCloseup from "../../assets/images/shots/gdb-plugin-closeup.png";
+import appCloseup from "../../assets/images/shots/gdb-app-closeup.png";
+import feedbackImage from "../../assets/images/shots/gdb-feedback.png";
+import Mermaid from "../../components/mermaid";
+
+export const meta = {
+  title: "Games DB Figma Plugin",
+  description:
+    "I built custom Figma plugin to bring game assets and metadata directly into the design team's workflow.",
+  metaImage: coverImage.src,
+  coverImage: coverImage,
+  published: true,
+  tags: ["figma plugin", "tooling", "design engineering", "backbone"],
+  createdAt: "2024-07-03T17:36:38.718Z",
+};
+
+# I built custom Figma plugin to bring game assets and metadata directly into the design team's workflow.
+
+<img src={coverImage.src} className={"rounded-lg"} />
+
+# Overview
+
+While designing the Backbone app, the designers spent a lot of time and effort manually searching, downloading, and importing. I developed a custom Figma plugin that connects them directly to the game assets they need in a simple, streamlined workflow.
+
+- **My Role:** Project Lead, Design Engineer
+- **Tools:** Figma, React, TypeScript
+
+## Impact
+
+This plugin has becoming a core part of the design team's workflow, saving them hours of work and improving their efficiency. Since launching, it has been hundreds of times across various design initiatives and has received overwhelmingly positive feedback from the team.
+
+<hr />
+
+# Process
+
+## Identifying the Problem
+
+At the first offsite I attended with the Backbone team, I met with some of the designers and learned about their workflow and the challenges they faced. One of the biggest pain points they mentioned was the time-consuming process of searching for game assets and metadata online and importing them into Figma.
+
+<Mermaid
+  id={"mermaid-0"}
+  title={"existing worflow"}
+  source={`
+    graph LR
+        A[Open Web Browser]
+        A --> C[Search Google for Assets]
+        C --> D[Verify Assets]
+        D --> E[Download Assets]
+        E --> F[Import to Figma]
+`}
+/>
+
+## Solution Development
+
+After identifying the problem, I worked with the design team to develop a solution that would:
+
+- Automate the process of importing game assets and metadata into Figma.
+- Ensure designers are always working with the most up-to-date data (so that it matches what's in the app).
+- Seamlessly integrate with the design team's existing workflow.
+
+With these goals in mind, I set out to build a custom Figma plugin that would connect the design team directly to the game assets they needed.
+
+<Mermaid
+  id={"mermaid-1"}
+  title={"ideal workflow"}
+  source={`
+    graph LR
+        A[Run Plugin]
+        A --> B[Search for a game]
+        B --> C[Insert or Copy Assets]
+        C --> D[Done]
+  `}
+/>
+
+## Visual Design
+
+The next step was to design the user interface for the plugin. I wanted to keep it simple and intuitive, so I designed a search bar where designers could type in the name of a game and see a list of assets and metadata associated with that game.
+
+<div>
+  <img
+    src={image1.src}
+    className={"mb-1 rounded-lg"}
+    alt={"screenshot of the figma plugin"}
+  />
+  <span className={"text-xs text-muted-foreground"}>
+    screenshot of the figma plugin
+  </span>
+</div>
+
+I wanted to mirror the existing design language of the Backbone app and show the assets in a way that helped designers visualize how they would look in production.
+
+<div className={"mb-4 grid grid-cols-2 gap-4"}>
+  <div>
+    <img
+      src={appCloseup.src}
+      className={"mb-1 rounded-lg"}
+      alt={"screenshot of the backbone app"}
+    />
+    <span className={"text-xs text-muted-foreground"}>backbone app</span>
+  </div>
+  <div>
+    <img
+      src={pluginCloseup.src}
+      className={"mb-1 rounded-lg"}
+      alt={"screenshot of the figma plugin"}
+    />
+    <span className={"text-xs text-muted-foreground"}>figma plugin</span>
+  </div>
+</div>
+
+## Implementation
+
+I built the plugin using React and TypeScript, leveraging Figma’s Plugin API to interact with the design tool. This approach effectively automated the process of importing game assets and metadata into Figma and seamlessly integrated with the design team’s existing workflow.
+
+To ensure designers are always working with the most up-to-date data, I connected the plugin to the same data source used by the app: the Backbone Games DB.
+For the search functionality, I used Algolia's instant search to quickly find the game assets and metadata designers were looking for.
+
+<Mermaid
+  id={"mermaid-2"}
+  title={"the architecture"}
+  source={`
+    flowchart TD
+    subgraph Databases
+        A[Games DB]
+        B[Algolia]
+    end
+
+    subgraph APIs
+        C[GraphQL API]
+        F[Algolia Client]
+    end
+
+    subgraph Clients
+        D[Backbone App]
+        E[Figma Plugin]
+    end
+
+    A -->|Game Metadata| C
+    C -->|Game Data| D
+    C -->|Game Data| E
+    B -->|Search Data| F
+    F -->|Search Data| D
+    F -->|Search Data| E
+
+`}
+/>
+
+## Future Improvements
+
+Since launching the plugin, I've gotten a lot of great feedback from the design team. I'm excited to continue iterating on it and adding new features to make it even more useful for them.
+
+<div>
+  <img
+    src={feedbackImage.src}
+    className={"mb-1 rounded-lg"}
+    alt={"feedback from the design team"}
+  />
+  <span className={"text-xs text-muted-foreground"}>
+    feedback from the design team
+  </span>
+</div>
+
+# Conclusion
+
+Building the Games DB Figma plugin was a great opportunity to work closely with the design team and help them solve a real problem they were facing. I'm proud of the impact it's had on their workflow and excited to continue improving it in the future.
+
+If you're interested in learning more about this project or how I can help your team with similar challenges, feel free to reach out to me by clicking the mail icon in the top right. I'd love to chat!
