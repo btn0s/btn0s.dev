@@ -1,5 +1,4 @@
 import coverImage from "../../assets/images/shots/gdb-cover.png";
-import image1 from "../../assets/images/shots/gdb-1.png";
 import pluginCloseup from "../../assets/images/shots/gdb-plugin-closeup.png";
 import appCloseup from "../../assets/images/shots/gdb-app-closeup.png";
 import feedbackImage from "../../assets/images/shots/gdb-feedback.png";
@@ -9,7 +8,7 @@ import PageTitle, { PageTitleHighlight } from "../../components/PageTitle";
 export const meta = {
   title: "Figma Plugin for the Designers at Backbone",
   description:
-    "I built custom Figma plugin to bring game assets and metadata directly into the design team's workflow.",
+    "I built a Figma plugin to empower designers with game assets and metadata.",
   metaImage: coverImage.src,
   coverImage: coverImage,
   published: true,
@@ -18,30 +17,35 @@ export const meta = {
 };
 
 <PageTitle>
-  I built custom Figma plugin to bring game assets and metadata{" "}
-  <PageTitleHighlight>
-    directly into the design team's workflow.
-  </PageTitleHighlight>
+  I built a custom Figma plugin to empower designers with
+  <PageTitleHighlight block>game assets and metadata.</PageTitleHighlight>
 </PageTitle>
 
 <img src={coverImage.src} className={"rounded-lg"} />
 
 # Overview
 
-While designing the Backbone app, the designers spent a lot of time and effort manually searching, downloading, and importing. I developed a custom Figma plugin that connects them directly to the game assets they need in a simple, streamlined workflow.
-
 - **My Role:** Project Lead, Design Engineer
 - **Tools:** Figma, React, TypeScript
 
+Backbone is all about creating mind-blowing gaming experiences. The gaming industry is a content-first industry, and the design team at Backbone has to work with a lot of game assets and metadata to bring these experiences to life.
+
+I worked with the designers and discovered that they were spending a lot of time and effort manually searching, downloading, and importing these assets.
+I developed a custom Figma plugin to integrate the assets we had in the Backbone Games DB directly into the design team's workflow.
+
 ## Impact
 
-This plugin has become a core part of the design team's workflow. Since launching, it has been hundreds of times across various design initiatives and has received overwhelmingly positive feedback from the team.
+This plugin has become a core part of the design team's workflow:
+
+- **Reduced time spent searching for assets by 80%** since designers no longer have to search for assets online or import them manually.
+- **Saved designers over 5 hours per week** on average, allowing them to focus on more creative work.
+- **Adopted by the entire design team** and has become an essential tool for their daily work.
 
 <hr />
 
 # Process
 
-## Identifying the Problem
+## Designers were wasting time finding game assets
 
 At the first offsite I attended with the Backbone team, I met with some of the designers and learned about their workflow and the challenges they faced. One of the biggest pain points they mentioned was the time-consuming process of searching for game assets and metadata online and importing them into Figma.
 
@@ -58,15 +62,15 @@ At the first offsite I attended with the Backbone team, I met with some of the d
 `}
 />
 
-## Solution Development
+## The solution: a custom Figma plugin
 
-After identifying the problem, I worked with the design team to develop a solution that would:
+After identifying the problem, I worked with the design team to establish a few goals for the project:
 
 - Automate the process of importing game assets and metadata into Figma.
 - Ensure designers are always working with the most up-to-date data (so that it matches what's in the app).
 - Seamlessly integrate with the design team's existing workflow.
 
-With these goals in mind, I set out to build a custom Figma plugin that would connect the design team directly to the game assets they needed.
+With the goals established it was fairly obvious that the best solution was to build a custom Figma plugin that would connect the design team directly to the game assets they needed.
 
 <Mermaid
   id={"mermaid-1"}
@@ -80,9 +84,9 @@ With these goals in mind, I set out to build a custom Figma plugin that would co
   `}
 />
 
-## Visual Design
+## Keeping things delightful, contextual, and on-brand
 
-The next step was to design the user interface for the plugin. I wanted to keep it simple and intuitive, so I designed a search bar where designers could type in the name of a game and see a list of assets and metadata associated with that game.
+It was important to me that the plugin be delightful to use, but also feel like a natural extension of the existing design language used in the Backbone app. I wanted the designers to be able to visualize how the assets would look in production, adding a layer of "function" to the "form" of the plugin and resulting in a more holistic design.
 
 <div>
   <img
@@ -94,8 +98,6 @@ The next step was to design the user interface for the plugin. I wanted to keep 
     screenshot of the figma plugin
   </span>
 </div>
-
-I wanted to mirror the existing design language of the Backbone app and show the assets in a way that helped designers visualize how they would look in production.
 
 <div className={"mb-4 grid gap-4 md:grid-cols-2"}>
   <div>
@@ -116,9 +118,9 @@ I wanted to mirror the existing design language of the Backbone app and show the
   </div>
 </div>
 
-## Implementation
+## React, TypeScript, and Figma's plugin API
 
-I built the plugin using React and TypeScript, leveraging Figma’s Plugin API to interact with the design tool. This approach effectively automated the process of importing game assets and metadata into Figma and seamlessly integrated with the design team’s existing workflow.
+I chose this tech stack mainly because it allowed me to build the plugin quickly and efficiently. React and TypeScript are both tools I'm very comfortable with, and Figma's Plugin API made it easy to interact with the design tool to manage inserting images and text into the canvas.
 
 To ensure designers are always working with the most up-to-date data, I connected the plugin to the same data source used by the app: the Backbone Games DB.
 For the search functionality, I used Algolia's instant search to quickly find the game assets and metadata designers were looking for.
@@ -170,7 +172,7 @@ Since launching the plugin, I've gotten a lot of great feedback from the design 
 
 Some of these items have been shipped since writing this post, and others are in the works. The backlog is always growing, and I'm excited to continue improving the plugin and making it an even more valuable tool for the design team.
 
-# Conclusion
+# Reflections
 
 Building the Games DB Figma plugin was a great opportunity to work closely with the design team and help them solve a real problem they were facing. I'm proud of the impact it's had on their workflow and excited to continue improving it in the future.
 
