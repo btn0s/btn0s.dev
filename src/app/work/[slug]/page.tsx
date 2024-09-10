@@ -1,37 +1,28 @@
-import { getEntryMetadata } from "@/app/api/entries";
-import AtHandle from "@/components/AtHandle";
+import { POST_QUERY } from "@/app/work/queries";
 import FadeBlurLoader from "@/components/FadeBlurLoader";
-import RelatedEntries from "@/components/RelatedEntries";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { generateEntryMetadata, getEntryTypePath } from "@/lib/utils";
+import Post from "@/components/Post";
+import { generateEntryMetadata } from "@/lib/utils";
+import { sanityFetch } from "@/sanity/lib/client";
 import { EntryType } from "@/types";
 
 const ENTRY_TYPE = EntryType.WORK;
 
 export const generateMetadata = generateEntryMetadata(ENTRY_TYPE);
 
-export default async function Page({
-  params: { slug },
-}: {
-  params: { slug: string };
-}) {
-  const entryMeta = await getEntryMetadata(ENTRY_TYPE, slug);
-  const MDXContent = await import(
-    `../../../content/${getEntryTypePath(ENTRY_TYPE)}/${slug}.mdx`
-  );
+const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
+  const post = await sanityFetch({
+    query: POST_QUERY,
+    params: {
+      slug: `/work/${slug}`,
+    },
+  });
+  console.log({ post });
+
   return (
-    <FadeBlurLoader className="flex flex-col gap-4">
-      <div className="prose prose-sm prose-invert w-full max-w-none">
-        <MDXContent.default />
-      </div>
-      <RelatedEntries slug={slug} meta={entryMeta} />
+    <FadeBlurLoader className="flex w-full flex-col gap-4">
+      <Post data={post} />
     </FadeBlurLoader>
   );
-}
+};
+
+export default Page;

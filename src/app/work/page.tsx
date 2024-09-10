@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 
-import { getEntries } from "@/app/api/entries";
+import { POSTS_QUERY } from "@/app/work/queries";
 import EmptyPageMessage from "@/components/EmptyPageMessage";
-import EntriesGallery from "@/components/Gallery";
+import Gallery from "@/components/Gallery";
 import { createMetaTitle } from "@/lib/utils";
-import { EntryType } from "@/types";
+import { client } from "@/sanity/lib/client";
 
 const TITLE = "work";
 const DESCRIPTION =
@@ -30,16 +30,24 @@ export const metadata: Metadata = {
 };
 
 const Page = async () => {
-  const entries = await getEntries(EntryType.WORK);
+  const posts = await client.fetch(
+    POSTS_QUERY,
+    {},
+    {
+      next: { revalidate: 5 },
+    },
+  );
 
-  const sortedEntries = entries.sort((a, b) => {
-    if (!a.meta.startDate || !b.meta.startDate) return -1;
+  console.log({ posts });
 
-    if (a.meta.startDate < b.meta.startDate) {
+  const sortedPosts = posts.sort((a, b) => {
+    if (!a.startDate || !b.startDate) return -1;
+
+    if (a.startDate < b.startDate) {
       return 1;
     }
 
-    if (a.meta.startDate > b.meta.startDate) {
+    if (a.startDate > b.startDate) {
       return -1;
     }
 
@@ -49,13 +57,13 @@ const Page = async () => {
   return (
     <div className="not-prose flex flex-col gap-12">
       <h1 className="text-xl text-white">
-        <span className="font-light opacity-50">my journey so far, </span>
-        <div className="font-bold">putting my craft to work</div>
+        <span className="font-light opacity-50">the journey so far, </span>
+        <div className="font-bold">putting in the work</div>
       </h1>
-      {sortedEntries.length === 0 ? (
+      {sortedPosts.length === 0 ? (
         <EmptyPageMessage />
       ) : (
-        <EntriesGallery entries={sortedEntries} singleColumn />
+        <Gallery posts={sortedPosts} singleColumn />
       )}
     </div>
   );

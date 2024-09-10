@@ -1,5 +1,5 @@
 import { getEntriesWithTags } from "@/app/api/entries";
-import EntriesGallery from "@/components/Gallery";
+import Gallery from "@/components/Gallery";
 import { BaseEntry } from "@/types";
 
 const RelatedEntries = async ({
@@ -21,7 +21,7 @@ const RelatedEntries = async ({
     <div className="flex flex-col gap-4 py-6">
       <hr />
       <h2 className="text-lg font-bold text-white">Related projects</h2>
-      <EntriesGallery entries={relatedEntries} />
+      <Gallery entries={relatedEntries} />
     </div>
   );
 };
