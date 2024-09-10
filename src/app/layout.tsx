@@ -4,11 +4,15 @@ import { Analytics } from "@vercel/analytics/react";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
+import { revalidatePath, revalidateTag } from "next/cache";
+import { draftMode } from "next/headers";
+import { VisualEditing } from "next-sanity";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
 import "./globals.css";
+import "easymde/dist/easymde.min.css";
 
 export const metadata: Metadata = {
   title: "designer, programmer, human.",
@@ -43,6 +47,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </main>
         <Footer />
         <Analytics />
+        {draftMode().isEnabled && (
+          <VisualEditing
+            refresh={async (payload) => {
+              "use server";
+            }}
+          />
+        )}
       </body>
     </html>
   );

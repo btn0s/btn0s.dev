@@ -11,7 +11,7 @@ import React, {
 import { stagger, useAnimate } from "framer-motion";
 
 import FadeBlurLoader from "@/components/FadeBlurLoader";
-import EntriesGallery from "@/components/Gallery";
+import Gallery from "@/components/Gallery";
 import { useHasUserVisited } from "@/hooks/use-animate-in";
 import { cn } from "@/lib/utils";
 import { BaseEntry } from "@/types";
@@ -161,7 +161,7 @@ const Home: FC<HomeProps> = ({ featuredEntries }) => {
       </div>
 
       <HomeSection style={{ transform: "translateY(12px)" }}>
-        <EntriesGallery
+        <Gallery
           entries={featuredEntries}
           singleColumn={featuredEntries.length < 4}
         />
