@@ -1,28 +1,24 @@
-import { StaticImageData } from "next/image";
-
 export enum EntryType {
-  WORK = "WORK",
-  NOTES = "NOTES",
-  LAB = "LAB",
+  WORK = "work",
+  NOTES = "notes",
+  LAB = "lab",
 }
 
-export interface BaseEntryMetadata {
+export interface EntryMetadata {
   title: string;
   description: string;
-  metaImage: string;
-  coverImage: StaticImageData;
+  image: string;
   tags: string[];
   createdAt: string;
   published: boolean;
   featured?: boolean;
-  company?: string;
-  roles?: string[];
   startDate?: string;
   endDate?: string;
 }
 
-export interface BaseEntry {
-  slug: string;
+export interface Entry {
   type: EntryType;
-  meta: BaseEntryMetadata;
+  slug: string;
+  metadata: EntryMetadata;
+  content: string;
 }

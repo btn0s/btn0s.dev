@@ -3,67 +3,27 @@ import path from "path";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
+import { getEntry } from "@/app/api/entries";
 import { EntryType } from "@/types";
+
+/* ClassName helpers */
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+/* SEO helpers */
+
 export function createMetaTitle(title: string) {
   return `${title} | ✦ bt norris`;
 }
 
-export function getEntryTypePath(type: EntryType) {
-  return type === EntryType.LAB ? "experiments" : type.toLowerCase();
-}
+/* Path helpers */
 
-export function createEntryPath(
-  type: EntryType,
-  slug: string,
-  includeLeadingSlash = true,
-) {
-  return path.join(
-    includeLeadingSlash ? "/" : "",
-    getEntryTypePath(type),
-    slug,
-  );
-}
+export const CONTENT_DIR = path.join(process.cwd(), "src/content");
 
-export function generateEntryMetadata(type: EntryType) {
-  return async ({ params: { slug } }: { params: { slug: string } }) => {
-    const MDXContent = await import(
-      `../content/${createEntryPath(type, slug, false)}.mdx`
-    );
-    const { meta } = MDXContent;
+export const getMetadataPath = (type: EntryType, slug: string) =>
+  path.join(CONTENT_DIR, type.toLowerCase(), slug, "metadata.json");
 
-    if (meta) {
-      return {
-        title: createMetaTitle(meta.title),
-        description: meta.description,
-        openGraph: {
-          title: createMetaTitle(meta.title),
-          description: meta.description,
-          images: [
-            {
-              url: meta.metaImage,
-            },
-          ],
-        },
-      };
-    }
-
-    return {
-      title: "an experiment by ✦ bt norris",
-      description: "just one of many.",
-      openGraph: {
-        title: "an experiment by ✦ bt norris",
-        description: "just one of many.",
-        images: [
-          {
-            url: "https://btn0s.dev/images/og-image.png",
-          },
-        ],
-      },
-    };
-  };
-}
+export const getContentPath = (type: EntryType, slug: string) =>
+  path.join(CONTENT_DIR, type.toLowerCase(), slug, "content.json");

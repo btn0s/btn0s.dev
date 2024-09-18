@@ -10,9 +10,9 @@ export default async function Page() {
   ]);
 
   const sortedEntries = entries.flat().sort((a, b) => {
-    if (!a.meta.startDate || !b.meta.startDate) return 1;
-    if (a.meta.startDate < b.meta.startDate) return 1;
-    if (a.meta.startDate > b.meta.startDate) return -1;
+    if (!a.metadata.startDate || !b.metadata.startDate) return 1;
+    if (a.metadata.startDate < b.metadata.startDate) return 1;
+    if (a.metadata.startDate > b.metadata.startDate) return -1;
     return 0;
   });
 

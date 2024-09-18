@@ -1,55 +1,97 @@
-import { tag } from "postcss-selector-parser";
+"use server";
 
-import { getSlugsByDir } from "@/app/api/shared";
-import { getEntryTypePath } from "@/lib/utils";
-import { BaseEntry, BaseEntryMetadata, EntryType } from "@/types";
-import { FOLDER_EXCLUDES } from "@/types/api";
+import fs from "fs/promises";
+import path from "path";
+
+import { CONTENT_DIR } from "@/lib/utils";
+import { Entry, EntryMetadata, EntryType } from "@/types";
 
 const isLocal = process.env.NODE_ENV === "development";
 
-type GetEntries = (type: EntryType) => Promise<BaseEntry[]>;
+export const getEntries = async (type?: EntryType): Promise<Entry[]> => {
+  try {
+    const allEntries: Entry[] = [];
 
-export const getEntries: GetEntries = async (type) => {
-  const typePath = type === EntryType.LAB ? "experiments" : type.toLowerCase();
+    for (const entryType of Object.values(EntryType)) {
+      if (type && entryType !== type) continue;
 
-  const entrySlugs = await getSlugsByDir(
-    `./src/content/${typePath}`,
-    FOLDER_EXCLUDES,
-  );
+      const typePath = entryType.toLowerCase();
+      const entriesDir = path.join(CONTENT_DIR, typePath);
+      const slugs = await fs.readdir(entriesDir);
 
-  const entries: BaseEntry[] = await Promise.all(
-    entrySlugs.map(async (filePath) => {
-      const content = await import(`@/content/${typePath}/${filePath}.mdx`);
-      return {
-        type,
-        meta: content.meta,
-        slug: filePath,
-      };
-    }),
-  );
+      for (const slug of slugs) {
+        const entry = await getEntry({ type: entryType, slug });
 
-  return entries.filter((post) => (isLocal ? true : post.meta.published));
+        if (entry && (isLocal || entry.metadata.published)) {
+          allEntries.push(entry);
+        }
+      }
+    }
+
+    return allEntries;
+  } catch (error) {
+    console.error(`Error reading entries:`, error);
+    return [];
+  }
 };
 
-export const getFeaturedEntries: GetEntries = async (type) => {
+interface EntryTypeAndSlug {
+  type: EntryType;
+  slug: string;
+}
+
+export const getEntry = async ({
+  type,
+  slug,
+}: EntryTypeAndSlug): Promise<Entry | null> => {
+  if (!slug || !type) {
+    console.error(`Invalid entry: ${type}/${slug}`);
+    return null;
+  }
+
+  try {
+    const metadataPath = path.join(
+      CONTENT_DIR,
+      type.toLowerCase(),
+      slug,
+      "metadata.json",
+    );
+    const contentPath = path.join(
+      CONTENT_DIR,
+      type.toLowerCase(),
+      slug,
+      "content.json",
+    );
+
+    const [metadataRaw, contentRaw] = await Promise.all([
+      fs.readFile(metadataPath, "utf-8"),
+      fs.readFile(contentPath, "utf-8"),
+    ]);
+
+    const metadata: EntryMetadata = JSON.parse(metadataRaw);
+    const content = JSON.parse(contentRaw);
+
+    return { type, metadata: metadata, slug, content };
+  } catch (error) {
+    console.error(`Error reading entry for ${type}/${slug}:`, error);
+    return null;
+  }
+};
+
+// Helper functions for getting featured entries and entries with tags
+export const getFeaturedEntries = async (
+  type?: EntryType,
+): Promise<Entry[]> => {
   const entries = await getEntries(type);
-  return entries.filter((entry) => entry.meta.featured);
+  return entries.filter((entry) => entry.metadata.featured);
 };
 
-export const getEntriesWithTags = async (tags: string[]) => {
-  const entries = await Promise.all(
-    Object.values(EntryType).map(getEntries),
-  ).then((res) => res.flat());
-
-  return entries.filter((entry) => {
-    if (entry.meta.tags === undefined || tags === undefined) return;
-    return entry.meta.tags.some((tag) => tags.includes(tag));
-  });
-};
-
-export const getEntryMetadata = async (type: EntryType, slug: string) => {
-  const content = await import(
-    `@/content/${getEntryTypePath(type)}/${slug}.mdx`
+export const getEntriesWithTags = async (
+  tags: string[],
+  type?: EntryType,
+): Promise<Entry[]> => {
+  const entries = await getEntries(type);
+  return entries.filter((entry) =>
+    entry.metadata.tags?.some((tag) => tags.includes(tag)),
   );
-  return content.meta as BaseEntryMetadata;
 };

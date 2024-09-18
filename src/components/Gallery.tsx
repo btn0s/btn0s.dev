@@ -7,12 +7,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
-import { BaseEntry } from "@/types";
+import { Entry } from "@/types";
 
-const EntriesGalleryItemCard: FC<BaseEntry & { showType?: boolean }> = ({
+const EntriesGalleryItemCard: FC<Entry & { showType?: boolean }> = ({
   type,
   slug,
-  meta: { title, coverImage },
+  metadata: { title, image },
   showType = false,
 }) => {
   return (
@@ -22,11 +22,11 @@ const EntriesGalleryItemCard: FC<BaseEntry & { showType?: boolean }> = ({
     >
       <div className="mb-2 aspect-video w-full md:absolute md:m-0 md:h-full">
         <Image
-          src={coverImage}
+          src={image}
           alt={title}
           className="inset-0 m-0 h-full w-full transform-gpu rounded-lg border border-white/5 object-cover transition-transform md:absolute md:border-none md:group-hover:scale-[101%]"
-          width={coverImage.width}
-          height={coverImage.height}
+          width={800}
+          height={450}
           quality={100}
         />
       </div>
@@ -49,7 +49,7 @@ const EntriesGallery = ({
   entries,
   singleColumn = false,
 }: {
-  entries: BaseEntry[];
+  entries: Entry[];
   singleColumn?: boolean;
 }) => {
   const pathname = usePathname();
@@ -63,7 +63,7 @@ const EntriesGallery = ({
     >
       {entries.map((item) => (
         <EntriesGalleryItemCard
-          key={item.meta.title}
+          key={item.metadata.title}
           {...item}
           showType={pathname === "/"}
         />

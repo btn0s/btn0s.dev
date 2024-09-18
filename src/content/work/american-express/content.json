@@ -1,0 +1,137 @@
+{
+  "type": "doc",
+  "content": [
+    {
+      "type": "heading",
+      "attrs": {
+        "level": 1
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "I led a team of engineers expanding customer care capabilities "
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "textStyle",
+              "attrs": {
+                "color": "rgb(255 255 255/var(--tw-text-opacity))"
+              }
+            }
+          ],
+          "text": "and built a bridge to modernize a (very) legacy tech stack."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "attrs": {
+        "level": 2
+      },
+      "content": [
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "bold"
+            }
+          ],
+          "text": "Overview"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "American Express (\"Amex\") is a global financial services company providing world-class credit cards, charge cards, and travel services to consumers and businesses worldwide."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "I joined the AskAmex org to help modernize and expand the capabilities of the internal \"AGT\" tool, used by customer care professionals (CCPs) to manage incoming chats from the Amex mobile apps. This app was built on Angular 1.x."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "I led a team of engineers across multiple initiatives, including building new travel concierge features, launching web chat capabilities, and modernizing and hardening the core AskAmex platform."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "attrs": {
+        "level": 3
+      },
+      "content": [
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "bold"
+            }
+          ],
+          "text": "Highlights"
+        }
+      ]
+    },
+    {
+      "type": "bulletList",
+      "content": [
+        {
+          "type": "listItem",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Architected and built a bidirectional \"bridge\" system that allowed us to incrementally adopt React and build new features seamlessly into the legacy code without stopping product work."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Used my \"bridge\" system to implement new travel concierge features that enabled us to onboard 300+ travel CCPs and fold a new market into the AGT tool."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Launched web chat capabilities that allowed CCPs to chat with customers on the web, expanding the capabilities of the AGT CCPs and enabling them to provide better customer service."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
