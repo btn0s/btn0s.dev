@@ -1,0 +1,217 @@
+{
+  "type": "doc",
+  "content": [
+    {
+      "type": "heading",
+      "attrs": {
+        "level": 1
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "I led front-end development of a global-scale e-commerce store, "
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "textStyle",
+              "attrs": {
+                "color": "rgb(255 255 255/var(--tw-text-opacity))"
+              }
+            }
+          ],
+          "text": "and built a design engineering program zero to one."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "attrs": {
+        "level": 2
+      },
+      "content": [
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "bold"
+            }
+          ],
+          "text": "Overview"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Backbone is a market leader in the handheld gaming space, and has pioneered an entirely new class of gaming experiences with our seamless software experience. We were #1 on the app store on Christmas 2023, and are sold worldwide."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "I joined Backbone as the 2nd engineer on the web team and led multiple initiatives that helped launch Backbone into the global market."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "After 2 years on the web team I transitioned into design engineering where I built a program from the ground up."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "attrs": {
+        "level": 3
+      },
+      "content": [
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "bold"
+            }
+          ],
+          "text": "Highlights"
+        }
+      ]
+    },
+    {
+      "type": "bulletList",
+      "content": [
+        {
+          "type": "listItem",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Built a Figma plugin for designers that reduces asset management friction and became a core part of their daily workflow."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Led the development of custom product experiences for brand partnerships like "
+                },
+                {
+                  "type": "text",
+                  "marks": [
+                    {
+                      "type": "link",
+                      "attrs": {
+                        "href": "https://www.playbackbone.com/playstation",
+                        "target": "_blank",
+                        "rel": "noopener noreferrer nofollow",
+                        "class": null
+                      }
+                    },
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "text": "Playstation"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "text",
+                  "marks": [
+                    {
+                      "type": "link",
+                      "attrs": {
+                        "href": "https://playbackbone.com/blog/death-stranding-limited-edition-controller/",
+                        "target": "_blank",
+                        "rel": "noopener noreferrer nofollow",
+                        "class": null
+                      }
+                    },
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "text": "Kojima"
+                },
+                {
+                  "type": "text",
+                  "text": " and "
+                },
+                {
+                  "type": "text",
+                  "marks": [
+                    {
+                      "type": "link",
+                      "attrs": {
+                        "href": "https://www.playbackbone.com/post-malone",
+                        "target": "_blank",
+                        "rel": "noopener noreferrer nofollow",
+                        "class": null
+                      }
+                    },
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "text": "Post Malone"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Shipped hundreds of game detail pages that increased organic traffic by 30%."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Designed and built a custom shopping cart that increased AOV by 20%."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

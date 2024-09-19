@@ -1,0 +1,8 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["src/content/posts/*/metadata.json"],
+      "url": "./src/schemas/post-metadata.json"
+    }
+  ]
+}

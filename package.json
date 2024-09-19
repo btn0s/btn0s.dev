@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "npx eslint --fix ./src && npx prettier --write ./src",
-    "create-entry": "tsx src/scripts/create-entry.ts"
+    "lint": "npx eslint --fix ./src && npx prettier --write ./src"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.0",
@@ -20,10 +19,17 @@
     "@radix-ui/react-navigation-menu": "^1.1.4",
     "@radix-ui/react-scroll-area": "^1.0.5",
     "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-switch": "^1.1.0",
     "@react-three/drei": "^9.107.0",
     "@react-three/fiber": "^8.16.8",
     "@splinetool/react-spline": "^4.0.0",
     "@splinetool/runtime": "^1.7.8",
+    "@tiptap/extension-color": "^2.6.6",
+    "@tiptap/extension-link": "^2.6.6",
+    "@tiptap/extension-text-style": "^2.6.6",
+    "@tiptap/pm": "^2.6.6",
+    "@tiptap/react": "^2.6.6",
+    "@tiptap/starter-kit": "^2.6.6",
     "@types/inquirer": "^9.0.7",
     "@types/mdx": "^2.0.10",
     "@types/node-fetch": "^2.6.10",

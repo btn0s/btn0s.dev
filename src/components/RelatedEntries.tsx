@@ -1,13 +1,13 @@
 import { getEntriesWithTags } from "@/app/api/entries";
 import EntriesGallery from "@/components/Gallery";
-import { BaseEntry } from "@/types";
+import { Entry } from "@/types";
 
 const RelatedEntries = async ({
   slug,
   meta,
 }: {
-  slug: BaseEntry["slug"];
-  meta: BaseEntry["meta"];
+  slug: Entry["slug"];
+  meta: Entry["metadata"];
 }) => {
   const relatedEntries = await getEntriesWithTags(meta.tags).then((res) =>
     res.filter((entry) => entry.slug !== slug),

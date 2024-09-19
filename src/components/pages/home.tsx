@@ -14,7 +14,7 @@ import FadeBlurLoader from "@/components/FadeBlurLoader";
 import EntriesGallery from "@/components/Gallery";
 import { useHasUserVisited } from "@/hooks/use-animate-in";
 import { cn } from "@/lib/utils";
-import { BaseEntry } from "@/types";
+import { Entry } from "@/types";
 
 interface CurrentProjectItem {
   title: string;
@@ -91,7 +91,7 @@ const HomeSection: FC<
 };
 
 interface HomeProps {
-  featuredEntries: BaseEntry[];
+  featuredEntries: Entry[];
 }
 
 const Home: FC<HomeProps> = ({ featuredEntries }) => {
