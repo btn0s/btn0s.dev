@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { BaseEntry } from "@/types";
 
-const EntriesGalleryItemCard: FC<BaseEntry & { showType?: boolean }> = ({
+export const EntriesGalleryItemCard: FC<BaseEntry & { showType?: boolean }> = ({
   type,
   slug,
   meta: { title, coverImage },
