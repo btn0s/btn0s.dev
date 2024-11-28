@@ -10,7 +10,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function createMetaTitle(title: string) {
-  return `${title} | ✦ bt norris`;
+  return `${title} ✦ bt norris`;
 }
 
 export function getEntryTypePath(type: EntryType) {
