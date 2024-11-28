@@ -162,7 +162,7 @@ const TimelineItem = ({ item }: { item: TimelineItem }) => {
       className={cn(
         "relative flex flex-col justify-between gap-4 rounded-md p-4 text-xs transition duration-300",
         {
-          "group md:hover:scale-[98%]": item.href,
+          group: item.href,
         },
       )}
     >
@@ -179,13 +179,8 @@ const TimelineItem = ({ item }: { item: TimelineItem }) => {
           <Image
             src={item.image}
             alt={item.company}
-            className="h-full w-full object-cover transition duration-300 md:group-hover:blur-sm"
+            className="h-full w-full object-cover transition duration-300 md:group-hover:scale-[101%] md:group-hover:blur-sm md:group-hover:brightness-75"
           />
-          {item.href ? (
-            <div className="absolute bottom-2 right-2 flex w-fit items-center justify-center gap-1 text-muted-foreground underline md:hidden">
-              Learn more <ExternalLinkIcon className="h-3 w-3" />
-            </div>
-          ) : null}
         </div>
       ) : (
         <Separator />
@@ -193,7 +188,12 @@ const TimelineItem = ({ item }: { item: TimelineItem }) => {
       <div className="flex flex-1 justify-between gap-12 px-1">
         <div className="flex flex-col">
           <div className="mb-1 font-bold text-white">{item.company}</div>
-          <div className="mb-1 text-muted-foreground">{item.description}</div>
+          <div className="mb-4 text-muted-foreground">{item.description}</div>
+          {item.href ? (
+            <div className="mt-auto flex w-fit items-center justify-center gap-1 text-muted-foreground md:hidden">
+              Learn more <ArrowRight className="h-3 w-3" />
+            </div>
+          ) : null}
         </div>
 
         <div className="flex w-fit flex-col gap-2 whitespace-nowrap">
@@ -222,7 +222,6 @@ const Page = () => {
       <h1 className="mb-4 text-xl font-light text-muted-foreground">
         my journey <span className="font-bold text-white">so far...</span>
       </h1>
-
       <div className="-mx-4 flex flex-col gap-6">
         {TIMELINE.map((item) => (
           <TimelineItem key={item.company} item={item} />
