@@ -10,7 +10,6 @@ import React, {
 
 import { stagger, useAnimate } from "framer-motion";
 
-import FadeBlurLoader from "@/components/FadeBlurLoader";
 import EntriesGallery from "@/components/Gallery";
 import { useHasUserVisited } from "@/hooks/use-animate-in";
 import { cn } from "@/lib/utils";
@@ -68,11 +67,14 @@ const CurrentProject: FC<CurrentProjectItem> = ({
             href={href}
             target={href.startsWith("http") ? "_blank" : "_self"}
             rel="noopener noreferrer"
+            className={cn({
+              "text-white": isMain,
+            })}
           >
             @{company}
           </a>
         </div>
-        <span className="opacity-50">{role}</span>
+        <span className={!isMain ? "opacity-50" : undefined}>{role}</span>
       </div>
     </div>
   );
@@ -135,7 +137,7 @@ const Home: FC<HomeProps> = ({ featuredEntries }) => {
             <span className="font-bold text-white">human.</span>
           </h1>
           <p className="text-sm">
-            I just want to build things that make people happy.
+            I just want to do things that make people happy.
           </p>
         </HomeSection>
       </div>
