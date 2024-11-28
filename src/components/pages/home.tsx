@@ -135,10 +135,7 @@ const Home: FC<HomeProps> = ({ featuredEntries }) => {
             <span className="font-bold text-white">human.</span>
           </h1>
           <p className="text-sm">
-            They told me design engineering wasn&apos;t a real career.{" "}
-          </p>
-          <p className="text-sm">
-            I said I just want to build things that make people happy.
+            I just want to build things that make people happy.
           </p>
         </HomeSection>
       </div>
