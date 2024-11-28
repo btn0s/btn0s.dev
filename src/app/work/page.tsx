@@ -140,7 +140,6 @@ const TIMELINE: TimelineItem[] = [
       {
         title: "Intern (Unpaid)",
         startDate: "2005",
-        endDate: "2008",
       },
     ],
   },
