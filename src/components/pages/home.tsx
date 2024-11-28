@@ -26,9 +26,9 @@ interface CurrentProjectItem {
 
 const CURRENT_PROJECTS: CurrentProjectItem[] = [
   {
-    title: "building a design engineering program from scratch",
+    title: "building a world-class gaming experience",
     company: "backbone",
-    role: "design engineer",
+    role: "staff design engineer",
     href: "/work/backbone",
     isMain: true,
   },
@@ -38,12 +38,12 @@ const CURRENT_PROJECTS: CurrentProjectItem[] = [
     role: "founder",
     href: "https://strella.dev",
   },
-  {
-    title: "helping angel investors find the next hit games",
-    company: "indiefundr",
-    role: "co-founder",
-    href: "https://indiefundr.gg",
-  },
+  // {
+  //   title: "helping angel investors find the next hit games",
+  //   company: "indiefundr",
+  //   role: "co-founder",
+  //   href: "https://indiefundr.gg",
+  // },
 ];
 
 const CurrentProject: FC<CurrentProjectItem> = ({
@@ -128,18 +128,13 @@ const Home: FC<HomeProps> = ({ featuredEntries }) => {
 
   return (
     <div ref={scope} className="flex flex-col gap-12 pb-12">
-      <div className="flex max-w-sm flex-col gap-4">
+      <div className="flex max-w-md flex-col gap-4">
         <HomeSection>
-          <h1 className="mb-4 text-xl">
-            <span className="font-light text-muted-foreground">
-              designer, programmer,{" "}
-            </span>
-            <span className="font-bold">human.</span>
+          <h1 className="mb-4 text-xl font-light text-muted-foreground">
+            designer, programmer,{" "}
+            <span className="font-bold text-white">human.</span>
           </h1>
-          <h2 className="text-sm">
-            I use design and technology to make designers more efficient and
-            craft experiences that spark joy.
-          </h2>
+          {/* */}
         </HomeSection>
       </div>
 
