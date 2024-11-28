@@ -138,7 +138,7 @@ const TIMELINE: TimelineItem[] = [
   },
   {
     company: "My uncle's freelance gig",
-    description: "Learned photoshop, and something called ColdFusion?",
+    description: "Learned something called ColdFusion?",
     roles: [
       {
         title: "Intern (Unpaid)",
@@ -188,8 +188,8 @@ const TimelineItem = ({ item }: { item: TimelineItem }) => {
       ) : (
         <Separator />
       )}
-      <div className="flex flex-1 justify-between gap-2 px-1">
-        <div className="flex w-1/2 flex-col">
+      <div className="flex flex-1 justify-between gap-12 px-1">
+        <div className="flex flex-col">
           <div className="mb-1 text-sm font-bold text-white">
             {item.company}
           </div>
@@ -198,14 +198,14 @@ const TimelineItem = ({ item }: { item: TimelineItem }) => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2">
+        <div className="flex w-fit flex-col gap-2 whitespace-nowrap">
           {item.roles.map((role) => (
             <div
               key={role.title}
               className="flex flex-col items-end text-right text-sm"
             >
               <div className="mb-1 text-white">{role.title}</div>
-              <div className="text-xs text-muted-foreground">
+              <div className="text-sm text-muted-foreground">
                 {role.startDate}
                 {role.endDate ? ` - ${role.endDate}` : null}
                 {role.isCurrent ? " - present" : null}
