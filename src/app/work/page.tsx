@@ -116,7 +116,7 @@ const TIMELINE: TimelineItem[] = [
     description: "Photoshop, JQuery, and a lot of coffee.",
     roles: [
       {
-        title: "Freelance Designer",
+        title: "Web Designer/Developer",
         startDate: "2014",
         endDate: "2017",
       },
