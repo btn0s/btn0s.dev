@@ -1,13 +1,10 @@
-import { Fragment } from "react";
-
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLinkIcon } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 import amexImage from "@/assets/images/work/amex.png";
 import backboneImage from "@/assets/images/work/backbone-share-card.webp";
-import PageTitle from "@/components/PageTitle";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { cn, createMetaTitle } from "@/lib/utils";
@@ -165,7 +162,7 @@ const TimelineItem = ({ item }: { item: TimelineItem }) => {
       className={cn(
         "relative flex flex-col justify-between gap-4 rounded-md p-4 text-xs transition duration-300",
         {
-          "group hover:scale-[98%]": item.href,
+          "group md:hover:scale-[98%]": item.href,
         },
       )}
     >
@@ -174,7 +171,7 @@ const TimelineItem = ({ item }: { item: TimelineItem }) => {
       ) : null}
       {item.image ? (
         <div className="relative isolate aspect-video overflow-hidden rounded-md border border-white/10">
-          <div className="absolute inset-0 z-10 flex scale-[90%] items-center justify-center opacity-0 blur-sm transition duration-300 group-hover:scale-[100%] group-hover:opacity-100 group-hover:blur-none">
+          <div className="absolute inset-0 z-10 flex scale-[90%] items-center justify-center opacity-0 blur-sm transition duration-300 md:group-hover:scale-[100%] md:group-hover:opacity-100 md:group-hover:blur-none">
             <Button>
               View <ArrowRight className="h-4 w-4" />
             </Button>
@@ -182,8 +179,13 @@ const TimelineItem = ({ item }: { item: TimelineItem }) => {
           <Image
             src={item.image}
             alt={item.company}
-            className="h-full w-full object-cover transition duration-300 group-hover:blur-sm"
+            className="h-full w-full object-cover transition duration-300 md:group-hover:blur-sm"
           />
+          {item.href ? (
+            <div className="absolute bottom-2 right-2 flex w-fit items-center justify-center gap-1 text-muted-foreground underline md:hidden">
+              Learn more <ExternalLinkIcon className="h-3 w-3" />
+            </div>
+          ) : null}
         </div>
       ) : (
         <Separator />
@@ -191,7 +193,7 @@ const TimelineItem = ({ item }: { item: TimelineItem }) => {
       <div className="flex flex-1 justify-between gap-12 px-1">
         <div className="flex flex-col">
           <div className="mb-1 font-bold text-white">{item.company}</div>
-          <div className="text-muted-foreground">{item.description}</div>
+          <div className="mb-1 text-muted-foreground">{item.description}</div>
         </div>
 
         <div className="flex w-fit flex-col gap-2 whitespace-nowrap">
