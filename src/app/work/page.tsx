@@ -163,7 +163,7 @@ const TimelineItem = ({ item }: { item: TimelineItem }) => {
   return (
     <div
       className={cn(
-        "relative flex flex-col justify-between gap-4 rounded-md p-4 transition duration-300",
+        "relative flex flex-col justify-between gap-4 rounded-md p-4 text-xs transition duration-300",
         {
           "group hover:scale-[98%]": item.href,
         },
@@ -190,22 +190,18 @@ const TimelineItem = ({ item }: { item: TimelineItem }) => {
       )}
       <div className="flex flex-1 justify-between gap-12 px-1">
         <div className="flex flex-col">
-          <div className="mb-1 text-sm font-bold text-white">
-            {item.company}
-          </div>
-          <div className="text-sm text-muted-foreground">
-            {item.description}
-          </div>
+          <div className="mb-1 font-bold text-white">{item.company}</div>
+          <div className="text-muted-foreground">{item.description}</div>
         </div>
 
         <div className="flex w-fit flex-col gap-2 whitespace-nowrap">
           {item.roles.map((role) => (
             <div
               key={role.title}
-              className="flex flex-col items-end text-right text-sm"
+              className="flex flex-col items-end text-right"
             >
               <div className="mb-1 text-white">{role.title}</div>
-              <div className="text-sm text-muted-foreground">
+              <div className="text-muted-foreground">
                 {role.startDate}
                 {role.endDate ? ` - ${role.endDate}` : null}
                 {role.isCurrent ? " - present" : null}
