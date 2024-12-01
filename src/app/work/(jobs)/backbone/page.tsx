@@ -76,7 +76,7 @@ export default function Page() {
           </li>
         </ul>
 
-        <h2>Featured Projects</h2>
+        <h2>Featured Project</h2>
         <div className="not-prose flex flex-col gap-4">
           <GalleryCard
             href="/work/games-db-figma-plugin"
