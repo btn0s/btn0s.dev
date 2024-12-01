@@ -4,7 +4,6 @@ import RelatedEntries from "@/components/related-entries";
 import { generateEntryMetadata, getEntryTypePath } from "@/lib/utils";
 import { EntryType } from "@/types";
 
-
 const ENTRY_TYPE = EntryType.LAB;
 
 export const generateMetadata = generateEntryMetadata(ENTRY_TYPE);

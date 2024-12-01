@@ -170,15 +170,10 @@ const TimelineItem = ({ item }: { item: TimelineItem }) => {
       ) : null}
       {item.image ? (
         <div className="relative isolate aspect-video overflow-hidden rounded-md border border-white/10">
-          <div className="absolute inset-0 z-10 flex scale-[90%] items-center justify-center opacity-0 blur-sm transition duration-300 md:group-hover:scale-[100%] md:group-hover:opacity-100 md:group-hover:blur-none">
-            <Button>
-              View <ArrowRight className="h-4 w-4" />
-            </Button>
-          </div>
           <Image
             src={item.image}
             alt={item.company}
-            className="h-full w-full object-cover transition duration-300 md:group-hover:scale-[101%] md:group-hover:blur-sm md:group-hover:brightness-75"
+            className="h-full w-full object-cover transition duration-300 md:group-hover:scale-[101%]"
           />
         </div>
       ) : (
@@ -189,7 +184,7 @@ const TimelineItem = ({ item }: { item: TimelineItem }) => {
           <div className="mb-1 font-bold text-white">{item.company}</div>
           <div className="mb-4 text-muted-foreground">{item.description}</div>
           {item.href ? (
-            <div className="mt-auto flex w-fit items-center justify-center gap-1 text-muted-foreground md:hidden">
+            <div className="mt-auto flex w-fit items-center justify-center gap-1 text-muted-foreground transition duration-300 md:group-hover:text-white">
               Learn more <ArrowRight className="h-3 w-3" />
             </div>
           ) : null}
