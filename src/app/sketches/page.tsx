@@ -17,21 +17,21 @@ export default function Page() {
         <GalleryCard
           href="/sketches/personal-site-redesign"
           title="Personal Site Redesign"
-          description="Design iterations exploring different approaches to my personal site"
+          description="my latest site refresh"
           image={personalSiteRedesignImage01}
           invert
         />
         <GalleryCard
           href="/sketches/progressive-blur"
           title="Progressive Blur Effect"
-          description="A smooth transition from solid to transparent with consistent blur"
+          description="simple but cool"
           image={progressiveBlurImg}
           invert
         />
         <GalleryCard
           href="/sketches/external-link-preview"
           title="External Link Preview"
-          description="Rich link previews without leaving the page"
+          description="rich link previews without leaving the page"
           image={linkPreviewImg}
         />
       </div>

@@ -161,7 +161,7 @@ const Home: FC = () => {
         <div className="flex flex-col gap-4">
           <GalleryCard
             title="backbone"
-            description="bring gaming anywhere"
+            description="take any game, anywhere"
             image={backboneCoverImg}
             type={EntryType.WORK}
             href="/work/backbone"

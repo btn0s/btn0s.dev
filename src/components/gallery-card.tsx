@@ -36,7 +36,7 @@ const GalleryCard: FC<GalleryCardProps> = ({
         <Image
           src={image}
           alt={title}
-          className="inset-0 m-0 h-full w-full transform-gpu rounded-lg border border-white/5 object-contain transition-transform md:absolute md:border-none md:group-hover:scale-[101%]"
+          className="inset-0 m-0 h-full w-full transform-gpu rounded-lg border border-white/10 object-cover transition-transform md:absolute md:border-none md:group-hover:scale-[101%]"
           quality={100}
         />
       </div>
