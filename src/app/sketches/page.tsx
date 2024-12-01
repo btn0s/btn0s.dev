@@ -10,14 +10,30 @@ const Page = () => {
   return (
     <div>
       <PageTitle>
-        This is my{" "}
-        <PageTitleHighlight block>digital sketchbook</PageTitleHighlight>.
+        a peek at the pages{" "}
+        <PageTitleHighlight block>of my sketchbook</PageTitleHighlight>
       </PageTitle>
-      <div className="grid grid-cols-3 gap-4">
-        <Image src={personalSiteRedesignImage01} alt="Personal site redesign" />
-        <Image src={personalSiteRedesignImage02} alt="Personal site redesign" />
-        <Image src={personalSiteRedesignImage03} alt="Personal site redesign" />
-        <Image src={personalSiteRedesignImage04} alt="Personal site redesign" />
+      <div className="-mx-24 grid grid-cols-3 gap-4">
+        <Image
+          src={personalSiteRedesignImage01}
+          alt="Personal site redesign"
+          className="rounded-lg"
+        />
+        <Image
+          src={personalSiteRedesignImage02}
+          alt="Personal site redesign"
+          className="rounded-lg"
+        />
+        <Image
+          src={personalSiteRedesignImage03}
+          alt="Personal site redesign"
+          className="rounded-lg"
+        />
+        <Image
+          src={personalSiteRedesignImage04}
+          alt="Personal site redesign"
+          className="rounded-lg"
+        />
       </div>
     </div>
   );

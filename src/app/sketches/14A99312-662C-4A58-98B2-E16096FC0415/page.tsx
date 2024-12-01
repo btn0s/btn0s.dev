@@ -5,7 +5,12 @@ import Image from "next/image";
 import imgPpl from "@/assets/images/ppl.png";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-export const ProgressiveBlur = () => {
+export const metadata = {
+  title: "Progressive Blur Effect",
+  description: "A progressive blur effect experiment",
+};
+
+export default function Page() {
   return (
     <div className="not-prose relative isolate aspect-video rounded-md border border-white/10 bg-white/5">
       <div className="absolute inset-x-0 top-0 z-[9] h-[57px] rounded-t-md bg-black/50 backdrop-blur [mask-image:linear-gradient(rgb(0,_0,_0)_55%,_rgba(0,0,0,0.8)_70%,_rgba(0,0,0,0)_100%)]" />
@@ -29,4 +34,4 @@ export const ProgressiveBlur = () => {
       </ScrollArea>
     </div>
   );
-};
+}

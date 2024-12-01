@@ -83,6 +83,7 @@ export default function Page() {
             title="Games DB Figma Plugin"
             description="A custom Figma plugin that reduced asset management time by 80%."
             image={gdbCoverImage}
+            invert
           />
         </div>
       </div>

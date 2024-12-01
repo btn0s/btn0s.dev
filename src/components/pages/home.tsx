@@ -10,10 +10,12 @@ import React, {
 
 import { stagger, useAnimate } from "framer-motion";
 
-import EntriesGallery from "@/components/gallery";
+import amexCoverImg from "@/assets/images/work/amex.png";
+import backboneCoverImg from "@/assets/images/work/backbone-share-card.webp";
+import GalleryCard from "@/components/gallery-card";
 import { useHasUserVisited } from "@/hooks/use-animate-in";
 import { cn } from "@/lib/utils";
-import { BaseEntry } from "@/types";
+import { BaseEntry, EntryType } from "@/types";
 
 interface CurrentProjectItem {
   title: string;
@@ -92,11 +94,7 @@ const HomeSection: FC<
   );
 };
 
-interface HomeProps {
-  featuredEntries: BaseEntry[];
-}
-
-const Home: FC<HomeProps> = ({ featuredEntries }) => {
+const Home: FC = () => {
   const [contentLoaded, setContentLoaded] = useState(false);
   const [scope, animate] = useAnimate();
   const hasUserVisited = useHasUserVisited();
@@ -160,10 +158,22 @@ const Home: FC<HomeProps> = ({ featuredEntries }) => {
       </div>
 
       <HomeSection style={{ transform: "translateY(12px)" }}>
-        <EntriesGallery
-          entries={featuredEntries}
-          singleColumn={featuredEntries.length < 4}
-        />
+        <div className="flex flex-col gap-4">
+          <GalleryCard
+            title="backbone"
+            description="bring gaming anywhere"
+            image={backboneCoverImg}
+            type={EntryType.WORK}
+            href="/work/backbone"
+          />
+          <GalleryCard
+            title="american express"
+            description="a global financial services company"
+            image={amexCoverImg}
+            type={EntryType.WORK}
+            href="/work/american-express"
+          />
+        </div>
       </HomeSection>
     </div>
   );
