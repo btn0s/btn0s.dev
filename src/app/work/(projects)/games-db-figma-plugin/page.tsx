@@ -6,11 +6,11 @@ import coverImage from "@/assets/images/shots/gdb-cover.png";
 import feedbackImage from "@/assets/images/shots/gdb-feedback.png";
 import pluginCloseup from "@/assets/images/shots/gdb-plugin-closeup.png";
 import backboneImage from "@/assets/images/work/backbone-share-card.webp";
-import FadeBlurLoader from "@/components/FadeBlurLoader";
-import PageTitle, { PageTitleHighlight } from "@/components/PageTitle";
 import { GetInTouchCTA, ViewMoreWorkCTA } from "@/components/ctas";
+import FadeBlurLoader from "@/components/fade-blur-loader";
 import ImageWithCaption from "@/components/image-with-caption";
 import Mermaid from "@/components/mermaid";
+import PageTitle, { PageTitleHighlight } from "@/components/page-title";
 import { Separator } from "@/components/ui/separator";
 import { createMetaTitle } from "@/lib/utils";
 

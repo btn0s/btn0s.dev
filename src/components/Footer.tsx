@@ -11,7 +11,7 @@ import {
 import Link, { LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
 
-import FadeBlurLoader from "@/components/FadeBlurLoader";
+import FadeBlurLoader from "@/components/fade-blur-loader";
 import { cn } from "@/lib/utils";
 
 const Panel: FC<PropsWithChildren<{ className?: string; pill?: boolean }>> = ({

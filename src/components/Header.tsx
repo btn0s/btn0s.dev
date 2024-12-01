@@ -13,7 +13,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LuGithub, LuMail } from "react-icons/lu";
 
-import FadeBlurLoader from "@/components/FadeBlurLoader";
+import FadeBlurLoader from "@/components/fade-blur-loader";
 import { Button } from "@/components/ui/button";
 
 const HeaderLink: FC<

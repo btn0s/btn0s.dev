@@ -1,5 +1,5 @@
 import { getEntriesWithTags } from "@/app/api/entries";
-import EntriesGallery from "@/components/Gallery";
+import EntriesGallery from "@/components/gallery";
 import { BaseEntry } from "@/types";
 
 const RelatedEntries = async ({

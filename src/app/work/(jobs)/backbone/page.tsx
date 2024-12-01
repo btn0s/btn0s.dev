@@ -2,10 +2,10 @@ import { Metadata } from "next";
 
 import gdbCoverImage from "@/assets/images/shots/gdb-cover.png";
 import coverImage from "@/assets/images/work/backbone-share-card.webp";
-import EntryImage from "@/components/EntryImage";
-import FadeBlurLoader from "@/components/FadeBlurLoader";
-import PageTitle, { PageTitleHighlight } from "@/components/PageTitle";
+import EntryImage from "@/components/entry-image";
+import FadeBlurLoader from "@/components/fade-blur-loader";
 import GalleryCard from "@/components/gallery-card";
+import PageTitle, { PageTitleHighlight } from "@/components/page-title";
 import { createMetaTitle } from "@/lib/utils";
 
 export const metadata: Metadata = {

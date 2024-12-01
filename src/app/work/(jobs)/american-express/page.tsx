@@ -1,10 +1,11 @@
 import { Metadata } from "next";
 
 import coverImage from "@/assets/images/work/amex.png";
+import { createMetaTitle } from "@/lib/utils";
+
 import EntryImage from "@/components/EntryImage";
 import FadeBlurLoader from "@/components/FadeBlurLoader";
 import PageTitle, { PageTitleHighlight } from "@/components/PageTitle";
-import { createMetaTitle } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: createMetaTitle("American Express"),

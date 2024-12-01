@@ -1,9 +1,10 @@
 import Image from "next/image";
 
 import webflowGlyphImg from "@/assets/images/logos/webflow-glyph.svg";
-import { Experiment } from "@/components/Experiment";
-import { ExperimentContainer } from "@/components/ExperimentContainer";
+import { Experiment } from "@/components/experiment";
 import { Button } from "@/components/ui/button";
+
+import { ExperimentContainer } from "@/components/ExperimentContainer";
 
 const WebflowLoader = () => {
   return (
