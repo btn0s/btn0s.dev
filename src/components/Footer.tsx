@@ -4,11 +4,8 @@ import { FC, PropsWithChildren, useEffect, useState } from "react";
 
 import {
   BriefcaseBusinessIcon,
-  BriefcaseIcon,
   FlaskConicalIcon,
   HouseIcon,
-  JoystickIcon,
-  NotebookIcon,
   NotebookPenIcon,
 } from "lucide-react";
 import Link, { LinkProps } from "next/link";
@@ -131,6 +128,9 @@ const Footer = () => {
           <NavLink href="/work">
             <BriefcaseBusinessIcon className="size-4" />
           </NavLink>
+          {/* <NavLink href="/sketches">
+            <NotebookPenIcon className="size-4" />
+          </NavLink> */}
           <NavLink href="/lab" isLastChild>
             <FlaskConicalIcon className="size-4" />
           </NavLink>

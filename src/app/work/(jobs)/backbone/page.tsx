@@ -1,9 +1,13 @@
+import { ArrowRight } from "lucide-react";
 import { Metadata } from "next";
+import Link from "next/link";
 
+import gdbCoverImage from "@/assets/images/shots/gdb-cover.png";
 import coverImage from "@/assets/images/work/backbone-share-card.webp";
 import EntryImage from "@/components/EntryImage";
 import FadeBlurLoader from "@/components/FadeBlurLoader";
 import PageTitle, { PageTitleHighlight } from "@/components/PageTitle";
+import { Button } from "@/components/ui/button";
 import { createMetaTitle } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -67,6 +71,34 @@ export default function Page() {
             Designed and built a custom shopping cart that increased AOV by 20%.
           </li>
         </ul>
+
+        <h2>Related Projects</h2>
+        <div className="not-prose">
+          <Link
+            href="/work/games-db-figma-plugin"
+            className="group relative flex flex-col gap-4 rounded-lg border border-white/10 p-4 transition hover:border-white/20"
+          >
+            <div className="relative aspect-video overflow-hidden rounded-md border border-white/10">
+              <div className="absolute inset-0 z-10 flex scale-[90%] items-center justify-center opacity-0 blur-sm transition duration-300 group-hover:scale-[100%] group-hover:opacity-100 group-hover:blur-none">
+                <Button>
+                  View Project <ArrowRight className="h-4 w-4" />
+                </Button>
+              </div>
+              <img
+                src={gdbCoverImage.src}
+                alt="Games DB Figma Plugin"
+                className="h-full w-full object-cover transition duration-300 group-hover:scale-[101%] group-hover:blur-sm group-hover:brightness-75"
+              />
+            </div>
+            <div>
+              <h3 className="mb-2 text-lg font-bold">Games DB Figma Plugin</h3>
+              <p className="text-sm text-muted-foreground">
+                A custom Figma plugin that empowers designers with game assets
+                and metadata, reducing asset management friction by 80%.
+              </p>
+            </div>
+          </Link>
+        </div>
       </div>
     </FadeBlurLoader>
   );

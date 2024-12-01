@@ -19,7 +19,11 @@ export const PageTitleHighlight: FC<
 };
 
 const PageTitle: FC<PropsWithChildren<{}>> = ({ children }) => {
-  return <h1 className="mb-12 font-light text-muted-foreground">{children}</h1>;
+  return (
+    <h1 className="mb-12 text-xl font-light text-muted-foreground">
+      {children}
+    </h1>
+  );
 };
 
 export default PageTitle;
