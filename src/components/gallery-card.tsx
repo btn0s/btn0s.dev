@@ -47,7 +47,7 @@ const GalleryCard: FC<GalleryCardProps> = ({
             "transition duration-300 md:opacity-0 md:blur-sm md:group-hover:opacity-100 md:group-hover:blur-none",
             {
               "text-muted-foreground": !invert,
-              "text-white": invert,
+              "md:text-white": invert,
             },
           )}
         >
