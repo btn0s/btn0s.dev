@@ -1,25 +1,21 @@
-import { ArrowRight } from "lucide-react";
 import { Metadata } from "next";
-import Link from "next/link";
 
 import gdbCoverImage from "@/assets/images/shots/gdb-cover.png";
 import coverImage from "@/assets/images/work/backbone-share-card.webp";
 import EntryImage from "@/components/EntryImage";
 import FadeBlurLoader from "@/components/FadeBlurLoader";
 import PageTitle, { PageTitleHighlight } from "@/components/PageTitle";
-import { Button } from "@/components/ui/button";
-import { createMetaTitle } from "@/lib/utils";
 import GalleryCard from "@/components/gallery-card";
-import { EntryType } from "@/types";
+import { createMetaTitle } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: createMetaTitle("Backbone"),
   description:
-    "I led frontend development a world-class ecommerce experience, and a built design engineering program zero to one.",
+    "I led frontend development of a global-scale ecommerce store and pioneered the company's design engineering practice.",
   openGraph: {
     title: createMetaTitle("Backbone"),
     description:
-      "I led frontend development a world-class ecommerce experience, and a built design engineering program zero to one.",
+      "I led frontend development of a global-scale ecommerce store and pioneered the company's design engineering practice.",
     images: [{ url: coverImage.src }],
   },
 };
@@ -31,7 +27,7 @@ export default function Page() {
         <PageTitle>
           I led front-end development of a global-scale ecommerce store,{" "}
           <PageTitleHighlight block>
-            and became the company&apos;s first design engineer.
+            and pioneered the company&apos;s design engineering practice.
           </PageTitleHighlight>
         </PageTitle>
 
@@ -39,43 +35,48 @@ export default function Page() {
 
         <h2>Overview</h2>
         <p>
-          Backbone is a market leader in the handheld gaming space, and has
-          pioneered an entirely new class of gaming experiences with our
-          seamless software experience. We were #1 on the app store on Christmas
-          2023, and are sold worldwide.
+          Backbone is revolutionizing mobile gaming with premium controllers and
+          seamless software experiences. Our products are sold worldwide, and we
+          reached #1 on the App Store during Christmas 2023.
         </p>
 
         <p>
-          I joined Backbone as the 2nd engineer on the web team and led multiple
-          initiatives that helped launch Backbone into the global market.
+          I joined Backbone as the second engineer on the web team, where I
+          architected key systems that helped scale the company from startup to
+          global brand.
         </p>
 
         <p>
-          After 2 years on the web team I transitioned into design engineering
-          where I built a program from the ground up.
+          After establishing a robust ecommerce platform, I was given the
+          opportunity to found Backbone&apos;s design engineering program, where
+          I worked with the CEO, product, and design teams to build the program
+          from the ground up.
         </p>
 
-        <h3>Highlights</h3>
+        <h3>Key Achievements</h3>
         <ul>
           <li>
-            Built a custom Figma plugin that{" "}
-            <strong>reduced asset management time by 80%</strong>.
+            Created a Figma plugin that{" "}
+            <strong>reduced design-to-development handoff time by 80%</strong>,
+            now essential to our design team&apos;s workflow.
           </li>
           <li>
-            Led the development of custom product experiences for brand
-            partnerships like <strong>Playstation</strong>,{" "}
-            <strong>Kojima</strong> and <strong>Post Malone</strong>.
+            Led development for high-profile brand collaborations with{" "}
+            <strong>PlayStation</strong>, <strong>Kojima Productions</strong>,
+            and <strong>Post Malone</strong>.
           </li>
           <li>
-            Shipped hundreds of game detail pages that{" "}
-            <strong>increased organic traffic by 30%</strong>.
+            Architected and shipped a game discovery system that{" "}
+            <strong>drove organic traffic up 30%</strong> through hundreds of
+            optimized landing pages.
           </li>
           <li>
-            Designed and built a custom shopping cart that increased AOV by 20%.
+            Designed and implemented a streamlined checkout experience that{" "}
+            <strong>increased average order value by 20%</strong>.
           </li>
         </ul>
 
-        <h2>Related Projects</h2>
+        <h2>Featured Projects</h2>
         <div className="not-prose flex flex-col gap-4">
           <GalleryCard
             href="/work/games-db-figma-plugin"

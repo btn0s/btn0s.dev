@@ -1,6 +1,7 @@
 "use client";
 
 import { FC } from "react";
+
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
