@@ -13,7 +13,7 @@ export default function Page() {
         a peek at the pages{" "}
         <PageTitleHighlight block>of my sketchbook</PageTitleHighlight>
       </PageTitle>
-      <div className="-mx-24 grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 md:-mx-24 md:grid-cols-2">
         <GalleryCard
           href="/sketches/personal-site-redesign"
           title="Personal Site Redesign"
