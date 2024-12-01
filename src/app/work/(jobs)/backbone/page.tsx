@@ -11,11 +11,11 @@ import { createMetaTitle } from "@/lib/utils";
 export const metadata: Metadata = {
   title: createMetaTitle("Backbone"),
   description:
-    "I led frontend development of a global-scale ecommerce store and pioneered the company's design engineering practice.",
+    "I led frontend development of a global-scale ecommerce store and established the company's design engineering practice.",
   openGraph: {
     title: createMetaTitle("Backbone"),
     description:
-      "I led frontend development of a global-scale ecommerce store and pioneered the company's design engineering practice.",
+      "I led frontend development of a global-scale ecommerce store and established the company's design engineering practice.",
     images: [{ url: coverImage.src }],
   },
 };
@@ -27,7 +27,7 @@ export default function Page() {
         <PageTitle>
           I led front-end development of a global-scale ecommerce store,{" "}
           <PageTitleHighlight block>
-            and pioneered the company&apos;s design engineering practice.
+            and established the company&apos;s design engineering practice.
           </PageTitleHighlight>
         </PageTitle>
 
