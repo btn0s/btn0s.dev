@@ -1,6 +1,6 @@
 import Spline from "@splinetool/react-spline/next";
 
-import FadeBlurLoader from "@/components/FadeBlurLoader";
+import FadeBlurLoader from "@/components/fade-blur-loader";
 
 const MainScene = () => {
   return (

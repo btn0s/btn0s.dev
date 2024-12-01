@@ -1,13 +1,12 @@
 import { Metadata } from "next";
 
 import { getEntries } from "@/app/api/entries";
+import EmptyPageMessage from "@/components/empty-page-message";
 import Gallery from "@/components/gallery";
 import { List } from "@/components/list";
+import { ListCard } from "@/components/list-card";
 import { createMetaTitle } from "@/lib/utils";
 import { EntryType } from "@/types";
-
-import EmptyPageMessage from "@/components/EmptyPageMessage";
-import { ListCard } from "@/components/ListCard";
 
 const TITLE = "experiments";
 const DESCRIPTION =

@@ -10,7 +10,7 @@ import React, {
 
 import { stagger, useAnimate } from "framer-motion";
 
-import EntriesGallery from "@/components/gallery";
+import EntriesGallery from "@/components/Gallery";
 import { useHasUserVisited } from "@/hooks/use-animate-in";
 import { cn } from "@/lib/utils";
 import { BaseEntry } from "@/types";

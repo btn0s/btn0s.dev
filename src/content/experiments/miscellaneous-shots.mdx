@@ -1,5 +1,4 @@
-import PageTitle, { PageTitleHighlight } from "../../components/PageTitle";
-import EntryImage from "../../components/EntryImage";
+import PageTitle, { PageTitleHighlight } from "../../components/page-title";
 
 import personalSiteRedesignImage01 from "../../assets/images/shots/personal-site-redesign-01.png";
 import personalSiteRedesignImage02 from "../../assets/images/shots/personal-site-redesign-02.png";
@@ -27,17 +26,3 @@ export const meta = {
   a few <PageTitleHighlight>selected shots</PageTitleHighlight>
 </PageTitle>
 
-<div className={"flex flex-col gap-4"}>
-  {[
-    personalSiteRedesignImage01,
-    personalSiteRedesignImage02,
-    personalSiteRedesignImage03,
-    personalSiteRedesignImage04,
-  ].map((src, index) => (
-    <EntryImage
-      key={index}
-      src={src.src}
-    />
-))}
-
-</div>

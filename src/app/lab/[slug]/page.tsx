@@ -1,9 +1,9 @@
 import { getEntryMetadata } from "@/app/api/entries";
+import FadeBlurLoader from "@/components/fade-blur-loader";
+import RelatedEntries from "@/components/related-entries";
 import { generateEntryMetadata, getEntryTypePath } from "@/lib/utils";
 import { EntryType } from "@/types";
 
-import FadeBlurLoader from "@/components/FadeBlurLoader";
-import RelatedEntries from "@/components/RelatedEntries";
 
 const ENTRY_TYPE = EntryType.LAB;
 

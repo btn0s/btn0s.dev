@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren, ReactNode } from "react";
 
-import FadeBlurLoader from "@/components/FadeBlurLoader";
+import FadeBlurLoader from "@/components/fade-blur-loader";
 
 const EntryPageLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
