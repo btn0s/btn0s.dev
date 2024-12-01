@@ -9,7 +9,7 @@ import FadeBlurLoader from "@/components/FadeBlurLoader";
 import PageTitle, { PageTitleHighlight } from "@/components/PageTitle";
 import { Button } from "@/components/ui/button";
 import { createMetaTitle } from "@/lib/utils";
-import { EntriesGalleryItemCard } from "@/components/Gallery";
+import GalleryCard from "@/components/gallery-card";
 import { EntryType } from "@/types";
 
 export const metadata: Metadata = {
@@ -30,8 +30,8 @@ export default function Page() {
       <div className="prose prose-sm prose-invert w-full max-w-none">
         <PageTitle>
           I led front-end development of a global-scale ecommerce store,{" "}
-          <PageTitleHighlight>
-            and built a design engineering program zero to one.
+          <PageTitleHighlight block>
+            and became the company&apos;s first design engineer.
           </PageTitleHighlight>
         </PageTitle>
 
@@ -58,16 +58,17 @@ export default function Page() {
         <h3>Highlights</h3>
         <ul>
           <li>
-            Built a Figma plugin for designers that reduces asset management
-            friction and became a core part of their daily workflow.
+            Built a custom Figma plugin that{" "}
+            <strong>reduced asset management time by 80%</strong>.
           </li>
           <li>
             Led the development of custom product experiences for brand
-            partnerships like Playstation, Kojima and Post Malone.
+            partnerships like <strong>Playstation</strong>,{" "}
+            <strong>Kojima</strong> and <strong>Post Malone</strong>.
           </li>
           <li>
-            Shipped hundreds of game detail pages that increased organic traffic
-            by 30%.
+            Shipped hundreds of game detail pages that{" "}
+            <strong>increased organic traffic by 30%</strong>.
           </li>
           <li>
             Designed and built a custom shopping cart that increased AOV by 20%.
@@ -76,19 +77,11 @@ export default function Page() {
 
         <h2>Related Projects</h2>
         <div className="not-prose flex flex-col gap-4">
-          <EntriesGalleryItemCard
-            type={EntryType.WORK}
-            slug="games-db-figma-plugin"
-            meta={{
-              title: "Games DB Figma Plugin",
-              description:
-                "A custom Figma plugin that empowers designers with game assets and metadata, reducing asset management friction by 80%.",
-              coverImage: gdbCoverImage,
-              tags: ["figma", "plugin", "design", "product"],
-              createdAt: new Date().toISOString(),
-              published: true,
-              metaImage: gdbCoverImage.src,
-            }}
+          <GalleryCard
+            href="/work/games-db-figma-plugin"
+            title="Games DB Figma Plugin"
+            description="A custom Figma plugin that reduced asset management time by 80%."
+            image={gdbCoverImage}
           />
         </div>
       </div>
