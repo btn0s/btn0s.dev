@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 import gdbCoverImage from "@/assets/images/shots/gdb-cover.png";
-import coverImage from "@/assets/images/work/backbone-share-card.webp";
+import coverImage from "@/assets/images/work/backbone-share-card.png";
 import EntryImage from "@/components/entry-image";
 import FadeBlurLoader from "@/components/fade-blur-loader";
 import GalleryCard from "@/components/gallery-card";

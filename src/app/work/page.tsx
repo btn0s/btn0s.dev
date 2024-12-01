@@ -4,8 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import amexImage from "@/assets/images/work/amex.png";
-import backboneImage from "@/assets/images/work/backbone-share-card.webp";
-import { Button } from "@/components/ui/button";
+import backboneImage from "@/assets/images/work/backbone-share-card.png";
 import { Separator } from "@/components/ui/separator";
 import { cn, createMetaTitle } from "@/lib/utils";
 

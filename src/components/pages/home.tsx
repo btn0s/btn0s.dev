@@ -11,7 +11,7 @@ import React, {
 import { stagger, useAnimate } from "framer-motion";
 
 import amexCoverImg from "@/assets/images/work/amex.png";
-import backboneCoverImg from "@/assets/images/work/backbone-share-card.webp";
+import backboneCoverImg from "@/assets/images/work/backbone-share-card.png";
 import GalleryCard from "@/components/gallery-card";
 import { useHasUserVisited } from "@/hooks/use-animate-in";
 import { cn } from "@/lib/utils";

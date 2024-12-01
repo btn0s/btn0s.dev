@@ -5,7 +5,7 @@ import appCloseup from "@/assets/images/shots/gdb-app-closeup.png";
 import coverImage from "@/assets/images/shots/gdb-cover.png";
 import feedbackImage from "@/assets/images/shots/gdb-feedback.png";
 import pluginCloseup from "@/assets/images/shots/gdb-plugin-closeup.png";
-import backboneImage from "@/assets/images/work/backbone-share-card.webp";
+import backboneImage from "@/assets/images/work/backbone-share-card.png";
 import { GetInTouchCTA, ViewMoreWorkCTA } from "@/components/ctas";
 import FadeBlurLoader from "@/components/fade-blur-loader";
 import ImageWithCaption from "@/components/image-with-caption";

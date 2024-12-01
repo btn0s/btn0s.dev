@@ -2,9 +2,11 @@ import Image from "next/image";
 
 import linkPreviewImg from "@/assets/images/link-preview.gif";
 import coverImg from "@/assets/images/shots/external-link-preview.jpg";
+import { ViewMoreSketchesCTA } from "@/components/ctas";
 import { Experiment } from "@/components/experiment";
 import { ExperimentContainer } from "@/components/experiment-container";
 import { ExternalLinkWithPreview } from "@/components/experiments/ExternalLinkWithPreview";
+import { Separator } from "@/components/ui/separator";
 
 export const metadata = {
   title: "External link preview component",
@@ -14,12 +16,16 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <div className="prose dark:prose-invert">
-      <h1>External link preview component</h1>
-      <p>
-        A simple link preview component I designed so that visitors could access
-        rich link previews without having to leave the page.
-      </p>
+    <div className="space-y-8">
+      <div className="space-y-4">
+        <h1 className="text-2xl font-semibold text-white">
+          External Link Preview
+        </h1>
+        <p className="text-sm text-muted-foreground">
+          A simple link preview component I designed so that visitors could
+          access rich link previews without having to leave the page.
+        </p>
+      </div>
 
       <Image
         src={linkPreviewImg}
@@ -44,6 +50,9 @@ export default function Page() {
           </ExperimentContainer>
         </Experiment>
       </div>
+
+      <Separator className="my-8" />
+      <ViewMoreSketchesCTA />
     </div>
   );
 }

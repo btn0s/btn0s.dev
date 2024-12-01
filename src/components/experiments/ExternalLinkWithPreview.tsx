@@ -33,7 +33,7 @@ export const ExternalLinkWithPreview: FC<
   }
 
   return (
-    <HoverCard openDelay={0.2} closeDelay={0.2}>
+    <HoverCard openDelay={0.2} closeDelay={0.2} open>
       <HoverCardTrigger asChild>
         <a
           href={href}

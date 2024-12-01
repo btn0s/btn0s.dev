@@ -128,11 +128,8 @@ const Footer = () => {
           <NavLink href="/work">
             <BriefcaseBusinessIcon className="size-4" />
           </NavLink>
-          {/* <NavLink href="/sketches">
+          <NavLink href="/sketches" isLastChild>
             <NotebookPenIcon className="size-4" />
-          </NavLink> */}
-          <NavLink href="/lab" isLastChild>
-            <FlaskConicalIcon className="size-4" />
           </NavLink>
         </Panel>
       </FadeBlurLoader>
