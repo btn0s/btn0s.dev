@@ -5,11 +5,11 @@ export const TEXT_GENERATION_INPUT = {
   top_k: 0,
   top_p: 0.9,
   prompt: "Pizza is a delicious food.",
-  max_tokens: 512,
+  max_tokens: 4000,
   min_tokens: 0,
   temperature: 0.6,
   system_prompt: "You are a professional podcast writer.",
-  length_penalty: 1,
+  length_penalty: 0,
   stop_sequences: "<|end_of_text|>,<|eot_id|>",
   prompt_template:
     "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nYou are a professional podcast writer.<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
