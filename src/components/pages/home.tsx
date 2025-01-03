@@ -135,7 +135,7 @@ const Home: FC = () => {
             <span className="font-bold text-white">human.</span>
           </h1>
           <p className="text-sm">
-            I just want to do things that make people happy.
+            I just want to create things that make people happy.
           </p>
         </HomeSection>
       </div>
