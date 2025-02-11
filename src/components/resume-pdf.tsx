@@ -99,10 +99,10 @@ export const ResumePDF = () => (
         <SectionHeader>Summary</SectionHeader>
         <Text style={tw("text-sm text-zinc-300 leading-relaxed")}>
           Design Engineer specializing in rapid validation and product
-          development. I bridge design and engineering to ship impactful
-          solutions, from customer-facing interfaces to internal tools. My focus
-          is on strengthening product direction through early prototyping and
-          creating experiences that empower both users and developers.
+          development. I build high-impact systems across the stack, from user
+          interfaces to developer tooling. My focus is on strengthening product
+          direction through early prototyping and creating experiences that
+          empower both users and developers.
         </Text>
       </Section>
 
