@@ -135,7 +135,7 @@ const Home: FC = () => {
             <span className="font-bold text-white">human.</span>
           </h1>
           <p className="text-sm">
-            I build elegant solutions that empower people.
+            I craft delightful solutions that transform how people work.
           </p>
         </HomeSection>
       </div>
