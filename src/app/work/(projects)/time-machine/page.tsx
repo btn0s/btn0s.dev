@@ -12,11 +12,11 @@ import { createMetaTitle } from "@/lib/utils";
 export const metadata: Metadata = {
   title: createMetaTitle("TimeMachine"),
   description:
-    "A bi-directional bridge system that enabled incremental React adoption within a legacy Angular codebase using React Portals and event-driven communication.",
+    "A bridge system that enabled continuous feature delivery for millions of daily customer interactions while maintaining 99.9% platform reliability during modernization.",
   openGraph: {
     title: createMetaTitle("TimeMachine"),
     description:
-      "A bi-directional bridge system that enabled incremental React adoption within a legacy Angular codebase using React Portals and event-driven communication.",
+      "A bridge system that enabled continuous feature delivery for millions of daily customer interactions while maintaining 99.9% platform reliability during modernization.",
     images: [{ url: coverImage.src }],
   },
 };
@@ -26,9 +26,9 @@ export default function Page() {
     <FadeBlurLoader className="flex flex-col gap-4">
       <div className="prose prose-sm prose-invert w-full max-w-none">
         <PageTitle>
-          TimeMachine: A bridge between React and Angular that{" "}
+          A bridge system that enabled continuous feature delivery for{" "}
           <PageTitleHighlight block>
-            enabled incremental modernization without disrupting development.
+            millions of daily customer interactions while maintaining 99.9% reliability.
           </PageTitleHighlight>
         </PageTitle>
 
@@ -38,43 +38,55 @@ export default function Page() {
         <p>
           American Express faced a critical challenge: how to modernize their
           customer care platform without disrupting service to millions of
-          cardmembers. With a major travel vertical launch on the horizon, we
-          needed to enable new feature development while gradually transitioning
-          from Angular 1.x to React.
+          cardmembers. With their platform processing millions of interactions
+          daily, even minor disruptions could significantly impact customer
+          experience and business operations.
+        </p>
+
+        <p>
+          TimeMachine was designed to solve this challenge through a bi-directional
+          bridge system that enabled incremental React adoption within the existing
+          Angular codebase. This approach allowed teams to build new features
+          using modern technology while ensuring the stability of critical
+          customer-facing systems.
         </p>
 
         <h3>Impact</h3>
         <ul>
           <li>
-            <strong>Successful Launch:</strong> Delivered the travel vertical on
-            schedule, onboarding 300+ specialized agents to the platform
+            <strong>Platform Reliability:</strong> Maintained 99.9% uptime across
+            millions of daily customer interactions during the modernization
           </li>
           <li>
-            <strong>Zero Downtime:</strong> Maintained 99.9% platform
-            reliability during the transition to React
+            <strong>Business Growth:</strong> Enabled the successful launch of a
+            new travel vertical, expanding operations to 300+ specialized agents
           </li>
           <li>
-            <strong>Team Velocity:</strong> Enabled feature teams to build new
-            functionality in React without waiting for full migration
+            <strong>Development Velocity:</strong> Empowered teams to build new
+            features in React without waiting for full migration, accelerating
+            delivery
           </li>
           <li>
-            <strong>Technical Foundation:</strong> Established a proven pattern
-            for incremental modernization of legacy systems
+            <strong>Technical Innovation:</strong> Established a proven pattern
+            for incremental modernization that's been adopted across other
+            legacy systems
           </li>
         </ul>
 
         <h2>Technical Design</h2>
         <p>
-          TimeMachine bridged Angular and React through three core components,
-          enabling teams to build new features in modern technology while
-          preserving the stability of existing systems.
+          TimeMachine's architecture was designed for reliability at scale,
+          using three core components that work together to ensure seamless
+          operation across both frameworks while handling millions of daily
+          interactions.
         </p>
 
         <h3>DOM Integration</h3>
         <p>
-          React components were seamlessly mounted within Angular&apos;s DOM
-          using a portal system, allowing new features to coexist with legacy
-          code without requiring structural changes to the application.
+          The portal system enables React components to be seamlessly mounted
+          within Angular's DOM, allowing teams to build new features without
+          disrupting the existing application structure. This approach was
+          critical for maintaining stability while enabling incremental adoption.
         </p>
 
         <Mermaid
@@ -107,9 +119,10 @@ export default function Page() {
 
         <h3>Event Communication</h3>
         <p>
-          A global event system enabled seamless interaction between frameworks,
-          allowing new React features to integrate naturally with existing
-          Angular functionality.
+          A high-performance global event system ensures reliable communication
+          between frameworks, enabling new React features to integrate naturally
+          with existing Angular functionality while maintaining the platform's
+          99.9% reliability target.
         </p>
 
         <Mermaid
@@ -143,9 +156,10 @@ export default function Page() {
 
         <h3>State Management</h3>
         <p>
-          Automatic state synchronization between frameworks ensured that both
-          new and existing features remained consistent, enabling reliable
-          operation of the combined system.
+          The state synchronization system maintains consistency across both
+          frameworks, crucial for handling complex customer interactions that
+          span multiple features. This system ensures reliable operation even
+          during high-traffic periods.
         </p>
 
         <Mermaid

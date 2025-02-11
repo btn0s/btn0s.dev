@@ -11,11 +11,11 @@ import { createMetaTitle } from "@/lib/utils";
 export const metadata: Metadata = {
   title: createMetaTitle("American Express"),
   description:
-    "I built a bridge between legacy and modern tech stacks that enabled continuous feature delivery while maintaining 99.9% platform reliability.",
+    "I led a team of engineers and contractors to modernize customer care platforms while driving innovation initiatives that transformed development practices.",
   openGraph: {
     title: createMetaTitle("American Express"),
     description:
-      "I built a bridge between legacy and modern tech stacks that enabled continuous feature delivery while maintaining 99.9% platform reliability.",
+      "I led a team of engineers and contractors to modernize customer care platforms while driving innovation initiatives that transformed development practices.",
     images: [{ url: coverImage.src }],
   },
 };
@@ -25,10 +25,9 @@ export default function Page() {
     <FadeBlurLoader className="flex flex-col gap-4">
       <div className="prose prose-sm prose-invert w-full max-w-none">
         <PageTitle>
-          I built a bridge between legacy and modern tech stacks that{" "}
+          I led engineering and innovation initiatives that{" "}
           <PageTitleHighlight block>
-            enabled continuous feature delivery while maintaining 99.9% platform
-            reliability.
+            transformed how we built and delivered customer care platforms.
           </PageTitleHighlight>
         </PageTitle>
 
@@ -43,51 +42,56 @@ export default function Page() {
         </p>
 
         <p>
-          When I joined the AskAmex organization, we faced a critical challenge:
-          how to modernize a heavily customized Angular 1.x codebase without
-          disrupting service. With a major travel vertical launch on the horizon
-          requiring extensive new features, we needed a solution that would
-          enable rapid development while preserving platform stability.
+          I joined the AskAmex organization during a critical growth period,
+          leading a team of engineers and contractors to modernize their
+          customer service platform. Working closely with product and design
+          teams, we balanced delivering new features with establishing better
+          development practices.
         </p>
 
         <p>
-          The solution was TimeMachine — a bi-directional bridge system I
-          designed that enabled incremental React adoption within the existing
-          Angular codebase. This approach allowed teams to build new features in
-          React while maintaining the reliability of our legacy systems,
-          successfully launching the travel vertical on schedule.
+          My favorite contribution was TimeMachine — a bridge system I designed
+          that became the foundation for our modernization efforts. What started
+          as an experimental solution grew into a critical piece of
+          infrastructure, enabling teams across the organization to confidently
+          build and ship new features.
         </p>
 
         <h3>Key Achievements</h3>
         <ul>
           <li>
-            <strong>Platform Reliability:</strong> Maintained 99.9% uptime
-            across millions of daily customer interactions during the
-            modernization
+            <strong>Team Leadership:</strong> Led a mixed team of full-time
+            engineers and contractors, establishing processes that improved code
+            quality and deployment confidence.
           </li>
           <li>
-            <strong>Market Expansion:</strong> Successfully launched the travel
-            vertical, expanding operations to 300+ specialized agents with zero
-            downtime
+            <strong>Product Innovation:</strong> Partnered with product and
+            design to create new UI patterns for complex customer interactions,
+            launching the travel vertical to 300+ specialized agents.
           </li>
           <li>
-            <strong>Technical Innovation:</strong> Established patterns for
-            legacy modernization that enabled continuous feature delivery in
-            React while preserving Angular stability
+            <strong>Technical Innovation:</strong> Drove initiatives that
+            transformed development practices, including TimeMachine, which
+            enabled continuous feature delivery while maintaining 99.9% platform
+            reliability.
           </li>
           <li>
-            <strong>Team Velocity:</strong> Empowered feature teams to build new
-            functionality without waiting for full migration, accelerating
-            delivery
+            <strong>Process Improvement:</strong> Established new validation
+            workflows with specialized agents, reducing post-deployment issues
+            and improving feature quality.
           </li>
         </ul>
 
         <h3>Featured Project</h3>
+        <p className="text-sm text-zinc-400">
+          Learn more about how TimeMachine works and its impact on American
+          Express's modernization journey.
+        </p>
         <div className="not-prose flex flex-col gap-4">
           <GalleryCard
             href="/work/time-machine"
             title="TimeMachine"
-            description="A bi-directional bridge system enabling incremental React adoption while maintaining 99.9% platform reliability."
+            description="A bridge system that transformed how teams built and shipped features during platform modernization."
             image={timeMachineCoverImage}
           />
         </div>
