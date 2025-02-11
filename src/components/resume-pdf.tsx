@@ -142,17 +142,19 @@ export const ResumePDF = () => (
             <Text style={tw("text-sm text-zinc-500 mb-2")}>2021 - 2023</Text>
             <BulletList>
               <BulletPoint>
-                Led development for high-profile brand collaborations with
-                PlayStation, Kojima Productions, and Post Malone.
+                Architected and led development of Backbone's global ecommerce
+                platform using Next.js and headless Shopify, scaling from
+                startup to worldwide brand.
               </BulletPoint>
               <BulletPoint>
-                Architected and shipped a game discovery system that drove
-                organic traffic up 30% through hundreds of optimized landing
-                pages.
+                Built a dynamic game discovery system generating hundreds of
+                SEO-optimized landing pages, increasing organic traffic by 30%
+                and improving conversion rates.
               </BulletPoint>
               <BulletPoint>
-                Designed and implemented streamlined checkout experiences that
-                increased average order value by 20%.
+                Implemented a custom cart system with intelligent upsells and
+                localization support, driving a 20% increase in average order
+                value.
               </BulletPoint>
             </BulletList>
           </View>
@@ -164,17 +166,19 @@ export const ResumePDF = () => (
           <JobTitle title="SWE II" />
           <BulletList>
             <BulletPoint>
-              Designed and implemented a bi-directional communication protocol
-              called TimeMachine, allowing us to build a completely new set of
-              features on top of legacy code -- without a rewrite.
+              Architected TimeMachine, a bi-directional bridge system enabling
+              incremental React adoption while maintaining 99.9% platform
+              reliability for millions of daily customer interactions.
             </BulletPoint>
             <BulletPoint>
-              Led the technical transition from Angular to React while building
-              new features for the travel vertical launch.
+              Led successful launch of new travel vertical, expanding operations
+              to 300+ specialized agents while delivering continuous feature
+              improvements.
             </BulletPoint>
             <BulletPoint>
-              Established processes for validating new features with specialized
-              agents before full deployment.
+              Established technical patterns for legacy modernization that
+              enabled teams to build new features in React without disrupting
+              existing Angular systems.
             </BulletPoint>
           </BulletList>
         </View>
