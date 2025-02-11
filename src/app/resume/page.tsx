@@ -2,8 +2,8 @@
 
 import { Suspense } from "react";
 
-import dynamic from "next/dynamic";
 import { pdf } from "@react-pdf/renderer";
+import dynamic from "next/dynamic";
 
 import { ResumePDF } from "@/components/resume-pdf";
 
