@@ -98,11 +98,11 @@ export const ResumePDF = () => (
       <Section>
         <SectionHeader>Summary</SectionHeader>
         <Text style={tw("text-sm text-zinc-300 leading-relaxed")}>
-          Design Engineer specializing in rapid validation and internal tooling.
-          I build systems that help teams work better together, from Figma
-          plugins to staging environments. My focus is on strengthening product
-          direction through early prototyping and creating infrastructure that
-          makes both designers and developers more effective.
+          Design Engineer specializing in rapid validation and product
+          development. I bridge design and engineering to ship impactful
+          solutions, from customer-facing interfaces to internal tools. My focus
+          is on strengthening product direction through early prototyping and
+          creating experiences that empower both users and developers.
         </Text>
       </Section>
 
@@ -232,12 +232,11 @@ export const ResumePDF = () => (
         <BulletList>
           <BulletPoint>
             <Text style={tw("text-white font-bold")}>Design Engineering: </Text>
-            Internal Tooling, Design Systems, Rapid Prototyping, Workflow
-            Optimization
+            UI Development, Design Systems, Rapid Prototyping, User Experience
           </BulletPoint>
           <BulletPoint>
             <Text style={tw("text-white font-bold")}>Development: </Text>
-            React, TypeScript, Figma Plugin Development, Platform Architecture
+            React, TypeScript, Frontend Architecture, Design Tools
           </BulletPoint>
           <BulletPoint>
             <Text style={tw("text-white font-bold")}>Leadership: </Text>

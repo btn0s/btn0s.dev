@@ -5,11 +5,11 @@ import { createMetaTitle } from "@/lib/utils";
 export const metadata: Metadata = {
   title: createMetaTitle("Resume"),
   description:
-    "Senior Design Engineer specializing in rapid validation and internal tooling. I build systems that help teams work better together.",
+    "Design Engineer bridging product, design, and engineering through rapid validation. I build end-to-end solutions that empower teams and delight users.",
   openGraph: {
     title: createMetaTitle("Resume"),
     description:
-      "Senior Design Engineer specializing in rapid validation and internal tooling. I build systems that help teams work better together.",
+      "Design Engineer bridging product, design, and engineering through rapid validation. I build end-to-end solutions that empower teams and delight users.",
   },
 };
 
