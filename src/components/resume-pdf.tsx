@@ -1,4 +1,14 @@
-import { Document, Page, Text, View, Font, Link } from "@react-pdf/renderer";
+import {
+  Document,
+  Page,
+  Text,
+  View,
+  Font,
+  Link,
+  Svg,
+  Circle,
+  Path,
+} from "@react-pdf/renderer";
 import { GeistSans } from "geist/font/sans";
 import { createTw } from "react-pdf-tailwind";
 
@@ -70,14 +80,16 @@ const BulletList = ({ children }: { children: React.ReactNode }) => (
 );
 
 const BulletPoint = ({ children }: { children: React.ReactNode }) => (
-  <Text style={tw("text-sm mb-2 text-zinc-300")}>• {children}</Text>
+  <Text style={tw("text-sm mb-2 text-zinc-300 leading-relaxed")}>
+    • {children}
+  </Text>
 );
 
 export const ResumePDF = () => (
   <Document>
-    <Page size="A4" style={tw("p-10 bg-zinc-900")} wrap={false}>
+    <Page size="A4" style={tw("p-10 bg-zinc-900")}>
       {/* Header */}
-      <View style={tw("mb-5 pb-5 border-b border-zinc-800")}>
+      <View style={tw("mb-8 pb-5 border-b border-zinc-800")}>
         <Text style={tw("text-lg mb-4 font-bold text-white")}>
           Brendan T. Norris
         </Text>
@@ -85,7 +97,20 @@ export const ResumePDF = () => (
           Senior Design Engineer
         </Text>
         <Text style={tw("text-sm text-zinc-500")}>
-          Worldwide //{" "}
+          <Svg
+            style={tw("size-4")}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <Circle cx="12" cy="12" r="10" />
+            <Path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+            <Path d="M2 12h20" />
+          </Svg>
+          worldwide,{" "}
           <Link style={tw("text-zinc-500")} src="https://btn0s.dev">
             btn0s.dev
           </Link>
@@ -182,7 +207,10 @@ export const ResumePDF = () => (
             </BulletPoint>
           </BulletList>
         </View>
-
+      </Section>
+    </Page>
+    <Page size="A4" style={tw("p-10 bg-zinc-900")}>
+      <Section>
         {/* Earlier Experience */}
         <View>
           <Text style={tw("text-base font-bold text-white mb-2")}>
