@@ -75,17 +75,17 @@ const BulletPoint = ({ children }: { children: React.ReactNode }) => (
 
 export const ResumePDF = () => (
   <Document>
-    <Page size="A4" style={tw("p-10 bg-zinc-900")}>
+    <Page size="A4" style={tw("p-10 bg-zinc-900")} wrap={false}>
       {/* Header */}
-      <View style={tw("mb-8 pb-5 border-b border-zinc-800")}>
-        <Text style={tw("text-3xl mb-0 font-bold text-white")}>
+      <View style={tw("mb-5 pb-5 border-b border-zinc-800")}>
+        <Text style={tw("text-lg mb-4 font-bold text-white")}>
           Brendan T. Norris
         </Text>
-        <Text style={tw("text-base mb-2 mt-0 pt-0 text-zinc-400")}>
+        <Text style={tw("text-base mb-0 mt-0 pt-0 text-zinc-400")}>
           Senior Design Engineer
         </Text>
         <Text style={tw("text-sm text-zinc-500")}>
-          Remote (Phoenix) //{" "}
+          Worldwide //{" "}
           <Link style={tw("text-zinc-500")} src="https://btn0s.dev">
             btn0s.dev
           </Link>
