@@ -47,18 +47,36 @@ export default function Page() {
         </p>
 
         <p>
-          After establishing a robust ecommerce platform, I was given the
-          opportunity to found Backbone&apos;s design engineering program, where
-          I worked with the CEO, product, and design teams to build the program
-          from the ground up.
+          After building a successful Figma plugin that transformed our design
+          workflow, I was given the opportunity to found and lead Backbone Labs
+          — the company's first Design Engineering team. The Labs team focuses
+          on rapid validation and de-risking of early ideas, improving internal
+          developer experience, and delivering end-to-end projects
+          independently.
+        </p>
+
+        <p>
+          Under my leadership, Labs has become integral to Backbone's product
+          development process, streamlining workflows between design and
+          engineering while shipping impactful projects that drive business
+          value.
         </p>
 
         <h3>Key Achievements</h3>
         <ul>
           <li>
+            Founded and led Backbone Labs, establishing the company's first
+            Design Engineering practice focused on rapid prototyping and
+            internal tooling.
+          </li>
+          <li>
             Created a Figma plugin that{" "}
             <strong>reduced design-to-development handoff time by 80%</strong>,
-            now essential to our design team&apos;s workflow.
+            leading to the formation of the Labs team.
+          </li>
+          <li>
+            Led development of critical internal infrastructure including
+            staging environments and developer tooling.
           </li>
           <li>
             Led development for high-profile brand collaborations with{" "}
