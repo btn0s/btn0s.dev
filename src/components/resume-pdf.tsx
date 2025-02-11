@@ -97,20 +97,7 @@ export const ResumePDF = () => (
           Senior Design Engineer
         </Text>
         <Text style={tw("text-sm text-zinc-500")}>
-          <Svg
-            style={tw("size-4")}
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <Circle cx="12" cy="12" r="10" />
-            <Path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-            <Path d="M2 12h20" />
-          </Svg>
-          worldwide,{" "}
+          Remote •{" "}
           <Link style={tw("text-zinc-500")} src="https://btn0s.dev">
             btn0s.dev
           </Link>
