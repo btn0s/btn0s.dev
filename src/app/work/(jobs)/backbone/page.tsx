@@ -43,16 +43,16 @@ export default function Page() {
         <p>
           I joined Backbone as the second engineer on the web team, where I
           architected key systems that helped scale the company from startup to
-          global brand.
+          global brand. Working with Next.js and headless Shopify, we built a
+          platform that now serves customers worldwide.
         </p>
 
         <p>
-          After building a successful Figma plugin that transformed our design
-          workflow, I was given the opportunity to found and lead Backbone Labs
-          — the company's first Design Engineering team. The Labs team focuses
-          on rapid validation and de-risking of early ideas, improving internal
-          developer experience, and delivering end-to-end projects
-          independently.
+          My favorite contribution started as an experiment: a Figma plugin to
+          help our design team work more efficiently. After reducing asset
+          management time by 80%, this led to founding Backbone Labs — the
+          company's first Design Engineering team. We focus on rapid validation,
+          internal tooling, and shipping end-to-end projects independently.
         </p>
 
         <p>
@@ -65,41 +65,39 @@ export default function Page() {
         <h3>Key Achievements</h3>
         <ul>
           <li>
-            Founded and led Backbone Labs, establishing the company's first
-            Design Engineering practice focused on rapid prototyping and
-            internal tooling.
+            <strong>Platform Architecture:</strong> Led development of
+            Backbone's global ecommerce platform, implementing systems that
+            drove significant revenue growth through optimized landing pages and
+            intelligent cart features.
           </li>
           <li>
-            Created a Figma plugin that{" "}
-            <strong>reduced design-to-development handoff time by 80%</strong>,
-            leading to the formation of the Labs team.
+            <strong>Team Leadership:</strong> Founded and led Backbone Labs,
+            establishing the company's first Design Engineering practice focused
+            on rapid prototyping and internal tooling.
           </li>
           <li>
-            Led development of critical internal infrastructure including
-            staging environments and developer tooling.
+            <strong>Developer Experience:</strong> Created critical internal
+            infrastructure including a Figma plugin that reduced design handoff
+            time by 80% and staging environments that increased shipping
+            confidence.
           </li>
           <li>
-            Led development for high-profile brand collaborations with{" "}
-            <strong>PlayStation</strong>, <strong>Kojima Productions</strong>,
-            and <strong>Post Malone</strong>.
-          </li>
-          <li>
-            Architected and shipped a game discovery system that{" "}
-            <strong>drove organic traffic up 30%</strong> through hundreds of
-            optimized landing pages.
-          </li>
-          <li>
-            Designed and implemented a streamlined checkout experience that{" "}
-            <strong>increased average order value by 20%</strong>.
+            <strong>Brand Growth:</strong> Led development for high-profile
+            collaborations with PlayStation, Kojima Productions, and Post
+            Malone, significantly expanding our market presence.
           </li>
         </ul>
 
-        <h2>Featured Project</h2>
+        <h3>Featured Project</h3>
+        <p className="text-sm text-zinc-400">
+          Learn more about how the Games DB Figma plugin transformed our design
+          team's workflow and led to the formation of Backbone Labs.
+        </p>
         <div className="not-prose flex flex-col gap-4">
           <GalleryCard
             href="/work/games-db-figma-plugin"
             title="Games DB Figma Plugin"
-            description="A custom Figma plugin that reduced asset management time by 80%."
+            description="A custom Figma plugin that reduced asset management time by 80% and became an essential part of the design team's workflow."
             image={gdbCoverImage}
             invert
           />
