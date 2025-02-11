@@ -75,9 +75,9 @@ const BulletPoint = ({ children }: { children: React.ReactNode }) => (
 
 export const ResumePDF = () => (
   <Document>
-    <Page size="A4" style={tw("p-10 bg-zinc-900 prose prose-sm prose-invert")}>
+    <Page size="A4" style={tw("p-10 bg-zinc-900")}>
       {/* Header */}
-      <View style={tw("not-prose mb-8 pb-5 border-b border-zinc-800")}>
+      <View style={tw("mb-8 pb-5 border-b border-zinc-800")}>
         <Text style={tw("text-3xl mb-0 font-bold text-white")}>
           Brendan T. Norris
         </Text>
@@ -120,17 +120,17 @@ export const ResumePDF = () => (
               <BulletPoint>
                 Founded and scaled the design engineering program, establishing
                 processes and infrastructure to bridge design and development
-                workflows
+                workflows.
               </BulletPoint>
               <BulletPoint>
                 Built internal tools including a Figma plugin, content
                 management system, and staging environments to improve team
-                efficiency
+                efficiency.
               </BulletPoint>
               <BulletPoint>
                 Led rapid validation initiatives through prototyping and user
                 testing, strengthening product direction before engineering
-                investment
+                investment.
               </BulletPoint>
             </BulletList>
           </View>
@@ -142,16 +142,16 @@ export const ResumePDF = () => (
             <BulletList>
               <BulletPoint>
                 Led development for high-profile brand collaborations with
-                PlayStation, Kojima Productions, and Post Malone
+                PlayStation, Kojima Productions, and Post Malone.
               </BulletPoint>
               <BulletPoint>
                 Architected and shipped a game discovery system that drove
                 organic traffic up 30% through hundreds of optimized landing
-                pages
+                pages.
               </BulletPoint>
               <BulletPoint>
                 Designed and implemented streamlined checkout experiences that
-                increased average order value by 20%
+                increased average order value by 20%.
               </BulletPoint>
             </BulletList>
           </View>
@@ -165,15 +165,15 @@ export const ResumePDF = () => (
             <BulletPoint>
               Designed and implemented a bi-directional communication protocol
               called TimeMachine, allowing us to build a completely new set of
-              features on top of legacy code -- without a rewrite
+              features on top of legacy code -- without a rewrite.
             </BulletPoint>
             <BulletPoint>
               Led the technical transition from Angular to React while building
-              new features for the travel vertical launch
+              new features for the travel vertical launch.
             </BulletPoint>
             <BulletPoint>
               Established processes for validating new features with specialized
-              agents before full deployment
+              agents before full deployment.
             </BulletPoint>
           </BulletList>
         </View>
@@ -186,16 +186,15 @@ export const ResumePDF = () => (
           <BulletList>
             <BulletPoint>
               <Text style={tw("text-white font-bold")}>Product Designer</Text>{" "}
-              at Sobol (2019-2020) - Designed and prototyped DAO management
-              tools
+              at Sobol (2019-2020)
             </BulletPoint>
             <BulletPoint>
               <Text style={tw("text-white font-bold")}>Frontend Engineer</Text>{" "}
-              at Hownd (2018-2019) - Built merchant platform and payment systems
+              at Hownd (2018-2019)
             </BulletPoint>
             <BulletPoint>
               <Text style={tw("text-white font-bold")}>UI/UX Designer</Text> at
-              Yandy (2017-2018) - Ecommerce design and design systems
+              Yandy (2017-2018)
             </BulletPoint>
           </BulletList>
         </View>
@@ -206,14 +205,13 @@ export const ResumePDF = () => (
         <SectionHeader>Current Projects</SectionHeader>
         <BulletList>
           <BulletPoint>
-            <Text style={tw("text-white font-bold")}>Strella</Text> - Building
-            an IDE that empowers design technologists through better tooling and
-            workflows
+            <Text style={tw("text-white font-bold")}>Strella</Text> - an IDE
+            built by design technologists, for design technologists.
           </BulletPoint>
           <BulletPoint>
-            <Text style={tw("text-white font-bold")}>thinkhuman</Text> -
-            Creating sustainable startups through rapid validation and
-            design-driven development
+            <Text style={tw("text-white font-bold")}>thinkhuman.co</Text> -
+            Independent design studio focused on rapid validation and
+            design-driven development.
           </BulletPoint>
         </BulletList>
       </Section>
