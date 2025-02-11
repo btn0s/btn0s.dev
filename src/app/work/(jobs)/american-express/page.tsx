@@ -57,7 +57,7 @@ export default function Page() {
           build and ship new features.
         </p>
 
-        <h3>Key Achievements</h3>
+        <h3 className="mb-4">Key Achievements</h3>
         <ul>
           <li>
             <strong>Team Leadership:</strong> Led a mixed team of full-time

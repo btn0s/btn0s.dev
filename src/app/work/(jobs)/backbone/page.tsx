@@ -62,7 +62,7 @@ export default function Page() {
           value.
         </p>
 
-        <h3>Key Achievements</h3>
+        <h3 className="mb-4">Key Achievements</h3>
         <ul>
           <li>
             <strong>Platform Architecture:</strong> Led development of
