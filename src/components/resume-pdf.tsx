@@ -118,19 +118,20 @@ export const ResumePDF = () => (
             <Text style={tw("text-sm text-zinc-500 mb-2")}>2023 - Present</Text>
             <BulletList>
               <BulletPoint>
-                Founded and scaled the design engineering program, establishing
-                processes and infrastructure to bridge design and development
-                workflows.
+                Founded and led Backbone Labs, the company's first Design
+                Engineering team, operating as an independent unit to rapidly
+                validate and ship focused, high-impact projects.
               </BulletPoint>
               <BulletPoint>
-                Built internal tools including a Figma plugin, content
-                management system, and staging environments to improve team
-                efficiency.
+                Transformed internal workflows through strategic UX
+                improvements: built a Figma plugin reducing design handoff time
+                by 80% and implemented staging environments to increase shipping
+                confidence.
               </BulletPoint>
               <BulletPoint>
-                Led rapid validation initiatives through prototyping and user
-                testing, strengthening product direction before engineering
-                investment.
+                Operated as an autonomous unit taking on experimental
+                initiatives from concept to production, while maintaining and
+                improving developer tooling across the organization.
               </BulletPoint>
             </BulletList>
           </View>
