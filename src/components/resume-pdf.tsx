@@ -1,14 +1,4 @@
-import {
-  Document,
-  Page,
-  Text,
-  View,
-  Font,
-  Link,
-  Svg,
-  Circle,
-  Path,
-} from "@react-pdf/renderer";
+import { Document, Page, Text, View, Font, Link } from "@react-pdf/renderer";
 import { GeistSans } from "geist/font/sans";
 import { createTw } from "react-pdf-tailwind";
 
@@ -175,22 +165,22 @@ export const ResumePDF = () => (
         {/* American Express */}
         <View style={tw("mb-6")}>
           <JobHeader company="American Express" period="2020 - 2021" />
-          <JobTitle title="SWE II" />
+          <JobTitle title="Senior Software Engineer" />
           <BulletList>
             <BulletPoint>
-              Architected TimeMachine, a bi-directional bridge system enabling
-              incremental React adoption while maintaining 99.9% platform
-              reliability for millions of daily customer interactions.
+              Designed and built TimeMachine, a bi-directional bridge system
+              that enabled incremental React adoption while maintaining 99.9%
+              uptime across millions of daily customer interactions.
             </BulletPoint>
             <BulletPoint>
-              Led successful launch of new travel vertical, expanding operations
-              to 300+ specialized agents while delivering continuous feature
-              improvements.
+              Unlocked a new market segment by architecting and shipping the
+              travel vertical launch, expanding operations to 300+ specialized
+              agents with zero downtime.
             </BulletPoint>
             <BulletPoint>
-              Established technical patterns for legacy modernization that
-              enabled teams to build new features in React without disrupting
-              existing Angular systems.
+              Established patterns for legacy modernization that enabled
+              continuous feature delivery in React while preserving Angular
+              stability.
             </BulletPoint>
           </BulletList>
         </View>

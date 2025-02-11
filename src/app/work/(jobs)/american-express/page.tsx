@@ -11,11 +11,11 @@ import { createMetaTitle } from "@/lib/utils";
 export const metadata: Metadata = {
   title: createMetaTitle("American Express"),
   description:
-    "I led engineering initiatives to modernize customer care platforms and built a bridge between legacy and modern tech stacks.",
+    "I built a bridge between legacy and modern tech stacks that enabled continuous feature delivery while maintaining 99.9% platform reliability.",
   openGraph: {
     title: createMetaTitle("American Express"),
     description:
-      "I led engineering initiatives to modernize customer care platforms and built a bridge between legacy and modern tech stacks.",
+      "I built a bridge between legacy and modern tech stacks that enabled continuous feature delivery while maintaining 99.9% platform reliability.",
     images: [{ url: coverImage.src }],
   },
 };
@@ -25,9 +25,10 @@ export default function Page() {
     <FadeBlurLoader className="flex flex-col gap-4">
       <div className="prose prose-sm prose-invert w-full max-w-none">
         <PageTitle>
-          I led engineering initiatives to modernize customer care platforms,{" "}
+          I built a bridge between legacy and modern tech stacks that{" "}
           <PageTitleHighlight block>
-            and built a bridge between legacy and modern tech stacks.
+            enabled continuous feature delivery while maintaining 99.9% platform
+            reliability.
           </PageTitleHighlight>
         </PageTitle>
 
@@ -42,43 +43,42 @@ export default function Page() {
         </p>
 
         <p>
-          I joined the AskAmex organization to help modernize their customer
-          service platform. The system was built on a heavily customized Angular
-          1.x codebase with significant technical debt. With an upcoming travel
-          vertical launch requiring extensive new features, we needed a way to
-          modernize without disrupting development or risking platform
-          stability.
+          When I joined the AskAmex organization, we faced a critical challenge:
+          how to modernize a heavily customized Angular 1.x codebase without
+          disrupting service. With a major travel vertical launch on the horizon
+          requiring extensive new features, we needed a solution that would
+          enable rapid development while preserving platform stability.
         </p>
 
         <p>
-          I designed and implemented TimeMachine, a bidirectional bridge system
-          that enabled incremental React adoption within the existing Angular
-          codebase. This technical approach allowed us to build new features in
-          React while maintaining the stability of our legacy systems,
+          The solution was TimeMachine — a bi-directional bridge system I
+          designed that enabled incremental React adoption within the existing
+          Angular codebase. This approach allowed teams to build new features in
+          React while maintaining the reliability of our legacy systems,
           successfully launching the travel vertical on schedule.
         </p>
 
         <h3>Key Achievements</h3>
         <ul>
           <li>
-            Successfully launched a new travel vertical that{" "}
-            <strong>expanded operations to 300+ specialized agents</strong> and
-            unlocked an entirely new market segment.
+            <strong>Platform Reliability:</strong> Maintained 99.9% uptime
+            across millions of daily customer interactions during the
+            modernization
           </li>
           <li>
-            Built TimeMachine, a bi-directional bridge system that{" "}
-            <strong>enabled continuous feature delivery</strong> during a major
-            platform modernization.
+            <strong>Market Expansion:</strong> Successfully launched the travel
+            vertical, expanding operations to 300+ specialized agents with zero
+            downtime
           </li>
           <li>
-            Delivered new web chat capabilities and travel features with{" "}
-            <strong>zero downtime</strong> while transitioning from Angular to
-            React.
+            <strong>Technical Innovation:</strong> Established patterns for
+            legacy modernization that enabled continuous feature delivery in
+            React while preserving Angular stability
           </li>
           <li>
-            Established a proven path for modernization that{" "}
-            <strong>maintained 99.9% platform reliability</strong> across
-            millions of daily customer interactions.
+            <strong>Team Velocity:</strong> Empowered feature teams to build new
+            functionality without waiting for full migration, accelerating
+            delivery
           </li>
         </ul>
 
@@ -87,7 +87,7 @@ export default function Page() {
           <GalleryCard
             href="/work/time-machine"
             title="TimeMachine"
-            description="A bi-directional bridge system that enabled incremental React adoption within a legacy Angular codebase."
+            description="A bi-directional bridge system enabling incremental React adoption while maintaining 99.9% platform reliability."
             image={timeMachineCoverImage}
           />
         </div>
