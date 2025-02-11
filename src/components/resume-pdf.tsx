@@ -90,7 +90,7 @@ export const ResumePDF = () => (
     <Page size="A4" style={tw("p-10 bg-zinc-900")}>
       {/* Header */}
       <View style={tw("mb-8 pb-5 border-b border-zinc-800")}>
-        <Text style={tw("text-lg mb-4 font-bold text-white")}>
+        <Text style={tw("text-2xl font-bold text-white")}>
           Brendan T. Norris
         </Text>
         <Text style={tw("text-base mb-0 mt-0 pt-0 text-zinc-400")}>
