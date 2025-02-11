@@ -160,8 +160,10 @@ function PodWidget() {
         }
 
         // Create URL directly from the response
-        const audioUrl = URL.createObjectURL(new Blob([await response.arrayBuffer()]));
-        
+        const audioUrl = URL.createObjectURL(
+          new Blob([await response.arrayBuffer()]),
+        );
+
         setAudioUrl(audioUrl);
         setState((prev) => ({
           ...prev,
@@ -170,7 +172,7 @@ function PodWidget() {
             data: audioUrl,
           },
         }));
-        
+
         return audioUrl;
       }
 
