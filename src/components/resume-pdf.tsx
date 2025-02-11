@@ -1,4 +1,4 @@
-import { Document, Page, Text, View, Font } from "@react-pdf/renderer";
+import { Document, Page, Text, View, Font, Link } from "@react-pdf/renderer";
 import { GeistSans } from "geist/font/sans";
 import { createTw } from "react-pdf-tailwind";
 
@@ -85,7 +85,10 @@ export const ResumePDF = () => (
           Senior Design Engineer
         </Text>
         <Text style={tw("text-sm text-zinc-500")}>
-          Building in Phoenix, shipping worldwide • btn0s.dev
+          Remote (Phoenix) //{" "}
+          <Link style={tw("text-zinc-500")} src="https://btn0s.dev">
+            btn0s.dev
+          </Link>
         </Text>
       </View>
 

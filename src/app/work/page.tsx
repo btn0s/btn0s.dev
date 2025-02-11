@@ -212,9 +212,17 @@ const TimelineItem = ({ item }: { item: TimelineItem }) => {
 const Page = () => {
   return (
     <div className="not-prose flex flex-col gap-12">
-      <h1 className="mb-4 text-xl font-light text-muted-foreground">
-        my journey <span className="font-bold text-white">so far...</span>
-      </h1>
+      <div className="flex flex-col">
+        <h1 className="text-xl font-light text-muted-foreground">
+          my journey <span className="font-bold text-white">so far...</span>
+        </h1>
+        <Link
+          href="/resume"
+          className="flex w-fit items-center gap-1 text-xs text-muted-foreground hover:text-white"
+        >
+          see my resume <ExternalLinkIcon className="h-3 w-3" />
+        </Link>
+      </div>
       <div className="-mx-4 flex flex-col gap-6">
         {TIMELINE.map((item) => (
           <TimelineItem key={item.company} item={item} />
