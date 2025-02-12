@@ -19,11 +19,19 @@ const ResumePage = () => {
 
   return (
     <FadeBlurLoader>
-      <article className="prose prose-sm prose-invert mx-auto -mt-10 max-w-none">
+      <article className="prose prose-sm prose-invert mx-auto max-w-none">
         <header className="relative mb-8 border-b border-zinc-800/50 pb-4">
-          <h1 className="mb-1 text-2xl font-light tracking-tight">
-            {resumeData.name}
-          </h1>
+          <div className="flex items-center justify-between">
+            <h1 className="mb-1 mt-0 text-2xl tracking-tight">
+              {resumeData.name}
+            </h1>
+            <button
+              onClick={handleDownload}
+              className="rounded-md bg-zinc-800/50 px-4 py-2 text-xs text-zinc-400 hover:bg-zinc-700/50 hover:text-zinc-200"
+            >
+              Download PDF
+            </button>
+          </div>
           <p className="mb-1 text-base text-zinc-400">{resumeData.title}</p>
           <p className="text-sm text-zinc-500">
             {resumeData.contact.location} •{" "}
@@ -34,12 +42,6 @@ const ResumePage = () => {
               {resumeData.contact.website}
             </a>
           </p>
-          <button
-            onClick={handleDownload}
-            className="absolute right-0 top-0 rounded-md bg-zinc-800/50 px-4 py-2 text-xs text-zinc-400 hover:bg-zinc-700/50 hover:text-zinc-200"
-          >
-            Download PDF
-          </button>
         </header>
 
         <section className="mb-8">
