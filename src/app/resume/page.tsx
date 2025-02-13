@@ -72,7 +72,7 @@ const ResumePage = () => {
                     {role.title}
                   </h4>
                   <p className="mb-2 text-xs text-zinc-500">{role.period}</p>
-                  <ul className="space-y-1.5">
+                  <ul className="max-w-none space-y-1.5">
                     {role.achievements.map((achievement, i) => (
                       <li
                         key={i}
@@ -92,7 +92,7 @@ const ResumePage = () => {
           <h2 className="mb-5 text-xs font-medium uppercase tracking-wider text-zinc-500">
             Earlier Experience
           </h2>
-          <ul className="space-y-1.5">
+          <ul className="max-w-none space-y-1.5">
             {resumeData.previousRoles.map((role, i) => (
               <li key={i} className="text-sm text-zinc-300">
                 <span className="font-medium text-white">{role.title}</span> at{" "}
@@ -107,7 +107,7 @@ const ResumePage = () => {
           <h2 className="mb-5 text-xs font-medium uppercase tracking-wider text-zinc-500">
             Current Projects
           </h2>
-          <ul className="space-y-1.5">
+          <ul className="max-w-none space-y-1.5">
             {resumeData.currentProjects.map((project, i) => (
               <li key={i} className="text-sm text-zinc-300">
                 <span className="font-medium text-white">{project.title}</span>{" "}
@@ -121,7 +121,7 @@ const ResumePage = () => {
           <h2 className="mb-5 text-xs font-medium uppercase tracking-wider text-zinc-500">
             Skills & Expertise
           </h2>
-          <ul className="space-y-1.5">
+          <ul className="max-w-none space-y-1.5">
             {resumeData.skills.map((skill, i) => (
               <li key={i} className="text-sm text-zinc-300">
                 <span className="font-medium text-white">
