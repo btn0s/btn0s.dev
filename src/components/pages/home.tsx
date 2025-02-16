@@ -135,7 +135,7 @@ const Home: FC = () => {
             <span className="font-bold text-white">human.</span>
           </h1>
           <p className="text-sm">
-            I craft delightful solutions that transform how people work.
+            I blend engineering, interaction design, and product thinking to create seamless, high-impact experiences.
           </p>
         </HomeSection>
       </div>
