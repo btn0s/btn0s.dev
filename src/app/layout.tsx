@@ -12,13 +12,15 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "designer, programmer, human.",
-  description: "I'm a design engineer based in Phoenix, Arizona.",
+  description:
+    "I blend engineering, interaction design, and product thinking to create seamless, high-impact experiences.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://btn0s.dev/",
     title: "designer, programmer, human.",
-    description: "I'm a design engineer based in Phoenix, Arizona.",
+    description:
+      "I blend engineering, interaction design, and product thinking to create seamless, high-impact experiences.",
     images: [
       {
         url: "https://btn0s.dev/og-share.png",
